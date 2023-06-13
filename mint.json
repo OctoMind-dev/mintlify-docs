@@ -5,11 +5,11 @@
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/logo/favicon.svg",
   "colors": {
-    "primary": "#12A7D3",
-    "light": "#81D7F7",
-    "dark": "#004E7A"
+    "primary": "#00E2AA",
+    "light": "#00CE9B",
+    "dark": "#7D7CE2"
   },
   "topbarLinks": [
     {
@@ -23,37 +23,33 @@
   },
   "tabs": [
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "name": "GitHub",
+      "url": "https://github.com/OctoMind-dev"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "2-min-demo",
+        "quickstart-GitHub",
+        "quickstart-Azure",
+        "debugctopus"
       ]
+    },
+    {
+      "group": "Questions?",
+      "pages": ["questions/faq", "questions/discord"]
+    },
+    {
+      "group": "Data Governance",
+      "pages": ["data-governance/no-code-access", "data-governance/nda"]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/Octomind_dev",
+    "github": "https://github.com/OctoMind-dev",
+    "linkedin": "https://www.linkedin.com/company/octomind-dev"
   },
   "backgroundImage": "/background.png"
 }
