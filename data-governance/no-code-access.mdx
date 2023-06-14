@@ -1,8 +1,18 @@
 ---
-title: 'No access to code'
+title: 'No code access needed'
 description: 'Pinky swear'
 icon: 'code'
 ---
 
-## TBD
-Hello World
+We operate by simulating a real user interacting with your web app, using your app's DOM to identify actions like clicks or text inputs. This doesn't require access to your code.
+
+Our [GitHub Action](/quickstart-GitHub) or [Azure DevOps Task](/quickstart-Azure) initiates your test suite, requiring only an API token and target URL.
+- The **api token** identfies your test suite
+- Tests are performed on the **target url**
+
+<Tip>Both of these tools are open source, with their repositories found at the provided links, for your review.
+([GitHub Action repository](https://github.com/OctoMind-dev/automagically-action-execute),
+[Azure DevOps Task repository](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute))</Tip>
+ 
+
+Test results are provided as comments in your CI/CD pipeline during a Pull Request, using a GitHub App and an Azure DevOps App. These only require comment permissions.
