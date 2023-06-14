@@ -3,7 +3,8 @@
   "name": "Starter Kit",
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/logo/light.svg",
+    "href": "https://www.octomind.dev/"
   },
   "favicon": "/logo/favicon.svg",
   "colors": {
@@ -13,13 +14,13 @@
   },
   "topbarLinks": [
     {
-      "name": "Documentation",
-      "url": "https://mintlify.com/docs"
+      "name": "About",
+      "url": "https://octomind-website-f09bc2bb1528ed7651e5f6.webflow.io/about"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Sign in",
+    "url": "https://app.octomind.dev"
   },
   "tabs": [
     {
@@ -34,7 +35,7 @@
         "2-min-demo",
         "quickstart-GitHub",
         "quickstart-Azure",
-        "debugctopus"
+        "debugtopus"
       ]
     },
     {
