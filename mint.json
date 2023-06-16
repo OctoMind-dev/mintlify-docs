@@ -39,8 +39,17 @@
       ]
     },
     {
+      "group": "Under the Hood",
+      "pages": [
+        "under-the-hood/how-it-works"
+      ]
+    },
+    {
       "group": "Questions?",
-      "pages": ["questions/faq", "questions/discord"]
+      "pages": [
+        "questions/faq",
+        "questions/discord"
+      ]
     },
     {
       "group": "Data Governance",
