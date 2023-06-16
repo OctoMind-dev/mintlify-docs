@@ -1,0 +1,38 @@
+---
+title: 'How it works'
+description: 'If you are interested how the engine works, this is your place'
+icon: 'engine'
+---
+
+## Test Case Building
+A web app is typically composed of user flows. A user flow lets a user accomplish a certain goal. Sign-in with email & password would be an example. To perform a sign-in with email & password a certain sequence of steps (interactions) is required.
+We are recording and storing the interaction chain of a test case in an intermediate representation.
+The corresponding Playwright code which is exercising the UI is then generated on the fly just before test execution. The interaction chain can be examined in the test detail view. Also the Playwright trace viewer is showing these steps.
+
+## Auto Maintenance
+We are following a playbook to find out if a test failure is caused by a behavioral change of your user flows, the test code itself or a bug in your code. In case of a behavioral change we pinpoint the failing interaction. Then we apply a lot of AI to find out what the new desired interaction is to achieve the original goal of the test case. As a result the interaction chain of this test case will be adjusted permanently to the new behavior.
+
+## Issue Pinpointing
+In case a test case rightfully fails it is important to quickly understand what was going wrong. We are providing a set of tools to help you understand the issue.
+- Screenshots at the time of test failure
+- Execution log of the test cases
+- Playwright traces via the trace viewer
+- Debugtopus which lets you run tests localy so that you can set breakpoints to step through the code
+
+### Debugtopus
+
+<Frame caption="Debugtopus Interaction Diagram">
+ <img src="/under-the-hood/Debugtopus-Interacation-Diagram.png" alt="Debugtopus Interaction Diagram" />
+</Frame>
+
+## Test Suite Runtime
+Browser tests are not super fast, since they are simulating a real user. However, we are parallelizing test execution to the max so that we can provide test results as fast as possible.
+To do so we are fully cloud based and we scale instances as needed up and down. We are also working on techniques to separate test execution to avoid side effects for better scaling.
+
+## Flakiness
+Flakiness of test cases is the biggest problem of browser tests. Fighting flakiness is an active field of research on our end. So far we are following the strategy below.
+- Hope that it works :)
+- Smart learning based retries
+- Active interaction timing also known as sleeps
+- AI based analysis of unexpected circumstances
+- Rediscovery in case of user flow changes
