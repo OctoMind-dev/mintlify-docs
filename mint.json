@@ -33,6 +33,7 @@
       "group": "Get Started",
       "pages": [
         "2-min-demo",
+        "first-steps",
         "quickstart-GitHub",
         "quickstart-Azure",
         "debugtopus",
