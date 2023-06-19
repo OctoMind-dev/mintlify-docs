@@ -34,11 +34,11 @@
       "pages": [
         "2-min-demo",
         "first-steps",
+        "test-results",
         "quickstart-GitHub",
         "quickstart-Azure",
         "debugtopus",
-        "under-the-hood",
-        "test-results"
+        "under-the-hood"
       ]
     },
     {
