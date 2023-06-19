@@ -35,13 +35,8 @@
         "2-min-demo",
         "quickstart-GitHub",
         "quickstart-Azure",
-        "debugtopus"
-      ]
-    },
-    {
-      "group": "Under the Hood",
-      "pages": [
-        "under-the-hood/how-it-works"
+        "debugtopus",
+        "under-the-hood"
       ]
     },
     {
