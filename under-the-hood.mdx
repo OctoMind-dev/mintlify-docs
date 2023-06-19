@@ -5,7 +5,7 @@ icon: 'engine'
 ---
 
 ## Test Case Building
-A web app is typically composed of user flows. A user flow lets a user accomplish a certain goal. Sign-in with email & password would be an example. To perform a sign-in with email & password a certain sequence of steps `interactions` is required.
+A web app is typically composed of user flows. A user flow lets a user accomplish a certain goal. Sign-in with email & password would be an example. To perform a sign-in with email & password a certain sequence of steps - `interactions` - is required.
 We are recording and storing the interaction chain of a test case in an intermediate representation.
 The corresponding [Playwright](https://playwright.dev/) code which is exercising the UI is generated on the fly just before test execution. The interaction chain can be examined in the test detail view and the Playwright trace viewer.
 
@@ -32,7 +32,11 @@ To do so, we are fully cloud based and we scale instances up and down as needed.
 
 ## Flakiness
 Test flakiness is the biggest problem of browser tests. Fighting flakiness is an active focus of research on our end. Some of the strategies we follow are:
-- Smart learning based retries
-- Active interaction timing also known as sleeps
-- AI based analysis of unexpected circumstances
-- Rediscovery in case of user flow changes
+
+| measure | status |
+|---|---|
+| Active interaction timing to handle varying response times  | work in progress |
+| Smart learning based retries to understand flakiness level  | open |
+| AI based analysis of unexpected circumstances to handle temporary pop-ups, toasts and similar stuff which would otherwise break the test | open |
+| AI based rediscovery in case of permanent user flow changes | open |
+| Coding rules and best practices of how to write tests in a way to avoid common pitfalls. | work in progress |
