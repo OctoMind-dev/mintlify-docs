@@ -4,7 +4,7 @@ description: "Run a GitHub Action to get Octomind test results into your commit 
 icon: "github"
 ---
 
-## #1 CI/CD Pipeline Integration
+## CI/CD pipeline integration
 
 1. Include the following `GitHub Action` into your CI/CD build pipeline on pull request https://github.com/OctoMind-dev/automagically-action-execute
    We assume you are running branch deployments so that every change can be tested in isolation. We will provide you a **token / api key** via email to trigger your test suite. It will look similar to this: sk-12345678.abcdefg123. You will inject the publicly accessible url of your branch deployment and the token / api key via GitHub Action. We provide a separate token for each project.
@@ -25,7 +25,7 @@ icon: "github"
 
 <Tip>**We won’t need any other permissions. We won’t be able to see your code.**</Tip>
 
-## #2 Test Suite Setup
+## Test suite setup
 
 4. We will compose the test suite for you. In this way, we’ll learn about the complexities and adjust our discovery technology to cover your user flows. Playwright code will be generated on the fly for execution and in a later iteration for download. Feel free to download the code and use it to your benefit.
 
@@ -37,6 +37,6 @@ icon: "github"
 | discovery url | url                 | The url we can use to discover the initial set of test cases                                                        |
 | dev account   | username & password | User account to your deployed app in your dev system which we can use for test discovery as well as executing tests |
 
-## #3 Test Runs
+## Test runs
 
 5. Tests will be hosted by Octomind and executed by Octomind on pull request. For now, please, expect a delay before you receive your test results. Success will be reported immediately. Failures will be reviewed manually to learn failure reasons and to make sure we avoid false positives to the greatest extent possible.
