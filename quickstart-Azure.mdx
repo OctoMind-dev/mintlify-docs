@@ -8,15 +8,33 @@ icon: "microsoft"
 
 1. Install our Azure DevOps [Pipelines Extension](https://marketplace.visualstudio.com/items?itemName=octomind.automagically-execute-task)
 
-2. Include the following `Azure DevOps Task` into your CI/CD build pipeline on pull request: [Source Code](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute)
-   We assume you are running branch deployments so that every change can be tested in isolation.
-   We will provide you a **token / api key** via email to trigger your test suite. It will look similar to this: sk-12345678.abcdefg123. You will inject the publicly accessible url of your branch deployment and the token / api key via the azure task. We provide a separate token for each project.
-
 <Frame caption="Octomind Azure install, screenshot 06/2023">
  <img src="/images/azure-install.png" alt="Octomind Azure install" />
 </Frame>
 
-3. We’ll ask you to grant access to your repository with write access to pull request threads so we are allowed to comment back into the pipeline. It will list the test results with additional links to more details, looking like this ↓
+2. Include the following `Azure DevOps Task` into your CI/CD build pipeline on pull request: [Source Code](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute)
+   We assume you are running branch deployments so that every change can be tested in isolation.
+   We will provide you a **token / api key** via email to trigger your test suite. It will look similar to this: sk-12345678.abcdefg123. You will inject the publicly accessible url of your branch deployment and the token / api key via the azure task. We provide a separate token for each project.
+
+
+<Frame caption="Octomind Azure pipeline task">
+ ```yml
+  - task: automagicallyexecute@1
+    inputs:
+      url:
+      token: ${{ secrets.AUTOMAGICALLY_TOKEN }}
+ ```
+</Frame>
+
+3. Make sure that your build service user also has permissions to comment to pull requests. To do so navigate to the
+Project Settings > Repos > Repositories > Security tab and allow the contribute to pull request flag.
+
+
+<Frame caption="Octomind Azure pipeline permissions, screenshot 06/2023">
+     <img src="/images/azure-permissions.png" alt="Octomind Azure permissions" />
+</Frame>
+
+4. During installation, we’ll ask you to grant access to your repository with write access to pull request threads, so we are allowed to comment back into the pipeline. It will list the test results with additional links to more details, looking like this ↓
 
 <Frame caption="Example of Octomind test results in a commit comment, screenshot 06/2023">
  <img src="/images/Octomind-test-results-commit-comments-GitHub-example.png" alt="Example of Octomind test results in a commit comment"/>
@@ -28,7 +46,7 @@ icon: "microsoft"
 
 ## #2 Test Suite Setup
 
-4. We will compose the test suite for you. In this way, we’ll learn about the complexities and adjust our discovery technology to cover your user flows. Playwright code will be generated on the fly for execution and in a later iteration for download. Feel free to download the code and use it to your benefit.
+5. We will compose the test suite for you. In this way, we’ll learn about the complexities and adjust our discovery technology to cover your user flows. Playwright code will be generated on the fly for execution and in a later iteration for download. Feel free to download the code and use it as you see fit.
 
 #### What we need from you to setup the test suite
 
@@ -40,4 +58,4 @@ icon: "microsoft"
 
 ## #3 Test Runs
 
-5. Tests will be hosted by Octomind and executed by Octomind on pull request. For now, please, expect a delay before you receive your test results. Success will be reported immediately. Failures will be reviewed manually to learn failure reasons and to make sure we avoid false positives to the greatest extent possible.
+6. Tests will be hosted by Octomind and executed by Octomind on pull request. For now, please, expect a delay before you receive your test results. Success will be reported immediately. Failures will be reviewed manually to learn failure reasons and to make sure we avoid false positives to the greatest extent possible.
