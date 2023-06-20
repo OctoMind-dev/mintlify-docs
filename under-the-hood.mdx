@@ -4,16 +4,16 @@ description: 'If you are interested in how we make the tests work, this is your 
 icon: 'engine'
 ---
 
-## Test Case Building
+## Test case building
 A web app is typically composed of user flows. A user flow lets a user accomplish a certain goal. Sign-in with email & password would be an example. To perform a sign-in with email & password a certain sequence of steps - `interactions` - is required.
 We are recording and storing the interaction chain of a test case in an intermediate representation.
 The corresponding [Playwright](https://playwright.dev/) code which is exercising the UI is generated on the fly just before test execution. The interaction chain can be examined in the test detail view and the Playwright trace viewer.
 
-## Auto Maintenance
+## Auto-maintenance
 We follow a playbook to find out if a test failure is caused by a behavioral change of your user flows, the test code itself or a bug in your code. In the case of a behavioral change we pinpoint the failing interaction. 
 We then apply machine learning to detect the new desired interaction to achieve the original goal of the test case. The interaction chain of the test case will be adjusted permanently to the new behavior as a result.
 
-## Issue Pinpointing
+## Issue pinpointing
 When a test case rightfully fails, we help you quickly understand what went wrong. We are providing a set of tools to help you understand the issue.
 - Screenshots at the time of test failure
 - Execution log of the test cases
@@ -26,7 +26,7 @@ When a test case rightfully fails, we help you quickly understand what went wron
  <img src="/images/Debugtopus-interaction-diagram.png" alt="Debugtopus interaction diagram" />
 </Frame>
 
-## Test Suite Runtime
+## Test suite runtime
 Browser tests are not super fast since they are simulating a real user. To provide test results as fast as possible we parallelize test execution to the max.  
 To do so, we are fully cloud based and we scale instances up and down as needed. We are also working on techniques to separate test execution to avoid side effects for better scaling.
 
