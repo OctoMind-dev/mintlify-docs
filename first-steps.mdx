@@ -1,51 +1,52 @@
 ---
 title: First Steps
-description: 'These are the steps you have to take to setup Ocotomind'
+description: 'This is how you setup Octomind'
 icon: 'lightbulb'
 ---
 
-## Register Your project
+## 1. Register your project
 
-You need an account in order to get started. We do not feature self service yet. Therefore, please use our "join the waitinglist" button on our front page.
+You'd need an account first to get started. We do not feature self-service yet. Please, use our "join the waitlist" form on our homepage. We'll reach out for details and create an account for you.
 <Frame caption="Join the waitlist">
- <img src="/images/join-the-waitlist.png" alt="join the waitlist" />
+ <img src="/images/join-the-waitlist.png" alt="join the waitlist form screenshot" />
 </Frame>
 
-We will reach out for the details and create an account for you.
+We'll reach out for details and create an account for you.
 
-<Info>In the coming weeks we will replace this process with a self-service sign-up.</Info>
+<Info>We will replace this process with a self-service sign-up in the coming weeks.</Info>
 
-## We Need a URL
+## 2. Give us a URL
 
-We will ask for a url. It is required to be able to create test cases. The url needs to be publicly accessible. Most likely it is the url of your live system.
-Depending on the type of test cases an account to your live system might also be required.
-You will receive an API token from us which will allow you to trigger test cases on pull requests.
+To be able to create test cases, we'll ask for a URL. The URL needs to be publicly accessible. Most likely it will be the url of your live system.
+Depending on the type of your test cases, an account to your live system might also be required.
+You will receive an `API token` from us which will allow you trigger test cases on pull requests.
 
-For the time being we will exchange all information via email.
+We'll exchange all setup information via email.
 
-<Info>Going forward the self service sign-up mentioned before will also cover this step, including API token management.</Info>
+<Info> The self-service sign-up mentioned above will also cover this step going forward. API token management including.</Info>
 
-## Test Cases
+## 3. Tell us what test cases you want
 
-Now that we signed you up and that we exchanged the necessary information, test cases are the next thing needed.
+Now, that we signed you up we'll need the test cases.
 
-**For now we will create the test cases for you.** We will ask you for the most common cases and we will create 5 to 10 of them.
+**For now, we will create test cases for you.** We will ask you for the most common cases and we'll create 5 to 10 of them.
 
-<Warning>We will notify you, once we are done with test case creation.</Warning>
+<Warning>We will notify you once we are done with the test case creation.</Warning>
 
-<Info>A test case editor is on our list of things to do and will replace this part of the process. This way you will be able to compose test cases on your own and at your own speed. The editor will evolve into an AI powered bot which is taking over more and more of the work.</Info>
+<Info>Test case editor is on our roadmap and will replace this part of the process. You will be able to compose test cases on your own at your own speed. The editor will be powered by AI.</Info>
 
-## CI/CD Integration
+## 4. Integrate Octomind into your CI/CD pipeline
 
-Now it is time to integrate Octomind into your CI/CD pipeline. If you are on [GitHub](/quickstart-GitHub) or on [Azure DevOps](/quickstart-Azure) you can use our pre-packaged integrations from GitHub. You will find all information in the respecitve quickstart sections of this documentation.
+If you are on [GitHub](/quickstart-GitHub) or on [Azure DevOps](/quickstart-Azure) you can use our pre-packaged integrations from GitHub to add Octomind to your CI/CD pipeline. You'll find all information in the respective quickstart sections of this documentation.
 
-<Info>Currently it is only possible to trigger from Pull Requests since we can comment test results back. Going forward we will have an option to trigger test cases from our app directly or scheduled.</Info>
+<Info>Currently, tests are triggered from pull requests only, since we comment test results back to the PR. We'll add an option to trigger and schedule test cases from our Octomind app directly in the future.</Info>
 
-In case you are on a different CI/CD pipeline, you will have to use our API to trigger test cases on pull requests. Typically it is possible to add custom scripts into your pipeline. However, you will not be able to recieve test results directly within your pipeline. Instead you have to review test runs directly within our app.
+If you are on a different CI/CD pipeline, you'll have to use our API to trigger test cases on pull requests. It should be possible to add custom scripts into your pipeline. However, you won't be able to recieve test results directly in your pipeline. You'll have to review test runs directly in our app.
 
-<Info>Our integerations are all open source. Feel free to contribute to them or to compose new ones for other CI/CD pipelines. We are happy to take over and further maintain them.</Info>
+### Open source
+**Octomind integrations are all open source.** We'd encourage you to contribute to the existing or compose new integration for other CI/CD providers. We'll happily take over and maintain them further.
 
 
-## Test Results
+## 5. Test results
 
-You will receive test results directly within your CI/CD pipeline comments. Each test case will be listed with a deep link to the test results. Please have a look at the [Test Results](/test-results) section of this documentation for details.
+You will receive test results directly in your CI/CD pipeline comments. Each test case will be listed with a deep link to test result details. Please, have a look at the [Test Results](/test-results) section of this documentation for more info.
