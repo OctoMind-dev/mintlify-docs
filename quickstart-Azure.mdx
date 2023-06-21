@@ -4,17 +4,17 @@ description: "Run an Azure DevOps task to get Octomind test results into your pu
 icon: "microsoft"
 ---
 
-## CI/CD Pipeline Integration
+## CI/CD pipeline integration
 
-1. Install our Azure DevOps [Pipelines Extension](https://marketplace.visualstudio.com/items?itemName=octomind.automagically-execute-task)
+1. Install our Azure DevOps [pipelines extension](https://marketplace.visualstudio.com/items?itemName=octomind.automagically-execute-task)
 
 <Frame caption="Octomind Azure install, screenshot 06/2023">
  <img src="/images/azure-install.png" alt="Octomind Azure install" />
 </Frame>
 
-2. Include the following `Azure DevOps Task` into your CI/CD build pipeline on pull request: [Source Code](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute)
+2. Include the following `Azure DevOps Task` into your CI/CD build pipeline on pull request - [source code](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute).
    We assume you are running branch deployments so that every change can be tested in isolation.
-   We will provide you a **token / api key** via email to trigger your test suite. It will look similar to this: sk-12345678.abcdefg123. You will inject the publicly accessible url of your branch deployment and the token / api key via the azure task. We provide a separate token for each project.
+   We will provide you a **token / api key** via email to trigger your test suite. It will look similar to this: _sk-12345678.abcdefg123_. You will inject the publicly accessible URL of your branch deployment and the token / api key via the azure task. We provide a separate token for each project.
 
 
 <Frame caption="Octomind Azure pipeline task">
@@ -26,8 +26,8 @@ icon: "microsoft"
  ```
 </Frame>
 
-3. Make sure that your build service user also has permissions to comment to pull requests. To do so navigate to the
-Project Settings > Repos > Repositories > Security tab and allow the contribute to pull request flag.
+3. Make sure that your **build service user** also has permissions to comment to pull requests. To do so, navigate to the
+Project Settings > Repos > Repositories > Security tab and allow the 'contribute to pull request' flag.
 
 
 <Frame caption="Octomind Azure pipeline permissions, screenshot 06/2023">
@@ -44,9 +44,9 @@ Project Settings > Repos > Repositories > Security tab and allow the contribute 
 
 <Tip>**We won’t need any other permissions. We won’t be able to see your code.**</Tip>
 
-## Test Suite Setup
+## Test suite setup
 
-5. We will compose the test suite for you. In this way, we’ll learn about the complexities and adjust our discovery technology to cover your user flows. Playwright code will be generated on the fly for execution and in a later iteration for download. Feel free to download the code and use it as you see fit.
+5. We will compose the test suite for you. In this way, we’ll learn about the complexities and adjust our discovery technology to cover your user flows. [Playwright](https://playwright.dev/) code will be generated on the fly for execution and in a later iteration for download. Feel free to download the code and use it as you see fit.
 
 #### What we need from you to setup the test suite
 
@@ -56,6 +56,7 @@ Project Settings > Repos > Repositories > Security tab and allow the contribute 
 | discovery url | url                 | The url we can use to discover the initial set of test cases                                                        |
 | dev account   | username & password | User account to your deployed app in your dev system which we can use for test discovery as well as executing tests |
 
-## Test Runs
+
+## Test runs
 
 6. Tests will be hosted by Octomind and executed by Octomind on pull request. For now, please, expect a delay before you receive your test results. Success will be reported immediately. Failures will be reviewed manually to learn failure reasons and to make sure we avoid false positives to the greatest extent possible.
