@@ -4,7 +4,7 @@ description: "Run an Azure DevOps task to get Octomind test results into your pu
 icon: "microsoft"
 ---
 
-## #1 CI/CD Pipeline Integration
+## CI/CD Pipeline Integration
 
 1. Install our Azure DevOps [Pipelines Extension](https://marketplace.visualstudio.com/items?itemName=octomind.automagically-execute-task)
 
@@ -44,18 +44,18 @@ Project Settings > Repos > Repositories > Security tab and allow the contribute 
 
 <Tip>**We won’t need any other permissions. We won’t be able to see your code.**</Tip>
 
-## #2 Test Suite Setup
+## Test Suite Setup
 
 5. We will compose the test suite for you. In this way, we’ll learn about the complexities and adjust our discovery technology to cover your user flows. Playwright code will be generated on the fly for execution and in a later iteration for download. Feel free to download the code and use it as you see fit.
 
 #### What we need from you to setup the test suite
 
 | parameter     | format              | explanation                                                                                                         |
-|---------------|---------------------|---------------------------------------------------------------------------------------------------------------------|
+|---|---|---|
 | test target   | string              | Display name - description of your test suite                                                                       |
 | discovery url | url                 | The url we can use to discover the initial set of test cases                                                        |
 | dev account   | username & password | User account to your deployed app in your dev system which we can use for test discovery as well as executing tests |
 
-## #3 Test Runs
+## Test Runs
 
 6. Tests will be hosted by Octomind and executed by Octomind on pull request. For now, please, expect a delay before you receive your test results. Success will be reported immediately. Failures will be reviewed manually to learn failure reasons and to make sure we avoid false positives to the greatest extent possible.
