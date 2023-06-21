@@ -1,6 +1,6 @@
 ---
 title: "Quickstart GitHub"
-description: "Run a GitHub Action to get Octomind test results into your commit comments"
+description: "Run a GitHub Action to get Octomind test results into your pull request comments"
 icon: "github"
 ---
 
@@ -11,11 +11,11 @@ icon: "github"
 
 2. We will be commenting back on the test results via a `GitHub App`. Install the GitHub App from here https://github.com/apps/octomind-dev.
 
-<Frame caption="Octomind GitHub Action intstall, screenshot 06/2023">
- <img src="/images/Octomind-GitHub-Action-install-screenshot.png" alt="Octomind GitHub Action intstall" />
+<Frame caption="Octomind GitHub Action install, screenshot 06/2023">
+ <img src="/images/Octomind-GitHub-Action-install-screenshot.png" alt="Octomind GitHub Action install" />
 </Frame>
 
-3. We’ll ask you to grant access to your repository to read metadata & read and write access to pull requests so we are allowed to comment back into the pipeline. It will list the test results with additional links to more details, looking like this ↓
+3. We’ll ask you to grant access to your repository to read metadata & read and write access to pull requests so we are allowed to comment back into pull requests. It will list the test results with additional links to more details, looking like this ↓
 
 <Frame caption="Example of Octomind test results in a commit comment, screenshot 06/2023">
  <img src="/images/Octomind-test-results-commit-comments-GitHub-example.png" alt="Example of Octomind test results in a commit comment"/>
@@ -32,7 +32,7 @@ icon: "github"
 #### What we need from you to setup the test suite
 
 | parameter     | format              | explanation                                                                                                         |
-| ------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------- |
+|---------------|---------------------|---------------------------------------------------------------------------------------------------------------------|
 | test target   | string              | Display name - description of your test suite                                                                       |
 | discovery url | url                 | The url we can use to discover the initial set of test cases                                                        |
 | dev account   | username & password | User account to your deployed app in your dev system which we can use for test discovery as well as executing tests |
