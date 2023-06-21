@@ -28,19 +28,21 @@ Open a termninal window and paste the shell script from your clipboard.
  <img src="images/Terminal-run-locally-npx-command-pasted.png" alt="paste command from clipboard" />
 </Frame>
 
-Now change the placeholder **local-url** with the url of your local environment. In the example screenshot below the placeholder was replaced with *localhost*. You might also have to include the route to the starting point. If you testcase assumes to run from the sign-in page you might have to add the route to the url e.g. *localhost/signin*.
+Now change the placeholder **local-url** with the url of your local environment. In the example screenshot below the placeholder was replaced with *localhost:3000*. You might also have to include the route to the starting point. If your testcase assumes to run from the sign-in page you might have to add the route to the sign-in page e.g. *localhost:3000/signin*.
 
 <Frame caption="replace url placeholder with your local environment url">
  <img src="images/Terminal-run-locally-npx-command-url-adjusted.png" alt="replace url placeholder" />
 </Frame>
 
-Now a Chromium is started and the Playwright UI is shown. If either Playwright or Chromium are not installed yet on your machine, please check out the [First time users](debugtopus#3-run-test-locally) section.
+Now the Playwright UI is shown.
 
 <Frame caption="Playwright UI screenshot">
  <img src="images/Playwright-ui-locally.png" alt="Playwright UI screenshot" />
 </Frame>
 
 ## 3. Run test locally
+
+If either Playwright or Chromium are not installed on your machine yet, please check out the [First time users](debugtopus#3-run-test-locally) section.
 
 Click the play button which is displayed on the right side of the test case to run your test.
 
@@ -50,7 +52,7 @@ Click the play button which is displayed on the right side of the test case to r
 
 ## First time users
 
-The shell script command will install the Debugtopus package and its dependencies on your computer. You have to confirm by clicking **y**.
+The shell script command will install the Debugtopus package and its dependencies on your computer. You have to confirm by entering **y**.
 
 <Frame caption="Install Debugtopus">
  <img src="images/Debugtopus-install.png" alt="Debugtopus install screenshot" />
@@ -58,7 +60,7 @@ The shell script command will install the Debugtopus package and its dependencie
 
 The biggest portion of this package is Playwright. If you want to see the full package list, please check out the [Debugtopus Github repository](https://github.com/OctoMind-dev/debugtopus).
 
-If you do not have Chromium installed, you will see the error message below after running the shell script.
+If you do not have Chromium installed, you will see the error message below after trying to run the test in Playwright.
 
 <Frame caption="Install Chromium">
  <img src="images/Chromium-install.png" alt="Chromium is missing screenshot" />
