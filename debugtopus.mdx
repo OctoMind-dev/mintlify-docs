@@ -4,7 +4,7 @@ description: 'Debugtopus will help you pinpoint the problem'
 icon: "bug"
 ---
 
-To run your tests locally follow the steps below.
+Debugtopus is our open source tool enabling you to run tests locally for easier debugging. Follow the steps below to run your tests locally.
 
 ## 1. Get shell script
 
@@ -28,13 +28,13 @@ Open a termninal window and paste the shell script from your clipboard.
  <img src="images/Terminal-run-locally-npx-command-pasted.png" alt="paste command from clipboard" />
 </Frame>
 
-Now change the placeholder **local-url** with the url of your local environment. In the example screenshot below the placeholder was replaced with *localhost*. You might also have to include the route to the starting point. If you testcase assumes to run from the sign-in page you might have to add the route to the url e.g. *localhost/signin*.
+Now, change the placeholder **local-url** with the url of your local environment. In the example screenshot below the placeholder was replaced with *localhost*. You might also have to include the route to the starting point. If your test case assumes to run from the sign-in page, you might have to add the route to the url e.g. *localhost/signin*.
 
 <Frame caption="replace url placeholder with your local environment url">
  <img src="images/Terminal-run-locally-npx-command-url-adjusted.png" alt="replace url placeholder" />
 </Frame>
 
-Now a Chromium is started and the Playwright UI is shown. If either Playwright or Chromium are not installed yet on your machine, please check out the [First time users](debugtopus#3-run-test-locally) section.
+A Chromium is started and the Playwright UI is shown. If either Playwright or Chromium are not installed yet on your machine, please check out the [First time users](debugtopus#3-run-test-locally) section.
 
 <Frame caption="Playwright UI screenshot">
  <img src="images/Playwright-ui-locally.png" alt="Playwright UI screenshot" />
