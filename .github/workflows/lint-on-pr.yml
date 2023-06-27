@@ -1,0 +1,25 @@
+name: Mindlify Continuous Integration
+run-name: run eslint against mdx and md files
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2.2.4
+        with:
+          version: latest
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "pnpm"
+          cache-dependency-path: "pnpm-lock.yaml"
+
+      - run: pnpm i
+      - run: pnpm lint    

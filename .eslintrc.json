@@ -1,0 +1,10 @@
+{
+  "plugins": ["prettier"],
+  "extends": ["plugin:mdx/recommended"],
+  "settings": {
+    "mdx/code-blocks": true
+  },
+  "rules": {
+    "prettier/prettier": "warn"
+  }
+}

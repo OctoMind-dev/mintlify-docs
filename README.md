@@ -22,6 +22,17 @@ Run the following command at the root of your documentation (where mint.json is)
 mintlify dev
 ```
 
+### Linting
+
+install pnpm once
+
+```shell
+npm i -g pnpm
+pnpm i
+```
+
+execute `pnpm lint`. _Note_ for pull requests we require that all linting errors have been resolved
+
 ### 😎 Publishing Changes
 
 Changes will be deployed to production automatically after pushing to the default branch.
