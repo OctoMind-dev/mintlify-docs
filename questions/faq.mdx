@@ -1,42 +1,43 @@
 ---
-title: 'FAQs'
-description: 'Frequently asked questions'
-icon: 'question'
+title: "FAQs"
+description: "Frequently asked questions"
+icon: "question"
 ---
 
 ## 1. What user flows do you cover?
 
-For the time being, we cover basic user flows which happen inside a browser window. We don't test canvas or multi-user applications yet. 
+For the time being, we cover basic user flows which happen inside a browser window. We don't test canvas or multi-user applications yet.
 We will add building blocks which allow for more demanding scenarios over time, like e-mail or mobile phone based flows, multi-user setups or the inclusion of external apps.
 
-## 2. How are my tests generated? 
+## 2. How are my tests generated?
 
-We'll ask you to give us the user flows that need to be end-to-end tested. We'll discover the interaction chain of the test case in an intermediate representation. We'll generate a corresponding Playwright code on the fly and execute it against your pull request. 
+We'll ask you to give us the user flows that need to be end-to-end tested. We'll discover the interaction chain of the test case in an intermediate representation. We'll generate a corresponding Playwright code on the fly and execute it against your pull request.
 
-## 3. What code are you using for your tests? 
+## 3. What code are you using for your tests?
 
-We are using the [Playwright](https://playwright.dev/) framework to generate tests. 
+We are using the [Playwright](https://playwright.dev/) framework to generate tests.
 
 ## 4. How are you securing the stability of your tests?
 
 Some of our strategies to fight flakiness are:
+
 - Smart learning based retries
 - active interaction timing (sleeps)
 - AI based analysis of unexpected circumstances
 - Rediscovery in case of user flow changes.
 
-## 5. How can I run your tests locally? 
+## 5. How can I run your tests locally?
 
-Our open source tool [Debugtopus](https://github.com/OctoMind-dev/debugtopus) can pull the latest test case from our repository and execute it against your local environment. 
+Our open source tool [Debugtopus](https://github.com/OctoMind-dev/debugtopus) can pull the latest test case from our repository and execute it against your local environment.
 
-## 6. How does the auto-maintenance work? 
+## 6. How does the auto-maintenance work?
 
-We are following a playbook to find out if a test failure is caused by a behavioral change of your user flows, the test code itself or a bug in your code. 
-In case of a behavioral change, we pinpoint the failing interaction. We apply machine learning to find out what's the new desired interaction to achieve the original goal of the test case. 
-The interaction chain of this test case will be adjusted permanently to the new behavior as a result. 
+We are following a playbook to find out if a test failure is caused by a behavioral change of your user flows, the test code itself or a bug in your code.
+In case of a behavioral change, we pinpoint the failing interaction. We apply machine learning to find out what's the new desired interaction to achieve the original goal of the test case.
+The interaction chain of this test case will be adjusted permanently to the new behavior as a result.
 
-## 7. I do not use use GitHub, can I use your tests? 
+## 7. I do not use use GitHub, can I use your tests?
 
-Yes. Apart from GitHub we do offer a native integration for Azure DevOps. For all other build pipelines you can script your own test trigger so that our test suite is triggered whenever you run a pull request. 
-All you need is an api token to identify your test suite and an externally accessible test target. Unfortunately, we won't be able to comment back into your pipeline. 
+Yes. Apart from GitHub we do offer a native integration for Azure DevOps. For all other build pipelines you can script your own test trigger so that our test suite is triggered whenever you run a pull request.
+All you need is an api token to identify your test suite and an externally accessible test target. Unfortunately, we won't be able to comment back into your pipeline.
 Instead, you'll be able to receive the test results through our app.

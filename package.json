@@ -2,7 +2,8 @@
   "name": "mintlify-docs",
   "version": "1.0.0",
   "scripts": {
-    "lint": "eslint --max-warnings=0 --ext .mdx,.md ."
+    "lint": "eslint --max-warnings=0 --ext .mdx,.md .",
+    "lint:fix": "eslint --fix --ext .mdx,.md ."
   },
   "license": "ISC",
   "devDependencies": {

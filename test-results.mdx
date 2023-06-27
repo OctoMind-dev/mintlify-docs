@@ -1,35 +1,39 @@
 ---
 title: Test results
-description: 'Everything, everywhere, all at once test results'
-icon: 'square-check'
+description: "Everything, everywhere, all at once test results"
+icon: "square-check"
 ---
-
 
 ## Test results in your CI/CD pipeline
 
 Once tests are executed, you will receive a comment in your GitHub / Azure DevOps pipeline which might look like the example below.
 
 <Frame caption="Example of Octomind test results in a commit comment, screenshot 06/2023">
- <img src="images/Octomind-test-results-commit-comments-GitHub-example.png" alt="Example of Octomind test results in a commit comment"/>
+  <img
+    src="images/Octomind-test-results-commit-comments-GitHub-example.png"
+    alt="Example of Octomind test results in a commit comment"
+  />
 </Frame>
 
-| column | description |
-|---|---|
-| description | Name of the test case |
+| column          | description                                                                                                                                         |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| description     | Name of the test case                                                                                                                               |
 | execution state | Can either be running or executed. If a test case is on the list of test cases to be executed but not executed yet, it will not appear in this list |
-| status | checkmark: successfuly executed; hourglass: test case failed and is under investigation; red cross: test case failed |
-| details | link which takes you to the test case details (see below) |
+| status          | checkmark: successfuly executed; hourglass: test case failed and is under investigation; red cross: test case failed                                |
+| details         | link which takes you to the test case details (see below)                                                                                           |
 
 ## Test results in the Octomind app
 
 <Frame caption="Test result page for a successful test case">
- <img src="/images/test-result-success.png" alt="example of a successful test"/>
+  <img
+    src="/images/test-result-success.png"
+    alt="example of a successful test"
+  />
 </Frame>
 
 <Frame caption="Test result page for a failed test case">
- <img src="/images/test-result-failure.png" alt="example of a failed test"/>
+  <img src="/images/test-result-failure.png" alt="example of a failed test" />
 </Frame>
-
 
 In the lower section of the test detail page you can find the interaction chain the system is executing. We'll enhance it with additional useful information soon.
 
@@ -38,11 +42,17 @@ In the lower section of the test detail page you can find the interaction chain 
 In the upper right corner you'll find two buttons.`debug test traces` will open the **Playwright Trace Viewer**. It's similar to a recording, but has a lot additional information that comes in handy when debugging.
 
 <Frame caption="Use Playwright Trace Viewer within Octomind">
- <img src="images/screenshot-Playwright-Trace-Viewer.png" alt="Playwright Trace Viewer screenshot"/>
+  <img
+    src="images/screenshot-Playwright-Trace-Viewer.png"
+    alt="Playwright Trace Viewer screenshot"
+  />
 </Frame>
 
 `run locally` gives you a shell script snippet which you can use to run the test case against your local environment. This is good for setting breakpoints and stepping through the code. Click here for the [Debugtopus documentation](/debugtopus)
 
 <Frame caption="Use Debugtopus to run code locally">
- <img src="images/screenshot-run-locally.png" alt="screenshot of dialog run locally"/>
+  <img
+    src="images/screenshot-run-locally.png"
+    alt="screenshot of dialog run locally"
+  />
 </Frame>
