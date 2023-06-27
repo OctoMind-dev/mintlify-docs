@@ -1,0 +1,14 @@
+{
+  "name": "mintlify-docs",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint --max-warnings=0 --ext .mdx,.md .",
+    "lint:fix": "eslint --fix --ext .mdx,.md ."
+  },
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-plugin-mdx": "^2.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8"
+  }
+}
