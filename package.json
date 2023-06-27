@@ -5,7 +5,6 @@
     "lint": "eslint --max-warnings=0 --ext .mdx,.md .",
     "lint:fix": "eslint --fix --ext .mdx,.md ."
   },
-  "license": "ISC",
   "devDependencies": {
     "eslint": "^8.43.0",
     "eslint-plugin-mdx": "^2.1.0",
