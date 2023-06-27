@@ -69,10 +69,4 @@ The shell script command will install the Debugtopus package and its dependencie
 
 The biggest portion of this package is Playwright. If you want to see the full package list, please check out the [Debugtopus Github repository](https://github.com/OctoMind-dev/debugtopus).
 
-If you do not have Chromium installed, you will see the error message below after trying to run the test in Playwright.
-
-<Frame caption="Install Chromium">
-  <img src="images/Chromium-install.png" alt="Chromium is missing screenshot" />
-</Frame>
-
-If this happens, please run the **npx playwright install** command from the screenshot in your terminal.
+If you do not have Chromium installed, debugtopus will run **npx playwright install** for you and the first run will take some time to complete.
