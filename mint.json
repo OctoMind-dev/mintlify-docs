@@ -6,6 +6,13 @@
     "light": "/logo/light.svg",
     "href": "https://www.octomind.dev/"
   },
+  "analytics": {
+    "posthog": {
+      "apiKey": "phc_DZrVg5kgD45m4Au5nFt6m9rykBTg3mAkeHNY3atWNbW'",
+      "apiHost": "https://eu.posthog.com",
+      "disableSessionRecording": true
+    }
+  },
   "modeToggle": {
     "default": "dark"
   },
@@ -46,10 +53,7 @@
     },
     {
       "group": "Questions?",
-      "pages": [
-        "questions/faq",
-        "questions/discord"
-      ]
+      "pages": ["questions/faq", "questions/discord"]
     },
     {
       "group": "Data Governance",
