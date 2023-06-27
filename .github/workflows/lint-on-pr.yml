@@ -1,4 +1,4 @@
-name: Mindlify Continuous Integration
+name: Mintlify Continuous Integration
 run-name: run eslint against mdx and md files
 
 on:
