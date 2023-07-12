@@ -8,7 +8,7 @@
   },
   "analytics": {
     "posthog": {
-      "apiKey": "phc_DZrVg5kgD45m4Au5nFt6m9rykBTg3mAkeHNY3atWNbW'",
+      "apiKey": "phc_DZrVg5kgD45m4Au5nFt6m9rykBTg3mAkeHNY3atWNbW",
       "apiHost": "https://eu.posthog.com"
     }
   },
