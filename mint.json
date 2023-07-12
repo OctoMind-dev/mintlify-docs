@@ -28,7 +28,7 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Sign in",
+    "name": "Go to app",
     "url": "https://app.octomind.dev"
   },
   "tabs": [
