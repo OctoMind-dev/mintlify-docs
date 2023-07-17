@@ -1,42 +1,67 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Octomind Docs",
+
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg",
     "href": "https://www.octomind.dev/"
   },
+
   "analytics": {
     "posthog": {
       "apiKey": "phc_DZrVg5kgD45m4Au5nFt6m9rykBTg3mAkeHNY3atWNbW",
       "apiHost": "https://eu.posthog.com"
     }
   },
+
   "modeToggle": {
     "default": "dark"
   },
+
   "favicon": "/logo/favicon.svg",
+
   "colors": {
     "primary": "#00E2AA",
     "light": "#00CE9B",
-    "dark": "#7D7CE2"
+    "dark": "#7D7CE2",
+    "background": {
+      "dark": "#13142B",
+      "light": "#FFFFFF"
+    }
   },
+
+  "topAnchor": {
+    "name": "Documentation",
+    "icon": "building",
+    "iconType": "duotone"
+  },
+
+  "anchors": [
+    {
+        "name": "GitHub",
+        "icon": "github",
+        "url": "https://github.com/OctoMind-dev"
+    },
+    {
+        "name": "Get easy help",
+        "icon": "discord",
+        "url": "https://discord.gg/3ShnZMKRfA"
+    }
+  ],
+
   "topbarLinks": [
     {
       "name": "About",
       "url": "https://www.octomind.dev/about"
     }
   ],
+
   "topbarCtaButton": {
     "name": "Go to app",
     "url": "https://app.octomind.dev"
   },
-  "tabs": [
-    {
-      "name": "GitHub",
-      "url": "https://github.com/OctoMind-dev"
-    }
-  ],
+
   "navigation": [
     {
       "group": "Get Started",
@@ -52,17 +77,18 @@
     },
     {
       "group": "Questions?",
-      "pages": ["questions/faq", "questions/discord"]
+      "pages": ["questions/faq"]
     },
     {
       "group": "Data Governance",
       "pages": ["data-governance/no-code-access", "data-governance/nda"]
     }
   ],
+
   "footerSocials": {
     "twitter": "https://twitter.com/Octomind_dev",
     "github": "https://github.com/OctoMind-dev",
-    "linkedin": "https://www.linkedin.com/company/octomind-dev"
-  },
-  "backgroundImage": "/background.png"
+    "discord": "https://discord.gg/3ShnZMKRfA"
+  }
 }
+
