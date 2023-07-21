@@ -52,8 +52,17 @@ We are very cautios about the permissions we need to protect your IP. We won’t
 
 ### 5. Include the GitHub Action
 
-Include the following `GitHub Action` into your CI/CD build pipeline on pull request https://github.com/OctoMind-dev/automagically-action-execute
-We assume you are running branch deployments so that every change can be tested in isolation.You will inject the publicly accessible url of your branch deployment, testTargetId and apiKey.
+Include the following `GitHub Action` into your CI/CD build pipeline on pull request.
+
+```yaml
+- uses: OctoMind-dev/automagically-action-execute@v2
+  with:
+    url: <publicly accessible url to your deployment>
+    token: ${{ secrets.AUTOMAGICALLY_TOKEN }}
+    testTargetId: <your testTargetId that you also get from us>
+```
+
+We assume you are running branch deployments so that every change can be tested in isolation. Please inject the publicly accessible url of your branch deployment, testTargetId and apiKey.
 
 <div className="mt-8" />
 
