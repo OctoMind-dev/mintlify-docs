@@ -6,41 +6,60 @@ icon: "microsoft"
 
 ## CI/CD pipeline integration
 
-### 1. Create an APIKey
+### 1. Create an API key
 
 <Snippet file="snippet-apiKey.mdx" />
 
-### 2. Copy your testTargetId
+### 2. Copy your test target id
 
 <Snippet file="snippet-testTarget.mdx" />
 
-3. Install our Azure DevOps [pipelines extension](https://marketplace.visualstudio.com/items?itemName=octomind.automagically-execute-task)
+### 3. Install Azure DevOps pipeline extension
+
+Install our Azure DevOps from the Marketplace.
+
+<Tip>
+  Install from here: [pipelines
+  extension](https://marketplace.visualstudio.com/items?itemName=octomind.automagically-execute-task)
+</Tip>
 
 <Frame caption="Octomind Azure install, screenshot 06/2023">
   <img src="/images/azure-install.png" alt="Octomind Azure install" />
 </Frame>
 
-4. Include the following `Azure DevOps Task` into your CI/CD build pipeline on pull request - [source code](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute).
-   We assume you are running branch deployments so that every change can be tested in isolation.
-   We will provide you a **token / api key** via email to trigger your test suite. It will look similar to this: _sk-12345678.abcdefg123_. You will inject the publicly accessible URL of your branch deployment and the token / api key via the azure task. We provide a separate token for each project.
+### 4. Include the Azure DevOps Task
 
-<Frame caption="Octomind Azure pipeline task">
- ```yml
-  - task: automagicallyexecute@1
-    inputs:
-      url:
-      token: ${{ secrets.AUTOMAGICALLY_TOKEN }}
- ```
-</Frame>
+Include the following `Azure DevOps Task` into your CI/CD build pipeline on pull
+request.
+We assume you are running branch deployments so that every change can be tested in isolation.
+You will have to inject the publicly accessible URL of your branch deployment and the API key via
+the azure task.
 
-5. Make sure that your **build service user** also has permissions to comment to pull requests. To do so, navigate to the
-   Project Settings > Repos > Repositories > Security tab and allow the 'contribute to pull request' flag.
+```yml
+- task: automagicallyexecute@1
+  inputs:
+    url:
+    token: ${{ secrets.AUTOMAGICALLY_TOKEN }}
+```
+
+<Tip>
+  The Azure DevOps Task is published here: [source
+  code](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute)
+</Tip>
+
+### 5. Set user permissions
+
+Make sure that your `build service user` also has permissions to comment to pull requests. To do so, navigate to the
+Project Settings > Repos > Repositories > Security tab and allow the 'contribute to pull request' flag.
 
 <Frame caption="Octomind Azure pipeline permissions, screenshot 06/2023">
   <img src="/images/azure-permissions.png" alt="Octomind Azure permissions" />
 </Frame>
 
-6. During installation, we’ll ask you to grant access to your repository with write access to pull request threads, so we are allowed to comment back into the pipeline. It will list the test results with additional links to more details, looking like this ↓
+### 6. Allow comments
+
+During installation, we’ll ask you to grant access to your repository with write access to pull request threads, so we are
+allowed to comment back into the pipeline. It will list the test results with additional links to more details, looking like this ↓
 
 <Frame caption="Example of Octomind test results in a pull request comment, screenshot 06/2023">
   <img
@@ -51,8 +70,8 @@ icon: "microsoft"
 
 <div class="mt-8" />
 
-<Tip>
-  **We won’t need any other permissions. We won’t be able to see your code.**
-</Tip>
+<Info>
+  We won’t need any other permissions. We won’t be able to see your code.
+</Info>
 
 <Snippet file="snippet-quickstart-bottom.mdx" />
