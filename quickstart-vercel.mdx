@@ -1,0 +1,55 @@
+---
+title: "Quickstart Vercel - CI"
+description: "Run a GitHub Action to execute Octomind tests on every vercel deployment"
+icon: "triangle"
+---
+
+## CI/CD pipeline integration
+
+<Info>
+  If you are using Github Actions a workflows to deploy to Vercel with your own
+  .yml files, check out our [Quickstart - GitHub
+  Guide](https://docs.octomind.dev/quickstart-GitHub) instead.
+</Info>
+
+We currently do not have a native Vercel integration. If you are using vercel for your current CI
+and find the current setup to be lacking, please let us know on our [Discord](https://discord.gg/3ShnZMKRfA) server,
+so we know that you are interested.
+
+See also our [exampe vercel-actions integration repo](https://github.com/OctoMind-dev/vercel-actions-example).
+
+<Frame caption="Octomind Vercel Flow">
+  <img src="/images/Octomind-Vercel-flow.png" alt="Vercel flow" />
+</Frame>
+
+<Snippet file="snippet-apiKey.mdx" />
+
+<Snippet file="snippet-testTarget.mdx" />
+
+### 3. Include the GitHub Action
+
+Include the following `GitHub Action` into your CI/CD build pipeline on deployment_status changes:
+
+```yaml
+on: deployment_status
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  octomind:
+    if: ${{ github.event.deployment_status.state  == 'success' }}
+    name: 🚀🐙 trigger octomind e2e tests 🚀🐙
+    runs-on: ubuntu-latest
+    steps:
+      - uses: OctoMind-dev/automagically-action-execute@v2
+        with:
+          testTargetId: "<yourTestTargetId>"
+          url: ${{ github.event.deployment_status.target_url }}
+          token: ${{ secrets.OCTOMIND_TOKEN }}
+```
+
+The test report link will be added to the workflow summary of the action, see [Example PR action summary](https://github.com/OctoMind-dev/vercel-actions-example/pull/11)
+
+<Snippet file="snippet-quickstart-bottom.mdx" />
