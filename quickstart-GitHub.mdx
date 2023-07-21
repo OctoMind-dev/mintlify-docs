@@ -6,7 +6,7 @@ icon: "github"
 
 ## CI/CD pipeline integration
 
-In order to integrate Octomind into your CI/CD pipeline, you will nedd a GitHub Action and a GitHub App.
+In order to integrate Octomind into your CI/CD pipeline, you will need a GitHub Action and a GitHub App.
 
 <Frame caption="Octomind GitHub Flow">
   <img src="/images/Octomind-GitHub-flow.png" alt="GitHub flow" />
@@ -20,7 +20,7 @@ Start with installting the `GitHub App`. We will be commenting back on the test 
   Install the GitHub App from here https://github.com/apps/octomind-dev.
 </Tip>
 
-<Frame caption="Octomind GitHub App install, screenshot 06/2023">
+<Frame caption="Octomind GitHub App install, screenshot 07/2023">
   <img
     src="/images/Octomind-GitHub-App-install-screenshot.png"
     alt="Octomind GitHub App install"
@@ -38,16 +38,30 @@ We’ll ask you to grant access to your repository to read metadata & read and w
   />
 </Frame>
 
+We are very cautios about the permissions we need to protect your IP. We won’t need any other permissions.
+
+<Info>**We won’t be able to see your code.**</Info>
+
 ### 3. Include the GitHub Action
 
-Include the following `GitHub Action` into your CI/CD build pipeline on pull request https://github.com/OctoMind-dev/automagically-action-execute
+Include the following `GitHub Action` into your CI/CD build pipeline on pull request.
+
+```
+uses: OctoMind-dev/automagically-action-execute@v2
+  with:
+    url:
+    token: ${{ secrets.AUTOMAGICALLY_TOKEN }}
+    testTargetId: <your testTargetId that you also get from us>
+```
+
 We assume you are running branch deployments so that every change can be tested in isolation. We will provide you a **token / api key** via email to trigger your test suite. It will look similar to this: sk-12345678.abcdefg123. You will inject the publicly accessible url of your branch deployment and the token / api key via GitHub Action. We provide a separate token for each project.
 
-<div class="mt-8" />
-
 <Tip>
-  **We won’t need any other permissions. We won’t be able to see your code.**
+  **The GitHub action is published here:**
+  https://github.com/OctoMind-dev/automagically-action-execute
 </Tip>
+
+<div class="mt-8" />
 
 ## Test suite setup
 
