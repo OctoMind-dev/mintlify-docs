@@ -24,7 +24,7 @@ Install the `GitHub App`. We will be commenting back the test results via the ap
   Install the GitHub App from here https://github.com/apps/octomind-dev.
 </Tip>
 
-<Frame caption="Octomind GitHub App install, screenshot 06/2023">
+<Frame caption="Octomind GitHub App install, screenshot 07/2023">
   <img
     src="/images/Octomind-GitHub-App-install-screenshot.png"
     alt="Octomind GitHub App install"
@@ -42,6 +42,10 @@ We’ll ask you to grant access to your repository to read metadata & read and w
   />
 </Frame>
 
+We are very cautios about the permissions we need to protect your IP. We won’t need any other permissions.
+
+<Info>**We won’t be able to see your code.**</Info>
+
 ### 5. Include the GitHub Action
 
 Include the following `GitHub Action` into your CI/CD build pipeline on pull request https://github.com/OctoMind-dev/automagically-action-execute
@@ -50,7 +54,8 @@ We assume you are running branch deployments so that every change can be tested 
 <div className="mt-8" />
 
 <Tip>
-  **We won’t need any other permissions. We won’t be able to see your code.**
+  **The GitHub action is published here:**
+  https://github.com/OctoMind-dev/automagically-action-execute
 </Tip>
 
 <Snippet file="snippet-quickstart-bottom.mdx" />
