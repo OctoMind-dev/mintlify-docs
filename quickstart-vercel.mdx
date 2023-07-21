@@ -1,28 +1,32 @@
 ---
-title: "Quickstart Vercel - CI"
-description: "Run a GitHub Action to execute Octomind tests on every vercel deployment"
+title: "Quickstart Vercel CI"
+description: "Run a GitHub Action to execute Octomind tests on every Vercel deployment"
 icon: "triangle"
 ---
 
 ## CI/CD pipeline integration
 
 <Info>
-  If you are using Github Actions a workflows to deploy to Vercel with your own
-  .yml files, check out our [Quickstart - GitHub
-  Guide](https://docs.octomind.dev/quickstart-GitHub) instead.
+  If you are using Github Actions workflow to deploy to Vercel with your own
+  .yml files, check out our [Quickstart - GitHub Actions
+  guide](https://docs.octomind.dev/quickstart-GitHub) instead.
 </Info>
 
 We currently do not have a native Vercel integration. If you are using vercel for your current CI
 and find the current setup to be lacking, please let us know on our [Discord](https://discord.gg/3ShnZMKRfA) server,
 so we know that you are interested.
 
-See also our [exampe vercel-actions integration repo](https://github.com/OctoMind-dev/vercel-actions-example).
+See also our [example vercel-actions integration repo](https://github.com/OctoMind-dev/vercel-actions-example).
 
-<Frame caption="Octomind Vercel Flow">
+<Frame caption="Octomind Vercel flow">
   <img src="/images/octomind-vercel-flow.png" alt="Vercel flow" />
 </Frame>
 
+### 1. Create an APIKey
+
 <Snippet file="snippet-apiKey.mdx" />
+
+### 2. Copy your testTargetId
 
 <Snippet file="snippet-testTarget.mdx" />
 
