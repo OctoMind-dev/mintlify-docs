@@ -71,6 +71,7 @@
         "test-results",
         "quickstart-GitHub",
         "quickstart-Azure",
+        "quickstart-vercel",
         "debugtopus",
         "under-the-hood"
       ]
