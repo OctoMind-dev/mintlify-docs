@@ -12,15 +12,15 @@ In order to integrate Octomind into your CI/CD pipeline, you will need a GitHub 
   <img src="/images/Octomind-GitHub-flow.png" alt="GitHub flow" />
 </Frame>
 
-### 1. Create an APIKey
+### 1. Create an API key
 
 <Snippet file="snippet-apiKey.mdx" />
 
-### 2. Copy your testTargetId
+### 2. Copy your test target id
 
 <Snippet file="snippet-testTarget.mdx" />
 
-### 3. Allow GitHub Comments
+### 3. Install GitHub App
 
 Install the `GitHub App`. We will be commenting back the test results via the app.
 
@@ -48,7 +48,7 @@ We’ll ask you to grant access to your repository to read metadata & read and w
 
 We are very cautios about the permissions we need to protect your IP. We won’t need any other permissions.
 
-<Info>**We won’t be able to see your code.**</Info>
+<Info>We won’t be able to see your code.</Info>
 
 ### 5. Include the GitHub Action
 
@@ -67,7 +67,7 @@ We assume you are running branch deployments so that every change can be tested 
 <div className="mt-8" />
 
 <Tip>
-  **The GitHub action is published here:**
+  The GitHub action is published here:
   https://github.com/OctoMind-dev/automagically-action-execute
 </Tip>
 
