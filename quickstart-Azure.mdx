@@ -16,7 +16,7 @@ icon: "microsoft"
 
 ### 3. Install Azure DevOps pipeline extension
 
-Install our Azure DevOps from the Marketplace.
+Install our Azure DevOps pipeline extension from the Marketplace.
 
 <Tip>
   Install from here: [pipelines
@@ -36,11 +36,21 @@ You will have to inject the publicly accessible URL of your branch deployment an
 the azure task.
 
 ```yml
-- task: automagicallyexecute@1
+- task: automagicallyexecute@2
   inputs:
-    url:
+    url: <publicly accessible url to your deployment>
     token: ${{ secrets.AUTOMAGICALLY_TOKEN }}
+    testTargetId: <your testTargetId that you also get from us>
 ```
+
+<div class="mt-8" />
+
+<Warning>
+  Please make sure to integrate the AzureDevOps Task **AFTER** your deployment
+  step.
+</Warning>
+
+<div class="mt-8" />
 
 <Tip>
   The Azure DevOps Task is published here: [source
