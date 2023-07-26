@@ -4,67 +4,86 @@ description: "This is how you setup Octomind"
 icon: "lightbulb"
 ---
 
-## 1. Register your project
+## 1. Give us a URL
 
-You'd need an account first to get started. We do not feature self-service yet. Please, use our "join the waitlist" form on our homepage.
+To be able to create test cases, we'll ask for a URL. The URL needs to be publicly accessible.
 
-<img
-  src="/images/join-the-waitlist.png"
-  alt="join the waitlist form screenshot"
-/>
+<Frame caption="First page of the setup flow: Link to your webiste, screenshot 08/2023">
+  <img src="/images/setup/setup-1-url.png" alt="enter your url" />
+</Frame>
 
-We'll reach out for details and create an account for you.
+## 2. Name your project
+
+The second page will also show a screenshot of the url you provided. This is to make sure, that your URL is accessible. If it is not, you will see an Octo in a jar.
+Now you'd need to give your project a name. We will propose one which is close to the url you provided.
+You can change it directly.
+
+<Frame caption="Second page of the setup flow: Name your project, screenshot 08/2023">
+  <img
+    src="/images/setup/setup-2-project.png"
+    alt="name your project, screenshot 08/2023"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="Second page of the setup flow: Octo in a jar error page, screenshot 08/2023">
+  <img
+    src="/images/setup/setup-2-octo-in-a-jar.png"
+    alt="something went wrong, url not accessible, screenshot 08/2023"
+  />
+</Frame>
+
+## 3. Give us a test user
+
+Almost all web apps are featuring a sign-in and interesting test cases can only be execised after sign-in. This is why
+we are in need of a test user. Also the first test case we try to discover will be sign-in with username and password.
+Credentials need to fit to the URL you provided above.
+
+<Frame caption="Third page of the setup flow: test user credentials, screenshot 08/2023">
+  <img
+    src="/images/setup/setup-3-credentials.png"
+    alt="enter a test user, screenshot 08/2023"
+  />
+</Frame>
+
+## 3. Create an account
+
+Now we need to sign you up. To do so, please provide an eMail address we can reach you with.
+
+<Frame caption="Fourth page of the setup flow: create account, screenshot 08/2023">
+  <img
+    src="/images/setup/setup-4-create-account.png"
+    alt="create account, screenshot 08/2023"
+  />
+</Frame>
+
+Now, that all the configuration is done and we signed you up we'll need test cases.
 
 <Info>
-  We will replace this process with a self-service sign-up in the coming weeks.
+  We are triggering a test case discovery for the sign-in flow right away. If it
+  is successful, you will get your first test case within minutes. If the
+  discovery fails, we will investigate. This might take a little longer.
 </Info>
 
-## 2. Give us a URL
+**For now, we will create additional test cases for you manually.** We will ask you for the most common cases and we'll create 3 to 8 of them.
 
-To be able to create test cases, we'll ask for a URL. The URL needs to be publicly accessible. Most likely it will be the url of your live system.
-Depending on the type of your test cases, an account to your live system might also be required.
-You will receive an `API token` from us which will allow you trigger test cases on pull requests.
-
-We'll exchange all setup information via email.
-
-<Info>
-  {" "}
-  The self-service sign-up mentioned above will also cover this step going forward.
-  API token management including.
-</Info>
-
-## 3. Tell us what test cases you want
-
-Now, that we signed you up we'll need the test cases.
-
-**For now, we will create test cases for you.** We will ask you for the most common cases and we'll create 5 to 10 of them.
-
-<Warning>
-  We will notify you once we are done with the test case creation.
-</Warning>
-
-<Info>
-  Test case editor is on our roadmap and will replace this part of the process.
-  You will be able to compose test cases on your own at your own speed. The
-  editor will be powered by AI.
-</Info>
+<Info>We will notify you once we are done with the test case creation.</Info>
 
 ## 4. Integrate Octomind into your CI/CD pipeline
 
-If you are on [GitHub](/quickstart-GitHub) or on [Azure DevOps](/quickstart-Azure) you can use our pre-packaged integrations from GitHub to add Octomind to your CI/CD pipeline. You'll find all information in the respective quickstart sections of this documentation.
+If you are on [GitHub](/quickstart-GitHub) or on [Azure DevOps](/quickstart-Azure) you can use our pre-packaged integrations from GitHub to
+add Octomind to your CI/CD pipeline. You'll find all information in the respective quickstart sections of this documentation.
 
-<Info>
-  Currently, tests are triggered from pull requests only, since we comment test
-  results back to the PR. We'll add an option to trigger and schedule test cases
-  from our Octomind app directly in the future.
-</Info>
-
-If you are on a different CI/CD pipeline, you'll have to use our API to trigger test cases on pull requests. It should be possible to add custom scripts into your pipeline. However, you won't be able to recieve test results directly in your pipeline. You'll have to review test runs directly in our app.
+If you are on a different CI/CD pipeline, you'll have to use our API to trigger test cases. It should be possible to add custom scripts into
+your pipeline. However, you won't be able to recieve test results directly in your pipeline. You'll have to review test runs directly in our app.
 
 ### Open sourced integrations
 
-Octomind integrations are all open source. We'd encourage you to contribute to the existing or compose new integration for other CI/CD providers. We'll happily take over and maintain them further.
+Octomind integrations are all open source. We'd encourage you to contribute to the existing or compose new integration for other CI/CD providers.
+We'll happily take over and maintain them further.
 
 ## 5. Get test results
 
-You will receive test results directly in your CI/CD pipeline comments. Each test case will be listed with a deep link to test result details. Please, have a look at the [Test results](/test-results) section of this documentation for more info.
+You will receive test results directly in your CI/CD pipeline comments. Each test case will be listed with a deep link to test result details.
+Please, have a look at the [Test results](/test-results) section of this documentation for more info.
