@@ -85,3 +85,44 @@ allowed to comment back into the pipeline. It will list the test results with ad
 </Info>
 
 <Snippet file="snippet-quickstart-bottom.mdx" />
+
+## Updating Guide
+
+The following sections describe how to update between breaking-change versions of the pipeline.
+
+### V1 → V2
+
+Our token handling mechanism has changed, so you need to adapt the YAML of the pipeline and replace the token in your secrets with a [newly created API Key](#1-create-an-api-key).
+You also need to add the `testTargetId`, which you can get as described [here](#2-copy-your-test-target-id).
+
+<div>
+<table>
+  <tr>
+    <th>V1</th>
+  </tr>
+  <tr>
+    <td>
+    ```yml
+    - task: automagicallyexecute@1
+  inputs:
+    url: <publicly accessible url to your deployment>
+    token: ${{ secrets.AUTOMAGICALLY_TOKEN }}
+    ```
+    </td>
+  </tr>
+  <tr>
+    <th>V2</th>
+  </tr>
+  <tr>
+    <td>
+    ```yml
+    - task: automagicallyexecute@2
+      inputs:
+        url: <publicly accessible url to your deployment>
+        token: ${{ secrets.AUTOMAGICALLY_TOKEN }}  # <-- This is the API key you created above
+        testTargetId: <your testTargetId>
+    ```
+    </td>
+  </tr>
+</table>
+</div>
