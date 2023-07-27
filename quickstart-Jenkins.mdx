@@ -1,0 +1,129 @@
+---
+title: "Quickstart Jenkins"
+description: "trigger Automagically inside Jenkins Pipeline via GitHub webhook"
+icon: "jenkins"
+---
+
+### 1. Create an API key
+
+<Snippet file="snippet-apiKey.mdx" />
+
+### 2. Copy your test target ID
+
+<Snippet file="snippet-testTarget.mdx" />
+
+### 3. Adding webhook
+
+Select your repository `Settings`, go to `Webhooks` and click `Add webhook.`
+
+<Frame caption="Adding Webhook to repository, screenshot 07/2023">
+  <img
+    src="/images/Webhook-01.png"
+    alt="Adding Webhook to repository"
+  />
+</Frame>
+
+For the  URL set `<your-jenkins-url>/github-webhook/` and select `application/json` for Content type.
+Also select triggers that best suite your need. 
+In general, `the push event` is enough, but for this example, we also want to trigger automagically on `Pull Request`.
+
+<Frame caption="Configuring Webhook, screenshot 07/2023">
+  <img
+    src="/images/Webhook-02.png"
+    alt="Configuring Webhook"
+  />
+</Frame>
+
+Check `Pull requesuts` and `Pushes`, after that click on `Add webhook`.
+
+<Frame caption="Configuring Webhook permissions, screenshot 07/2023">
+  <img
+    src="/images/Webhook-03.png"
+    alt="Configuring Webhook permissions"
+  />
+</Frame>
+
+If everything is ok, you should see a green checkmark after a few moments.
+
+<Frame caption="Validating Webhook, screenshot 07/2023">
+  <img
+    src="/images/Webhook-04.png"
+    alt="Validating Webhook"
+  />
+</Frame>
+
+### 4. Jenkins
+
+Jenkinsfile script can be found [here](https://github.com/OctoMind-dev/jenkins-integration/blob/main/Jenkinsfile)
+You should copy that code to desired step in your pipeline.
+
+### Creating Jenkins pipeline
+
+Here is the example of creating a pipeline to test the script.
+
+On your Dashboard page, click on `+ New Item`
+
+<Frame caption="Creating new Pipeline, Jenkins 2.401.2">
+  <img
+    src="/images/Jenkins-01.png"
+    alt="Creating new Pipeline"
+  />
+</Frame>
+
+Give your Project a name, select Pipeline and press OK
+
+<Frame caption="Creating new Pipeline, Jenkins 2.401.2">
+  <img
+    src="/images/Jenkins-02.png"
+    alt="Creating new Pipeline"
+  />
+</Frame>
+
+You can check `GitHub project` and paste an url to your repo so you will have a button on your dashboard to take you to your repo.
+You need to check `GitHub hook trigger for GITScm polling` so our previously created hook can trigger our pipeline.
+
+<Frame caption="Configuring triggers from GitHub webhook, Jenkins 2.401.2">
+  <img
+    src="/images/Jenkins-03.png"
+    alt="Configuring triggers from GitHub webhook"
+  />
+</Frame>
+
+For the `Definition`, you should select `Pipeline script from SCM`.
+For `SCM` you should select `Git`
+After adding your `Repository URL`, you also need to provide credentials if it is Private repository.
+You also need to specify a branch, in this example `*/*` will trigger the pipeline on pushing to any branch.
+If you want to trigger pipeline only on specific branch changes, e.g. main, you should put `*/main`.
+The last field asks you to set the path and name to Jenkinsfile, but in our repository, it is on top level, and it is named Jenkinsfile, so no changes required.
+Lastly, click on save
+
+<Frame caption="Loading Jenkinsfile from GitHub repository, Jenkins 2.401.2">
+  <img
+    src="/images/Jenkins-04.png"
+    alt="Loading Jenkinsfile from GitHub repository"
+  />
+</Frame>
+
+You should add you `AUTOMAGICALLY_TOKEN` to your secrets. Navigate to `Dashboard -> Manage jenkins -> Credentials -> System -> Global credentials (unrestricted)` and click on `Add Credentials`.
+For the `Kind` you need to select `Secret text`. Be careful that your `ID` matches the `ID` that you call within the Jenkinsfile script. Copy your Token value to the `Secret` field and click `Create`.
+
+<Tip>
+  AUTOMAGICALLY_TOKEN is API key created in 1st step 
+</Tip>
+
+<Frame caption="Configuring AUTOMAGICALLY_TOKEN, Jenkins 2.401.2">
+  <img
+    src="/images/Jenkins-05.png"
+    alt="Configuring AUTOMAGICALLY_TOKEN"
+  />
+</Frame>
+
+If you want, you can enable safe parsing of HTML so you can click the link to the test report the pipeline output for you.
+Navigate to `Dashboard -> Manage jenkins -> Security` and for `Markup Formatter` select `Safe HTML` and then save.
+
+<Frame caption="Enabling safe parsing of HTML, Jenkins 2.401.2">
+  <img
+    src="/images/Jenkins-05.png"
+    alt="Enabling safe parsing of HTML"
+  />
+</Frame>
