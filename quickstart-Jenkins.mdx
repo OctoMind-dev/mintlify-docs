@@ -14,6 +14,10 @@ icon: "jenkins"
 
 ### 3. Adding webhook
 
+<Warning>
+  If you already have a way to trigger your pipeline, you can skip this step
+</Warning>
+
 Select your repository `Settings`, go to `Webhooks` and click `Add webhook.`
 
 <Frame caption="Adding Webhook to repository, screenshot 07/2023">
@@ -43,11 +47,28 @@ If everything is OK, you should see a green checkmark after a few moments.
 ### 4. Jenkins
 
 Jenkinsfile script can be found [here](https://github.com/OctoMind-dev/jenkins-integration/blob/main/Jenkinsfile).
-You should copy that code to desired step in your pipeline.
+You should copy that code to the desired step in your pipeline.
+
+You should add your `AUTOMAGICALLY_TOKEN` to your secrets. Navigate to `Dashboard -> Manage jenkins -> Credentials -> System -> Global credentials (unrestricted)` and click on `Add Credentials`.
+For the `Kind` you need to select `Secret text`. Be careful that your `ID` matches the `ID` that you call within the Jenkinsfile script. Copy your Token value to the `Secret` field and click `Create`.
+
+<Tip>AUTOMAGICALLY_TOKEN is API key created in [first step](#1-create-an-api-key).</Tip>
+
+<Frame caption="Configuring AUTOMAGICALLY_TOKEN, Jenkins 2.401.2">
+  <img src="/images/Jenkins-05.png" alt="Configuring AUTOMAGICALLY_TOKEN" />
+</Frame>
+
+If you want, you can enable safe parsing of HTML so you can click the link to the test report the pipeline output for you.
+Navigate to `Dashboard -> Manage jenkins -> Security` and for `Markup Formatter` select `Safe HTML` and then save.
+
+<Frame caption="Enabling safe parsing of HTML, Jenkins 2.401.2">
+  <img src="/images/Jenkins-06.png" alt="Enabling safe parsing of HTML" />
+</Frame>
+
 
 ### Creating Jenkins pipeline
 
-Here is the example of creating a pipeline to test the script.
+Here is an example of creating a pipeline to test the script.
 
 On your Dashboard page, click on `+ New Item`
 
@@ -84,20 +105,4 @@ Lastly, click on save
     src="/images/Jenkins-04.png"
     alt="Loading Jenkinsfile from GitHub repository"
   />
-</Frame>
-
-You should add you `AUTOMAGICALLY_TOKEN` to your secrets. Navigate to `Dashboard -> Manage jenkins -> Credentials -> System -> Global credentials (unrestricted)` and click on `Add Credentials`.
-For the `Kind` you need to select `Secret text`. Be careful that your `ID` matches the `ID` that you call within the Jenkinsfile script. Copy your Token value to the `Secret` field and click `Create`.
-
-<Tip>AUTOMAGICALLY_TOKEN is API key created in 1st step</Tip>
-
-<Frame caption="Configuring AUTOMAGICALLY_TOKEN, Jenkins 2.401.2">
-  <img src="/images/Jenkins-05.png" alt="Configuring AUTOMAGICALLY_TOKEN" />
-</Frame>
-
-If you want, you can enable safe parsing of HTML so you can click the link to the test report the pipeline output for you.
-Navigate to `Dashboard -> Manage jenkins -> Security` and for `Markup Formatter` select `Safe HTML` and then save.
-
-<Frame caption="Enabling safe parsing of HTML, Jenkins 2.401.2">
-  <img src="/images/Jenkins-05.png" alt="Enabling safe parsing of HTML" />
 </Frame>
