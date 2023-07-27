@@ -79,3 +79,44 @@ We assume you are running branch deployments so that every change can be tested 
 </Tip>
 
 <Snippet file="snippet-quickstart-bottom.mdx" />
+
+## Updating Guide
+
+The following sections describe how to update between breaking-change versions of the pipeline.
+
+### V1 → V2
+
+Our token handling mechanism has changed, so you need to adapt the YAML of the pipeline and replace the token in your secrets with a new token.
+We are working on self-service; in the meantime please contact us for the new token.
+
+<div>
+<table>
+  <tr>
+    <th>V1</th>
+  </tr>
+  <tr>
+    <td>
+   ```yaml
+- uses: OctoMind-dev/automagically-action-execute@v1
+  with:
+    url: <publicly accessible url to your deployment>
+    token: ${{ secrets.AUTOMAGICALLY_TOKEN }}
+  ```
+    </td>
+  </tr>
+  <tr>
+    <th>V2</th>
+  </tr>
+  <tr>
+    <td>
+   ```yaml
+- uses: OctoMind-dev/automagically-action-execute@v2
+  with:
+    url: <publicly accessible url to your deployment>
+    token: ${{ secrets.AUTOMAGICALLY_TOKEN }} # <-- This is a new token!
+    testTargetId: <your testTargetId> # <-- You will get this from us
+```
+    </td>
+  </tr>
+</table>
+</div>
