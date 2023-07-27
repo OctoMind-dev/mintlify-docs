@@ -17,39 +17,27 @@ icon: "jenkins"
 Select your repository `Settings`, go to `Webhooks` and click `Add webhook.`
 
 <Frame caption="Adding Webhook to repository, screenshot 07/2023">
-  <img
-    src="/images/Webhook-01.png"
-    alt="Adding Webhook to repository"
-  />
+  <img src="/images/Webhook-01.png" alt="Adding Webhook to repository" />
 </Frame>
 
-For the  URL set `<your-jenkins-url>/github-webhook/` and select `application/json` for Content type.
-Also select triggers that best suite your need. 
+For the URL set `<your-jenkins-url>/github-webhook/` and select `application/json` for Content type.
+Also select triggers that best suite your need.
 In general, `the push event` is enough, but for this example, we also want to trigger automagically on `Pull Request`.
 
 <Frame caption="Configuring Webhook, screenshot 07/2023">
-  <img
-    src="/images/Webhook-02.png"
-    alt="Configuring Webhook"
-  />
+  <img src="/images/Webhook-02.png" alt="Configuring Webhook" />
 </Frame>
 
 Check `Pull requesuts` and `Pushes`, after that click on `Add webhook`.
 
 <Frame caption="Configuring Webhook permissions, screenshot 07/2023">
-  <img
-    src="/images/Webhook-03.png"
-    alt="Configuring Webhook permissions"
-  />
+  <img src="/images/Webhook-03.png" alt="Configuring Webhook permissions" />
 </Frame>
 
 If everything is OK, you should see a green checkmark after a few moments.
 
 <Frame caption="Validating Webhook, screenshot 07/2023">
-  <img
-    src="/images/Webhook-04.png"
-    alt="Validating Webhook"
-  />
+  <img src="/images/Webhook-04.png" alt="Validating Webhook" />
 </Frame>
 
 ### 4. Jenkins
@@ -64,19 +52,13 @@ Here is the example of creating a pipeline to test the script.
 On your Dashboard page, click on `+ New Item`
 
 <Frame caption="Creating new Pipeline, Jenkins 2.401.2">
-  <img
-    src="/images/Jenkins-01.png"
-    alt="Creating new Pipeline"
-  />
+  <img src="/images/Jenkins-01.png" alt="Creating new Pipeline" />
 </Frame>
 
 Give your Project a name, select Pipeline and press OK
 
 <Frame caption="Creating new Pipeline, Jenkins 2.401.2">
-  <img
-    src="/images/Jenkins-02.png"
-    alt="Creating new Pipeline"
-  />
+  <img src="/images/Jenkins-02.png" alt="Creating new Pipeline" />
 </Frame>
 
 You can check `GitHub project` and paste an url to your repo so you will have a button on your dashboard to take you to your repo.
@@ -107,23 +89,15 @@ Lastly, click on save
 You should add you `AUTOMAGICALLY_TOKEN` to your secrets. Navigate to `Dashboard -> Manage jenkins -> Credentials -> System -> Global credentials (unrestricted)` and click on `Add Credentials`.
 For the `Kind` you need to select `Secret text`. Be careful that your `ID` matches the `ID` that you call within the Jenkinsfile script. Copy your Token value to the `Secret` field and click `Create`.
 
-<Tip>
-  AUTOMAGICALLY_TOKEN is API key created in 1st step 
-</Tip>
+<Tip>AUTOMAGICALLY_TOKEN is API key created in 1st step</Tip>
 
 <Frame caption="Configuring AUTOMAGICALLY_TOKEN, Jenkins 2.401.2">
-  <img
-    src="/images/Jenkins-05.png"
-    alt="Configuring AUTOMAGICALLY_TOKEN"
-  />
+  <img src="/images/Jenkins-05.png" alt="Configuring AUTOMAGICALLY_TOKEN" />
 </Frame>
 
 If you want, you can enable safe parsing of HTML so you can click the link to the test report the pipeline output for you.
 Navigate to `Dashboard -> Manage jenkins -> Security` and for `Markup Formatter` select `Safe HTML` and then save.
 
 <Frame caption="Enabling safe parsing of HTML, Jenkins 2.401.2">
-  <img
-    src="/images/Jenkins-05.png"
-    alt="Enabling safe parsing of HTML"
-  />
+  <img src="/images/Jenkins-05.png" alt="Enabling safe parsing of HTML" />
 </Frame>
