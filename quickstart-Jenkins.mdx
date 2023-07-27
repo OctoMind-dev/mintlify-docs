@@ -52,19 +52,20 @@ You should copy that code to the desired step in your pipeline.
 You should add your `AUTOMAGICALLY_TOKEN` to your secrets. Navigate to `Dashboard -> Manage jenkins -> Credentials -> System -> Global credentials (unrestricted)` and click on `Add Credentials`.
 For the `Kind` you need to select `Secret text`. Be careful that your `ID` matches the `ID` that you call within the Jenkinsfile script. Copy your Token value to the `Secret` field and click `Create`.
 
-<Tip>AUTOMAGICALLY_TOKEN is API key created in [first step](#1-create-an-api-key).</Tip>
+<Tip>
+  AUTOMAGICALLY_TOKEN is API key created in [first step](#1-create-an-api-key).
+</Tip>
 
 <Frame caption="Configuring AUTOMAGICALLY_TOKEN, Jenkins 2.401.2">
-  <img src="/images/Jenkins-05.png" alt="Configuring AUTOMAGICALLY_TOKEN" />
+  <img src="/images/Jenkins-06.png" alt="Configuring AUTOMAGICALLY_TOKEN" />
 </Frame>
 
 If you want, you can enable safe parsing of HTML so you can click the link to the test report the pipeline output for you.
 Navigate to `Dashboard -> Manage jenkins -> Security` and for `Markup Formatter` select `Safe HTML` and then save.
 
 <Frame caption="Enabling safe parsing of HTML, Jenkins 2.401.2">
-  <img src="/images/Jenkins-06.png" alt="Enabling safe parsing of HTML" />
+  <img src="/images/Jenkins-07.png" alt="Enabling safe parsing of HTML" />
 </Frame>
-
 
 ### Creating Jenkins pipeline
 
@@ -95,6 +96,14 @@ You need to check `GitHub hook trigger for GITScm polling` so our previously cre
 For the `Definition`, you should select `Pipeline script from SCM`.
 For `SCM` you should select `Git`
 After adding your `Repository URL`, you also need to provide credentials if it is Private repository.
+
+<Frame caption="Loading Jenkinsfile from GitHub repository, Jenkins 2.401.2">
+  <img
+    src="/images/Jenkins-04.png"
+    alt="Loading Jenkinsfile from GitHub repository"
+  />
+</Frame>
+
 You also need to specify a branch, in this example `*/*` will trigger the pipeline on pushing to any branch.
 If you want to trigger pipeline only on specific branch changes, e.g. main, you should put `*/main`.
 The last field asks you to set the path and name to Jenkinsfile, but in our repository, it is on top level, and it is named Jenkinsfile, so no changes required.
@@ -102,7 +111,7 @@ Lastly, click on save
 
 <Frame caption="Loading Jenkinsfile from GitHub repository, Jenkins 2.401.2">
   <img
-    src="/images/Jenkins-04.png"
+    src="/images/Jenkins-05.png"
     alt="Loading Jenkinsfile from GitHub repository"
   />
 </Frame>
