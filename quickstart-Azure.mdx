@@ -92,8 +92,8 @@ The following sections describe how to update between breaking-change versions o
 
 ### V1 → V2
 
-Our token handling mechanism has changed, so you need to adapt the YAML of the pipeline and replace the token in your secrets with a new token.
-We are working on self-service; in the meantime please contact us for the new token.
+Our token handling mechanism has changed, so you need to adapt the YAML of the pipeline and replace the token in your secrets with a [newly created API Key](#1-create-an-api-key).
+You also need to add the `testTargetId`, which you can get as described [here](#2-copy-your-test-target-id).
 
 <div>
 <table>
@@ -119,8 +119,8 @@ We are working on self-service; in the meantime please contact us for the new to
     - task: automagicallyexecute@2
       inputs:
         url: <publicly accessible url to your deployment>
-        token: ${{ secrets.AUTOMAGICALLY_TOKEN }}  # <-- This is a new token!
-        testTargetId: <your testTargetId> # <-- You will get this from us
+        token: ${{ secrets.AUTOMAGICALLY_TOKEN }}  # <-- This is the API key you created above
+        testTargetId: <your testTargetId>
     ```
     </td>
   </tr>
