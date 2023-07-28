@@ -22,14 +22,14 @@ Once tests are executed, you will receive a comment in your GitHub / Azure DevOp
 | status          | checkmark: successfuly executed; hourglass: test case failed and is under investigation; red cross: test case failed                                |
 | details         | link which takes you to the test case details (see below)                                                                                           |
 
-## Test result overview in the Octomind app
+## Test report
 
 <img
   src="/images/test-overview-explained.png"
   alt="Example of the test overview page"
 />
 
-## Test results in the Octomind app
+## Test results
 
 <Frame caption="Test result page for a successful test case">
   <img
@@ -38,15 +38,21 @@ Once tests are executed, you will receive a comment in your GitHub / Azure DevOp
   />
 </Frame>
 
+<div class="mt-8" />
+
 <Frame caption="Test result page for a failed test case">
   <img src="/images/test-result-failure.png" alt="example of a failed test" />
 </Frame>
 
-In the lower section of the test detail page you can find the interaction chain the system is executing. We'll enhance it with additional useful information soon.
+In the lower section of the test detail page you can find the interaction chain the system is executing. We'll
+enhance it with additional useful information soon.
 
-## Debugging with Octomind
+## Review test results
 
-In the upper right corner you'll find two buttons.`debug test traces` will open the **Playwright Trace Viewer**. It's similar to a recording, but has a lot additional information that comes in handy when debugging.
+The test result page from above has two buttons in the upper right corner. The left one is called `debug test traces`.
+It will open the **Playwright Trace Viewer**. A trace is similar to a recording, but has a lot additional information that
+come in handy when debugging. It allows you to quickly understand the test execution and provides a pretty accurate picture
+of what went wrong.
 
 <Frame caption="Use Playwright Trace Viewer within Octomind">
   <img
@@ -55,11 +61,5 @@ In the upper right corner you'll find two buttons.`debug test traces` will open 
   />
 </Frame>
 
-`run locally` gives you a shell script snippet which you can use to run the test case against your local environment. This is good for setting breakpoints and stepping through the code. Click here for the [Debugtopus documentation](/debugtopus)
-
-<Frame caption="Use Debugtopus to run code locally">
-  <img
-    src="images/screenshot-run-locally.png"
-    alt="screenshot of dialog run locally"
-  />
-</Frame>
+The second button is called `run locally` and it provides you with the option to run the test case on your local
+machine against your local dev environemnt. For details pelase see [Debug your code](/debugtopus).
