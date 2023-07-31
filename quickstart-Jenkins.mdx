@@ -1,6 +1,6 @@
 ---
 title: "Quickstart Jenkins"
-description: "trigger Automagically inside Jenkins Pipeline via GitHub webhook"
+description: "Trigger Octomind in your Jenkins pipeline via GitHub webhook"
 icon: "jenkins"
 ---
 
@@ -15,42 +15,42 @@ icon: "jenkins"
 ### 3. Adding webhook
 
 <Warning>
-  If you already have a way to trigger your pipeline, you can skip this step
+  If you have a way to trigger your pipeline already, you can skip this step.
 </Warning>
 
 Select your repository `Settings`, go to `Webhooks` and click `Add webhook.`
 
-<Frame caption="Adding Webhook to repository, screenshot 07/2023">
-  <img src="/images/Webhook-01.png" alt="Adding Webhook to repository" />
+<Frame caption="Adding webhook to repository, screenshot 07/2023">
+  <img src="/images/Webhook-01.png" alt="Adding webhook to repository" />
 </Frame>
 
 For the URL set `<your-jenkins-url>/github-webhook/` and select `application/json` for Content type.
-Also select triggers that best suite your need.
-In general, `the push event` is enough, but for this example, we also want to trigger automagically on `Pull Request`.
+Select triggers that best suite your need.
+In general, the `push event` is enough, but for this example we also want to trigger Octomind on `pull request`.
 
-<Frame caption="Configuring Webhook, screenshot 07/2023">
-  <img src="/images/Webhook-02.png" alt="Configuring Webhook" />
+<Frame caption="Configuring webhook, screenshot 07/2023">
+  <img src="/images/Webhook-02.png" alt="Configuring webhook" />
 </Frame>
 
-Check `Pull requesuts` and `Pushes`, after that click on `Add webhook`.
+Check `Pull requests` and `Pushes` and after that click on `Add webhook`.
 
-<Frame caption="Configuring Webhook permissions, screenshot 07/2023">
-  <img src="/images/Webhook-03.png" alt="Configuring Webhook permissions" />
+<Frame caption="Configuring webhook permissions, screenshot 07/2023">
+  <img src="/images/Webhook-03.png" alt="Configuring webhook permissions" />
 </Frame>
 
 If everything is OK, you should see a green checkmark after a few moments.
 
-<Frame caption="Validating Webhook, screenshot 07/2023">
-  <img src="/images/Webhook-04.png" alt="Validating Webhook" />
+<Frame caption="Validating webhook, screenshot 07/2023">
+  <img src="/images/Webhook-04.png" alt="Validating webhook" />
 </Frame>
 
 ### 4. Jenkins
 
 Jenkinsfile script can be found [here](https://github.com/OctoMind-dev/jenkins-integration/blob/main/Jenkinsfile).
-You should copy that code to the desired step in your pipeline.
+Copy that code to the desired step in your pipeline.
 
-You should add your `AUTOMAGICALLY_TOKEN` to your secrets. Navigate to `Dashboard -> Manage jenkins -> Credentials -> System -> Global credentials (unrestricted)` and click on `Add Credentials`.
-For the `Kind` you need to select `Secret text`. Be careful that your `ID` matches the `ID` that you call within the Jenkinsfile script. Copy your Token value to the `Secret` field and click `Create`.
+Add your `AUTOMAGICALLY_TOKEN` to your secrets. Navigate to `Dashboard -> Manage jenkins -> Credentials -> System -> Global credentials (unrestricted)` and click on `Add Credentials`.
+For the `Kind` you need to select `Secret text`. Be careful that your `ID` matches the `ID` that you call within the Jenkinsfile script. Copy your token value to the `Secret` field and click `Create`.
 
 <Tip>
   AUTOMAGICALLY_TOKEN is API key created in [first step](#1-create-an-api-key).
@@ -93,9 +93,9 @@ You need to check `GitHub hook trigger for GITScm polling` so our previously cre
   />
 </Frame>
 
-For the `Definition`, you should select `Pipeline script from SCM`.
-For `SCM` you should select `Git`
-After adding your `Repository URL`, you also need to provide credentials if it is Private repository.
+For the `Definition` select `Pipeline script from SCM`.
+For `SCM` you select `Git`
+After adding your `Repository URL`, you'll need to provide credentials if it's a private repository.
 
 <Frame caption="Loading Jenkinsfile from GitHub repository, Jenkins 2.401.2">
   <img
@@ -104,10 +104,10 @@ After adding your `Repository URL`, you also need to provide credentials if it i
   />
 </Frame>
 
-You also need to specify a branch, in this example `*/*` will trigger the pipeline on pushing to any branch.
-If you want to trigger pipeline only on specific branch changes, e.g. main, you should put `*/main`.
-The last field asks you to set the path and name to Jenkinsfile, but in our repository, it is on top level, and it is named Jenkinsfile, so no changes required.
-Lastly, click on save
+You'll need to specify a branch, in this example `*/*` will trigger the pipeline on pushing to any branch.
+If you want to trigger pipeline only on specific branch changes, e.g. main, put in `*/main`.
+The last field asks you to set the path and name to Jenkinsfile, but it's on the top level in our repository and it's named Jenkinsfile, so no changes are required.
+Lastly, click on `Save`.
 
 <Frame caption="Loading Jenkinsfile from GitHub repository, Jenkins 2.401.2">
   <img
