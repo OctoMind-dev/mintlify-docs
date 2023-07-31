@@ -86,14 +86,15 @@ allowed to comment back into the pipeline. It will list the test results with ad
 
 <Snippet file="snippet-quickstart-bottom.mdx" />
 
-## Updating Guide
+## Legacy tokens - How to update your API key
 
-The following sections describe how to update between breaking-change versions of the pipeline.
+<Warning>
+  On July 21, 2023, we've changed the token handling mechanism. This is how you
+  update your pipeline integration from V1 to V2.
+</Warning>
 
-### V1 → V2
-
-Our token handling mechanism has changed, so you need to adapt the YAML of the pipeline and replace the token in your secrets with a [newly created API Key](#1-create-an-api-key).
-You also need to add the `testTargetId`, which you can get as described [here](#2-copy-your-test-target-id).
+1. Adapt the YAML of the pipeline and replace the token in your secrets with a [newly created API Key](#1-create-an-api-key).
+2. Add the `testTargetId`, which you can get as described [here](#2-copy-your-test-target-id).
 
 <div>
 <table>
