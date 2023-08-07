@@ -15,6 +15,7 @@
     }
   },
 
+
   "modeToggle": {
     "default": "dark"
   },
@@ -39,14 +40,14 @@
 
   "anchors": [
     {
-        "name": "GitHub",
-        "icon": "github",
-        "url": "https://github.com/OctoMind-dev"
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/OctoMind-dev"
     },
     {
-        "name": "Get easy help",
-        "icon": "discord",
-        "url": "https://discord.gg/3ShnZMKRfA"
+      "name": "Get easy help",
+      "icon": "discord",
+      "url": "https://discord.gg/3ShnZMKRfA"
     }
   ],
 
@@ -86,6 +87,10 @@
       "pages": ["data-governance/no-code-access", "data-governance/nda"]
     }
   ],
+  "feedback": {
+    "thumbsRating": true,
+    "raiseIssue": true
+  },
 
   "footerSocials": {
     "twitter": "https://twitter.com/Octomind_dev",
