@@ -33,8 +33,8 @@
 
   "topAnchor": {
     "name": "Documentation",
-    "icon": "building",
-    "iconType": "duotone"
+    "icon": "house",
+    "iconType": "solid"
   },
 
   "anchors": [
@@ -69,12 +69,18 @@
         "2-min-demo",
         "first-steps",
         "test-results",
-        "quickstart-GitHub",
-        "quickstart-Azure",
-        "quickstart-Vercel",
-        "quickstart-Jenkins",
         "debugtopus",
+        "integration-overview",
         "under-the-hood"
+      ]
+    },
+    {
+      "group": "CI integrations",
+      "pages": [
+        "integrations/quickstart-GitHub",
+        "integrations/quickstart-Azure",
+        "integrations/quickstart-Vercel",
+        "integrations/quickstart-Jenkins"
       ]
     },
     {
