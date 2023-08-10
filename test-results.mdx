@@ -4,6 +4,17 @@ description: "Everything, everywhere, all at once test results"
 icon: "square-check"
 ---
 
+## Test results in app.octomind.dev
+
+Test results are always displayed in the app. The test report section on the front page is listing all recent test reports in chronological order.
+
+<Frame caption="Example of the test report overivew in the app, screenshot 08/2023">
+  <img
+    src="images/test-report-overview.png"
+    alt="Example of the test report overivew in the app"
+  />
+</Frame>
+
 ## Test results in your CI/CD pipeline
 
 Once tests are executed, you will receive a comment in your GitHub / Azure DevOps pipeline which might look like the example below.
@@ -31,7 +42,7 @@ Once tests are executed, you will receive a comment in your GitHub / Azure DevOp
 
 ## Test results
 
-<Frame caption="Test result page for a successful test case">
+<Frame caption="Test result page for a successful test case, screenshot 08/2023">
   <img
     src="/images/test-result-success.png"
     alt="example of a successful test"
@@ -40,8 +51,26 @@ Once tests are executed, you will receive a comment in your GitHub / Azure DevOp
 
 <div class="mt-8" />
 
-<Frame caption="Test result page for a failed test case">
+<Frame caption="Test result page for a failed test case, screenshot 08/2023">
   <img src="/images/test-result-failure.png" alt="example of a failed test" />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="Test result page for a waiting-for-execution test case, screenshot 08/2023">
+  <img
+    src="/images/test-result-waiting.png"
+    alt="example of a waiting-for-execution test"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="Test result page for a system error test case, screenshot 08/2023">
+  <img
+    src="/images/test-result-error.png"
+    alt="example of a test case which failed due to a system error"
+  />
 </Frame>
 
 In the lower section of the test detail page you can find the interaction chain the system is executing. We'll
