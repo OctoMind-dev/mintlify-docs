@@ -34,7 +34,7 @@
 
   "topAnchor": {
     "name": "Documentation",
-    "icon": "house",
+    "icon": "octopus-deploy",
     "iconType": "solid"
   },
 
@@ -69,6 +69,7 @@
       "pages": [
         "3-min-demo",
         "first-steps",
+        "test-database",
         "test-results",
         "debugtopus",
         "integrations-overview",
