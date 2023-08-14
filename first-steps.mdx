@@ -68,18 +68,23 @@ Now we need to sign you up. Please provide an email so we can get in touch.
 
 <Info>We will notify you once we are done with the test case creation.</Info>
 
-## 4. Integrate Octomind into your CI/CD pipeline
+## 4. Integrate Octomind into your CI
 
-If you are on [GitHub](/quickstart-GitHub) or on [Azure DevOps](/quickstart-Azure) you can use our pre-packaged integrations from GitHub to
-add Octomind to your CI/CD pipeline. You'll find all information in the respective quickstart sections of this documentation.
+You'll get the best results by running the tests on pull requests.
+
+<Frame caption="Test database on the front page, screenshot 08/2023">
+  <img
+    src="images/never-miss-a-bug.png"
+    alt="CI integration on the front page, screenshot 08/2023"
+  />
+</Frame>
+
+If you are on [GitHub](/integrations/quickstart-GitHub) or on [Azure DevOps](/integrations/quickstart-Azure) you can use our pre-packaged integrations
+from our [GitHub repositories](https://github.com/OctoMind-dev) to add Octomind to your CI/CD pipeline. You'll find all information in the respective
+quickstart sections of this documentation. Start from the [integrations overview](/integrations-overview).
 
 If you are on a different CI/CD pipeline, you'll have to use our API to trigger test cases. It should be possible to add custom scripts into
 your pipeline. However, you won't be able to recieve test results directly in your pipeline. You'll have to review test runs directly in our app.
-
-### Open sourced integrations
-
-Octomind integrations are all open source. We'd encourage you to contribute to the existing or compose new integration for other CI/CD providers.
-We'll happily take over and maintain them further.
 
 ## 5. Get test results
 
