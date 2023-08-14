@@ -1,8 +1,10 @@
 ---
-title: Watch 3 min demo
-description: "Get an idea what Octomind does really quickly"
+title: How Octomind works
+description: "Quick explainer on how to get stable, fast and affordable UI tests"
 icon: "TV"
 ---
+
+Watch a 3 min video demo:
 
 <iframe
   width={560}
@@ -13,3 +15,64 @@ icon: "TV"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowFullScreen
 ></iframe>
+
+## 1. All we need is your website URL
+
+... to start the AI powered test auto-discovery. We will discover, run and maintain your UI tests.
+You can [try it right now](app.octomind.dev) by setting up your first user flow at app.octomind.dev.
+
+<Frame caption="First page of the setup flow - link to your website, screenshot 08/2023">
+  <img src="/images/setup/setup-1-url.png" alt="enter your url" />
+</Frame>
+
+## 2. User flow discovery
+
+Full disclosure - we auto-discover only **sign-in** user flow for now. We will keep you posted as we are continuously adding new user flows.
+
+<Frame caption="Test user credentials input to test the sign-in flow, screenshot 08/2023">
+  <img
+    src="/images/setup/setup-3-credentials.png"
+    alt="enter a test user, screenshot 08/2023"
+  />
+</Frame>
+
+## 3. Your Playwright test code
+
+We will generate a [Playwright test code](https://playwright.dev/), host and run the tests for you.
+
+## 4. Your test results
+
+You will see the [test results](/test-results) in the app and in your PR comments if you integrated us into your CI pipeline.
+
+<Frame caption="Example of Octomind test results in a commit comment, screenshot 06/2023">
+  <img
+    src="images/Octomind-test-results-commit-comments-GitHub-example.png"
+    alt="Example of Octomind test results in a commit comment"
+  />
+</Frame>
+
+## 5. Review the broken user flow
+
+You can go through the details, check the error log and open the [Playwright Trace Viewer](https://playwright.dev/docs/trace-viewer-intro) to see where the user flow broke.
+
+<Frame caption="Example of Playwright Test Viewer, screenshot 08/2023">
+  <img
+    src="images/Trace-viewer-screeshot-082023.png"
+    alt="Example of Playwright Test Viewer"
+  />
+</Frame>
+
+## 6. Debug locally
+
+Debug locally with Debugtopus. [Debugtopus is our open source tool](debugtopus) enabling you to run tests locally for easier debugging.
+
+<Frame caption="Open source Debugtopus on GitHub, screenshot 08/2023">
+  <img
+    src="images/debugtopus-open-source.png"
+    alt="Open source debugging tool Debugtopus"
+  />
+</Frame>
+
+## 7. We'll maintain your tests automatically
+
+Our AI will maintain your tests when they break.
