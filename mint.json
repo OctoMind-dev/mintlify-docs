@@ -86,6 +86,10 @@
       ]
     },
     {
+      "group": "Changelog!",
+      "pages": ["changelog"]
+    },
+    {
       "group": "Questions?",
       "pages": ["questions/faq"]
     },
