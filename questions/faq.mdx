@@ -11,7 +11,8 @@ We will add building blocks which allow for more demanding scenarios over time, 
 
 ## 2. How are my tests generated?
 
-We'll ask you to give us the user flows that need to be end-to-end tested. We'll discover the interaction chain of the test case in an intermediate representation. We'll generate a corresponding Playwright code on the fly and execute it against your pull request.
+We are using our AI agent for test case discovery. We create the first test case for a **sign-in user flow** at your set-up automatically and we'll ask you to give us more user flows that need to be end-to-end tested.
+We'll discover the interaction chain of the test case in an intermediate representation. We'll generate a corresponding Playwright code on the fly and execute it against your pull request.
 
 ## 3. What code are you using for your tests?
 
@@ -38,11 +39,11 @@ The interaction chain of this test case will be adjusted permanently to the new 
 
 ## 7. I do not use use GitHub, can I use your tests?
 
-Yes. Apart from GitHub we do offer a native integration for Azure DevOps. For all other build pipelines you can script your own test trigger so that our test suite is triggered whenever you run a pull request.
+Yes. Apart from GitHub we do offer a native integration for Azure DevOps and API based integrations for Vercel and Jenkins. For all other build pipelines you can script your own test trigger so that our test suite is triggered whenever you run a pull request.
 All you need is an API key to identify your test suite and an externally accessible test target. Unfortunately, we won't be able to comment back into your pipeline.
 Instead, you'll be able to receive the test results through our app.
 
 ## 8. How can I get in touch with you?
 
 Either use [our discord server](https://discord.gg/3ShnZMKRfA)
-or [write us an eMail](mailto:contact@octomind.dev)
+or [write us an email](mailto:contact@octomind.dev)
