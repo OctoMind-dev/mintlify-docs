@@ -1,0 +1,44 @@
+---
+title: AI discovery (beta)
+description: "Prompting AI for test case discovery"
+icon: "microchip-AI"
+---
+
+We are deploying an `AI agent` to discover user flows and interactions leading towards a desired user goal.
+It is the foundation for creating `deterministic test cases`. We are recording and storing the interaction chain of a test case in an intermediate representation.
+A Playwright code is generated on the fly just before test execution.
+
+## Free prompting
+
+We have beta released our free prompting interface for everyone to try it out. It will helps us fine tune the AI agent and the self-serve experience.
+[Sign up to our app](https://app.octomind.dev/setup/url?utm_source=docs&utm_medium=txt-lnk) and get the first UI test automatically.
+
+<Frame caption="Free promting window for test case discovery, screenshot 08/2023">
+  <img
+    src="images/free-prompting-UX.png"
+    alt="free prompting window for test case discovery"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Info>
+  The ultimate goal is to streamline the AI discovery process so the initial
+  test creation effort is minimal self-healing fully automated. Prompting will
+  become fully automated for more and more test cases as we go.
+</Info>
+
+## Free prompting best practices - work in progress
+
+1. Keep prompts short and to the point.
+2. Mention all steps required, e.g. if you have to click away a cookie banner, mention it.
+
+- Example without a cookie banner: “sign in with username and password using \{credentials\}”
+- Example with a cookie banner: “accept cookies then sign in with username and password using \{credentials\}”
+
+3. These are the limitations so far:
+
+- We can only handle flows which happen inside the app. Cross-app or cross-device flows are not supported, e.g. we do not cover email confirmation flow or a 2FA right now.
+- We cannot handle captchas yet.
+- Our AI agent might get blocked by robot detection on some high traffic sites. Sites / apps in production are more bot-protected than staging / test systems.
+- We are not able to stack test cases yet. We always start at 0. If your test case wants to add/remove devices from a list, you might have to include the sign-in procedure as well.
