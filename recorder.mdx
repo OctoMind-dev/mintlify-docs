@@ -5,9 +5,9 @@ icon: "record-vinyl"
 ---
 
 We heard you. You asked for a non-AI option to generate new test cases - for more manual control and for cases that the AI model struggles with.
-[Playwright Inspector](https://playwright.dev/docs/codegen#generate-tests-with-the-playwright-inspector) is a helpful feature we used to create a test recorder.
+[Playwright Inspector](https://playwright.dev/docs/codegen#generate-tests-with-the-playwright-inspector) is a helpful feature we used to create our test recorder.
 
-A hacky version we are constantly fine tuning. Let us know your thoughts.
+It is a hacky version we are constantly fine tuning. Let us know your thoughts.
 
 1. In your app home screen, click on `record test case`.
 
@@ -18,7 +18,7 @@ A hacky version we are constantly fine tuning. Let us know your thoughts.
   />
 </Frame>
 
-2. Name your test case. Click `next`.
+2. Name your test case. Check if you are recording on the same url you registered with. Click `next`.
 
 <Frame caption="Octomind test recorder - name test case, screenshot 09/2023">
   <img
@@ -48,7 +48,7 @@ npx playwright install
 
 4. Playwright Inspector and your app are launched in separate browser windows.
 
-Now, you can click yourself through the user flow. When you finish recording your test, stop recording.
+Now, you can click yourself through the user flow. When you finish recording your test, stop the recording.
 
 <Frame caption="Playwright opened a browser window with the project url, screenshot 09/2023">
   <img
@@ -57,28 +57,14 @@ Now, you can click yourself through the user flow. When you finish recording you
   />
 </Frame>
 
-5. Copy only the `await` lines of code to clipboard.
+5. Copy all the `await` lines of code except the `await page.goto` line.
 
 Playwright generates the code for the user interactions which you can see in the Playwright Inspector window.
 
-<Frame caption="Playwright Inspector recording performed actions, screenshot 09/2023">
+<Frame caption="Playwright Inspector recorded performed actions and generated test code, screenshot 09/2023">
   <img
-    src="images/recorder/recorder-5-playwright-inspector.png"
-    alt="Playwright Inspector recording performed actions"
-  />
-</Frame>
-
-<div class="mt-8" />
-
-<Warning>
-  We do not support `goto` statement at the moment. If Playwright recorded it,
-  please, leave the line out when copying.
-</Warning>
-
-<Frame caption="Playwright Inspector recording an action with goto, screenshot 09/2023">
-  <img
-    src="images/recorder/recorder-5-goto-exclusion.png"
-    alt="Playwright Inspector recording an action with goto"
+    src="images/recorder/recorder-5.png"
+    alt="Playwright Inspector recorded performed actions and generated test code"
   />
 </Frame>
 
