@@ -4,6 +4,70 @@ description: "All the nice stuff you asked for"
 icon: "sparkles"
 ---
 
+## 2023-09-20
+
+**UI Improvements**:
+
+- Improve layout of overview grid and test report header on mobile
+
+## 2023-09-19
+
+**Features**:
+
+- Display error log for failed tests in the test result detail
+
+**UI Improvements**:
+
+- Responsiveness on mobile for snackbars
+- Remove UI flashing on initial load
+
+**Bug Fixes**:
+
+- Sign Ups won't fail on duplicate organization names
+- If there is an error you can still continue to use the app on the non-errored pages
+
+## 2023-09-18
+
+**Features**:
+
+- You can now manually create a test case from a failed discovery.
+  This is useful when the discovery failed, but the generated steps are still useful.
+  An example would be when the agent can not verify the success of the task, but it actually succeeded.
+  This is only available for new discoveries.
+- Add modal allowing the user to give feedback to octomind
+
+**UI Improvements**:
+
+- Settings dialog looks better on mobile
+- Recording upload is more intuitive
+
+**Bug Fixes**:
+
+- Initial link tests now follow redirects
+- Agent produces correct output again when filling out forms
+
+## 2023-09-14
+
+**Features**:
+
+- Test case discoveries now have traces, so you can see what the agent did in the playwright trace viewer
+
+**UI Improvements**:
+
+- Planned steps within a test case are now expandable
+- Introduce larger settings modal
+
+**Bug Fixes**:
+
+- Do not close recording modal if there was an error
+- Add timeout to running a discovery
+- Allow parsing of doubly escaped quotes in recordings
+- Initial test creation is now faster
+
+## 2023-09-11
+
+- Workaround for browser extensions that modify the html document and cause issues when displaying our page
+
 ## 2023-09-08
 
 - `Follow links` test case on initial set-up added
