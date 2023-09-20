@@ -29,11 +29,14 @@ Once tests are executed, you will receive a comment in your GitHub / Azure DevOp
 
 There will be a row for each test with the following information:
 
-| column      | description                                                                                                                      |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| description | Name of the test case                                                                                                            |
-| status      | ✅: execution successful; ⌛️: execution in progress; ❌: execution failed; 💔: something went wrong on our side during execution |
-| details     | link which takes you to the test case details (see below)                                                                        |
+| column      | description                                               |
+| ----------- | --------------------------------------------------------- |
+| description | name of the test case                                     |
+| status ✅   | execution successful                                      |
+| status ⌛️   | execution in progress                                     |
+| status ❌   | execution failed                                          |
+| status 💔   | something went wrong on our side during execution         |
+| details     | link which takes you to the test case details (see below) |
 
 ## Test report
 
@@ -89,7 +92,7 @@ If you click on one of the test cases within the test report, you will find deta
 
 On each executed test result, you can:
 
-- inspect the execution using the `debug in Trace Viewer` button.
+- Inspect the execution using the `debug in Trace Viewer` button.
   It will open the **Playwright Trace Viewer**. A trace is similar to a recording, but has a lot additional information that
   comes in handy when debugging. It allows you to quickly understand the test execution and the results of each action taken.
   You can get an accurate picture of what went wrong.
