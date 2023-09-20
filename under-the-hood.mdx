@@ -6,14 +6,16 @@ icon: "engine"
 
 ## Test case building
 
-A web app is typically composed of user flows. A user flow lets a user accomplish a certain goal. Sign-in with email & password would be an example. To perform a sign-in with email & password a certain sequence of steps - `interactions` - is required.
+A web app is typically composed of user flows. A user flow lets a user accomplish a certain goal. "Sign-in with email & password" is an example.
+To perform a sign-in with email & password, a certain sequence of steps - `interactions` - is required.
 We are recording and storing the interaction chain of a test case in an intermediate representation.
 The corresponding [Playwright](https://playwright.dev/) code which is exercising the UI is generated on the fly just before test execution. The interaction chain can be examined in the test detail view and the Playwright trace viewer.
 
 ## Auto-maintenance
 
-We follow a playbook to find out if a test failure is caused by a behavioral change of your user flows, the test code itself or a bug in your code. In the case of a behavioral change we pinpoint the failing interaction.
+We follow a playbook to find out if a test failure is caused by a behavioral change of your user flows, the test code itself or a bug in your code. In the case of a behavioral change, we pinpoint the failing interaction.
 We then apply machine learning to detect the new desired interaction to achieve the original goal of the test case. The interaction chain of the test case will be adjusted permanently to the new behavior as a result.
+This feature is under active development and not publicly accesible yet.
 
 ## Issue pinpointing
 
@@ -22,9 +24,11 @@ When a test case rightfully fails, we help you quickly understand what went wron
 - Screenshots at the time of test failure
 - Execution log of the test cases
 - Playwright traces via trace viewer
-- Debugtopus which lets you run tests localy, so you can set breakpoints to go through the code
+- `Debugtopus` tooling, which lets you run our tests localy, so you can set breakpoints to step through the code.
 
 ### Debugtopus
+
+See details at [Debug your code](/debugtopus).
 
 <Frame caption="Debugtopus interaction diagram">
   <img
