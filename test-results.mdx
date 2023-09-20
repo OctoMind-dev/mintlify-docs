@@ -6,7 +6,8 @@ icon: "square-check"
 
 ## Test results in app.octomind.dev
 
-Test results are always displayed in the app. The test report section on the front page is listing all recent test reports in chronological order.
+You can always find all test results in the app. The test report section on the front page is listing all recent test reports in chronological order.
+You can also reach the test results via the sidebar.
 
 <Frame caption="Example of the test report overivew in the app, screenshot 08/2023">
   <img
@@ -17,21 +18,25 @@ Test results are always displayed in the app. The test report section on the fro
 
 ## Test results in your CI/CD pipeline
 
-Once tests are executed, you will receive a comment in your GitHub / Azure DevOps pipeline which might look like the example below.
+Once tests are executed, you will receive a comment in your GitHub / Azure DevOps pipeline which looks like the example below.
 
-<Frame caption="Example of Octomind test results in a commit comment, screenshot 06/2023">
+<Frame caption="Example of Octomind test results in a commit comment, screenshot 09/2023">
   <img
     src="images/Octomind-test-results-commit-comments-GitHub-example.png"
-    alt="Example of Octomind test results in a commit comment"
+    alt="Example of Octomind test results in a github pull request comment"
   />
 </Frame>
 
-| column          | description                                                                                                                                         |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| description     | Name of the test case                                                                                                                               |
-| execution state | Can either be running or executed. If a test case is on the list of test cases to be executed but not executed yet, it will not appear in this list |
-| status          | checkmark: successfuly executed; hourglass: test case failed and is under investigation; red cross: test case failed                                |
-| details         | link which takes you to the test case details (see below)                                                                                           |
+There will be a row for each test with the following information:
+
+| column      | description                                               |
+| ----------- | --------------------------------------------------------- |
+| description | name of the test case                                     |
+| status ✅   | execution successful                                      |
+| status ⌛️   | execution in progress                                     |
+| status ❌   | execution failed                                          |
+| status 💔   | something went wrong on our side during execution         |
+| details     | link which takes you to the test case details (see below) |
 
 ## Test report
 
@@ -42,7 +47,9 @@ Once tests are executed, you will receive a comment in your GitHub / Azure DevOp
 
 ## Test results
 
-<Frame caption="Test result page for a successful test case, screenshot 08/2023">
+If you click on one of the test cases within the test report, you will find details about the execution, as well as further options to interact with the test result based on its result.
+
+<Frame caption="Test result page for a successful test case, screenshot 09/2023">
   <img
     src="/images/test-result-success.png"
     alt="example of a successful test"
@@ -51,13 +58,13 @@ Once tests are executed, you will receive a comment in your GitHub / Azure DevOp
 
 <div class="mt-8" />
 
-<Frame caption="Test result page for a failed test case, screenshot 08/2023">
+<Frame caption="Test result page for a failed test case, screenshot 09/2023">
   <img src="/images/test-result-failure.png" alt="example of a failed test" />
 </Frame>
 
 <div class="mt-8" />
 
-<Frame caption="Test result page for a waiting-for-execution test case, screenshot 08/2023">
+<Frame caption="Test result page for a waiting-for-execution test case, screenshot 09/2023">
   <img
     src="/images/test-result-waiting.png"
     alt="example of a waiting-for-execution test"
@@ -66,29 +73,35 @@ Once tests are executed, you will receive a comment in your GitHub / Azure DevOp
 
 <div class="mt-8" />
 
-<Frame caption="Test result page for a system error test case, screenshot 08/2023">
+<Frame caption="Test result page for a system error test case, screenshot 09/2023">
   <img
     src="/images/test-result-error.png"
     alt="example of a test case which failed due to a system error"
   />
 </Frame>
 
-In the lower section of the test detail page you can find the interaction chain the system is executing. We'll
-enhance it with additional useful information soon.
+- The `error` state indicates that something went wrong on our side when executing the test.
+  You should generally not see tests in this state on a regular basis.
 
-## Review test results
+- In the lower section of the test detail page, you can find the interaction chain the system is executing.
+  We are working on adding further useful information.
 
-The test result page from above has two buttons in the upper right corner. The left one is called `debug test traces`.
-It will open the **Playwright Trace Viewer**. A trace is similar to a recording, but has a lot additional information that
-come in handy when debugging. It allows you to quickly understand the test execution and provides a pretty accurate picture
-of what went wrong.
+- Below failed test cases, you will see the error log that caused the failure.
 
-<Frame caption="Use Playwright Trace Viewer within Octomind">
-  <img
-    src="images/screenshot-Playwright-Trace-Viewer.png"
-    alt="Playwright Trace Viewer screenshot"
-  />
-</Frame>
+## Interacting with test results
 
-The second button is called `run locally` and it provides you with the option to run the test case on your local
-machine against your local dev environemnt. For details pelase see [Debug your code](/debugtopus).
+On each executed test result, you can:
+
+- Inspect the execution using the `debug in Trace Viewer` button.
+  It will open the **Playwright Trace Viewer**. A trace is similar to a recording, but has a lot additional information that
+  comes in handy when debugging. It allows you to quickly understand the test execution and the results of each action taken.
+  You can get an accurate picture of what went wrong.
+
+  <Frame caption="Use Playwright Trace Viewer within Octomind">
+    <img
+      src="images/screenshot-Playwright-Trace-Viewer.png"
+      alt="Playwright Trace Viewer screenshot"
+    />
+  </Frame>
+
+- Debug your test on your own machine against your local dev environemnt using the `run locally` button. For details please see [Debug your code](/debugtopus).
