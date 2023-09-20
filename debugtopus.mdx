@@ -6,7 +6,7 @@ icon: "bug"
 
 Debugtopus is our open source tool enabling you to run tests locally for easier debugging. Follow the steps below to
 execute a test case on your machine and against your local dev environment. This is good for setting breakpoints and
-stepping through the code.
+stepping through the code once our tests have identified an issue.
 
 ## 1. Get shell script
 
@@ -24,7 +24,7 @@ Click on "copy to clipboard".
 
 ## 2. Start test locally
 
-Open a termninal window and paste the shell script from your clipboard.
+Open a terminal window and paste the shell script from your clipboard.
 
 <Frame caption="paste command from clipboard">
   <img
@@ -33,9 +33,9 @@ Open a termninal window and paste the shell script from your clipboard.
   />
 </Frame>
 
-Now change the placeholder **local-url** with the url of your local environment. In the example screenshot below
+Now change the placeholder **local-url** with the url of your locally running application. In the example screenshot below
 the placeholder was replaced with _localhost:3000_. You might also have to include the route to the starting point.
-If your testcase assumes to run from the sign-in page you might have to add the route to the sign-in page
+For example, if your testcase assumes to run from the sign-in page you might have to add the route to the sign-in page
 e.g. _localhost:3000/signin_.
 
 <Frame caption="replace url placeholder with your local environment url">
@@ -69,7 +69,7 @@ Now the Playwright UI is shown.
 
 <Frame caption="Playwright UI screenshot">
   <img
-    src="images/Trace-viewer-screeshot-082023.png"
+    src="images/Trace-viewer-screenshot-082023.png"
     alt="Playwright UI screenshot"
   />
 </Frame>
