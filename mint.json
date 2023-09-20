@@ -75,6 +75,7 @@
         "test-results",
         "debugtopus",
         "integrations-overview",
+        "execution-without-ci",
         "under-the-hood"
       ]
     },
