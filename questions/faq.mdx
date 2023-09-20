@@ -37,13 +37,28 @@ We are following a playbook to find out if a test failure is caused by a behavio
 In case of a behavioral change, we pinpoint the failing interaction. We apply machine learning to find out what's the new desired interaction to achieve the original goal of the test case.
 The interaction chain of this test case will be adjusted permanently to the new behavior as a result.
 
-## 7. I do not use use GitHub, can I use your tests?
+## 7. How do I write a good prompt?
+
+You have the ability to free prompt our agent to discover more test cases. At the moment, you need to be quite specific about what you want to achieve.
+Prompts with a high success rate read like a short recipe, like "accept the cookie consent popup, then open the projects overview and create a new project with a name of your choice. Make sure you can see the new project in the list of projects in the end".
+Prompts like "create a new project" have a chance of succeeding, but it is less likely to produce a meaningful test.
+We are actively working to make the agent more robust.
+
+At the moment, you need to start each interaction from scratch, so if your flow requires to be logged in, you need to add that to the prompt.
+This will change in the future.
+You can template your configured test credentials and your test URL into the prompt by wrapping them inside curly braces like this:
+
+"Log into \{url\} with the following credentials: \{credentials\}".
+
+You do not need to specify navigating to the configured URL, this happens automatically.
+
+## 8. I do not use use GitHub, can I use your tests?
 
 Yes. Apart from GitHub we do offer a native integration for Azure DevOps and API based integrations for Vercel and Jenkins. For all other build pipelines you can script your own test trigger so that our test suite is triggered whenever you run a pull request.
 All you need is an API key to identify your test suite and an externally accessible test target. Unfortunately, we won't be able to comment back into your pipeline.
 Instead, you'll be able to receive the test results through our app.
 
-## 8. How can I get in touch with you?
+## 9. How can I get in touch with you?
 
 Either use [our discord server](https://discord.gg/3ShnZMKRfA)
 or [write us an email](mailto:contact@octomind.dev)
