@@ -95,12 +95,6 @@
         "data-governance/no-code-access",
         "data-governance/nda"
       ]
-    },
-    {
-      "group": "Blog",
-      "pages": [
-        "blog/langchain"
-      ]
     }
   ],
   "feedback": {
