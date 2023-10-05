@@ -60,7 +60,7 @@
 
   "topbarCtaButton": {
     "name": "Go to app",
-    "url": "https://app.octomind.dev/?utm_source=docs&utm_medium=nav-btn"
+    "url": "https://app.octomind.dev/setup/url?utm_source=docs&utm_medium=txt-lnk"
   },
 
   "navigation": [
