@@ -8,8 +8,8 @@ icon: "lightbulb"
 
 We'll ask for a URL to create test cases. The URL has to be publicly accessible.
 
-<Frame caption="First page of the setup flow - link to your website, screenshot 08/2023">
-  <img src="/images/setup/setup-1-url.png" alt="enter your url" />
+<Frame caption="First page of the setup flow - link to your website, screenshot 09/2023">
+  <img src="/images/setup/setup-1-url.png" alt="enter your url screen" />
 </Frame>
 
 ## 2. Name your project
@@ -18,25 +18,40 @@ The second page will render a screenshot of the url you provided. It tests that 
 Now you'd need to give your project a name. We'll propose one similar to the url you provided.
 But you can choose your own.
 
-<Frame caption="Second page of the setup flow: Name your project, screenshot 08/2023">
+<Frame caption="Second page of the setup flow: Name your project, screenshot 09/2023">
   <img
     src="/images/setup/setup-2-project.png"
-    alt="name your project, screenshot 08/2023"
+    alt="name your project screen, screenshot 09/2023"
   />
 </Frame>
 
 <div class="mt-8" />
 
-## 3. Give us a test user
+## 3. Select UI test cases to be auto-discovered
 
-Almost all web apps are featuring a sign-in and interesting test cases can only be executed after sign-in. This is why
-we need a test user. Also, the first test case we will try to discover will be a sign-in with a username and a password.
+At the first set-up, you can select if we should auto-discover:
+
+- a `log in` test for your web app
+- a `change language` test
+- a reachability `check for all links` on your page
+- or just go with only custom test cases, where you can create test cases:
+  - with our `AI agent` \(alpha feature\)
+  - with a `Playwright recording` tool
+
+<Frame caption="Third page of the setup flow - choose your first tests, screenshot 10/2023">
+  <img
+    src="images/setup/setup-3-custom.png"
+    alt="choose your first tests screen, screenshot 10/2023"
+  />
+</Frame>
+
+If you choose the `log in` test, we'll ask you for **test user credentials** \(test username and a password\).
 The test credentials should fit the URL you provided above.
 
-<Frame caption="Third page of the setup flow - test user credentials, screenshot 08/2023">
+<Frame caption="Third page of the setup flow - insert test user credentials for a log-in test, screenshot 10/2023">
   <img
     src="/images/setup/setup-3-credentials.png"
-    alt="enter a test user, screenshot 08/2023"
+    alt="enter a test user for log-in tesst screen, screenshot 10/2023"
   />
 </Frame>
 
@@ -51,21 +66,30 @@ Now we need to sign you up. Please, provide an email, so we can get in touch.
   />
 </Frame>
 
+## 5. View you test results
+
+Access the Octomind app with the magic link. Welcome!
+
+<Frame caption="Fifth page of the setup flow - the app welcome screen, screenshot 10/2023">
+  <img
+    src="/images/setup/setup-5-welcome-modal.png"
+    alt="welcome in the app modal, screenshot 10/2023"
+  />
+</Frame>
+
 <div class="mt-8" />
 
 <Info>
-  We are triggering a test case discovery for the <b>sign-in</b> flow and do a
-  <b> reachability</b> check for all your links right away. You will get your
-  first test cases within minutes. If the discovery of the sign-in test fails,
-  we will investigate. This might take a little longer.
+  We've triggered test case discovery for the tests you selected right away. You
+  will get your first test cases within minutes. If the discovery of any of the
+  tests fails, we will investigate. This might take a little longer.
 </Info>
 
-We will ask you for the most useful test cases, and we'll create 3 to 8 of them.
-We will notify you once we are done with the test case creation. Or you can try out our **brand-new free prompting feature**!
+We will be adding more out-of-the-box automated test cases as we grow. In the meantime, you can try out our **brand-new free prompting feature** or record test cases with **Playwright recorder**.
 
-## 5. ALPHA: Free prompt more test discoveries
+## 6. ALPHA: Free prompt more test discoveries
 
-We've added a new feature for creating test cases using free prompting. It's still in alpha. Experiment and let us know your thoughts!
+We've added a new feature for creating test cases using [free prompting](/discovery). It's still in alpha. Experiment and let us know your thoughts!
 Ping us on [Discord](https://discord.gg/3ShnZMKRfA) or [drop us a note](mailto:contact@octomind.dev) via email.
 
 <Frame caption="Free promting window for test case discovery, screenshot 08/2023">
@@ -75,19 +99,20 @@ Ping us on [Discord](https://discord.gg/3ShnZMKRfA) or [drop us a note](mailto:c
   />
 </Frame>
 
-## 5. Record missing test cases manually
+## 7. Record missing test cases manually
 
 You can also record any missing test cases using playwright directly from your terminal. See [recorder](/recorder) for
 more information.
 
-<Frame caption="Home screen button to add test cases using a test recorder, screenshot 09/2023">
+<Frame caption="Home screen button to add test cases using a test recorder, screenshot 10/2023">
   <img
-    src="images/recorder/recorder-1.png"
+    src="images/setup/setup-7-recorder
+    .png"
     alt="home screen button to add test cases using a test recorder"
   />
 </Frame>
 
-## 6. Integrate Octomind into your CI
+## 8. Integrate Octomind into your CI
 
 You'll get the best results by running the tests in your CI pipeline
 
@@ -105,7 +130,7 @@ quickstart sections of this documentation. Start from the [integrations overview
 If you are on a different CI/CD pipeline, you'll have to use our API to trigger test cases. It should be possible to add custom scripts into
 your pipeline, see [manual execution](/manual-execution) for details. However, you won't be able to receive test results directly in your pipeline. You'll have to review test runs directly in our app.
 
-## 7. Get test results
+## 9. Get test results
 
 You will receive test results directly in your pull request comments if you used our native integrations.
 Each test case will be listed with a deep link to test result details.
