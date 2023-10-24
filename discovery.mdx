@@ -13,10 +13,26 @@ Playwright code is generated on the fly just before test execution.
 We have released our free prompting interface for everyone to try it out as an alpha release. It will help us fine tune the AI agent and the self-serve experience.
 [Sign up to our app](https://app.octomind.dev/setup/url?utm_source=docs&utm_medium=txt-lnk) and get the first UI test automatically.
 
-<Frame caption="Free promting window for test case discovery, screenshot 09/2023">
+<Frame caption="Free prompting window for test case discovery, screenshot 10/2023">
   <img
     src="images/free-prompting-UX.png"
     alt="free prompting window for test case discovery"
+  />
+</Frame>
+
+## Chaining your tests
+
+When using the AI agent to discover your tests, you can use a dependency to chain them together. A user flow test case is virtually a chain of test cases. Shorter flows are faster, more specific and more reliable.
+
+This is how you do it:
+
+- Give us a path where the AI agent should start its discovery process.
+- Select a test case that should run before the test AI agent is about to discover and run.
+
+<Frame caption="Test case chaining for AI test case discovery, screenshot 10/2023">
+  <img
+    src="images/changelog/test-case-chaining.png"
+    alt="Test case chaining for AI test discovery"
   />
 </Frame>
 
