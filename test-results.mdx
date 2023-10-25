@@ -29,14 +29,16 @@ Once tests are executed, you will receive a comment in your GitHub / Azure DevOp
 
 There will be a row for each test with the following information:
 
-| column      | description                                               |
-| ----------- | --------------------------------------------------------- |
-| description | name of the test case                                     |
-| status ✅   | execution successful                                      |
-| status ⌛️  | execution in progress                                     |
-| status ❌   | execution failed                                          |
-| status 💔   | something went wrong on our side during execution         |
-| details     | link which takes you to the test case details (see below) |
+| column      | description           |
+| ----------- | --------------------- |
+| description | name of the test case |
+| status ✅   | execution successful  |
+
+// eslint-disable-next-line prettier/prettier
+| status ⌛️ | execution in progress |
+| status ❌ | execution failed |
+| status 💔 | something went wrong on our side during execution |
+| details | link which takes you to the test case details (see below) |
 
 <Info>
   Heads up! If there is a conflict on the pull request, the workflow won't
