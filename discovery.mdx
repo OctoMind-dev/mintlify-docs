@@ -1,6 +1,6 @@
 ---
 title: AI discovery (alpha)
-description: "Prompting AI for test case discovery"
+description: "Prompting AI for test case generation"
 icon: "microchip-AI"
 ---
 
@@ -8,15 +8,18 @@ We are deploying an `AI agent` to discover user flows and interactions leading t
 It is the foundation for creating `deterministic test cases`. We are recording and storing the interaction chain of a test case in an intermediate representation.
 Playwright code is generated on the fly just before test execution.
 
-## Free prompting
+## AI test case generation
 
 We have released our free prompting interface for everyone to try it out as an alpha release. It will help us fine tune the AI agent and the self-serve experience.
 [Sign up to our app](https://app.octomind.dev/setup/url?utm_source=docs&utm_medium=txt-lnk) and get the first UI test automatically.
 
-<Frame caption="Free prompting window for test case discovery, screenshot 10/2023">
+### Editing your AI discovery
+We've also added **human feedback** to the AI test case generation process. Pick the discovered step the AI agent got wrong and have the following steps rediscovered with a simple comment.
+
+<Frame caption="Relaunch AI discovery based on your comments, screenshot 11/2023">
   <img
-    src="images/free-prompting-UX.png"
-    alt="free prompting window for test case discovery"
+    src="images/changelog/comments-screenshot.png"
+    alt="Relaunch AI discovery based on comments"
   />
 </Frame>
 
