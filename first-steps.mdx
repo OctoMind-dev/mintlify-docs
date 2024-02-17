@@ -8,8 +8,8 @@ icon: "lightbulb"
 
 We'll ask for a URL to create test cases. The URL has to be publicly accessible.
 
-<Frame caption="First page of the setup flow - link to your website, screenshot 09/2023">
-  <img src="/images/setup/setup-1-url.png" alt="enter your url screen" />
+<Frame caption="First page of the setup flow - link to your website, screenshot 02/2024">
+  <img src="/images/first-steps/give-us-URL.png" alt="enter your url screen" />
 </Frame>
 
 ## 2. Name your project
@@ -18,9 +18,9 @@ The second page will render a screenshot of the url you provided. It tests that 
 Now you'd need to give your project a name. We'll propose one similar to the url you provided.
 But you can choose your own.
 
-<Frame caption="Second page of the setup flow: Name your project, screenshot 09/2023">
+<Frame caption="Second page of the setup flow: Name your project, screenshot 02/2024">
   <img
-    src="/images/setup/setup-2-project.png"
+    src="/images/first-steps/name-your-project.png"
     alt="name your project screen, screenshot 09/2023"
   />
 </Frame>
@@ -29,117 +29,113 @@ But you can choose your own.
 
 ## 3. Select UI test cases to be auto-discovered
 
-At the first set-up, you can select if we should auto-discover:
+At the first set-up, you can select what should we auto-discover:
 
-- a `log in` test for your web app
-- a `change language` test
-- a reachability `check for all links` on your page
-- or just go with only custom test cases, where you can create test cases:
-  - with our `AI agent` \(alpha feature\)
-  - with a `Playwright recording` tool
-
-<Frame caption="Third page of the setup flow - choose your first tests, screenshot 10/2023">
+<Frame caption="Third page of the setup flow - choose your first tests, screenshot 02/2024">
   <img
-    src="images/setup/setup-3-custom.png"
+    src="images/first-steps/auto-discover.png"
     alt="choose your first tests screen, screenshot 10/2023"
   />
 </Frame>
 
-If you choose the `log in` test, we'll ask you for **test user credentials** \(test username and a password\).
-The test credentials should fit the URL you provided above.
+**log in**
+- this test assesses login functionality, verifying credential accuracy and security, to ensure a seamless and secure user access
+- if you choose the log in test, we’ll ask you for test user credentials (test username and a password). The test credentials should fit the URL you provided above
+
+<Frame caption="Third page of the setup flow - insert test user credentials for a log in test, screenshot 02/2024">
+  <img
+    src="images/first-steps/auto-discover-login.png"
+    alt="choose your first tests screen, screenshot 10/2023"
+  />
+</Frame>
+
+**change language**
+- this test checks language switching functionality for smooth and accurate application localization
+
+<Frame caption="Third page of the setup flow - change language test, screenshot 02/2024">
+  <img
+    src="images/first-steps/auto-discover-change-language.png"
+    alt="choose your first tests screen, screenshot 10/2023"
+  />
+</Frame>
+
+**links**
+
+- this test verifies the accessibility of all links on the page, ensuring they are functional and lead to the correct destinations
+
+<Frame caption="Third page of the setup flow - links test, screenshot 02/2024">
+  <img
+    src="images/first-steps/auto-discover-links.png"
+    alt="choose your first tests screen, screenshot 10/2023"
+  />
+</Frame>
+
+**only custom**
+- note that a reachability test is always active by default. Selecting any test will execute it in conjunction with the
+reachability test
+- choosing the “only custom” option will run just the reachability test
+- additionally, later in the application, you have the flexibility to conduct your own test regardless of the options previously selected
 
 <Frame caption="Third page of the setup flow - insert test user credentials for a log-in test, screenshot 10/2023">
   <img
-    src="/images/setup/setup-3-credentials.png"
+    src="/images/first-steps/auto-discover-only-custom.png"
     alt="enter a test user for log-in tesst screen, screenshot 10/2023"
   />
 </Frame>
 
 ## 4. Create an account
 
-Now we need to sign you up. Please, provide an email, so we can get in touch.
+Now we need to sign you up. Please, provide an email for confirmation. Following this, you will be redirected to a page to establish your account credentials.
 
-<Frame caption="Fourth page of the setup flow - create account, screenshot 08/2023">
+<Frame caption="Fourth page of the setup flow - create account, screenshot 02/2024">
   <img
-    src="/images/setup/setup-4-create-account.png"
+    src="/images/first-steps/sign-up-1.png"
     alt="create account, screenshot 08/2023"
   />
 </Frame>
 
-## 5. View your test results
+<div class="mt-8" />
 
-Access the Octomind app with the magic link. Welcome!
-
-<Frame caption="Fifth page of the setup flow - the app welcome screen, screenshot 10/2023">
+<Frame caption="Fourth page of the setup flow - create account, screenshot 02/2024">
   <img
-    src="/images/setup/setup-5-welcome-modal.png"
+    src="/images/first-steps/email-confirmation-1.png"
+    alt="create account, screenshot 08/2023"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="Fourth page of the setup flow - create account, screenshot 02/2024">
+  <img
+    src="/images/first-steps/email-confirmation-2.png"
+    alt="create account, screenshot 08/2023"
+  />
+</Frame>
+
+## 5. Enter application & Tutorial
+
+If automatic redirection to our app does not occur after confirming your email, manually log in with the previously set credentials.
+Welcome!
+
+Upon logging in, a tutorial will be presented to you. We kindly recommend you **not to skip tutorial**, but it is up to you!
+
+The tutorial provides essential guidance on how to **publish** your test case, created during the sign up process and
+which is currently in draft form. Following publication, it will also instruct you on how to request a **test report**, which will lead to the presentation of your test results.
+
+<Frame caption="Fifth page of the setup flow - the app welcome screen, screenshot 02/2024">
+  <img
+    src="/images/first-steps/tutorial-1.png"
     alt="welcome in the app modal, screenshot 10/2023"
   />
 </Frame>
 
-<div class="mt-8" />
+## 6. Test results
 
-<Info>
-  We've triggered test case discovery for the tests you selected right away. You
-  will get your first test cases within minutes. If the discovery of any of the
-  tests fails, we will investigate. This might take a little longer.
-</Info>
+Through the completion of the tutorial, you will be guided to publish and report your first test, ultimately resulting in the provision of your test results.
 
-We will be adding more out-of-the-box automated test cases as we grow. In the meantime, you can try out our **brand-new free prompting feature** or record test cases with **Playwright recorder**.
-
-## 6. ALPHA: Free prompt more test discoveries
-
-We've added a new feature for creating test cases using [free prompting](/discovery). It's still in alpha. Experiment and let us know your thoughts!
-Ping us on [Discord](https://discord.gg/3ShnZMKRfA) or [drop us a note](mailto:contact@octomind.dev) via email.
-
-<Frame caption="Button to add more test cases, screenshot 01/2024">
+<Frame caption="Sixth page of the setup flow - test results, screenshot 02/2024">
   <img
-    src="images/setup/add-test-button.png"
+    src="images/first-steps/results.png"
     alt="button to add more test cases"
   />
 </Frame>
-
-<div class="mt-8" />
-
-<Frame caption="Free promting window for test case discovery, screenshot 08/2023">
-  <img
-    src="images/free-prompting-UX.png"
-    alt="free prompting window for test case discovery"
-  />
-</Frame>
-
-## 7. Record missing test cases manually
-
-You can also record any missing test cases using playwright directly from your terminal. See [recorder](/recorder) for
-more information.
-
-<Frame caption="Test cases screen button to add test cases using a recorder, screenshot 10/2023">
-  <img
-    src="images/setup/setup-7-recorder.png"
-    alt="test cases screen button to add test cases using a test recorder"
-  />
-</Frame>
-
-## 8. Integrate Octomind into your CI
-
-You'll get the best results by running the tests in your CI pipeline
-
-<Frame caption="CI integration on the front page of the app, screenshot 09/2023">
-  <img
-    src="images/never-miss-a-bug.png"
-    alt="CI integration on the front page, screenshot 08/2023"
-  />
-</Frame>
-
-If you are on [GitHub](/integrations/quickstart-GitHub) or on [Azure DevOps](/integrations/quickstart-Azure) you can use our pre-packaged integrations
-from our [GitHub repositories](https://github.com/OctoMind-dev) to add Octomind to your CI/CD pipeline. You'll find all information in the respective
-quickstart sections of this documentation. Start from the [integrations overview](/integrations-overview).
-
-If you are on a different CI/CD pipeline, you'll have to use our API to trigger test cases. It should be possible to add custom scripts into
-your pipeline, see [manual execution](/manual-execution) for details. However, you won't be able to receive test results directly in your pipeline. You'll have to review test runs directly in our app.
-
-## 9. Get test results
-
-You will receive test results directly in your pull request comments if you used our native integrations.
-Each test case will be listed with a deep link to test result details.
-Please, have a look at the [Test results](/test-results) section of this documentation for more info.
