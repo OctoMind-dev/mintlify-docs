@@ -67,25 +67,45 @@
     {
       "group": "Get Started",
       "pages": [
-        "3-min-demo",
-        "first-steps",
-        "discovery",
-        "recorder",
-        "test-database",
-        "test-results",
-        "debugtopus",
-        "integrations-overview",
-        "execution-without-ci",
-        "under-the-hood"
+        "sections/get-started/octo-dictionary",
+        "sections/get-started/your-first-project",
+        "sections/get-started/your-first-test-report",
+        "sections/get-started/ideal-octomind-flow"
+      ]
+    },
+    {
+      "group": "Test case",
+      "pages": [
+        "sections/test-case/overview",
+        "sections/test-case/draft",
+        "sections/test-case/conclude-draft",
+        "sections/test-case/draft-statuses",
+        "sections/test-case/published-test-cases",
+        "sections/test-case/archived-test-cases"
+      ]
+    },
+    {
+      "group": "Test report",
+      "pages": [
+        "sections/test-report/generate-report",
+        "sections/test-report/overview",
+        "sections/test-report/test-result"
+      ]
+    },
+    {
+      "group": "AI agent",
+      "pages": [
+        "sections/ai-agent/discover-test-cases",
+        "sections/ai-agent/auto-fix"
       ]
     },
     {
       "group": "CI integrations",
       "pages": [
-        "integrations/quickstart-GitHub",
-        "integrations/quickstart-Azure",
-        "integrations/quickstart-Vercel",
-        "integrations/quickstart-Jenkins"
+        "sections/integrations/quickstart-GitHub",
+        "sections/integrations/quickstart-Azure",
+        "sections/integrations/quickstart-Vercel",
+        "sections/integrations/quickstart-Jenkins"
       ]
     },
     {
@@ -94,11 +114,11 @@
     },
     {
       "group": "Questions?",
-      "pages": ["questions/faq"]
+      "pages": ["sections/questions/faq"]
     },
     {
       "group": "Data Governance",
-      "pages": ["data-governance/no-code-access", "data-governance/nda"]
+      "pages": ["sections/data-governance/no-code-access", "sections/data-governance/nda"]
     }
   ],
   "feedback": {
