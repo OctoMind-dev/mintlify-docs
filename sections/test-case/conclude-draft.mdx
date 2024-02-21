@@ -3,3 +3,49 @@ title: Conclude draft
 description: "Detail process that occurs once you save your draft."
 icon: "square-check"
 ---
+
+# Overview
+
+In the overview layout, you can observe: **date** of your draft creation, **name** of the test case, **URL** you provided, and its **last run.**
+
+The actions you can perform include:
+- **deleting the draft** by clicking on the delete icon located in the top right corner
+- **renaming** the test case
+- pressing **last run**, which will redirect you to a new page where you can view the test report in Playwright Trace Viewer
+
+Last run presents the result of the previous action of pressing the `run` button.
+
+# Steps
+
+**Steps** represent the list of commands you provided to our AI agent.
+
+You can **edit** your prompts by clicking on the pencil icon displayed in the top right container.
+
+**Regenerating** steps can be done by clicking on the `generate steps` button and confirming the action.
+
+In the "body" of steps, there are **two** options available:
+- you can **click** on a **step** and mark it as optional, allowing the app to continue running even if it fails at that step
+- you can **click** on the **plus** icon to add a new step, where you can choose whether it should be an interaction or an assertion.
+
+<Snippet file="snippet-debug.mdx" />
+
+<Snippet file="snippet-run.mdx" />
+
+# Publish
+
+When you press `publish`, your test case transitions from **draft** to **published** form. You can locate your test in the published section.
+
+<Frame caption="caption goes here">
+    <iframe
+        width={560}
+        height={345}
+        frameBorder={0}
+        style={{borderRadius: 0.5 + 'rem'}}
+        src=""
+        allow="clipboard-write"
+        frameborder="0"
+        webkitallowfullscreen="true"
+        mozallowfullscreen="true"
+        allowfullscreen>
+    </iframe>
+</Frame>
