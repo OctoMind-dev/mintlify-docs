@@ -110,7 +110,7 @@
     },
     {
       "group": "Changelog",
-      "pages": ["changelog"]
+      "pages": ["sections/changelog/changelog"]
     },
     {
       "group": "Questions?",
