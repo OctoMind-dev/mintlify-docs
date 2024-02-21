@@ -4,13 +4,11 @@ description: "Run an Azure DevOps task to get Octomind test results into your pu
 icon: "microsoft"
 ---
 
-## CI/CD pipeline integration
+<Snippet file="supademo/snippet-create-api-key.mdx" />
 
-### 1. Create an API key
+<Snippet file="supademo/snippet-copy-test-target-id.mdx" />
 
-### 2. Copy your test target ID
-
-### 3. Install Azure DevOps pipeline extension
+# 3. Install Azure DevOps pipeline extension
 
 Install our Azure DevOps pipeline extension from the Marketplace.
 
@@ -26,7 +24,7 @@ Install our Azure DevOps pipeline extension from the Marketplace.
   />
 </Frame>
 
-### 4. Include the Azure DevOps Task
+# 4. Include the Azure DevOps Task
 
 Include the following `Azure DevOps Task` into your CI/CD build pipeline on pull
 request.
@@ -56,7 +54,7 @@ the azure task.
   code](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute)
 </Tip>
 
-### 5. Set user permissions
+# 5. Set user permissions
 
 Make sure that your `build service user` also has permissions to comment to pull requests. To do so, navigate to the
 Project Settings > Repos > Repositories > Security tab and allow the 'contribute to pull request' flag.
@@ -68,7 +66,7 @@ Project Settings > Repos > Repositories > Security tab and allow the 'contribute
   />
 </Frame>
 
-### 6. Allow comments
+# 6. Allow comments
 
 During installation, we’ll ask you to grant access to your repository with write access to pull request threads, so we are
 allowed to comment back into the pipeline. It will list the test results with additional links to more details, looking like this ↓

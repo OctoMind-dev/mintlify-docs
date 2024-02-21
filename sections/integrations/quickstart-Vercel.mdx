@@ -10,8 +10,6 @@ icon: "triangle"
   guide](https://docs.octomind.dev/quickstart-GitHub) instead.
 </Warning>
 
-## CI/CD pipeline integration
-
 We currently do not have a native Vercel integration. If you are using Vercel for your CI, you should be able to use Octomind when following the steps below. If you have any difficulties with it, please, let us know on our [Discord](https://discord.gg/3ShnZMKRfA).
 
 <Tip>
@@ -28,11 +26,11 @@ We currently do not have a native Vercel integration. If you are using Vercel fo
   />
 </Frame>
 
-### 1. Create an API key
+<Snippet file="supademo/snippet-create-api-key.mdx" />
 
-### 2. Copy your test target ID
+<Snippet file="supademo/snippet-copy-test-target-id.mdx" />
 
-### 3. Include the GitHub Action
+# 3. Include the GitHub Action
 
 Include the following `GitHub Action` into your CI/CD build pipeline on deployment_status changes:
 
