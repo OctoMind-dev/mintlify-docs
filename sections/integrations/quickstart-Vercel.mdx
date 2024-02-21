@@ -22,16 +22,15 @@ We currently do not have a native Vercel integration. If you are using Vercel fo
 <div className="mt-8" />
 
 <Frame caption="Octomind Vercel flow">
-  <img src="/images/octomind-vercel-flow.png" alt="Vercel flow" />
+  <img
+    src="/images/ci-integrations/vercel/octomind-vercel-flow.png"
+    alt="Vercel flow"
+  />
 </Frame>
 
 ### 1. Create an API key
 
-<Snippet file="snippet-apiKey.mdx" />
-
 ### 2. Copy your test target ID
-
-<Snippet file="snippet-testTarget.mdx" />
 
 ### 3. Include the GitHub Action
 
@@ -58,5 +57,3 @@ jobs:
 ```
 
 The test report link will be added to the workflow summary of the action, see [Example PR action summary](https://github.com/OctoMind-dev/vercel-actions-example/pull/11)
-
-<Snippet file="snippet-quickstart-bottom.mdx" />
