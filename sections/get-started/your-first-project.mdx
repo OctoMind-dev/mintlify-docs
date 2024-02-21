@@ -8,61 +8,64 @@ To create your first project, **you need to complete the sign up flow.** Follow 
 
 # 1. Give us URL
 
-We'll ask for a URL to create test cases. The URL has to be publicly accessible.
+We will ask for a URL to create the test cases for. The URL has to be publicly accessible.
 
 <Frame caption="caption goes here">
-    <img />
+  <img />
 </Frame>
 
 ## 2. Name your project
 
-The second page will render a screenshot of the url you provided. It tests that your URL is accessible. If it's not, you'll see an Octo in a jar.
-Now you'd need to give your project a name. We'll propose one similar to the url you provided.
-But you can choose your own.
+We will render a screenshot of the URL you provided. We test that your URL is accessible.
+
+You also need to give your project a name. We will propose one similar to the URL you provided, but you can choose your own.
 
 <Frame caption="caption goes here">
-    <img />
+  <img />
 </Frame>
 
-## 3. Select UI test cases
+## 3. Preselect test cases
 
-At the first set-up, you can select what should we auto-discover:
+During the first set-up, you have an option to select which drafts (octo-dictionary-link) will wait for you once you finish the sign up.
+
+By default, we will include our reachability test and you can choose between `log in`, `change language` or `links`.
+You can even select all three of them!
+
+Select `only custom` if you prefer to have clean state once you are inside the app and ready to start the testing journey.
 
 <Frame caption="caption goes here">
-    <img />
+  <img />
 </Frame>
 
 **log in**
-- this test assesses login functionality, verifying credential accuracy and security, to ensure a seamless and secure user access
-- if you choose the log in test, we’ll ask you for test user credentials (test username and a password). The test credentials should fit the URL you provided above
+
+- our AI Agent generates steps (octo-dictionary-link) to do login.
+- you also need provide the test user credentials (test username and a password).
+- make sure the account has the minimal privileges necessary to perform the login function, we do not want to potentially mess with your data.
+- if your website is login protected we highly recommend to select this option because of test case dependency option (octo-dictionary-link)
 
 <Frame caption="caption goes here">
-    <img />
+  <img />
 </Frame>
 
 **change language**
-- this test checks language switching functionality for smooth and accurate application localization
+
+- our AI Agent generates steps (octo-dictionary-link) to do language switching functionality
 
 <Frame caption="caption goes here">
-    <img />
+  <img />
 </Frame>
 
 **links**
 
-- this test verifies the accessibility of all links on the page, ensuring they are functional and lead to the correct destinations
+- our AI Agent generates multiple drafts (octo-dictionary-link) where each test case verifies the accessibility of link on the page, ensuring they are functional and lead to the correct destinations
 
 <Frame caption="caption goes here">
-    <img />
+  <img />
 </Frame>
 
-**only custom**
-- note that a reachability test is always active by default. Selecting any test will execute it in conjunction with the
-reachability test
-- choosing the “only custom” option will run just the reachability test
-- additionally, later in the application, you have the flexibility to conduct your own test regardless of the options previously selected
-
 <Frame caption="caption goes here">
-    <img />
+  <img />
 </Frame>
 
 # 4. Finish sign up
@@ -70,5 +73,5 @@ reachability test
 Now we need to sign you up. Please, provide an email for confirmation. Following this, you will be redirected to a page to establish your account credentials.
 
 <Frame caption="caption goes here">
-    <img />
+  <img />
 </Frame>
