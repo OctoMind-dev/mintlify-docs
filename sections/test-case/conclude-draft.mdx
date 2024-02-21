@@ -4,28 +4,31 @@ description: "Detail process that occurs once you save your draft."
 icon: "square-check"
 ---
 
-# Overview
+<Snippet file="snippet-overview.mdx" />
 
-In the overview layout, you can observe: **date** of your draft creation, **name** of the test case, **URL** you provided, and its **last run.**
+(screenshot-goes-here)
+The actions you can perform are:
 
-The actions you can perform include:
-- **deleting the draft** by clicking on the delete icon located in the top right corner
-- **renaming** the test case
-- pressing **last run**, which will redirect you to a new page where you can view the test report in Playwright Trace Viewer
+- **delete**, by clicking on the delete icon located in the top right corner
+- **rename**, by clicking into the name input field
+- press **last run**, which will redirect to the new tab where you can view it's trace in Playwright Trace Viewer
 
-Last run presents the result of the previous action of pressing the `run` button.
+<Snippet file="snippet-steps.mdx" />
 
-# Steps
+You can add, remove or update each of the steps you can see.(screenshot goes here)
 
-**Steps** represent the list of commands you provided to our AI agent.
+Additionally, if you create the test case by selecting the prompt option, you can see (screenshot goes here) and **edit** your prompt by clicking on the pencil icon displayed in the top right container.
+Updating the prompt gives you option to regenerate steps. By clicking on the `generate steps` button, you will have a pop up where you can choose if you want to keep some of the steps.
+In that case, our agent will continue from the last step you selected, and the steps after it will be deleted. (screenshot goes here)
 
-You can **edit** your prompts by clicking on the pencil icon displayed in the top right container.
+To edit a step you need to expand it by clicking on it. (screenshot goes here)
 
-**Regenerating** steps can be done by clicking on the `generate steps` button and confirming the action.
+- you can toggle **mark as optional**, allowing the test to continue execution, even if it fails at that step.
+- you can change the Playwright locator of the element in that step.
 
-In the "body" of steps, there are **two** options available:
-- you can **click** on a **step** and mark it as optional, allowing the app to continue running even if it fails at that step
-- you can **click** on the **plus** icon to add a new step, where you can choose whether it should be an interaction or an assertion.
+To delete a step, you need to click on a delete icon once you have expanded the step by clicking on it. (screenshot goes here)
+
+To create a new step, you need to click on a + icon, **here goes the explanation of interactions and assertions**
 
 <Snippet file="snippet-debug.mdx" />
 
@@ -33,7 +36,12 @@ In the "body" of steps, there are **two** options available:
 
 # Publish
 
-When you press `publish`, your test case transitions from **draft** to **published** form. You can locate your test in the published section.
+<Tip>
+  Clicking the publish button will also perform save if there are changes
+</Tip>
+
+When you press `publish`, your test case goes from **draft** status to status **published**.
+It will also move your test to the published section.
 
 <Frame caption="caption goes here">
   <iframe

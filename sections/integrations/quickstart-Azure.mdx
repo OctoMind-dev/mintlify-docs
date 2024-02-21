@@ -4,11 +4,17 @@ description: "Run an Azure DevOps task to get Octomind test results into your pu
 icon: "microsoft"
 ---
 
-<Snippet file="supademo/snippet-create-api-key.mdx" />
+## CI/CD pipeline integration
 
-<Snippet file="supademo/snippet-copy-test-target-id.mdx" />
+### 1. Create an API key
 
-# 3. Install Azure DevOps pipeline extension
+<Snippet file="snippet-apiKey.mdx" />
+
+### 2. Copy your test target ID
+
+<Snippet file="snippet-testTarget.mdx" />
+
+### 3. Install Azure DevOps pipeline extension
 
 Install our Azure DevOps pipeline extension from the Marketplace.
 
@@ -18,13 +24,10 @@ Install our Azure DevOps pipeline extension from the Marketplace.
 </Tip>
 
 <Frame caption="Octomind Azure install, screenshot 06/2023">
-  <img
-    src="/images/ci-integrations/azure/azure-install.png"
-    alt="Octomind Azure install"
-  />
+  <img src="/images/azure-install.png" alt="Octomind Azure install" />
 </Frame>
 
-# 4. Include the Azure DevOps Task
+### 4. Include the Azure DevOps Task
 
 Include the following `Azure DevOps Task` into your CI/CD build pipeline on pull
 request.
@@ -54,26 +57,23 @@ the azure task.
   code](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute)
 </Tip>
 
-# 5. Set user permissions
+### 5. Set user permissions
 
 Make sure that your `build service user` also has permissions to comment to pull requests. To do so, navigate to the
 Project Settings > Repos > Repositories > Security tab and allow the 'contribute to pull request' flag.
 
 <Frame caption="Octomind Azure pipeline permissions, screenshot 06/2023">
-  <img
-    src="/images/ci-integrations/azure/azure-permissions.png"
-    alt="Octomind Azure permissions"
-  />
+  <img src="/images/azure-permissions.png" alt="Octomind Azure permissions" />
 </Frame>
 
-# 6. Allow comments
+### 6. Allow comments to Pull Request
 
-During installation, we’ll ask you to grant access to your repository with write access to pull request threads, so we are
+Our app will ask you to grant access to your repository with write access to pull request threads, so we are
 allowed to comment back into the pipeline. It will list the test results with additional links to more details, looking like this ↓
 
 <Frame caption="Example of Octomind test results in a pull request comment, screenshot 07/2023">
   <img
-    src="/images/ci-integrations/azure/dev.azure.com_octomind-dev_test-pipeline-task__git_test-pipeline-task_pullrequest_1.png"
+    src="/images/dev.azure.com_octomind-dev_test-pipeline-task__git_test-pipeline-task_pullrequest_1.png"
     alt="Example of Octomind test results in a pull request comment in Azure DevOps, screenshot 06/2023"
   />
 </Frame>
