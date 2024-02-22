@@ -1,14 +1,18 @@
 ---
 title: Draft
-description: "We will systematically furnish you with an overview of all scenarios your draft may encompass."
+description: "Getting into details regarding draft test cases"
 icon: "file-pen"
 ---
 
-When creating a new test case, you can select one of the three following options:
+When creating a new test case, you need to provide it with the name and optionally starting endpoint.
+This helps when your test does not start at the homepage but in some specific route.
+This way we reduce the boilerplate needed to get to the place you actually want to test.
 
-- **prompt**
-- **recording**
-- **manual**
+You can select one of the three following ways to generate steps:
+
+- [**prompt**](/sections/get-started/octo-dictionary/#prompt)
+- [**recording**](/sections/get-started/octo-dictionary/#recording)
+- [**manual**](/sections/get-started/octo-dictionary/#manual-test-case)
 
 <Frame caption="caption goes here">
   <img />
@@ -16,15 +20,52 @@ When creating a new test case, you can select one of the three following options
 
 # Prompt
 
-**Prompt** refers to a text input to our AI Agent which will then try to come up with test steps from it.
+<Info>
+  Entering a prompt temporarily disables option to switch to other options until
+  the prompt field is cleared
+</Info>
+
+Before entering the prompt for your desired flow, you have option to choose a dependency first.
+This comes quite handy when there are pre-requisites to the flow you want to test.
+For example, lets say your app requires login, so instead including "first perform a login" to your prompt, you can preselect the login test, assuming you created that test case separately before.
+That way, our AI Agent will first go through dependent steps before trying to continue with generation of steps from the provided prompt.
+
+<Note>Only published test cases can be selected as pre-requisite</Note>
+
+(screenshot-goes-here)
+
+Clicking the save button will trigger our AI Agent to start generating test case steps.
+This may take a while, but step generation this way is streamed so you can see (needs wording)
+
+(screenshot-goes-here)
+
+(Prompting best practices go here)
 
 # Recording
 
-This option is for our tech savvy users who are already familiar with **Playwright.** Sometimes our AI Agent will no be able
-to generate steps you wish, but these steps can easily be generated through Playwright recorder. Our API is able to parse
-most of the Playwright recorded selectors and assertions.
+<Info>
+  Inserting code temporarily disables option to switch to other options until
+  the code field is cleared
+</Info>
+
+After making sure you have Playwright installed, you can execute given command and record steps for your flow.
+
+(screenshot-goes-here)
+
+Here is a quick recording example used to navigate to docs:
+
+```TypeScript
+await page.getByLabel('help-menu').click();
+await page.getByRole('button', { name: 'documentation' }).click();
+```
+
+If there is something wrong in syntax, you will not be able to save the test case.
+You will be informed by the snackbar that test case could not be created and in the code console, the line that is causing problem will be underlined.
+
+(screenshot-goes-here)
+
+Clicking the save button will instantly create a draft.
 
 # Manual
 
-**Manual** test case refers to an action of creating a draft with no steps in it. It is on the user to manually add all the
-steps through our UI from supported assertions and interactions. It is intended for users who want maximal control.
+By selecting the manual option, you can only click the save button since it will create a draft with no steps in it.
