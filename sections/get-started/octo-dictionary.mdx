@@ -1,17 +1,8 @@
 ---
 title: Octo Dictionary
-description: "Essential terminology use within the Octomind app"
+description: "Essential terminology used within the Octomind app"
 icon: "book"
 ---
-
-## Project
-
-Project is a collection of test cases and test reports specific to the URL you provided.
-That URL is used as a base for every further action within the Octomind app and you can extend it for a specific path (e.g. /docs) as a start URL for a specific test.
-
-You also have an option to run your test collection against different environment or, with help of [Debugtopus](/sections/get-started/octo-dictionary/#debugtopus), against localhost / local changes (needs wording).
-
-You can always create another project if you need to test multiple web sites, but the tests won't be shared between them.
 
 ## Test steps
 
@@ -27,50 +18,62 @@ Test case is Octomind base entity. It is an ordered chain of test steps. A test 
    This excludes the test case from future test reports and we keep them as archived in case you change your mind
 
 Both the draft and the published test case can be run to see what will be the outcome of execution of that test case.
-Neither of these produces a test report, it is more like validation that steps within them are executable.
+Neither of these produces a test report, it is more like validation of the steps within.
 
 ## Test result
 
-Test result is an outcome of execution of test case.
-It can be successful or failed, depending if the assertions are met.
+Test result is an outcome of execution of a single test case.
+It can be successful or failed, depending if the assertions were met.
 It can also end up in error state which indicates that there is a problem on our side.
 
 ## Test report
 
 Test report consists of test results which are outcome of executing published test cases.
 
+## Project
+
+Project is a collection of test cases and test reports specific to the URL you provided.
+That URL is used as a base for every further action within the Octomind app and you can extend it for a specific path (e.g. /docs) as a start URL for a specific test.
+
+You also have an option to run your test collection against different environment or, with help of [Debugtopus](/sections/get-started/octo-dictionary/#debugtopus), against localhost / local changes (needs wording).
+
+You can always create another project if you need to test multiple web sites.
+The tests won't be shared between them.
+
 ## Running test case
 
 At this point of time, running a test case can mean three things:
 
-1.  run a specific test case in specific state which does not produce a test report
-2.  run all the published test cases which produces the test report
+1.  run a single draft or published test case in which does not produce a test report. This is the action of **run** button.
+2.  run all the published test cases which produces the test report. This is the action of **generate report** button
 3.  [run locally](/sections/get-started/octo-dictionary/#run-locally)
 
 ## Run locally
 
-By running locally we mean that we want to execute the test case's steps against the URL you provide within the [Debugtopus](/sections/get-started/octo-dictionary/#debugtopus) command.
-Intended use case is when your test case is failed and you want to fix the problem and test it against your local environment (better wording ty)
+By running locally we mean that we want to execute the currently selected test case's steps against the URL you provide within the [Debugtopus](/sections/get-started/octo-dictionary/#debugtopus) command.
+One of the ideas behind it is when your test case has failed and you want evaluate the test against solution in your local environment (better wording ty)
 
 ## Prompt
 
-Prompt refers to a text input to our AI Agent which will then come up with test steps from it.
+Prompt refers to a text input of a user flow to our AI Agent which use it to come up with test steps for it. (better wording ty)
 
 ## Recording
 
-This option is for our tech savvy users who are already familiar with Playwright. Sometimes our AI Agent may not be able to generate desired steps,
-but these steps can easily be generated through Playwright recorder. Our API is able to parse most of the Playwright's selectors and assertions.
+This option is for our tech savvy users who are already familiar with Playwright.
+You can make a recording with Playwright recorder and give it to us.
+Our API is able to parse most of the Playwright's selectors and assertions.
+(better wording)
 
 ## Manual test case
 
 Manual test case refers to an action of creating a draft with no steps in it.
 It is on the user to manually add all the steps through our UI from supported assertions and interactions.
-It is intended for users who want maximal control.
+It is intended for users who want maximal control. (maybe?)
 
 ## Debugtopus
 
 Debugtopus is our open source tool enabling you to run tests locally for easier debugging.
-not sure what to write here
+not sure what to write here. Probably move some of the stuff from debug snippet here?
 
 ## Test case dependency
 
