@@ -8,27 +8,31 @@ icon: "book"
 
 Project is a collection of test cases and test reports specific to the URL you provided.
 That URL is used as a base for every further action within the octomind app and you can extend it for a specific path (e.g. /docs) as a start URL for a specific test.
-You also have an option to run your test collection against different environment or, with help of Debugtopus(add link here), against localhost / local changes (needs wording).
+
+You also have an option to run your test collection against different environment or, with help of [Debugtopus](/sections/get-started/octo-dictionary/#debugtopus), against localhost / local changes (needs wording).
+
 You can always create another project if you need to test multiple web sites, but the tests won't be shared between them.
 
 ## Test steps
 
-Test step is our building block. It models minimal action within the test, e.g. click on button or check if button is visible.
+Test step is our building block. It models minimal action within the test, e.g. _click on a button_ or _check if the button is visible_. (should eg be in italic)
 
 ## Test case
 
 Test case is octomind base entity. It is an ordered chain of test steps. A test case can have multiple states:
 
-- **draft**: test case ends up in draft state after being created. While test case is in draft state, you can add/remove steps to fulfil your testing goal.
-- **published**: once you're happy with your test case's steps, you can publish it. Published test cases will be included into test report.
-- **archived**: test case is archived once you click remove button on published test case. This excludes the test case from future test reports and we keep them as archived in case you change your mind.
+1. **draft:** test case ends up in draft state after being created. While test case is in draft state, you can add/remove steps to fulfil your testing goal
+2. **published:** once you're happy with your test case's steps, you can publish it. Published test cases will be included into test report
+3. **archived:** test case is archived once you click remove button on published test case.
+   This excludes the test case from future test reports and we keep them as archived in case you change your mind
 
-You can also run a draft to see what will be the outcome of execution of that test case. You can also run a published test case.
-Neither of these produces a test report, it is more like validation that your steps are executable.
+Both the draft and the published test case can be run to see what will be the outcome of execution of that test case.
+Neither of these produces a test report, it is more like validation that steps within them are executable.
 
 ## Test result
 
-Test result is an outcome of execution of test case. It can be successful or failed, depending if your assertion/s is/are met.
+Test result is an outcome of execution of test case.
+It can be successful or failed, depending if the assertions are met.
 It can also end up in error state which indicates that there is a problem on our side.
 
 ## Test report
@@ -41,21 +45,21 @@ At this point of time, running a test case can mean three things:
 
 1.  run a specific test case in specific state which does not produce a test report
 2.  run all the published test cases which produces the test report
-3.  run locally (link to below)
+3.  [run locally](/sections/get-started/octo-dictionary/#run-locally)
 
 ## Run locally
 
-By running locally we mean that we want to execute the test case's steps against the URL you provide within the Debugtopus (link to debugtopus) command.
+By running locally we mean that we want to execute the test case's steps against the URL you provide within the [Debugtopus](/sections/get-started/octo-dictionary/#debugtopus) command.
 Intended use case is when your test case is failed and you want to fix the problem and test it against your local environment (better wording ty)
 
 ## Prompt
 
-Prompt refers to a text input to our AI Agent which will then try to come up with test steps from it.
+Prompt refers to a text input to our AI Agent which will then come up with test steps from it.
 
 ## Recording
 
-This option is for our tech savvy users who are already familiar with Playwright. Sometimes our AI Agent will no be able to generate steps you wish,
-but these steps can easily be generated through Playwright recorder. Our API is able to parse most of the Playwright recorded selectors and assertions.
+This option is for our tech savvy users who are already familiar with Playwright. Sometimes our AI Agent may not be able to generate desired steps,
+but these steps can easily be generated through Playwright recorder. Our API is able to parse most of the Playwright's selectors and assertions.
 
 ## Manual test case
 
