@@ -4,9 +4,9 @@ description: "Getting into details regarding draft test cases"
 icon: "file-pen"
 ---
 
-When creating a new test case, you need to provide it with the name and optionally starting endpoint.
-This helps when your test does not start at the homepage but in some specific route.
-This way we reduce the boilerplate needed to get to the place you actually want to test.
+When creating a new test case, you need to provide it with the name and optionally, the starting endpoint.
+Starting endpoint helps when your test does not start at the homepage, rather in some specific route.
+This way we reduce the boilerplate needed to navigate to the place you actually want to test.
 
 You can select one of the three following ways to generate steps:
 
@@ -26,8 +26,11 @@ You can select one of the three following ways to generate steps:
 </Info>
 
 Before entering the prompt for your desired flow, you have option to choose a dependency first.
+
+(screenshot-goes-here)
+
 This comes quite handy when there are pre-requisites to the flow you want to test.
-For example, lets say your app requires login, so instead including "first perform a login" to your prompt, you can preselect the login test, assuming you created that test case separately before.
+For example, your app requires login, therefore instead including "first perform a login" to your prompt, you can preselect the login test, assuming you created that test case before.
 That way, our AI Agent will first go through dependent steps before trying to continue with generation of steps from the provided prompt.
 
 <Note>Only published test cases can be selected as pre-requisite</Note>
@@ -59,12 +62,14 @@ await page.getByLabel('help-menu').click();
 await page.getByRole('button', { name: 'documentation' }).click();
 ```
 
-If there is something wrong in syntax, you will not be able to save the test case.
+If there is something wrong in syntax, your save action will be rejected.
 You will be informed by the snackbar that test case could not be created and in the code console, the line that is causing problem will be underlined.
+
+For this example, lets purposely make a typo in our quick example, by typing `clik` instead of `click`:
 
 (screenshot-goes-here)
 
-Clicking the save button will instantly create a draft.
+Once the syntax is valid, clicking the save button will instantly create a draft.
 
 # Manual
 
