@@ -1,38 +1,25 @@
 ---
 title: Test result
-description: "Detailed description of the functionality behind each option in your test results section."
+description: "Getting into details regarding a single test result."
 icon: "list-check"
 ---
 
 # Overview
 
-In the overview, you can observe the **name** of the test case, its **last run**, **run time** and view an **autoplay slideshow** demonstrating
-how AI executed your commands.
+In the overview rail, you can observe the test case's **name**, run **date** and **run time.**
 
-# Steps
+(screenshot-goes-here)
 
-The Steps section enables you to **review each step** executed by your AI, allowing you to click on any step to view the
-previously shown slideshow.
+<Snippet file="snippet-steps.mdx" />
 
-It is important to note that you **can not** edit steps; you can only **view** them.
+You can also see screenshot of the each of the individual steps.
 
-# Debug
+(screenshot-goes-here)
 
-In the test results, the **Debug** feature includes a new functionality compared to other debug options: the `Inspect in
-Trace Viewer` button. Clicking on this button opens the Playwright Trace Viewer window.
+<Snippet file="snippet-debug.mdx" />
 
+Additionally, there is **inspect in trace viewer** button which will redirect you to see this test case's trace in Playwright trace viewer.
 
-<Frame caption="caption goes here">
-  <iframe
-    width={560}
-    height={345}
-    frameBorder={0}
-    style={{ borderRadius: 0.5 + "rem" }}
-    src=""
-    allow="clipboard-write"
-    frameborder="0"
-    webkitallowfullscreen="true"
-    mozallowfullscreen="true"
-    allowfullscreen="true"
-  ></iframe>
-</Frame>
+Also, if test result is failed, you will see the error log causing this failure.
+
+(many-screenshot-goes-here)

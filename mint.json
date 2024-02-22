@@ -78,8 +78,8 @@
       "pages": [
         "sections/test-case/overview",
         "sections/test-case/draft",
-        "sections/test-case/conclude-draft",
         "sections/test-case/draft-statuses",
+        "sections/test-case/conclude-draft",
         "sections/test-case/published-test-cases",
         "sections/test-case/archived-test-cases"
       ]

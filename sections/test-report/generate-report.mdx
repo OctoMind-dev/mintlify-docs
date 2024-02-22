@@ -1,48 +1,49 @@
 ---
 title: Generate report
-description: "Understanding the workings and potentialities of the generate report feature."
+description: "Understanding how to generate reports."
 icon: "file-export"
 ---
 
-In order to generate a report, you must choose one of the following four options:
-- **in app**
-- **in app via terminal**
-- **via CI**
-- **locally**
+When generating report, we run all the published test cases and put test result of each of them into one report.
+Report is successful if each individual published test case run is successful.
+
+Once you clicked the generate report button, which can be found in multiple places within the app, you can select one of the following four options:
+
+- [in app](/sections/test-report/generate-report/#in-app)
+- [in app via terminal](/sections/test-report/generate-report/#in-app-via-terminal)
+- [via CI](/sections/test-report/generate-report/#via-ci)
+- [locally](/sections/test-report/generate-report/#locally)
 
 <Frame caption="caption goes here">
-    <img src="" />
+  <img src="" />
 </Frame>
 
 # in app
 
-Upon selecting this option your report generation will start immediately and results will be visible within the application
-once the process is completed.
+By selecting this option, your report generation will start immediately.
+Results will be visible within the application and statuses will update accordingly.
 
 <Frame caption="caption goes here">
-    <iframe
-        width={560}
-        height={345}
-        frameBorder={0}
-        style={{borderRadius: 0.5 + 'rem'}}
-        src=""
-        allow="clipboard-write"
-        frameborder="0"
-        webkitallowfullscreen="true"
-        mozallowfullscreen="true"
-        allowfullscreen>
-    </iframe>
+  <iframe
+    width={560}
+    height={345}
+    frameBorder={0}
+    style={{ borderRadius: 0.5 + "rem" }}
+    src=""
+    allow="clipboard-write"
+    frameborder="0"
+    webkitallowfullscreen="true"
+    mozallowfullscreen="true"
+    allowfullscreen
+  ></iframe>
 </Frame>
 
 # in app via terminal
 
-Following the selection of this option, pop up will appear prompting you to **copy** a command and **execute it within the terminal.**
+By selecting this option, pop up will appear with the command you to **copy** and **execute it within the terminal.**
 After execution, navigate to the application's **test reports** section and your results will be visible.
 
-Additionally, you will need to generate an **API key** and incorporate it into the process.
-
-To **create a new API key**, navigate to the settings in the top right corner and click on the `Create API key` button.
-Upon redirection, click on the `+ New API key` button. Your API key is ready for use!
+Additionally, you will need to use an **API key** and incorporate it into the process. [Here]() is how you can get one.
 
 <Frame caption="caption goes here">
   <iframe
@@ -61,11 +62,11 @@ Upon redirection, click on the `+ New API key` button. Your API key is ready for
 
 # via CI
 
+(needs-explanation)
+
 # locally
 
-You can generate your report **locally** and view the test results on your local machine, where you can also debug it, if needed.
-
-Simply select the `locally` option, then copy the command and execute it in your terminal.
+(needs-explanation)
 
 <Frame caption="caption goes here">
   <iframe
