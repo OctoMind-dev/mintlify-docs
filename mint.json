@@ -71,6 +71,7 @@
         "discovery",
         "recorder",
         "test-database",
+        "test-cases",
         "test-reports",
         "debugtopus",
         "integrations-overview",
