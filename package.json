@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "lint": "eslint --max-warnings=0 --ext .mdx,.md .",
-    "lint:fix": "eslint --fix --ext .mdx,.md ."
+    "lint:fix": "eslint --fix --ext .mdx,.md .",
+    "dev": "mintlify dev"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
