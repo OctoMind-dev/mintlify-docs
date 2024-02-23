@@ -68,8 +68,7 @@
       "group": "Get Started",
       "pages": [
         "first-steps",
-        "discovery",
-        "recorder",
+        "new-test-case",
         "test-database",
         "test-cases",
         "test-reports",
