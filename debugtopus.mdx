@@ -1,6 +1,6 @@
 ---
-title: Debug your code
-description: "Debugtopus will help you pinpoint the problem"
+title: Debug failed test cases
+description: "Debugtopus will help you to pinpoint the problem"
 icon: "bug"
 ---
 
@@ -12,36 +12,36 @@ stepping through the code once our tests have identified an issue.
 
 Click on `run locally` to get a shell script snippet which you can use to install and start Debugtopus.
 
-<Frame caption="Failed test case">
-  <img src="images/test-result-failure.png" alt="failed test case" />
+<Frame caption="screenshot 02/2024">
+  <img src="images/test-result-failure.png" alt="screenshot 02/2024" />
 </Frame>
 
 Click on "copy to clipboard".
 
-<Frame caption="copy shell script">
-  <img src="images/screenshot-run-locally.png" alt="copy shell script" />
+<Frame caption="screenshot 02/2024">
+  <img src="images/screenshot-run-locally.png" alt="screenshot 02/2024" />
 </Frame>
 
 ## 2. Start test locally
 
 Open a terminal window and paste the shell script from your clipboard.
 
-<Frame caption="paste command from clipboard">
+<Frame caption="screenshot 02/2024">
   <img
     src="images/Terminal-run-locally-npx-command-pasted.png"
-    alt="paste command from clipboard"
+    alt="screenshot 02/2024"
   />
 </Frame>
 
-Now change the placeholder **local-url** with the url of your locally running application. In the example screenshot below
+Now change the **url** with the url of your locally running application. In the example screenshot below
 the placeholder was replaced with _localhost:3000_. You might also have to include the route to the starting point.
 For example, if your testcase assumes to run from the sign-in page you might have to add the route to the sign-in page
 e.g. _localhost:3000/signin_.
 
-<Frame caption="replace url placeholder with your local environment url">
+<Frame caption="screenshot 02/2024">
   <img
     src="images/Terminal-run-locally-npx-command-url-adjusted.png"
-    alt="replace url placeholder"
+    alt="screenshot 02/2024"
   />
 </Frame>
 
@@ -65,6 +65,12 @@ first run will take some time to complete.
 
 ## 4. Run test locally
 
+Click the run button which is displayed on the right side of the test case to run your test.
+
+<Frame caption="Run test">
+  <img src="images/Playwright-run-testcase.png" alt="Run test screenshot" />
+</Frame>
+
 Now the Playwright UI is shown.
 
 <Frame caption="Playwright UI screenshot">
@@ -72,10 +78,4 @@ Now the Playwright UI is shown.
     src="images/Trace-viewer-screenshot-082023.png"
     alt="Playwright UI screenshot"
   />
-</Frame>
-
-Click the play button which is displayed on the right side of the test case to run your test.
-
-<Frame caption="Run test">
-  <img src="images/Playwright-run-testcase.png" alt="Run test screenshot" />
 </Frame>
