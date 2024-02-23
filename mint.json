@@ -71,7 +71,7 @@
         "discovery",
         "recorder",
         "test-database",
-        "test-results",
+        "test-reports",
         "debugtopus",
         "integrations-overview",
         "execution-without-ci",
