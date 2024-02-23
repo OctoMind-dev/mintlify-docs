@@ -67,7 +67,8 @@
     {
       "group": "Get Started",
       "pages": [
-        "3-min-demo",
+        "what-is-octomind",
+        "how-octomind-works",
         "first-steps",
         "discovery",
         "recorder",
