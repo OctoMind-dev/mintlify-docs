@@ -1,103 +1,80 @@
 ---
 title: How Octomind works
-description: "Quick explainer on how to get stable, fast and affordable UI tests"
-icon: "TV"
+description: "Explains how to perform end-to-end test using Octomind"
+icon: "lightbulb"
 ---
 
-Watch a 3 min video demo:
+## Provide your website URL
 
-<iframe
-  width={560}
-  height={315}
-  src="https://www.youtube.com/embed/CGaJHpLAIq8"
-  title="YouTube video player"
-  frameBorder={0}
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowFullScreen
-></iframe>
+You need to provide your website URL, Octomind begins the test only when it is able to access your UI. [Try it now](https://app.octomind.dev/setup/url?utm_source=docs&utm_medium=txt-lnk).
 
-## 1. All we need is your website URL
-
-... to start the AI powered test auto-discovery. We will discover, run and maintain your UI tests.
-You can [try it right now](https://app.octomind.dev/setup/url?utm_source=docs&utm_medium=txt-lnk) by setting up your first user flow at **app.octomind.dev**.
-
-<Frame caption="First page of the setup flow - link to your website, screenshot 09/2023">
-  <img src="/images/setup/setup-1-url.png" alt="enter your url" />
+<Frame caption="First step of the setup flow where you enter your website URL">
+  <img src="/images/setup/setup-1-url.png" alt="a screenshot showing the first step of the setup flow where you enter your website URL" />
 </Frame>
 
-## 2. We will discover your user flows
+## Choose what you want to test
 
-At the first set-up, you can select if we should auto-discover:
+When setting up, you can choose to perform:
 
 - a **log in** test
 - a **change language** test
 - a reachability check for all **links** on your page
-- or just go with **only custom** test cases, where you can create test cases:
-  - with our [AI agent](/discovery) \(alpha feature\)
-  - with the `Playwright recording`
+- a custom test where you create a test case using our [AI agent](/discovery) or `Playwright recording`, or by **manually** adding test case steps.  
 
-<Frame caption="Choose your first tests option at set-up, screenshot 10/2023">
+<Frame caption="Second step of the setup flow where you choose test options you want to perform">
   <img
     src="images/changelog/test-selection-at-setup.png"
-    alt="Choose your first test option at the set-up of Octomind"
+    alt="a screenshot showing the second step of the setup flow where you choose test options you want to perform"
   />
 </Frame>
+
+If your selected option requires log in access, you need to provide log in details of an existing user account that will be used during testing.
 
 <div class="mt-8" />
 
-<Frame caption="Free promting window for test case discovery, screenshot 10/2023">
+<Frame caption="Second step of the setup flow where you can create custom test case using our AI agent">
   <img
     src="images/free-prompting-UX.png"
-    alt="free prompting window for test case discovery"
+    alt="a screenshot showing how to create custom test case"
   />
 </Frame>
 
-## 3. We will generate, host and run your test code
+## Save setup and monitor progress
 
-While our `AI agent` discovers your test cases, it informs you about the progress it's making.
+Octomind starts generating test cases after you save setup. Our `AI agent` provide updates while generating your test cases. 
 
-<Frame caption="AI agent informs about its progress, screenshot 11/2023">
+<Frame caption="AI agent informs about its progress after you have completed setup">
   <img
     src="images/changelog/agent-progress.png"
-    alt="AI agent informs about its progress"
+    alt="a screenshot showing the update provided while test cases are still being generated"
   />
 </Frame>
 
-We will generate [Playwright test code](https://playwright.dev/), host and run the tests for you.
+## View test results in multiple platforms
 
-## 4. We will provide test results
+We provide test results through multiple platforms. You can view test results on the Octomind web application or in your PR comments if you have integrated Octomind in your CI pipeline.   
 
-You will see the [test results](/test-results) in the app and in your PR comments if you integrated us into your CI pipeline.
-
-<Frame caption="Example of Octomind test results in a Pull Request comment, screenshot 06/2023">
+<Frame caption="Example of Octomind test results in a Pull Request comment">
   <img
     src="images/Octomind-test-results-commit-comments-GitHub-example.png"
-    alt="Example of Octomind test results in a Pull Request comment"
+    alt="a screenshot showing test results in a Pull Request Comment"
   />
 </Frame>
 
-## 5. You can review the broken user flow
+## Debug test results 
 
-You can go through the details, check the error log and open the [Playwright Trace Viewer](https://playwright.dev/docs/trace-viewer-intro) to see where the user flow broke.
+You can debug test results using [Playwright Trace Viewer](https://playwright.dev/docs/trace-viewer-intro) or Debugtopus, our open source tool that enables you to run tests locally.
 
-<Frame caption="Example of Playwright Test Viewer, screenshot 08/2023">
+<Frame caption="Example of Playwright Test Viewer">
   <img
     src="images/Trace-viewer-screenshot-082023.png"
-    alt="Example of Playwright Test Viewer"
+    alt="a screenshot showing the user interface of Playwright Test Viewer"
   />
 </Frame>
 
-## 6. And debug locally, if needed
-
-Debug locally with Debugtopus. [Debugtopus is our open source tool](debugtopus) enabling you to run tests locally for easier debugging.
-
-<Frame caption="Open source Debugtopus on GitHub, screenshot 08/2023">
+<Frame caption="Set-up process for Debugtopus">
   <img
     src="images/debugtopus-open-source.png"
-    alt="Open source debugging tool Debugtopus"
+    alt="a screenshot showing the README page of Debugtopus"
   />
 </Frame>
-
-## 7. We'll maintain your tests automatically
-
-Our AI will maintain your tests when they break.
