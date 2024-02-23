@@ -67,12 +67,11 @@
     {
       "group": "Get Started",
       "pages": [
-        "3-min-demo",
         "first-steps",
-        "discovery",
-        "recorder",
+        "new-test-case",
         "test-database",
-        "test-results",
+        "test-cases",
+        "test-reports",
         "debugtopus",
         "integrations-overview",
         "execution-without-ci",
