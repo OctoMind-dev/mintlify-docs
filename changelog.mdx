@@ -4,12 +4,60 @@ description: "All the nice stuff you asked for"
 icon: "sparkles"
 ---
 
+## 2024-02-23
+
+- `improved stability`: made sure our app is running smoothly without hick-ups even with multiple test report running in parallel. Now our agent and test execution are serverless.
+- `discover test cases`: our AI Agent will analyse your webpage and suggest multiple prompts
+
+<Frame caption="screenshot 02/2024">
+  <img
+    src="/images/changelog/discover-screen.png"
+    alt="new discovery feature"
+  />
+</Frame>
+
+- `approval workflow`: once our AI Agent has finished the discovery, you have an option to approve or discard the provided suggestions.
+  Discarding will delete the draft, while approval will start our AI Agent with the corresponding prompt
+
+<Frame caption="screenshot 02/2024">
+  <img
+    src="/images/changelog/approval-screen.png"
+    alt="new discovery feature"
+  />
+</Frame>
+
+## 2024-02-15
+
+- `test report generation speed up` : we are now running published test cases within a report in parallel
+- `auto fix`: you can now select which test cases our AI Agent should try to auto fix once they fail
+
+<Frame caption="screenshot 02/2024">
+  <img src="/images/changelog/auto-fix.png" alt="auto fix feature" />
+</Frame>
+
+- `save` button for test case draft overhaul:
+
+  we replaced the save rail with multiple buttons that were hidden in a separate screen. Now we have 3 separate buttons
+
+  1. `save` button: to save changes made
+  2. `run` button: to run the selected test case
+  3. `publish` button
+
+  The `run` button is also visible on published test cases
+
+  <Frame caption="screenshot 02/2024">
+    <img
+      src="/images/changelog/save-rail-overhaul.png"
+      alt="save rail overhaul"
+    />
+  </Frame>
+
 ## 2024-02-01
 
 - `Add a new project to your organization` added for more flexibility of managing your account
 
 <Frame caption="Create new project button, screenshot 02/2024">
-  <img src="images/changelog/new-project.png" alt="Create new project" />
+  <img src="/images/changelog/new-project.png" alt="Create new project" />
 </Frame>
 
 ## 2024-01-26
@@ -53,7 +101,7 @@ icon: "sparkles"
 - `Test draft validation`: now, you can validate test draft before publishing telling you if the test works properly
 
 <Frame caption="Validated test draft, screenshot 01/2024">
-  <img src="images/changelog/test-validation.png" alt="Validated test draft" />
+  <img src="/images/changelog/test-validation.png" alt="Validated test draft" />
 </Frame>
 
 ## 2024-01-03
@@ -63,7 +111,7 @@ icon: "sparkles"
 
 <Frame caption="Element that was interacted with is highlighted by a purple dot, screenshot 01/2024">
   <img
-    src="images/changelog/highlighter.png"
+    src="/images/changelog/highlighter.png"
     alt="element highlighter in test steps screenshot"
   />
 </Frame>
@@ -84,7 +132,7 @@ icon: "sparkles"
 
 <Frame caption="Test cases can be created as drafts and edited, screenshot 12/2023">
   <img
-    src="images/changelog/editing-test-cases.png"
+    src="/images/changelog/editing-test-cases.png"
     alt="test cases can be created as drafts and edited"
   />
 </Frame>
