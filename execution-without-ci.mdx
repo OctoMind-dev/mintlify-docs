@@ -4,45 +4,26 @@ description: "Trigger Octomind execution of test cases manually"
 icon: "person-digging"
 ---
 
-If you don't have pipelines or you just want to manually trigger the test execution, you can do it with the following cURL command:
+If you don't have pipelines or you just want to manually trigger the test execution, you can do it with a cURL command.
+You can retrieve it conviniently with prefilled parameters from within the app by selecting `in app via terminal` from the `generate report` button on the overview page:
 
-```
-curl -w --request https://app.octomind.dev/api/v2/execute \
---header 'Content-Type: application/json' \
---header 'x-api-key: <YOUR_API_KEY>' \
---data \
-"{\
-    \"url\": \"<YOUR_WEBSITE_URL_TO_TEST_AGAINST>\",\
-    \"testTargetId\": \"<YOUR_TEST_TARGET>\",\
-    \"context\":{\
-        \"source\": \"manual\",\
-        \"description\": \"manual trigger\",\
-        \"triggeredBy\": {\
-            \"type\": \"USER\",\
-            \"userId\": \"<YOUR_USER_ID>\"\
-    }}}"
-```
+<Frame caption="generate a test report from the terminal, screenshot 02/2024">
+  <img
+    src="/images/rerun-in-cli-modal.png"
+    alt="modal to retrieve the curl command"
+  />
+</Frame>
 
-You can see how to set up your `API key` and get your `test target id` and `user id` [below](/manual-execution#create-an-api-key).
+You can see how to set up your `API key` below.
 
-`YOUR_WEBSITE_URL_TO_TEST_AGAINST` should be the base url that you provided when you first visited the Octomind webpage.
+The command will return a response with a link to your test report, looking like this:
 
-The command will return a response with link to your test report, looking something like this:
-
-```
-{"testReportUrl":"https://app.octomind.dev/testreports/<some-id>", ...}
+```JSON
+{ "testReportUrl": "https://app.octomind.dev/testreports/<some-id>" }
 ```
 
-On the above mentioned link, you can find the test report containing all test results of your execution. You'll be able to run all test cases from your terminal OR the app.
+If you follow this link, you can find the test report containing all test results of your execution.
 
 ### Create an API key
 
 <Snippet file="snippet-apiKey.mdx" />
-
-### Copy your test target ID
-
-<Snippet file="snippet-testTarget.mdx" />
-
-### Copy your user ID
-
-<Snippet file="snippet-userID.mdx" />
