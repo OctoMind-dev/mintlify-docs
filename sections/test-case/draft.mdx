@@ -8,6 +8,10 @@ When creating a new test case, you need to provide it with the name and optional
 Starting endpoint helps when your test does not start at the homepage, rather in some specific route.
 This way we reduce the boilerplate needed to navigate to the place you actually want to test.
 
+<Frame caption="?, screenshot 02/2024">
+  <img src="/images/test-case/draft/create-test-case.png" />
+</Frame>
+
 You can select one of the three following ways to generate steps:
 
 - [**prompt**](/sections/get-started/octo-dictionary/#prompt)
@@ -15,7 +19,7 @@ You can select one of the three following ways to generate steps:
 - [**manual**](/sections/get-started/octo-dictionary/#manual-test-case)
 
 <Frame caption="caption goes here">
-  <img />
+  <img src="/images/test-case/draft/create-test-case-2.png" />
 </Frame>
 
 # Prompt
@@ -27,20 +31,34 @@ You can select one of the three following ways to generate steps:
 
 Before entering the prompt for your desired flow, you have option to choose a dependency first.
 
-(screenshot-goes-here)
-
 This comes quite handy when there are pre-requisites to the flow you want to test.
 For example, your app requires login, therefore instead including "first perform a login" to your prompt, you can preselect the login test, assuming you created that test case before.
 That way, our AI Agent will first go through dependent steps before trying to continue with generation of steps from the provided prompt.
 
 <Note>Only published test cases can be selected as pre-requisite</Note>
 
-(screenshot-goes-here)
+<Frame caption="caption goes here">
+  <img src="/images/test-case/draft/create-test-case-dependency.png" />
+</Frame>
 
-Clicking the save button will trigger our AI Agent to start generating test case steps.
+You can enter the desired prompt into the text field.
+
+<Frame caption="caption goes here">
+  <img src="/images/test-case/draft/enter-prompt.png" />
+</Frame>
+
+Clicking the save button will put you in steps rail and trigger our AI Agent to start generating test case steps.
 This may take a while, but step generation this way is streamed so you can see (needs wording)
 
-(screenshot-goes-here)
+<Frame caption="caption goes here">
+  <img src="/images/test-case/draft/after-pressing-save.png" />
+</Frame>
+
+(Some ex-agent-reasoning explanation goes here)
+
+<Frame caption="caption goes here">
+  <img src="/images/test-case/draft/finished-step-generation.png" />
+</Frame>
 
 (Prompting best practices go here)
 
