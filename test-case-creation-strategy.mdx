@@ -59,7 +59,7 @@ The sign-up procedure also creates a test case to close the cookie banner, if ap
 
 ## Use dependencies
 
-Keep test cases short and to the point. Ideally each test case represents a small tasks you want to achieve. One technique to make this happen are dependencies.
+Keep test cases short and to the point. Ideally each test case represents a small task you want to achieve. One technique to make this happen is using dependencies.
 Typically the first test case you need is "accept all cookies". Second one is "login with username and password", third one might be "open profile page".
 The second test case would have to take care of cookies. The third test case would have to take care of cookies and login.
 This is because every test case runs in isolation and therefore always needs to be the full flow.
