@@ -85,6 +85,12 @@
       ]
     },
     {
+      "group": "Best Practices",
+      "pages": [
+        "test-case-creation-strategy"
+      ]
+    },
+    {
       "group": "CI integrations",
       "pages": [
         "integrations/quickstart-GitHub",
