@@ -3,19 +3,64 @@ title: "No code access needed"
 icon: "code"
 ---
 
-We operate by simulating a real user interacting with your web app, using your app's DOM to identify actions like clicks or text inputs. This doesn't require access to your code.
+## No code access
 
-Our [GitHub Action](/quickstart-GitHub) or [Azure DevOps Task](/quickstart-Azure) initiates your test suite, requiring an `API key`, `test target ID` and `target URL`.
+We operate by simulating a real user interacting with your web app, using your app's DOM to identify actions like clicks or text
+inputs. We are also using screenshots. This doesn't require access to your code base. We are only seeing those parts of your app
+which are exposed to your users anyways.
+Hence we are not jepordizing any SOC2 or ISO compliance requirements you might need to follow.
 
-- The **API key** identfies your organization
-- The **test target ID** identfies your test suite
-- Tests are performed on the **target URL**
+## GDPR compliance
+
+We are not GDPR relevant since we are not collecting any user data (privacy relevant or not). You can strictly run
+Octomind on test data to make sure, your are not violating your own compliance requirements.
+
+## One IP address
+
+If you need to set your firewall to allow our agent to exercise your web app, please use this IP address: `35.192.162.70`
+
+<Warning>
+  Please let us know so that we can set your organisation to always use our
+  proxy. We do not have this option as self-service yet.
+</Warning>
+
+## Metrics
+
+In case you need to exclude our agent from your metrics you can easily do this by excluding any browsers with a browser name
+extension of `octomind`.
+
+## CI/CD Integration
+
+You might want to integrate Ocotmind into your development workflows. To do so, you can use our various [CI/CD integrations](/integrations-overview).
+
+Our integrations initiate your test suite runs, requiring an `API key`, `test target ID` and `target URL`.
+
+- The `API key` identfies your organization
+- The `test target ID` identfies your test suite
+- Tests are performed on the `target URL`
+
+`API key` and `test target ID` can be received from the settings section of Octomind.
+
+Our GitHub and Azure DevOps integration are bi-directional. They trigger test runs and comment results back into your pipeline during pull requests.
+These only require comment permissions. Please check out the respective section in our documentation for more details.
 
 <Tip>
-  Both tools are open source, you can view their repositories at ([GitHub Action
-  repository](https://github.com/OctoMind-dev/automagically-action-execute),
+  Both tools are open source, you can view their repositories at [GitHub Action
+  repository](https://github.com/OctoMind-dev/automagically-action-execute) and
   [Azure DevOps Task
-  repository](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute))
+  repository](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute)
+  to run an audit.
 </Tip>
 
-Test results are provided as comments in your CI/CD pipeline during a `pull request`, using a GitHub App and an Azure DevOps Extension. These only require comment permissions.
+Other intergrations into Vercel, Jenkins or the curl command are not able to comment back. Hence they do not need permissions.
+
+## Run locally
+
+We provide an option to run test cases locally from your dev machine against any test target. You can either run a single test
+case or all of them at once. To do so, please check out [Debug failed test cases](/debugtopus). Since this component is running
+on your local machine its code is open sourced so that you can run an audit on it. This is the
+[Debugtopus repository on GitHub](https://github.com/OctoMind-dev/debugtopus).
+
+## NDA
+
+If you want us to sign an NDA you can find all information in our [NDA section](/data-governance/nda).
