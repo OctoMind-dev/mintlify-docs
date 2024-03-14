@@ -26,7 +26,6 @@ There are multiple ways to start with a prompt.
      />
    </Frame>
 
-
 2. Always use "Discover test cases" from the overview page. It gives you a head start.
 
    <Frame caption="Discover test cases from overiew page, screenshot 02/2024">
@@ -47,7 +46,6 @@ There are multiple ways to start with a prompt.
      />
    </Frame>
 
-
 The sign-up procedure also creates a test case to close the cookie banner, if applicable, as well as a login test case that typically enables the high value user flow tests that depend on it.
 
 <Tip>
@@ -62,7 +60,6 @@ The sign-up procedure also creates a test case to close the cookie banner, if ap
 
 ## Use dependencies
 
-
 Keep test cases short and to the point. Ideally each test case represents a small task you want to achieve. One technique to make this happen is using dependencies.
 Typically the first test case you need is "accept all cookies". The second one is "login with username and password" and the third one might be "open profile page".
 The second test case would have to take care of cookies during its execution. The third test case would have to take care of cookies and login.
@@ -74,7 +71,6 @@ This way the test runner as well as the AI Agent are using pre-play to execute d
 
 ### Example
 
-
 1. The `accept cookies` test case does not have a dependency as it is the first test case in the chain.
 
    <Frame caption="no dependency for accept cookies, screenshot 02/2024">
@@ -85,7 +81,6 @@ This way the test runner as well as the AI Agent are using pre-play to execute d
      />
    </Frame>
 
-
 2. The `login with username and password` test case depends on the `accept cookies` test case.
 
    <Frame caption="login with username and password depends on 'accept cookies', screenshot 02/2024">
@@ -95,7 +90,6 @@ This way the test runner as well as the AI Agent are using pre-play to execute d
        width="300px"
      />
    </Frame>
-
 
 3. The `open profile` test case depends on the `login with username and password` test case.
    <Frame caption="Open profile depends on login with username and password, screenshot 02/2024">
@@ -117,13 +111,11 @@ This way the test runner as well as the AI Agent are using pre-play to execute d
 
 ## Help the agent out if it went wrong
 
-
 We are constantly improving the agent but it still might make mistakes. In this case you need to help it find its way.
 
 Use the step inspector to fine tune interactions and assertions.
 
 ### Add missing steps
-
 
 You can add missing steps by clicking the `+` icon and choosing the desired interaction or assertion.
 
@@ -135,7 +127,6 @@ You can add missing steps by clicking the `+` icon and choosing the desired inte
 
 You can easily delete unnecessary steps by clicking the trash can symbol.
 
-
 <Frame caption="delete obsolete steps, screenshot 02/2024">
   <img
     src="images/steps-delete-step.png"
@@ -145,7 +136,6 @@ You can easily delete unnecessary steps by clicking the trash can symbol.
 </Frame>
 
 ### Run test cases
-
 
 Running a test case is producing a trace. A trace is a detailed description of what happened during test case execution. Use the trace for debugging.
 
@@ -194,7 +184,6 @@ Then you can copy the locator.
 
 <Tip>
 **Advantages of run locally**
-
 
 Run locally will noticeably speed-up your test creation efforts.
 
