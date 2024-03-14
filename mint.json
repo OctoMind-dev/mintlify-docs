@@ -89,7 +89,8 @@
         "integrations/quickstart-GitHub",
         "integrations/quickstart-Azure",
         "integrations/quickstart-Vercel",
-        "integrations/quickstart-Jenkins"
+        "integrations/quickstart-Jenkins",
+        "integrations/quickstart-Other"
       ]
     },
     {
