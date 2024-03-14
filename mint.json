@@ -74,7 +74,14 @@
         "debugtopus",
         "integrations-overview",
         "execution-without-ci",
-        "under-the-hood"
+        "under-the-hood",
+        "octo-dictionary"
+      ]
+    },
+    {
+      "group": "Best Practices",
+      "pages": [
+        "test-case-creation-strategy"
       ]
     },
     {
@@ -91,6 +98,13 @@
         "integrations/quickstart-Vercel",
         "integrations/quickstart-Jenkins"
       ]
+    },
+    {
+      "group": "Advanced Features",
+      "pages": [
+        "projects"
+      ]
+
     },
     {
       "group": "Changelog",

@@ -1,21 +1,56 @@
 ---
-title: "No code access needed"
+title: "Compliance and Security"
 icon: "code"
 ---
 
-We operate by simulating a real user interacting with your web app, using your app's DOM to identify actions like clicks or text inputs. This doesn't require access to your code.
+## CI/CD Integration
 
-Our [GitHub Action](/quickstart-GitHub) or [Azure DevOps Task](/quickstart-Azure) initiates your test suite, requiring an `API key`, `test target ID` and `target URL`.
+Our GitHub and Azure DevOps integrations are bi-directional. They trigger test runs and comment results back into your pull requests.
+These only require comment permissions. Please check out the respective section ([GitHub](/integrations/quickstart-GitHub),[Azure DevOps](/integrations/quickstart-Azure)) in our documentation for more details.
 
-- The **API key** identfies your organization
-- The **test target ID** identfies your test suite
-- Tests are performed on the **target URL**
+<Tip>Both tools are open source so that you can run an audit.</Tip>
 
-<Tip>
-  Both tools are open source, you can view their repositories at ([GitHub Action
-  repository](https://github.com/OctoMind-dev/automagically-action-execute),
-  [Azure DevOps Task
-  repository](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute))
-</Tip>
+Other intergrations into Vercel, Jenkins or the curl command are not able to comment back. Hence they do not need permissions.
 
-Test results are provided as comments in your CI/CD pipeline during a `pull request`, using a GitHub App and an Azure DevOps Extension. These only require comment permissions.
+## Data gathered from using the application
+
+Octomind is not collecting user or app specific data. Octomind is not using any customer data for training purposes. Dom structure and screenshots gathered by the AI agent to examine user flows
+within your app are not stored on our computers. They are only temporarely used to identify the next best action to take from a users perspective or to propose test cases. Data from test runs like
+traces and screenshots are deleted after 15 days automatically as part of our data retention policy. From that time onwards you cannot access traces and screenshots anymore.
+
+## GDPR compliance
+
+We are not GDPR relevant since we are not collecting any user data (privacy relevant or not). You can strictly run
+Octomind on test data to make sure, your are not violating your own compliance requirements.
+
+## Metrics
+
+In case you need to exclude our agent from your metrics you can easily do this by excluding any browsers with a user agent
+which includes `octomind`.
+
+## NDA
+
+If you want us to sign an NDA you can find all information in our [NDA section](/data-governance/nda).
+
+## No code access
+
+We operate by simulating a real user interacting with your web app, using your app's DOM to identify actions like clicks or text
+inputs. We are also using screenshots. This doesn't require access to your source code. We are only seeing the parts of your app
+which are exposed to your users.
+
+## One IP address
+
+If you need to set your firewall to allow our agent to exercise your web app, please use this IP address: `35.192.162.70`
+
+<Warning>
+  Please let us know so that we can set your organisation to always use our
+  proxy. We do not have this option as self-service yet. Pleae use this email
+  address: contact@octomind.dev
+</Warning>
+
+## Run locally
+
+We provide an option to run test cases locally from your dev machine against any test target. You can either run a single test
+case or all of them at once. To do so, please check out [Debug failed test cases](/debugtopus). Since this component is running
+on your local machine its code is open sourced so that you can run an audit on it. This is the
+[Debugtopus repository on GitHub](https://github.com/OctoMind-dev/debugtopus).
