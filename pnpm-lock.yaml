@@ -15,8 +15,8 @@ devDependencies:
     specifier: ^5.1.3
     version: 5.1.3(eslint@8.57.0)(prettier@3.2.5)
   mintlify:
-    specifier: ^4.0.135
-    version: 4.0.135(openapi-types@12.1.3)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^4.0.136
+    version: 4.0.136(openapi-types@12.1.3)(react-dom@18.2.0)(react@18.2.0)
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -388,8 +388,8 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@mintlify/cli@4.0.135(openapi-types@12.1.3)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-0DTlAv+TTNA4jyRXT0/5vTJAffLbu0bAAr4MQqTQftCQZXX1wPNxIGx5liPNS7Oj5mlF/PVrhrMjXvKlO9vZNg==}
+  /@mintlify/cli@4.0.136(openapi-types@12.1.3)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-5J/hvy+tdLsRpAUJvk+uMleqm+T/jMORnYEkVa+n0JTiDrTbr3MiXO/mpOPNkW0ArDpnwLQB7P6r5MYJayawFQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
@@ -397,7 +397,7 @@ packages:
       '@mintlify/link-rot': 3.0.146(react-dom@18.2.0)(react@18.2.0)
       '@mintlify/models': 0.0.74
       '@mintlify/prebuild': 1.0.146(react-dom@18.2.0)(react@18.2.0)
-      '@mintlify/previewing': 4.0.132(react-dom@18.2.0)(react@18.2.0)
+      '@mintlify/previewing': 4.0.133(react-dom@18.2.0)(react@18.2.0)
       '@mintlify/validation': 0.1.131
       chalk: 5.3.0
       detect-port: 1.5.1
@@ -533,8 +533,8 @@ packages:
       - supports-color
     dev: true
 
-  /@mintlify/previewing@4.0.132(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-HahwWQWiXb6cFATPTnxcCNUBDfeE52emuCczTecUbcWSFzm75Xe45PbmK4xHinfFB46eEU1yg1rVjjk3Tvvh9g==}
+  /@mintlify/previewing@4.0.133(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-7Zck2ol/2vDY67kqZTAaYzwMqibyXW7+oRpILKKZNOaC3wvZhhjCF5LDKe7mo65VWyRR2T3UR6UsfNscnzO9Sg==}
     engines: {node: '>=18.0.0'}
     dependencies:
       '@apidevtools/swagger-parser': 10.1.0(openapi-types@12.1.3)
@@ -4124,12 +4124,12 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /mintlify@4.0.135(openapi-types@12.1.3)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-VxOLgmA5DViEMGoC0jRg9F4knkwg+tWp3kslVDPVVFMD2hziRL3wgWTSGN2A446J4s3xF7T6hWfKn7YR46bnzA==}
+  /mintlify@4.0.136(openapi-types@12.1.3)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Hq7JTXGGQKH+TfkQx2xnWOz9UyZb8g0+OneZkfmWExSaw/2AhZ4txppEHjl4HFz3s/na0H0/oPFGHDMju8BsbQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
-      '@mintlify/cli': 4.0.135(openapi-types@12.1.3)(react-dom@18.2.0)(react@18.2.0)
+      '@mintlify/cli': 4.0.136(openapi-types@12.1.3)(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - bufferutil
       - debug
