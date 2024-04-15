@@ -51,14 +51,21 @@ This is how you do it:
 1. Keep prompts short and to the point.
 2. Mention all steps required, e.g. if you have to click away a cookie banner, mention it.
 
-- Example without a cookie banner: “sign in with username and password using \{credentials\}”
-- Example with a cookie banner: “accept cookies then sign in with username and password using \{credentials\}”
+   - Example without a cookie banner: `sign in using username $OCTO_USERNAME and password $OCTO_PASSWORD`
+   - Example with a cookie banner: `accept cookies then sign in using username $OCTO_USERNAME and password $OCTO_PASSWORD`
 
-3. These are the limitations so far:
+3. You have access to the following template variables that we will fill for you, so just use them in the prompt as they appear here and in the example above. (You can also use these when manually editing a step).
 
-- We can only handle flows which happen inside the app. Cross-app or cross-device flows are not supported, e.g. we do not cover email confirmation flow or a 2FA right now.
-- We cannot handle captchas yet.
-- Our AI agent might get blocked by robot detection on some high traffic sites. Sites / apps in production are more bot-protected than staging / test systems.
+   - `$OCTO_USERNAME`: The username you configured for use with your page in the sign up flow or the settings
+   - `$OCTO_PASSWORD`: The password you configured for use with your page in the sign up flow or in the settings
+   - `$OCTO_URL`: The URL of your page
+   - `$OCTO_STABLE_UUID`: A random combination of letters and numbers that will be consistent through multiple references across a single run, but different if you run the agent again
+
+4. These are the limitations so far:
+
+   - We can only handle flows which happen inside the app. Cross-app or cross-device flows are not supported, e.g. we do not cover email confirmation flow or a 2FA right now.
+   - We cannot handle captchas yet.
+   - Our AI agent might get blocked by robot detection on some high traffic sites. Sites / apps in production are more bot-protected than staging / test systems.
 
 ## Record a test case
 
