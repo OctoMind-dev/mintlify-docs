@@ -39,18 +39,7 @@ The interaction chain of this test case will be adjusted permanently to the new 
 
 ## 7. How do I write a good prompt?
 
-You have the ability to free prompt our agent to discover more test cases. At the moment, you need to be quite specific about what you want to achieve.
-Prompts with a high success rate read like a short recipe, like "accept the cookie consent popup, then open the projects overview and create a new project with a name of your choice. Make sure you can see the new project in the list of projects in the end".
-Prompts like "create a new project" have a chance of succeeding, but it is less likely to produce a meaningful test.
-We are actively working to make the agent more robust.
-
-At the moment, you need to start each interaction from scratch, so if your flow requires to be logged in, you need to add that to the prompt.
-This will change in the future.
-You can template your configured test credentials and your test URL into the prompt by wrapping them inside curly braces like this:
-
-"Log into \{url\} with the following credentials: \{credentials\}".
-
-You do not need to specify navigating to the configured URL, this happens automatically.
+See [our section about prompting](../new-test-case.mdx#free-prompting-best-practices)
 
 ## 8. I do not use use GitHub, can I use your tests?
 
