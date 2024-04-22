@@ -73,6 +73,7 @@
         "test-reports",
         "debugtopus",
         "integrations-overview",
+        "scheduled-execution",
         "execution-without-ci",
         "under-the-hood",
         "octo-dictionary"
