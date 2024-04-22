@@ -10,7 +10,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-mdx": "^3.1.5",
     "eslint-plugin-prettier": "^5.1.3",
-    "mintlify": "^4.0.146",
+    "mintlify": "^4.0.147",
     "prettier": "^3.2.5"
   }
 }
