@@ -4,6 +4,58 @@ description: "All the nice stuff you asked for"
 icon: "sparkles"
 ---
 
+## 2024-06-20
+
+- We merged and simplified test case view. Bye bye, way too many tabs.
+  <Frame caption="merged test case view, screenshot 06/2024">
+    <img
+      src="/images/changelog/test-case-view-new.png"
+      alt="merged test case view"
+    />
+  </Frame>
+
+## 2024-06-17
+
+- `shadow DOM and iFrames` - the AI agent can handle most shadow DOMs and iFrames now
+
+## 2024-06-13
+
+- We mark broken locators now. A yellow highlight and an indicator will point to the locator that doesn’t do the thing it’s supposed to.
+  <Frame caption="screen recording of a broken locator being pinpointed, 06/2024">
+    <img
+      src="/images/changelog/broken-locator.gif"
+      alt="pinpointing broken locators"
+    />
+  </Frame>
+
+## 2024-06-10
+
+- We removed automatically generated `link tests`. We generated too many link tests on dynamic elements that broke constantly. We will come back with a better solution.
+
+## 2024-06-05
+
+- We add `dependencies` automatically now. We now add a cookie banner test as dependency automatically. We will be adding more common dependencies in the future.
+- less obstructive `test editing` - interaction and assertion types can be switched now
+
+## 2024-06-04
+
+- `AI discovery`: Instead of just giving you proposals for test cases, we now generate steps and validate the proposed test cases automatically. Tests we feel confident about are published to your test suite automatically.
+
+## 2024-05-27
+
+- `improved AI discovery` - delivers more functional and less reachability-focused tests. The AI agent will also suggest less functionally similar tests.
+
+## 2024-05-23
+
+- most of `LangChain` has been removed from our stack. Learn [why we no longer use it to build our AI agents.](https://www.octomind.dev/blog/why-we-no-longer-use-langchain-for-building-our-ai-agents)
+- we support nested iFrames in snapshots now
+- `steps editing` - we added drag and drop for changing order
+- `AI agent` can handle elements with never ending animations and invisible input forms now, like password fields, checkboxes or radio boxes
+
+## 2024-05-15
+
+- ‍`reduced test flakiness` through improved timeout logic.
+
 ## 2024-05-08
 
 - streaming `AI Agent indicators`: At any given moment, you'll know what the agent is doing during discovery or when it’s running in drafts. No more staring at a spinning circle ⭕️ wondering when it will finish.
