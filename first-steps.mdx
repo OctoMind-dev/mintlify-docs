@@ -1,137 +1,130 @@
 ---
 title: First steps
-description: "Start using octomind immediately, and generate your first test case."
+description: "Generate your first tests and run them. Find bugs in your app before your user does."
 icon: "lightbulb"
 ---
 
-<div
-  style={{
-    position: "relative",
-    paddingBottom: "calc(55.43121693121693% + 42px)",
-    height: 0,
-  }}
->
-  <iframe
-    src="https://app.supademo.com/embed/rSpeR5F3cFGeg0EHBPQ2E"
-    allow="clipboard-write"
-    frameborder="0"
-    webkitallowfullscreen="true"
-    mozallowfullscreen="true"
-    allowfullscreen
-    style={{
-      width: "100%",
-      height: "100%",
-      borderRadius: 12,
-      position: "absolute",
-      top: 0,
-      left: 0,
-    }}
-  ></iframe>
-  <div
-    style={{
-      height: 16,
-      backgroundColor: "#13142c",
-      inset: "auto 0px 0px 0px",
-      position: "absolute",
-    }}
-  />
-</div>
-
 ## 1. Give us a URL
 
-We'll ask for a URL to create test cases. The URL has to be publicly accessible.
+We'll ask for a URL to create test cases. The URL has to be publicly accessible. We can test both in staging and in production, as long as we can access the site.
 
-<Frame caption="First page of the setup flow - link to your website, screenshot 09/2023">
+<Frame caption="First page of the setup flow - link to your website, screenshot 07/2024">
   <img src="/images/setup/setup-1-url.png" alt="enter your url screen" />
 </Frame>
 
 ## 2. Name your project
 
-The second page will render a screenshot of the url you provided. It tests that your URL is accessible.
-Now, you need to give your project a name. We'll propose one similar to the url you provided.
+The second page will render a screenshot of the url you provided. We chexk if it is accessible. You can name your project now. We'll propose one similar to the url you provided.
 But you can choose your own.
 
-<Frame caption="Second page of the setup flow: Name your project, screenshot 09/2023">
+<Frame caption="Second page of the setup flow: Name your project, screenshot 07/2024">
   <img
     src="/images/setup/setup-2-project.png"
-    alt="name your project screen, screenshot 09/2023"
+    alt="name your project screen, screenshot 07/2024"
   />
 </Frame>
 
 <div class="mt-8" />
 
-## 3. Select test cases to be generated
+## 3. Sign up
 
-During first set-up, you can select if we should auto-generate:
+Now we need to sign you up. Please, give us your email, so we can get in touch.
 
-- a `log in` test for your web app
-- a `change language` test
-- a reachability check for all `links` on your page
-- or just go with only custom test cases, where you can create test cases:
-- with our `AI agent`
-- with a `Playwright recording`
-- `manually` by using our UI
-
-<Frame caption="Third page of the setup flow - choose your first tests, screenshot 10/2023">
+<Frame caption="Third page of the setup flow - create account, screenshot 07/2024">
   <img
-    src="images/setup/setup-3-custom.png"
-    alt="choose your first tests screen, screenshot 10/2023"
-  />
-</Frame>
-
-If you choose the `log in` test, we'll ask you for **test user credentials** \(test username and a password\).
-The test credentials should fit the URL you provided above.
-
-<Frame caption="Third page of the setup flow - insert test user credentials for a log-in test, screenshot 10/2023">
-  <img
-    src="/images/setup/setup-3-credentials.png"
-    alt="enter a test user for log-in tesst screen, screenshot 10/2023"
-  />
-</Frame>
-
-## 4. Create an account
-
-Now we need to sign you up. Please, provide an email, so we can get in touch.
-
-<Frame caption="Fourth page of the setup flow - create account, screenshot 08/2023">
-  <img
-    src="/images/setup/setup-4-create-account.png"
+    src="/images/setup/setup-3-create-account.png"
     alt="create account, screenshot 08/2023"
+  />
+</Frame>
+
+## 4. Open the Octomind app for the first time
+
+When you sign in to Octomind app again, you will land on your **project overview** page.
+
+<Frame caption="Project overview page after sign-up, screenshot 07/2024">
+  <img
+    src="/images/setup/setup-4-overview.png"
+    alt="Opening the Octomind app on project overview for the first time, screenshot 07/2024"
+  />
+</Frame>
+
+Our AI agent might be still going through your website, adding a **reachability test** and checking if there is a **cookie banner** and a **required login functionality** that need to be tested.
+
+If the AI agent finds a required login, it will ask you for test credentials. It will use them to generate and run a **login test**. It will be added as dependency for other tests. So will be the **cookie banner test** if one is found.
+
+<Warning>
+These credentials are only usable for username/password logins not for social logins. Login using your Google, Facebook, etc. account will not work.
+
+</Warning>
+
+<Frame caption="AI agent asks for test credentials to auto-generate and run a login test, screenshot 07/2024">
+  <img
+    src="/images/setup/setup-5-login-credentials.png"
+    alt="AI agent asks for login test credentials, screenshot 07/2024"
   />
 </Frame>
 
 ## 5. Discover your test cases
 
-Drafts of the test cases selected during sign-up can be found in the drafts section. Meanwhile, Octomind will discover test cases on your page according to how your website looks.
+Here comes the really cool part. You can let the AI agent to through your app and discover more tests. Click on `discover`.
 
-<Frame caption="Clicking this button will let our AI agent discover test cases, screenshot 02/2024">
+<Frame caption="Clicking this button will let our AI agent discover test cases, screenshot 07/2024">
   <img
-    src="/images/discover.png"
-    width="300"
-    alt="discovery button, screenshot 02/2024"
+    src="/images/setup/setup-6-discover.png"
+    alt="AI discovery button, screenshot 07/2024"
   />
 </Frame>
 
-## 6. Approve your test cases
+When it's done, the AI agent will let you know. You will find your tests on the `test cases` page.
 
-Once our AI agent has finished discovery, you can approve or reject each individual draft to generate its steps.
-
-<Frame caption="Approve or deny test cases that octomind discovered - screenshot 02/2024">
+<Frame caption="AI agent discovered test cases and you will find them in the test cases view, screenshot 07/2024">
   <img
-    width="300"
-    src="/images/approve.png"
+    src="/images/setup/setup-7-discovery-done.png"
+    alt="AI discovery has finished, screenshot 07/2024"
+  />
+</Frame>
+
+## 6. View your first AI auto-generated test cases
+
+You should have your **first active test cases** generated. The AI agent has discovered the test cases, it auto-generated the test steps and has run them to validate whether they work.
+
+They are `on` which means they will run once you trigger a **test report**.
+
+<Frame caption="First active test cases discovered and auto-generated - screenshot 07/2024">
+  <img
+    src="/images/setup/setup-8-first-tests.png"
+    alt="First active test cases AI discovered and AI auto-generated - screenshot 07/2024 "
+  />
+</Frame>
+
+If the agent stumbled over a test step, you might have to lend a hand to review and edit a test step.
+
+<Frame caption="Test cases that need review, discovered and auto-generated - screenshot 07/2024">
+  <img
+    src="/images/setup/setup-8-review-steps.png"
+    alt="Test cases that need review, AI discovered and AI auto-generated - screenshot 07/2024 "
+  />
+</Frame>
+
+## 7. Test your website for the first time
+
+Once you have active test cases - they are **on**, you can **run** them. Create your first test report. Click on `run all` button and then `run in the app` and see if they found a bug.
+
+<Frame caption="Run your first test report - screenshot 07/2024">
+  <img
+    src="/images/setup/setup-9-run-tests.png"
+    alt="Run your first test report - screenshot 07/2024 "
     alt="Approve or deny test cases that octomind discovered - screenshot 02/2024 "
   />
 </Frame>
 
-## 7. Publish your test cases
+## 8. See your first test results
 
-Once our AI agent has finished generating steps, you can publish the test case to disable editing and run it in your [Test Reports](/test-reports)
+You have created your first test report, congratulations! If your test is red we will pinpoint you to step in the app that is broken. Find out more about [test reports](/test-reports.mdx) and [debugging your tests](/debugtopus.mdx).
 
-<Frame caption="Publish your test case - screenshot 02/2024">
+<Frame caption="First test report - screenshot 07/2024">
   <img
-    width="300"
-    src="/images/publish.png"
-    alt="Publish your test case - screenshot 02/2024 "
+    src="/images/setup/setup-10-test-report.png"
+    alt="First first test report - screenshot 07/2024"
   />
 </Frame>
