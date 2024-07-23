@@ -1,44 +1,77 @@
 ---
 title: Create a new test case
-description: "An overview of the various test case creation methods"
+description: "Add more test cases to your test suite. Use AI generation or recording."
 icon: "arrow-progress"
 ---
 
-## Prompting for test case generation
+## Prompt our AI agent to generate new tests
 
-We are deploying an `AI agent` to find the interactions leading towards a desired user flow.
-While our `AI agent` finds the steps of your test cases, it informs you about the progress it's making by showing the steps.
+The fastest way to create a new test case is to have it AI generated. You give us a short prompt and we deploy our `AI agent` to find the interactions leading towards a desired user flow.
 
-<Frame caption="AI agent informs about its progress, screenshot 02/2024">
+<Frame caption="Create new test case by prompting the AI agent, screenshot 07/2024">
   <img
-    src="images/AI-Agent-generating-steps.png"
+    src="images/prompting/create-new-test.png"
     alt="AI agent informs about its progress"
   />
 </Frame>
 
-### Editing your AI discovery
+While our `AI agent` generates the steps of your test cases, it informs you about its progress.
 
-If the Agent generated wrong steps, you can modify the prompt and decide which steps to keep. All subsequent steps are replaced with the new agent output.
-
-<Frame caption="Relaunch AI discovery based on your comments, screenshot 02/2024">
+<Frame caption="AI agent informs about its progress, screenshot 07/2024">
   <img
-    src="images/AI-Agent-recreate-steps.png"
-    alt="Relaunch AI discovery based on comments"
+    src="images/prompting/AI-Agent-generating-steps.png"
+    alt="AI agent informs about its progress as it generates steps"
   />
 </Frame>
 
-### Chaining your tests
+If the AI agent generated wrong steps or signals a failed step with a yellow alert, you can:
 
-When using the AI agent, you can use a dependency to chain test cases together. A user flow is virtually a chain of test cases. Shorter flows are faster, more specific and more reliable.
+1. **Restart the AI generation process.** Select the last step you want to keep. All subsequent steps will be replaced with the new AI agent output.
+2. Try a **different prompt** and restart the AI generation process.
+3. **Add, edit and remove steps manually.** Our virtual locator picker helps you edit tests in no time.
+
+<Frame caption="A generated test step failed, hightlighted by yellow alert, screenshot 07/2024">
+  <img
+    src="images/prompting/failed-test-step.png"
+    alt="A generated step failed and shows a yellow alert"
+  />
+</Frame>
+
+### Pre-prompted login test
+
+If your app has a login functionality that wasn't AI discovered at the set-up, we have a pre-prompted login test case for you. You can trigger it after giving us test user credentials.
+
+Go to `settings` a.k.a. the `gear icon` in the upper right corner and select `test account`. Add test user credentials we can use to run the login test.
+
+<Tip>
+This test is also created on the fly for a **new project**, if we detect a login flow and you provide us with test user credentials.
+
+</Tip>
+
+<div class="mt-8" />
+
+<Frame caption="Test user credentials for login test, screenshot 07/2024">
+  <img
+    src="images/prompting/login-variables.png"
+    alt="Login test user variables for login test"
+  />
+</Frame>
+
+### Chaining tests
+
+A user flow is virtually a chain of test cases. When using the AI agent, you can use a dependency to chain test cases together. Shorter flows are faster, more specific and more reliable.
+
+We fill in some dependencies for you set-up Octomind. They are the **cookies banner test** if cookie banners are used and **required login test** if you need to be logged in to operate the app.
+You can keep, remove or add other dependencies if you wish.
 
 This is how you do it:
 
-- Give us a path where the AI agent should start its test case generation process, e.g. `/overview/`
+- Give us a path where the AI agent should start its test case generation process, e.g. `/products/`
 - Select a test case that should run before the AI agent is about to run.
 
-<Frame caption="Test case chaining, screenshot 02/2024">
+<Frame caption="Test case chaining, screenshot 07/2024">
   <img
-    src="images/Test-case-define-dependency.png"
+    src="images/prompting/define-dependency.png"
     alt="Test case chaining"
     width="300px"
   />
@@ -67,6 +100,17 @@ This is how you do it:
    - We cannot handle captchas yet.
    - Our AI agent might get blocked by robot detection on some high traffic sites. Sites / apps in production are more bot-protected than staging / test systems.
 
+### Activate your test case
+
+**Check if your test is `on`.** Use the toggle button to switch the test to "on". This means the test is active - it was added to your active test suite and will run when a test report is triggered.
+
+<Frame caption="Toggle button to activate your test case, screenshot 07/2024">
+  <img
+    src="images/prompting/toggle-button.png"
+    alt="Toggle button to activate test"
+  />
+</Frame>
+
 ## Record a test case
 
 For more manual control and for cases that the AI model struggles with, we are offering the option to enter code directly. Ideally, produce your code with Playwright Codegen.
@@ -82,6 +126,8 @@ Once you finished your recording, just copy and paste the whole code into the co
   />
 </Frame>
 
+<div class="mt-8" />
+
 <Tip>
 
 **Good to know**
@@ -93,15 +139,3 @@ Once you finished your recording, just copy and paste the whole code into the co
   visibility assertions are supported.
 
 </Tip>
-
-## Manual test case creation
-
-You can also manually create test cases. You can add any number of interaction or assertions via the `+` icons.
-
-<Frame caption="Test case manual creation, screenshot 02/2024">
-  <img
-    src="images/Test-case-manual.png"
-    alt="Test case manual creation"
-    width="300px"
-  />
-</Frame>
