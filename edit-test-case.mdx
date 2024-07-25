@@ -1,0 +1,111 @@
+---
+title: Edit a test case
+description: "Add, remove, copy-paste and edit test steps. Pick locators from snapshots."
+icon: "pen-to-square"
+---
+
+## Edit steps
+
+There are many ways how you can fix, update or enhance an existing test case by editing its steps.
+
+### Change locator
+
+Did the AI agent address the wrong locator? Did you change a flow in the app and you have to point to a different element?
+
+- Go to the snapshot of the relevant test step
+- Hover over the **virtual locator picker**
+- Click `change locator`
+- Select a different locator with your mouse in the snapshot
+
+<Frame caption="Changing locators with the virtual locator picker, 7/2024">
+  <img
+    src="/images/editing/change-locator.gif"
+    alt="changing locators with virtual locator picker"
+  />
+</Frame>
+
+### Change locator type
+
+Use the **virtual locator picker** to change the type of the locator. Your options are:
+
+- `interactions` - enter text, press key, select option, click
+- `assertions` - visible, hidden, disabled, have value
+
+<Frame caption="Changing locators types with the virtual locator picker, 7/2024">
+  <img
+    src="/images/editing/change-locator-type.png"
+    alt="changing locators types with virtual locator picker"
+  />
+</Frame>
+
+### Add and remove steps
+
+Click on `add step` and drag the `new step` to its respective place in the step sequence. The snapshot will adapt so you can use the **virtual locator picker** to select the interaction or assertion type.
+
+Delete steps by clicking on the `trash` icon in the upper right corner of the test step view.
+
+<Frame caption="Adding a step with the virtual locator picker, 7/2024">
+  <img
+    src="/images/editing/add-steps.gif"
+    alt="adding a step with the virtual locator picker"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="Drag & drop a new step, delete a step, 7/2024">
+  <img
+    src="/images/editing/drag-n-drop.gif"
+    alt="drag and drop a test step and delete it"
+  />
+</Frame>
+
+### Drag & drop, duplicate and copy paste steps
+
+Octomind test steps can be flexibly manipulated. You can **drag and drop** steps to different places in the sequence, duplicate them by clicking on the `duplicate` icon in the upper right corner or simply `select` a step and **copy & paste** it where you need it. `Ctrl+C` and `Ctrl+V` works also for copy pasting steps from other test cases.
+
+<Frame caption="Duplicate a step, delete a step, 7/2024">
+  <img src="/images/editing/duplicate-step.png" alt="duplicating test steps" />
+</Frame>
+
+## Edit prompt and restart AI auto-generation
+
+You can edit the prompt and have the AI agent `regenerate` test steps based on the new prompt. We will ask you to select **the last step** in the sequence you want to keep. The AI agent will regenerate test steps from this step onwards.
+
+Or you have simply hit the `regenerate` button to rediscover the steps based on the same prompt.
+
+<Frame caption="Drag & drop a new step, delete a step, 7/2024">
+  <img
+    src="/images/editing/regenerate.gif"
+    alt="edit the prompt regenerate the test steps"
+  />
+</Frame>
+
+## Edit dependencies
+
+Click on the `refresh` icon next to the existing **test dependency** and select a more suitable option to chain your test with.
+
+<Frame caption="Editing dependencies in a test case, 7/2024">
+  <img
+    src="/images/editing/edit-dependency.png"
+    alt="editing dependencie in a test case"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="Choose a different dependency, 7/2024">
+  <img
+    src="/images/editing/edit-dependency-2.png"
+    alt="editing dependencie in a test case"
+  />
+</Frame>
+
+## Run and save edits
+
+`Run` you test case to see if it works. If it's successful, you can click on the `save` button. We will warn you if you try to leave without saving the test.
+
+<Tip>
+  Double check that your newly edited step is `on` in the test case view if you
+  want to run it in your next **test report**.
+</Tip>
