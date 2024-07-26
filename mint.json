@@ -15,7 +15,6 @@
     }
   },
 
-
   "modeToggle": {
     "default": "dark"
   },
@@ -69,6 +68,7 @@
       "pages": [
         "first-steps",
         "new-test-case",
+        "edit-test-case",
         "test-cases",
         "test-reports",
         "debugtopus",
@@ -81,9 +81,7 @@
     },
     {
       "group": "Best Practices",
-      "pages": [
-        "test-case-creation-strategy"
-      ]
+      "pages": ["test-case-creation-strategy"]
     },
     {
       "group": "CI integrations",
@@ -97,11 +95,7 @@
     },
     {
       "group": "Advanced Features",
-      "pages": [
-        "projects",
-        "variables"
-      ]
-
+      "pages": ["projects", "variables"]
     },
     {
       "group": "Changelog",
@@ -127,4 +121,3 @@
     "discord": "https://discord.gg/3ShnZMKRfA"
   }
 }
-
