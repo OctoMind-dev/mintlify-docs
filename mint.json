@@ -69,6 +69,7 @@
         "first-steps",
         "new-test-case",
         "edit-test-case",
+        "execute-test-cases",
         "test-cases",
         "test-reports",
         "debugtopus",
