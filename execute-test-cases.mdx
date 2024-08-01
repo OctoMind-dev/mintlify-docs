@@ -1,0 +1,103 @@
+---
+title: Execute your tests
+description: "Run your tests to find bugs in your app. We will help you figure out what went wrong."
+icon: "play"
+---
+
+## Run your active test cases
+
+You should have number of **active tests** in your test suite by now. They are `on`.
+
+To check if there are any bugs in your new build or in production preventing your users from operating your app, you will have to **run the tests**.
+
+### 1. Trigger a test run
+
+To run all active tests instantly click `run all` and then `in app`. This will trigger a test run resulting in a [test report](/test-reports.mdx) visible in the Octomind app. We run the tests in parallel to make sure they run completes under 20 minutes, regardless of the number of your active test cases.
+
+Useful for **branch deployments** - you can run your tests against any other accessible URL. Select `in app on a different URL` instead.
+
+<Frame caption="Run your tests for the first time - screenshot 07/2024">
+  <img
+    src="/images/setup/setup-9-run-tests.png"
+    alt="Create your first test report - screenshot 07/2024"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Warning>
+  We also **"run"** a test cases when you save changes to a test you have
+  edited. We validate the test itself to see if it's not broken. This doesn't
+  mean it will run automatically when you trigger a test run. You have to turn
+  the test case `on`.
+</Warning>
+
+### 2. Understand test results
+
+Every test run will produce a **test report** where you will see all test results. They will tell you if everything runs as it's supposed to or if something is broken.
+
+Go to the [test report](/test-reports.mdx) section to learn about test reports.
+
+### 3. Why is a test red?
+
+Red signals the test has failed. This might have 3 reasons:
+
+1. You have a bug in your app
+   We will pinpoint you to exact moment where it broke. Swipe through the **report snapshots** or launch the **trace viewer** for more details. For an even more precise debugging, we created the open source [Debugtopus](/debugtopus.mdx) to use locally on your machine.
+
+<Frame caption="Snapshots in test reports showing what happened during the test run, 7/2024">
+  <img
+    src="/images/executing/report-snapshots.png"
+    alt="snapshots carousel in test reports"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="Launch trace viewer for more test run details, 7/2024">
+  <img
+    src="/images/executing/see-trace-viewer.png"
+    alt="launch trace viewer"
+    width="300px"
+  />
+</Frame>
+
+2. The test is broken
+   End-to-end tests tend to break when anything in the app changes. This is not just annoying, but a major time investment.
+
+   We can fix it for you. This feature in included in [Octomind's paid tiers](https://www.octomind.dev/pricing).
+
+<Frame caption="Example of a broken test reflecting a change in user flow, trace viewer screenshot 7/2024">
+  <img
+    src="/images/executing/broken-test.png"
+    alt="broken test in Playwright trace viewer"
+  />
+</Frame>
+
+3. The test is flaky
+   Flaky tests produce different results when running the exact same test case. We are deploying multiple strategies to fight flakiness, but it can't be prevented 100% of the time just yet.
+
+## Schedule regular test runs
+
+The point of software testing is to test regularly. You can [schedule tests](/scheduled-execution.mdx) by clicking the `schedule` button.
+This is a great strategy for synthetic monitoring of your app in production.
+
+<Frame caption="Scheduling test runs 7/2024">
+  <img
+    src="/images/executing/schedule.png"
+    alt="scheduling test runs"
+    width="300px"
+  />
+</Frame>
+
+## Trigger test runs via curl command
+
+If you do not use pipelines and want to manually trigger the test execution from outside our app, e.g. from your terminal, you can do it with a cURL command. [Learn how.](/execution-without-ci.mdx)
+
+## Trigger test runs from your CI
+
+Integrating our tests to your CI pipeline is a great way to make sure you didn't break the app with new releases. Learn [how to integrate Octomind into your CI/CD](/integrations-overview.mdx).
+
+## Run your tests locally
+
+Octomind tests are written in standard Playwright code. You can download it an run the test locally. This is how you use our open source [Debugtopus](/debugtopus.mdx) to do so.
