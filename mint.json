@@ -82,7 +82,7 @@
     },
     {
       "group": "Best Practices",
-      "pages": ["test-case-creation-strategy"]
+      "pages": ["test-case-creation-strategy", "rate-limiting"]
     },
     {
       "group": "CI integrations",
