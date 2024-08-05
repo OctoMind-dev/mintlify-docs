@@ -70,14 +70,11 @@
         "new-test-case",
         "edit-test-case",
         "execute-test-cases",
-        "test-cases",
-        "test-reports",
         "debugtopus",
-        "integrations-overview",
         "scheduled-execution",
+        "integrations-overview",
         "execution-without-ci",
-        "under-the-hood",
-        "octo-dictionary"
+        "variables"
       ]
     },
     {
@@ -95,16 +92,20 @@
       ]
     },
     {
-      "group": "Advanced Features",
-      "pages": ["projects", "variables"]
+      "group": "Account & Views",
+      "pages": ["projects", "test-cases", "test-reports"]
     },
     {
       "group": "Changelog",
       "pages": ["changelog"]
     },
     {
-      "group": "Questions?",
-      "pages": ["questions/faq"]
+      "group": "More Info",
+      "pages": [
+        "more-info/faq",
+        "more-info/octo-dictionary",
+        "more-info/under-the-hood"
+      ]
     },
     {
       "group": "Data Governance",
