@@ -96,7 +96,7 @@
     },
     {
       "group": "Advanced",
-      "pages": ["variables", "add-rate-limiting"]
+      "pages": ["variables", "rate-limiting"]
     },
     {
       "group": "Changelog",
