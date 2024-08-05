@@ -73,8 +73,7 @@
         "debugtopus",
         "scheduled-execution",
         "integrations-overview",
-        "execution-without-ci",
-        "variables"
+        "execution-without-ci"
       ]
     },
     {
@@ -94,6 +93,10 @@
     {
       "group": "Account & Views",
       "pages": ["projects", "test-cases", "test-reports"]
+    },
+    {
+      "group": "Advanced",
+      "pages": ["variables", "add-rate-limiting"]
     },
     {
       "group": "Changelog",
