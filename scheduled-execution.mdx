@@ -1,10 +1,10 @@
 ---
-title: Scheduling test report runs
-description: "Run your test reports in regular intervals"
+title: Scheduling test runs
+description: "Run your tests and get test results in regular intervals"
 icon: "clock"
 ---
 
-If you don't have pipelines but nevertheless want to run your test reports on a regular schedule, you can do that via our scheduling feature in the test report section of the project overview page.
+If you don't have a CI pipeline but you would like to run your tests on a regular schedule, you can do that via our scheduling feature in the `test reports` section of the project overview page.
 
 There, you can pick between the following run intervals:
 
@@ -12,14 +12,21 @@ There, you can pick between the following run intervals:
 - weekly
 - bi-weekly
 
-<Frame caption="screen recording 04/2024">
-  <img src="/images/changelog/schedule.gif" alt="scheduling of test reports" />
+<Frame caption="Scheduling test run, screenshot 07/2024">
+  <img
+    src="/images/executing/schedule.png"
+    alt="scheduling regular test runs"
+  />
 </Frame>
 
 ## Email notifications
 
-We will inform you via email in case a scheduled test report fails. You can always opt out of these notifications in our in-app settings.
+In case a scheduled test fails, we will inform you via email. You can always opt out of these notifications in our in-app settings.
 
 <Frame caption="screenshot 04/2024">
-  <img src="/images/scheduled-report-email.png" alt="email notifications" />
+  <img
+    src="/images/scheduled-report-email.png"
+    alt="email notifications"
+    width={300}
+  />
 </Frame>
