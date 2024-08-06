@@ -1,51 +1,54 @@
 ---
 title: "Compliance and Security"
+description: "All about Octomind data access and governance"
 icon: "code"
 ---
 
+## No access to source code needed
+
+We operate by simulating a real user interacting with your web app, using your app's **DOM** to identify actions like clicks or text
+inputs. We are also using **screenshots** of your web app. This doesn't require access to your source code. We are only seeing the parts of your app
+which are exposed to your users.
+
+## Data collected when using the Octomind application
+
+The Octomind app is **not** collecting user or app specific data. Octomind is **not** using any customer data for training purposes. DOM structure and screenshots gathered by the AI agent to examine user flows
+within your app are not stored on our computers. They are only temporarily used to identify the next best action to take from a users perspective or to propose test cases.
+
+Data from test runs like traces and screenshots are **deleted after 15 days automatically** as part of our data retention policy. From that time onwards you cannot access traces and screenshots anymore.
+
 ## CI/CD Integration
 
-Our GitHub and Azure DevOps integrations are bi-directional. They trigger test runs and comment results back into your pull requests.
-These only require comment permissions. Please check out the respective section ([GitHub](/integrations/quickstart-GitHub),[Azure DevOps](/integrations/quickstart-Azure)) in our documentation for more details.
+Our **GitHub** and **Azure DevOps** integrations are bi-directional. They trigger test runs and comment results back into your pull requests.
+They require comment permissions only. Please check out the respective section ([GitHub](/integrations/quickstart-GitHub),[Azure DevOps](/integrations/quickstart-Azure)) in our documentation for more details.
 
 <Tip>Both tools are open source so that you can run an audit.</Tip>
 
-Other intergrations into Vercel, Jenkins or the curl command are not able to comment back. Hence they do not need permissions.
+Other intergrations into **Vercel**, **Jenkins** or the **curl** command are not able to comment back. Hence they do not need permissions.
 
-## Data gathered from using the application
+## GDPR / CCPA compliance
 
-Octomind is not collecting user or app specific data. Octomind is not using any customer data for training purposes. Dom structure and screenshots gathered by the AI agent to examine user flows
-within your app are not stored on our computers. They are only temporarely used to identify the next best action to take from a users perspective or to propose test cases. Data from test runs like
-traces and screenshots are deleted after 15 days automatically as part of our data retention policy. From that time onwards you cannot access traces and screenshots anymore.
-
-## GDPR compliance
-
-We are not GDPR relevant since we are not collecting any user data (privacy relevant or not). You can strictly run
+The Octomind application is not GDPR or CCPA relevant since we are not collecting any user data (privacy relevant or not). You can strictly run
 Octomind on test data to make sure, your are not violating your own compliance requirements.
 
-## Metrics
+As for our website and our business systems see [privacy policy](https://www.octomind.dev/privacy-policy).
+
+## Exclude Octomind agent runs from your user metrics
 
 In case you need to exclude our agent from your metrics you can easily do this by excluding any browsers with a user agent
 which includes `octomind`.
 
-## NDA
+## Two IP addresses
+
+If you need to set your firewall to allow our agent to access your web app, please allow our IP addresses: `35.192.162.70` and `34.159.153.198` (europe proxy).
+
+## NDA option
 
 If you want us to sign an NDA you can find all information in our [NDA section](/data-governance/nda).
 
-## No code access
+## Run Octomind tests locally
 
-We operate by simulating a real user interacting with your web app, using your app's DOM to identify actions like clicks or text
-inputs. We are also using screenshots. This doesn't require access to your source code. We are only seeing the parts of your app
-which are exposed to your users.
+We provide an option to run test cases locally from your dev machine against any test target with an open source tool called Debugtopus. You can either run a single test
+case or all of them at once. To do so, please check out the [run tests locally and debug](/debugtopus) section.
 
-## One IP address
-
-If you need to set your firewall to allow our agent to access your web app, please allow our IP addresses: `35.192.162.70` and `34.159.153.198`.
-`34.159.153.198` (europe proxy).
-
-## Run locally
-
-We provide an option to run test cases locally from your dev machine against any test target. You can either run a single test
-case or all of them at once. To do so, please check out [Debug failed test cases](/debugtopus). Since this component is running
-on your local machine its code is open sourced so that you can run an audit on it. This is the
-[Debugtopus repository on GitHub](https://github.com/OctoMind-dev/debugtopus).
+Since this component is running on your local machine its code is open sourced so that you can run an audit on it. Check out the [Debugtopus repository on GitHub](https://github.com/OctoMind-dev/debugtopus).

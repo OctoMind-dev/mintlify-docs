@@ -1,33 +1,33 @@
 ---
 title: Rate limiting
-description: "What is rate limiting and how to deal with it."
+description: "What is rate limiting and how to deal with it"
 icon: "gauge-max"
 ---
 
-Whenever the octomind agent is discovering your page or the test runner is executing test cases it is sending requests to your page (or your app).
+Whenever the AI agent discovers user flows on your page, or when the test runner executes the tests - we are sending requests to your application.
 
-To ensure a well defined behavior all requests are send through one fixed IP address: `35.192.162.70`
+To ensure a well defined behavior all requests are sent through **two fixed IP addresses** - `35.192.162.70` and `34.159.153.198` (europe proxy).
 
-## Agent discovery
+## AI agent discovery
 
-Agent discovery happens as if a human would use your web application, however most of the time the agent interacts with the website slightly faster than a human would.
-There might also be more than one discovery run in parallel.
+AI agent discovers user flows on your site in a similar way a human would use your web application. However, most of the time the agent interacts with the website slightly faster than a human would.
+Also, more discoveries might run in parallel.
 
 ## Test runner
 
-When you "run all" testcases or a scheduled run occurs on a given test target all activated test cases are run at once and with up to 20 parallel browser sessions.
+When you "run all" tests or a scheduled run occurs on a given test target, all active test cases are run at once and with up to 20 parallel browser sessions.
 This can lead to either an overload of your application or a rate limiter getting active, if you have one in place.
 
 ## Login / Authentication
 
-If your application requires a login the configured test user is used for the agent discovery as well as for all the test runs. This could also lead to **hitting a limit of allowed logins**, depending on your login system.
+If your application requires a login, the configured test user is used for the AI agent discovery as well as for the test runs. This could also lead to **hitting a limit of allowed logins**, depending on your login system.
 If you are using a 3rd party login service, there are most likely security configurations in place that prevent users from logging in too frequently.
 
 ### OTP / 2FA
 
-While Octomind is supporting a login with a **one time password (OTP)**, one of the most likely limits that a test run will hit, is how often the same OTP code can be used for login.
+While Octomind supports a login with a **one time password (OTP)**, it might run into a limit on how often the same OTP code can be used for login.
 
 ## Rate limiter
 
-If your application is protected against [DoS Attacks](https://en.wikipedia.org/wiki/Denial-of-service_attack) with a [rate limiter](https://en.wikipedia.org/wiki/Rate_limiting) it is very likely that Octomind test runs and/or discoveries will fail.
+If your application is protected against [DoS Attacks](https://en.wikipedia.org/wiki/Denial-of-service_attack) with a [rate limiter](https://en.wikipedia.org/wiki/Rate_limiting) it is very likely that Octomind test runs and/or AI discoveries will fail.
 The easiest solutions is to configure and exception for our IP address: `35.192.162.70` and `34.159.153.198` (europe proxy) for white listing.
