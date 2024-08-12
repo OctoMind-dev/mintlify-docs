@@ -92,7 +92,7 @@
     },
     {
       "group": "Account & Views",
-      "pages": ["projects", "test-cases", "test-reports"]
+      "pages": ["account-view/account","account-view/projects", "account-view/test-cases", "account-view/test-reports"]
     },
     {
       "group": "Advanced",
