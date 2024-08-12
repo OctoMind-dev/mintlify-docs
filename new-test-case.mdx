@@ -4,9 +4,41 @@ description: "Add more test cases to your test suite. Use AI generation or recor
 icon: "arrow-progress"
 ---
 
+## Have AI agent suggest and auto-generate more tests
+
+Similar to the inital **AI discovery** we can run the discovery feature to "spawn" individual test cases.
+
+Go into the test case and hover over the `suggest more` icon - a button will appear. Click on it.
+
+<Frame caption="Have the AI agent suggest more test cases, 08/2024">
+  <img
+    src="images/setup/setup-11-suggest-more.png"
+    alt="have AI suggest more test cases"
+  />
+</Frame>
+
+Our AI agent will discover up to 3 new tests following up on the test case you launched it from. The original test will be added as a **dependency** automatically. It will auto-generate steps for every discovered test case and validate them.
+
+The AI agent status indicator will display what's going on.
+
+<Frame caption="AI agent informs what it does, 08/2024">
+  <img
+    src="images/prompting/suggesting-more-agent-running.png"
+    alt="AI agent status indicator"
+  />
+</Frame>
+
+The new test will appear grouped by the originating test. The AI agent has auto-generated test steps, validated them and where the validation succeeded, it turned the test **ON** - [into active mode](/execute-test-cases).
+
+Help the AI agent when it couldn't quite nail the auto-generation - **yellow alert** highlights a failed step generation. See how in the [edit test case](/edit-test-case) section.
+
+<Frame caption="New suggested tests, 08/2024">
+  <img src="images/prompting/suggested-tests.png" alt="New suggested tests" />
+</Frame>
+
 ## Prompt our AI agent to generate new tests
 
-The fastest way to create a new test case is to have it AI generated. You give us a short prompt and we deploy our `AI agent` to find the interactions leading towards a desired user flow.
+The fastest way to create a new bespoke test is to have it AI generated from your prompt. You give us a short prompt and we deploy our `AI agent` to find the interactions leading towards a desired user flow.
 
 <Frame caption="Create new test case by prompting the AI agent, screenshot 07/2024">
   <img
