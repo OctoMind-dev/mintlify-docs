@@ -1,0 +1,108 @@
+---
+title: Test reports
+description: "Test reports sum up the results of a test run - a single execution of all your active test cases."
+icon: "square-check"
+---
+
+## Where to view your test reports
+
+You will find a summary of the most recent 4 test runs in the `test reports` section in the project overview. Click on `show more` to see more than the last 4 test runs. The `test reports` menu in the sidebar lists all recent reports in chronological order, starting from most recent at the top.
+
+Test reports are tied to a single target execution URL, so one specific deployment of your website or app, e.g. a branch deployment during a pull request.
+
+<Frame caption="'test report' list in the 'project overview' in the app, 08/2024">
+  <img
+    src="images/accounts/test-report-list.png"
+    alt="test report list in the project overview in the ap, screenshot 08/2024"
+  />
+</Frame>
+
+## Scheduled test runs
+
+If you want to [run your tests on a fixed schedule](/scheduled-execution), the `test reports` section in the `project overview` gives you the option of a daily, weekly or bi-weekly interval.
+
+This ensures that your app works flawlessly over time. We will send you an email notification if any of your tests fail.
+
+<Frame caption="scheduling test runs, 04/2024">
+  <img src="/images/changelog/schedule.gif" alt="scheduling test runs" />
+</Frame>
+
+## Test reports in your CI/CD pipeline
+
+If you integrated Octomind into your [CI pipeline](/integrations-overview), we will comment test results back in your pull request after a completed test run.
+
+<Frame caption="Example of Octomind test results in a commit comment, 09/2023">
+  <img
+    src="images/Octomind-test-results-commit-comments-GitHub-example.png"
+    alt="Example of Octomind test results in a github pull request comment"
+  />
+</Frame>
+
+There will be a row for each test with the following information:
+
+| column      | description                                               |
+| ----------- | --------------------------------------------------------- |
+| description | name of the test case                                     |
+| status ✅   | execution successful                                      |
+| status ⌛️   | execution in progress                                     |
+| status ❌   | execution failed                                          |
+| status 💔   | something went wrong on our side during execution         |
+| details     | link which takes you to the test case details (see below) |
+
+## Test report details
+
+When you click on a specific test report in the app or on the link in your commit comment, a `test report overview` with all the results and more details will open.
+
+If trigger manually, you will find the user who triggered it and when. When triggered via CI integration, you will find a link to the `commit` that triggered it.
+
+<img
+  src="/images/test-report.png"
+  alt="Example of the test report page screenshot 02/2024"
+/>
+
+## Test result details
+
+If you click on one of the tests within the test report, you will find details about the execution and its results.
+
+It will give showcase test step snapshots to understand what the execution did exactly. In the `steps` tab you can see all the interactions Octomind executed for this test run. Each step can be clicked on to see the exact screenshot at the time of execution.
+
+<Frame caption="failed test result detail, auto-playing all snapshots taken during execution, 08/2024">
+  <img
+    src="images/accounts/test-result-failed.png"
+    alt="failed test result detail, auto-playing all snapshots taken during execution, 08/2024"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="snapshots in test reports showing what happened during the test run, 7/2024">
+  <img
+    src="/images/executing/report-snapshots.png"
+    alt="snapshots carousel in test reports"
+  />
+</Frame>
+
+The `failure` state indicates that your app was not working correctly when executing the test. We will help you understand what when wrong and to debug either the app or your test itself if a [test is red](/execute-test-cases#3-why-is-a-test-red).
+
+## Debugging a failed test
+
+In the `debug` tab you can see advanced options to find the issues in your app. You will find a link to a recording in **Playwright Trace Viewer** and the `code` for local debugging.
+
+<Frame caption="Test result debug tab, 08/2024">
+  <img
+    width="500"
+    src="images/accounts/debug-tab-failed.png"
+    alt="test result debug tab, 08/2024"
+  />
+</Frame>
+
+The first step when debugging should be inspecting the execution using the `inspect in Trace Viewer` button. A trace is similar to a recording, but has a lot additional information that come in handy when debugging. It allows you to quickly understand the test execution and the results of each action taken.
+
+<Frame caption="Example of a broken test reflecting a change in user flow, trace viewer screenshot 7/2024">
+  <img
+    src="/images/executing/broken-test.png"
+    alt="broken test in Playwright trace viewer"
+  />
+</Frame>
+
+To run your test on your own machine against your local dev environemnt use the `run locally` button. Find out [how to run tests locally and debug using our open source Debugtopus](/debugtopus).
