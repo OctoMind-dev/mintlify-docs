@@ -4,31 +4,41 @@ description: "If you are interested in how we make the tests work, this is your 
 icon: "engine"
 ---
 
-## Test case building
+## AI agents discovering and generating test steps
 
 A web app is typically composed of user flows. A user flow lets a user accomplish a certain goal. "Sign-in with email & password" is an example.
 To perform a sign-in with email & password, a certain sequence of steps - `interactions` - is required.
-We are recording and storing the interaction chain of a test case in an intermediate representation.
-The corresponding [Playwright](https://playwright.dev/) code which is exercising the UI is generated on the fly just before test execution. The interaction chain can be examined in the test detail view and the Playwright trace viewer.
 
-## Auto-maintenance
+Our AI agents mimic human users (i.e., clicks input fields, signs up for newsletter) to navigate apps, interpret app intent, and identify all relevant user flows. We are recording and storing the interaction chain of a test case in an intermediate representation.
 
-We follow a playbook to find out if a test failure is caused by a behavioral change of your user flows, the test code itself or a bug in your code. In the case of a behavioral change, we pinpoint the failing interaction.
-We then apply machine learning to detect the new desired interaction to achieve the original goal of the test case. The interaction chain of the test case will be adjusted permanently to the new behavior as a result.
+## Playwright generates test code
+
+After we record and store each test case's interaction chain, we generate the corresponding [Playwright code](https://playwright.dev/) deterministically on the fly immediately prior to test execution.
+
+Playwright code is exercising the UI. The interaction chain can be examined in the test detail view and the Playwright trace viewer.
+
+<Frame caption="Use of AI agents and Playwright in Octomind end-to-end tests">
+  <img
+    src="/images/moreinfo/playwright-diagram.png"
+    alt="playwright & AI diagram in Octomind tests"
+  />
+</Frame>
+
+## Work in progress: AI auto-maintenance
+
+We will follow a playbook to find out if a test failure is caused by a behavioral change of your user flows, the test code itself or a bug in your code. In the case of a behavioral change, we pinpoint failing interactions, and deploy the AI Agent to detect new desired interaction that will allow us to achieve the test case's goals.
+
 This feature is under active development and not publicly accesible yet.
 
 ## Issue pinpointing
 
-When a test case rightfully fails, we help you quickly understand what went wrong. We are providing a set of tools to help you understand the issue.
+When a test case fails, we help you quickly understand what went wrong. We are providing a set of tools to help you understand the issue.
 
-- Screenshots at the time of test failure
-- Execution log of the test cases
-- Playwright traces via trace viewer
-- `Debugtopus` tooling, which lets you run our tests localy, so you can set breakpoints to step through the code.
+- Snapshots at the time of test failure
+- traces via [Playwright trace viewer](https://playwright.dev/docs/trace-viewer)
+- open source [Debugtopus](https://github.com/OctoMind-dev/debugtopus) tooling, which lets you run our tests localy, so you can set breakpoints to step through the code.
 
-### Debugtopus
-
-See details at [Debug your code](/debugtopus).
+See more details in [Debug your code](/debugtopus).
 
 <Frame caption="Debugtopus interaction diagram">
   <img
@@ -37,10 +47,12 @@ See details at [Debug your code](/debugtopus).
   />
 </Frame>
 
-## Test suite runtime
+## Parallel test runs for shorter runtime
 
 Browser tests are not super fast since they are simulating a real user. To provide test results as fast as possible we parallelize test execution to the max.  
 To do so, we are fully cloud based and we scale instances up and down as needed. We are also working on techniques to separate test execution to avoid side effects for better scaling.
+
+Octomind tests are run in parallel, so your test suite will complete in 20 minutes or less, regardless of size.
 
 ## Flakiness
 
