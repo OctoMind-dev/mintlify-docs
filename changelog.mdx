@@ -4,6 +4,144 @@ description: "All the nice stuff you asked for"
 icon: "sparkles"
 ---
 
+## 2024-08-09
+
+- `UI tweak` for first time users: Test result details of user's first test run are visible directly in project overview.
+
+<Frame caption="First time users project overview with test result detail, 08/2024">
+  <img
+    src="images/changelog/first-report.png"
+    alt="First time users project overview with test result detail"
+  />
+</Frame>
+
+## 2024-08-08
+
+- `Save & run`: New button to **run and save** an edited test case at once. You can click on the `run only` button if you want to validate the test first before saving it.
+
+<Frame caption="'save & run' the test to validate and save changes, 08/2024">
+  <img
+    src="images/editing/save-run.png"
+    alt="Save and run the test case"
+    width="300px"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="'run only' to validate the test before saving it, 08/2024">
+  <img
+    src="images/editing/save-run-only.png"
+    alt="Run only to validate the test before saving it"
+    width="300px"
+  />
+</Frame>
+
+## 2024-08-06
+
+- `AI suggesting more tests`: Similar to the AI discovery at set-up, we expanded the AI discovery feature to “spawn” more test cases.
+
+<Frame caption="Have the AI agent suggest more test cases, 08/2024">
+  <img
+    src="images/setup/setup-11-suggest-more.png"
+    alt="have AI suggest more test cases"
+  />
+</Frame>
+
+- `Open status for new test cases`: In order to mark test cases coming out of **suggest more** as new (until you've opened them for the first time), we introduced a new column **open status** .
+
+<Frame caption="Open status on new suggested tests, 08/2024">
+  <img
+    src="images/changelog/open-status-proposals.png"
+    alt="Open status on new suggested tests"
+  />
+</Frame>
+
+## 2024-08-05
+
+- Speed is important. We sped up loading times on test cases overviews.
+- `AI agent can scroll now`: improved scrolling behavior of our AI agents when exploring elements increasing its success rate
+
+## 2024-07-29
+
+- `Draftless editing`: No more draft state of a test case. Just open the test case and save your changes.
+
+## 2024-07-23
+
+- `Guidance through card focus`: We highlight the sections of our app to gently guide you to your **first test report**.
+- `AI agent progress indicator`: We reintroduced the progress bar and updated it. At any given moment, you'll have an idea what the agent is doing.
+
+<Frame caption="AI agent progress indicator, 07/2024">
+  <img
+    src="/images/changelog/agent-running.png"
+    alt="AI agent progress indicator"
+  />
+</Frame>
+
+## 2024-07-18
+
+- `Copy paste test steps`: Use Ctrl+C Ctrl+V keystrokes (cmd+c cmd+v for mac users) to copy paste test steps within the same test or from other test cases.
+
+<Frame caption="copy pasting steps, 07/2024">
+  <img src="/images/changelog/copy-pasting-steps.gif" alt="test case filters" />
+</Frame>
+
+## 2024-07-16
+
+- `Faster AI Agent`: Natural scrolling when extracting web elements and checking for visibility took up 20% of the whole test generation process. We made it faster.
+- `Test case filters`: You can filter your tests based on the test statuses, now.
+
+  <Frame caption="test case filters, 07/2024">
+    <img
+      src="/images/changelog/filters.png"
+      alt="test case filters"
+      width={400}
+    />
+  </Frame>
+
+## 2024-07-11
+
+- `Automatic login and cookie banner tests` at sign-up. When you sign up to Octomind or create new project (add a new URL):
+
+1. AI agent goes through your site and checks for cookie banners.
+2. If a cookie banner is present, it creates a cookie banner test.
+3. AI agent checks if you have a login at your site.
+4. If you do, it asks you for test credentials.
+5. You give it your test credentials.
+6. AI agent auto-generates a login test.
+7. The cookie and the login tests will be populated into all new auto-generated tests as dependencies.
+
+<Frame caption="AI agent asks for test credentials to auto-generate and run a login test, screenshot 07/2024">
+  <img
+    src="/images/setup/setup-5-login-credentials.png"
+    alt="AI agent asks for login test credentials, screenshot 07/2024"
+  />
+</Frame>
+
+## 2024-07-04
+
+- `Mobile + tablet use`: Test case editing works better on smaller screens now.
+
+## 2024-07-01
+
+- `Agent benchmark automation`: Every major change in the codebase impacts the AI agent performance. We get an automated ping whether the agent does what it's supposed to do, now.
+
+## 2024-06-27
+
+- `Variable templates`: We fill more robust variable templates into the test when your test steps are auto-generated. [Learn more.](/variables)
+- `Shadow DOM & iFrames`: It looks like we figured out how to handle them. Until you serve us the next 100 edge cases.
+
+## 2024-06-24
+
+- `New project overview`: Your project homepage has a new overview layout. We aimed for a less cluttered design while keeping the flexibility and all features at hand.
+
+<Frame caption="Project overview page after sign-up, 06/2024">
+  <img
+    src="/images/setup/setup-4-overview.png"
+    alt="Opening the Octomind app on project overview for the first time"
+  />
+</Frame>
+
 ## 2024-06-20
 
 - We merged and simplified test case view. Bye bye, way too many tabs.

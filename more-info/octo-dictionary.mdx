@@ -1,8 +1,17 @@
 ---
 title: Octo Dictionary
-description: "Essential terminology used within the app"
+description: "Essential terminology used within the Octomind app"
 icon: "book"
 ---
+
+### AI discovery
+
+Happens when our AI agents traverse the publicly accessible code in the DOM and use the vision capability of the underlying multimodal LLM to add visual context.
+They are looking for meaningful user flows to be tested.
+
+### AI generation
+
+Describes the process when our AI agents generate sequential test steps in order to achieve a user flow goal.
 
 ### Debugtopus
 
@@ -12,17 +21,13 @@ Debugtopus is our open source tool enabling you to run tests locally for easier 
 
 A test case can be dependent on another test case. This way code can be reused and test case generation gets much easier. Many test cases can form a chain.
 
-### Generate report
+### Locator
 
-Generate report lets you run all published test cases. Test reports can be generated in many ways from in-app as well as through CI commands or via command line.
-
-### Manual test case creation
-
-Manual test case creation is the process of creating a draft with no steps in it. Steps can be added manually after creation.
+[Locators](https://playwright.dev/docs/api/class-locator) represent a way to find element(s) on the page at any moment in the Playwright test framework.
 
 ### Project
 
-A [project](/projects) is a collection of test cases and test reports tied to a certain app (the test target).
+A [project](/projects) is a collection of test cases and test reports tied to a certain app (the test target, URL).
 
 ### Prompt
 
@@ -30,36 +35,31 @@ The prompt is describing the goal the AI agent needs to achieve when generating 
 
 ### Recording
 
-Recording is another way to add a new test case to Octomind. It is best used via Playwright Codegen and allows to paste code directly.
+[Recording](/new-test-case#record-a-test-case) is another way to add a new test case to Octomind. It is best used via **Playwright Codegen** and allows to paste code directly.
 
 ### Run locally
 
 You can [run one or all test cases on your local machine](/debugtopus) against any test target.
 
-### Run test case
+### Run a test case
 
-You can run any draft or published test case by clicking the run button. This functionality is intended to validate the test case itself.
+You can run a edited test cases by clicking the `save & run` or the `run only` button. This functionality is intended to validate the test case itself.
+
+### Snapshots
+
+Snapshot is a visual screenshot of a particular state of the tested app. They are used in test steps to pick / change a locator and in test results to show you what happened during the test execution.
 
 ### Test case
 
-A Test case is the Octomind base entity and it models a user flow.
+A **test case** is the Octomind base entity and it models a user flow. It is the end-to-end test itself.
 
 <Frame caption="Anatomy of a test case, 03/2024">
   <img src="/images/TestCase.png" alt="anatomy of a test case" />
 </Frame>
 
-A test case can have multiple states:
-
-1. **draft:** test case ends up in draft state after being created. While a test case is in draft state, you can add/remove steps to fulfil your testing goal
-2. **published:** once you're happy with your test case's steps, you can publish it. Published test cases will be included into test report
-3. **archived:** A test case is archived once you click the remove button on a published test case.
-   This excludes the test case from future test reports and we keep them as archived in case you change your mind.
-
-Draft and published test cases can be run to check out if they are working.
-
 ### Test report
 
-The [test report](/test-reports) consists of the test results of all published test cases.
+Every test run will produce a [test report](/account-view/test-reports.mdx) where you will see all test results. They will tell you if everything runs as it's supposed to or if something is broken.
 
 ### Test step
 
@@ -79,4 +79,15 @@ to book a hotel on a hotel booking page.
 
 <Frame caption="example of a user flow, 03/2024">
   <img src="/images/user-flow.png" alt="example of a user flow" />
+</Frame>
+
+### Visual locator picker
+
+Is the key tool for editing test steps. It let's you select a new locator visually from a snapshot of the app.
+
+<Frame caption="Changing locators with the virtual locator picker, 7/2024">
+  <img
+    src="/images/editing/change-locator.gif"
+    alt="changing locators with virtual locator picker"
+  />
 </Frame>
