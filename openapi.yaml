@@ -1,0 +1,399 @@
+openapi: 3.0.3
+info:
+  title: Octomind external  API
+  description: Octomind API that allows you to execute test cases and register  by providing a URL and an ID.
+  version: 1.0.0
+servers:
+  - url: https://app.octomind.dev/api
+    description: Main API Endpoint
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+  schemas:
+    ExecutionContext:
+      oneOf:
+        - type: object
+          properties:
+            source:
+              type: string
+              enum: ["github"]
+              example: "github"
+            issueNumber:
+              type: integer
+              nullable: true
+              example: 123
+            ref:
+              type: string
+              nullable: true
+              example: "refs/heads/main"
+            sha:
+              type: string
+              nullable: true
+              example: "abc123def456"
+            repo:
+              type: string
+              example: "my-repo"
+            owner:
+              type: string
+              example: "repo-owner"
+            triggeredBy:
+              type: object
+              nullable: true
+              properties:
+                type:
+                  type: string
+                  enum: ["USER"]
+                  example: "USER"
+                userId:
+                  type: string
+                  example: "user123"
+            nodeId:
+              type: string
+              nullable: true
+              example: "node-123"
+
+        - type: object
+          properties:
+            source:
+              type: string
+              enum: ["azureDevOps"]
+              example: "azureDevOps"
+            accessToken:
+              type: string
+              example: "token123"
+            organization:
+              type: string
+              example: "my-org"
+            project:
+              type: string
+              example: "my-project"
+            repositoryId:
+              type: string
+              example: "repo-123"
+            sha:
+              type: string
+              nullable: true
+              example: "abc123def456"
+            ref:
+              type: string
+              nullable: true
+              example: "refs/heads/main"
+            pullRequestId:
+              type: integer
+              nullable: true
+              example: 101
+            triggeredBy:
+              type: object
+              nullable: true
+              properties:
+                type:
+                  type: string
+                  enum: ["USER"]
+                  example: "USER"
+                userId:
+                  type: string
+                  example: "user123"
+            threadId:
+              type: string
+              nullable: true
+              example: "thread-123"
+
+        - type: object
+          properties:
+            source:
+              type: string
+              enum: ["discovery"]
+              example: "discovery"
+            description:
+              type: string
+              example: "A discovery test"
+            triggeredBy:
+              oneOf:
+                - type: object
+                  properties:
+                    type:
+                      type: string
+                      enum: ["INITIAL"]
+                      example: "INITIAL"
+                - type: object
+                  properties:
+                    type:
+                      type: string
+                      enum: ["USER"]
+                      example: "USER"
+                    userId:
+                      type: string
+                      example: "user123"
+
+        - type: object
+          properties:
+            source:
+              type: string
+              enum: ["manual"]
+              example: "manual"
+            description:
+              type: string
+              example: "A manual trigger"
+            triggeredBy:
+              type: object
+              properties:
+                type:
+                  type: string
+                  enum: ["USER"]
+                  example: "USER"
+                userId:
+                  type: string
+                  example: "user123"
+
+        - type: object
+          properties:
+            source:
+              type: string
+              enum: ["scheduled"]
+              example: "scheduled"
+            triggeredBy:
+              type: object
+              nullable: true
+              properties:
+                type:
+                  type: string
+                  enum: ["USER"]
+                  example: "USER"
+                userId:
+                  type: string
+                  example: "user123"
+
+        - type: object
+          properties:
+            source:
+              type: string
+              enum: ["proposal"]
+              example: "proposal"
+            description:
+              type: string
+              example: "A proposal trigger"
+            triggeredBy:
+              oneOf:
+                - type: object
+                  properties:
+                    type:
+                      type: string
+                      enum: ["INITIAL"]
+                      example: "INITIAL"
+                - type: object
+                  properties:
+                    type:
+                      type: string
+                      enum: ["USER"]
+                      example: "USER"
+                    userId:
+                      type: string
+                      example: "user123"
+
+    TestTargetExecutionRequest:
+      type: object
+      properties:
+        testTargetId:
+          type: string
+          format: uuid
+          description: Unique identifier for the testTarget.
+          example: "2d5fa0f1-2393-4024-922f-44ced776c548"
+        url:
+          type: string
+          format: uri
+          description: The URL of the test target for this run.
+          example: "https://example.com"
+        context:
+          $ref: '#/components/schemas/ExecutionContext'  
+      required:
+        - id
+        - url
+        - context
+    TestTargetExecutionResponse:
+      type: object
+      properties:
+        testReportUrl:
+          type: string
+          description: The URL the test target was executed.
+          example: "https://example.com"
+        testReport:
+          type: object
+          description: The test report from the run.
+          example: "some json"
+
+    TestReportContext:
+      type: object
+      properties:
+        source:
+          type: string
+          enum: ["manual"]
+          description: The source of the test trigger.
+          example: "manual"
+        description:
+          type: string
+          description: The description of the test context.
+          example: "manual trigger"
+        triggeredBy:
+          type: object
+          properties:
+            type:
+              type: string
+              enum: ["USER"]
+              description: The type of entity triggering the test.
+              example: "USER"
+            userId:
+              type: string
+              format: uuid
+              description: The unique identifier of the user who triggered the test.
+              example: "d61e8681-4715-40f2-8651-6d7d2c2de211"
+
+    TestReport:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the test report.
+          example: "d16953be-1de9-42c7-aa5d-e6c25fb75b72"
+        testTargetId:
+          type: string
+          format: uuid
+          description: The unique identifier of the test target.
+          example: "cafbef93-952e-4154-8400-c69c4f8789e0"
+        createdAt:
+          type: string
+          format: date-time
+          description: The timestamp when the test report was created.
+          example: "2024-09-06T13:01:51.686Z"
+        updatedAt:
+          type: string
+          format: date-time
+          description: The timestamp when the test report was last updated.
+          example: "2024-09-06T13:01:51.686Z"
+        executionUrl:
+          type: string
+          format: uri
+          description: The URL where the test execution was performed.
+          example: "https://www.decathlon.de/"
+        context:
+          $ref: '#/components/schemas/TestReportContext'
+
+    TestReportResponse:
+      type: object
+      properties:
+        testReportUrl:
+          type: string
+          format: uri
+          description: The URL where the test report can be accessed.
+          example: "https://app.octomind.dev/testreports/d16953be-1de9-42c7-aa5d-e6c25fb75b72"
+        testReport:
+          $ref: '#/components/schemas/TestReport'
+
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Indicates whether the operation was successful.
+          example: true
+
+    UnregisterRequest:
+      type: object
+      properties:
+        name:
+          type: string
+    RegisterRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        registrationData:
+          type: object
+          properties:
+            proxypass:
+              type: string
+              example: secret22
+            proxyuser:
+              type: string
+              example: user
+            address:
+              type: string
+              description: the address of the remote endpoint. IP and port
+              example: 34.45.23.22:23455
+paths:
+  /apiKey/v2/execute:
+    post:
+      summary: Execute all tests of the given test target with a given URL
+      description: This endpoint triggers a test execution by sending an test target id and a URL.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestTargetExecutionRequest'
+      responses:
+        '200':
+          description: Test executed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestReportResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Invalid or missing API key
+        '500':
+          description: Internal server error
+  /apiKey/v1/private-location/register:
+    put:
+      security:
+        - ApiKeyAuth: []
+      summary: register a private location
+      description: 'registers a private location worker'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '404':
+          description: private location of that name not found
+        '500':
+          description: Internal server error
+
+  /apiKey/v1/private-location/unregister:
+    put:
+      security:
+        - ApiKeyAuth: []
+      summary: unregister a private location
+      description: 'unregisters a private location worker'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnregisterRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '404':
+          description: private location of that name not found
+        '500':
+          description: Internal server error
+
