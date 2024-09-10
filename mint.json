@@ -47,6 +47,12 @@
       "name": "Get easy help",
       "icon": "discord",
       "url": "https://discord.gg/3ShnZMKRfA"
+    },
+    {
+      "name": "API Reference",
+      "openapi": "/openapi.yaml",
+      "url": "api-reference",
+      "icon": "square-terminal"
     }
   ],
 
