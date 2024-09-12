@@ -68,12 +68,43 @@ services:
     restart: on-failure
 ```
 
-
 ## Security Considerations
 
 - The container image is open-source, allowing customers to review and build their own versions. [GitHub Repository](https://github.com/OctoMind-dev/private-location-worker).
 - Network access can be restricted to the tunnel server and test targets.
-- The Squid proxy requires authentication, ensuring secure access.
+- The Squid proxy requires authentication, ensuring secure access. username and password is controlled by the customer.
+
+## sequence on connect
+```mermaid
+sequenceDiagram
+    autonumber
+    title: private location worker: open a proxy with frp
+    frp-client->>+frp-server: NewProxy (proxyname)
+    frp-server->>+frp-server-plugin: create proxy allowed?
+    frp-server-plugin->>octo-service: known APIKEY, proxyname?
+    octo-service->>frp-server-plugin: yes
+    frp-server-plugin->>+frp-server: yes
+    frp-server->>frp-client: created
+    frp-server-plugin->>frp-server: getProxyInfo( proxyname )
+    frp-server->>frp-server-plugin: info incl. ip & port
+    frp-server-plugin->>octo-service: register proxy (name, info)
+    Note over octo-service: proxy will marked as online with IP & port
+```
+## sequence on disconnect
+```mermaid
+sequenceDiagram
+    autonumber
+    title: private location worker: close  a proxy with frp
+    frp-client->>+frp-server: CloseProxy (name)
+    frp-server->>+frp-server-plugin: close proxy (name)
+    frp-server-plugin->>octo-service: unregister proxy ( name )
+    Note over octo-service: proxy will marked as offline
+    octo-service->>frp-server-plugin: void
+    frp-server-plugin->>+frp-server: void
+    frp-server->>frp-client: close
+```
+
+
 
 ## Additional Links
 - [Two IP Addresses Documentation](https://octomind.dev/docs/data-governance/no-code-access#two-ip-addresses)
