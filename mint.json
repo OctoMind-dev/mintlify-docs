@@ -102,7 +102,7 @@
     },
     {
       "group": "Advanced",
-      "pages": ["variables", "rate-limiting"]
+      "pages": ["variables", "rate-limiting", "private-location"]
     },
     {
       "group": "Changelog",

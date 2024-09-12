@@ -1,0 +1,49 @@
+---
+title: Private Location Worker
+description: "How to access applications that are not publicly available"
+icon: "key"
+---
+## Overview
+
+<Frame caption="private location worker overview">
+  <img src="/images/plw-overview.png" alt="private location worker overview" />
+</Frame>
+
+The Private Location Worker allows customers to include non-publicly available applications in Octomind discovery and test execution. It is run by the customer within their private network, enabling it to reach internal applications for testing.
+
+The worker acts as a combination of a proxy and tunneling mechanism, connecting the private network with the Octomind platform. This feature ensures secure access to applications hosted behind firewalls or other private environments.
+
+## Features
+
+### Tunneling with FRP
+- The tunneling is managed using [FRP](https://github.com/fatedier/frp), connecting the worker’s frp-client to Octomind’s proxy servers (EU or US).
+- Requires access permission to specific public IPs: `35.192.162.70` or `34.159.153.198`.
+
+### Access to Private Web Applications
+- The embedded Squid proxy server allows requests from the private network, mimicking public proxy requests from within the customer’s network.
+  
+### Test Execution and Discovery
+- After registering the worker with Octomind, users can configure the proxy location for executing discovery or test runs.
+
+## Configuration
+
+The Private Location Worker can be configured using environment variables:
+
+- **API-KEY**: API key from the Octomind platform.
+- **NAME**: Worker name displayed in the Octomind platform.
+- **PROXY_USER**: Proxy username.
+- **PROXY_PASS**: Proxy password.
+- **SERVER_ADDR**: Tunnel server address (default: `35.159.153.198`).
+
+## Security Considerations
+
+- The container image is open-source, allowing customers to review and build their own versions. [GitHub Repository](https://github.com/OctoMind-dev/private-location-worker).
+- Network access can be restricted to the tunnel server and test targets.
+- The Squid proxy requires authentication, ensuring secure access.
+
+## Additional Links
+- [Two IP Addresses Documentation](https://octomind.dev/docs/data-governance/no-code-access#two-ip-addresses)
+- [Quickstart Guide for API Key](https://octomind.dev/docs/integrations/quickstart-GitHub#1-create-an-api-key)
+- [Github Fast Reverse Proxy](https://github.com/fatedier/frp)
+- [Github Repository for Private Location Worker](https://github.com/OctoMind-dev/private-location-worker)
+- [API Ref: register a private location](https://octomind.dev/docs/api-reference/register-a-private-location)
