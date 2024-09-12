@@ -200,7 +200,7 @@ components:
           type: string
           format: uuid
           description: Unique identifier for the testTarget.
-          example: "2d5fa0f1-2393-4024-922f-44ced776c548"
+          example: "2e2bb27b-a19c-47ce-a9b6-cd1bd31622dc"
         url:
           type: string
           format: uri
@@ -248,7 +248,7 @@ components:
               type: string
               format: uuid
               description: The unique identifier of the user who triggered the test.
-              example: "d61e8681-4715-40f2-8651-6d7d2c2de211"
+              example: "2e2bb27b-a19c-47ce-a9b6-cd1bd31622dc"
 
     TestReport:
       type: object
@@ -257,12 +257,12 @@ components:
           type: string
           format: uuid
           description: Unique identifier for the test report.
-          example: "d16953be-1de9-42c7-aa5d-e6c25fb75b72"
+          example: "826c15af-644b-4b28-89b4-f50ff34e46b7"
         testTargetId:
           type: string
           format: uuid
           description: The unique identifier of the test target.
-          example: "cafbef93-952e-4154-8400-c69c4f8789e0"
+          example: "3435918b-3d29-4ebd-8c68-9a540532f45a"
         createdAt:
           type: string
           format: date-time
@@ -277,7 +277,7 @@ components:
           type: string
           format: uri
           description: The URL where the test execution was performed.
-          example: "https://www.decathlon.de/"
+          example: "https://en.wikipedia.org/"
         context:
           $ref: '#/components/schemas/TestReportContext'
 
@@ -288,7 +288,7 @@ components:
           type: string
           format: uri
           description: The URL where the test report can be accessed.
-          example: "https://app.octomind.dev/testreports/d16953be-1de9-42c7-aa5d-e6c25fb75b72"
+          example: "https://app.octomind.dev/testreports/826c15af-644b-4b28-89b4-f50ff34e46b7"
         testReport:
           $ref: '#/components/schemas/TestReport'
 
