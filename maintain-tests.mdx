@@ -1,0 +1,86 @@
+---
+title: Maintain your tests
+description: "How to fix your broken tests easily"
+icon: "traffic-cone"
+---
+
+## Why tests fail
+
+`Red` signals the test has failed. This is due to 3 reasons:
+
+1. **You have a bug in your app**
+
+We will pinpoint you to exact moment where it broke. Swipe through the **report snapshots** or launch the **trace viewer** for more details. For an even more precise debugging, we created the open source [Debugtopus](/debugtopus.mdx) to use locally on your machine.
+
+<Frame caption="Snapshots in test reports showing what happened during the test run, 7/2024">
+  <img
+    src="/images/executing/report-snapshots.png"
+    alt="snapshots carousel in test reports"
+  />
+</Frame>
+
+2. **The test is broken**
+
+End-to-end tests tend to break when the app changes. This is not just annoying, but a major time investment.
+
+If you would like to fix the test on your own, read further. But we can also fix it for you. This feature in included in [Octomind's paid tiers](https://www.octomind.dev/pricing).
+
+<Frame caption="Example of a broken test reflecting a change in user flow, trace viewer screenshot 7/2024">
+  <img
+    src="/images/executing/broken-test.png"
+    alt="broken test in Playwright trace viewer"
+  />
+</Frame>
+
+3. **The test is flaky**
+
+Flaky tests produce different results when running the exact same test case. We are deploying multiple strategies to fight flakiness, but it can't be prevented 100% of the time just yet.
+
+## Inspect the reason of the failure
+
+From the [test report](/account-view/test-reports.mdx), go to the **debug** tab of your test detail and launch the **trace viewer**.
+
+<Frame caption="Launch trace viewer for more test run details, 7/2024">
+  <img
+    src="/images/executing/see-trace-viewer.png"
+    alt="launch trace viewer"
+    width="300px"
+  />
+</Frame>
+
+The **trace viewer** will highlight the exact place in the test execution where the test failed. Learn how to inspect [Playwright trace viewer](https://playwright.dev/docs/trace-viewer) step by step to identify the culprit of the broken test.
+Our open source [Debugtopus](/debugtopus.mdx) is an additional help that allows you to set breakpoints and step through the code.
+
+## Correct the broken test steps
+
+This applies when your app is OK, but the test is broken. Use our editing tools to quickly add, remove steps or adjust locators. Here is how you [edit test cases](/edit-test-case.mdx).
+
+## The Hack: How we fix our own tests
+
+Test often break in more places and fixing them one by one can become annoying. It doesn't have to.
+
+Since we dogfood our own end-to-end tests, we have discovered this easy hack:
+
+1. go to the test case
+2. check the **prompt** - if it's not valid anymore, adjust it
+3. click `regenerate steps`
+4. select the first step that broke
+5. confirm `generate steps`
+
+The **AI agent** will is re-generate steps of your test and validate them. If it's alright, click `save & run`. If it needs adjustment, this is [how you edit test cases](/edit-test-case.mdx).
+
+<Warning>
+  If snapshots in preview don't display properly, or the state of the run is all
+  green and you can't tell which step broke, refresh it by hitting the `run
+  only` button under `save & run`.
+</Warning>
+
+<div class="mt-8" />
+
+<Frame caption="'run only' to validate the test before saving it, screenshot 08/2024">
+  <img
+    src="/images/editing/save-run-only.png"
+    alt="Run only to validate the test before saving it"
+    width="300px"
+  />
+</Frame>
