@@ -79,7 +79,8 @@
         "debugtopus",
         "scheduled-execution",
         "integrations-overview",
-        "execution-without-ci"
+        "execution-without-ci",
+        "maintain-tests"
       ]
     },
     {
