@@ -79,7 +79,8 @@
         "debugtopus",
         "scheduled-execution",
         "integrations-overview",
-        "execution-without-ci"
+        "execution-without-ci",
+        "maintain-tests"
       ]
     },
     {
@@ -103,6 +104,7 @@
     {
       "group": "Advanced",
       "pages": ["variables", "rate-limiting", "private-location"]
+      "pages": ["variables", "rate-limiting", "bug-bounty-program"]
     },
     {
       "group": "Changelog",
