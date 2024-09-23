@@ -103,6 +103,7 @@
     },
     {
       "group": "Advanced",
+      "pages": ["variables", "rate-limiting", "private-location"]
       "pages": ["variables", "rate-limiting", "bug-bounty-program"]
     },
     {
