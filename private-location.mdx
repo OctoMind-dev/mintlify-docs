@@ -3,6 +3,7 @@ title: Private Location Worker
 description: "How to access applications that are not publicly available"
 icon: "key"
 ---
+
 ## Overview
 
 <Frame caption="private location worker overview">
@@ -16,13 +17,16 @@ The worker acts as a combination of a proxy and tunneling mechanism, connecting 
 ## Features
 
 ### Tunneling with FRP
+
 - The tunneling is managed using [FRP](https://github.com/fatedier/frp), connecting the worker’s frp-client to Octomind’s proxy servers (EU or US).
 - Requires access permission to specific public IPs: `35.192.162.70` or `34.159.153.198`.
 
 ### Access to Private Web Applications
+
 - The embedded Squid proxy server allows requests from the private network, mimicking public proxy requests from within the customer’s network.
-  
+
 ### Test Execution and Discovery
+
 - After registering the worker with Octomind, users can configure the proxy location for executing discovery or test runs.
 
 # usage
@@ -32,6 +36,7 @@ customer can run and build the private location worker on their premises using a
 container image will be provided by octomind see [registry](https://eu.gcr.io/octomind-dev/plw:latest) or it can be build on your own see [below](#build)
 
 to run the container a few environment variables are needed
+
 ## environment vars
 
 - **APIKEY**: the octomind APIKEY for your organization
@@ -50,6 +55,7 @@ NYI: for scaling we will also support multiple instances of worker with the same
 ## run
 
 private location worker can simply run as docker container:
+
 ```
 docker run --rm -e PLW_NAME=worker1 -e APIKEY=12345 -e PROXY_PASS=secret -e PROXY_USER=octo eu.gcr.io/octomind-dev/plw:latest
 ```
@@ -75,6 +81,7 @@ services:
 - The Squid proxy requires authentication, ensuring secure access. username and password is controlled by the customer.
 
 ## sequence on connect
+
 ```mermaid
 sequenceDiagram
     autonumber
@@ -90,7 +97,9 @@ sequenceDiagram
     frp-server-plugin->>octo-service: register proxy (name, info)
     Note over octo-service: proxy will marked as online with IP & port
 ```
+
 ## sequence on disconnect
+
 ```mermaid
 sequenceDiagram
     autonumber
@@ -104,9 +113,8 @@ sequenceDiagram
     frp-server->>frp-client: close
 ```
 
-
-
 ## Additional Links
+
 - [Two IP Addresses Documentation](https://octomind.dev/docs/data-governance/no-code-access#two-ip-addresses)
 - [Quickstart Guide for API Key](https://octomind.dev/docs/integrations/quickstart-GitHub#1-create-an-api-key)
 - [Github Fast Reverse Proxy](https://github.com/fatedier/frp)
