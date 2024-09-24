@@ -103,8 +103,7 @@
     },
     {
       "group": "Advanced",
-      "pages": ["variables", "rate-limiting", "private-location"]
-      "pages": ["variables", "rate-limiting", "bug-bounty-program"]
+      "pages": ["variables", "rate-limiting", "private-location", "bug-bounty-program"]
     },
     {
       "group": "Changelog",
