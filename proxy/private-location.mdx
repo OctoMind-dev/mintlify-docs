@@ -1,5 +1,5 @@
 ---
-title: Private location worker
+title: Private Location Worker
 description: "How to access applications that are not publicly available"
 icon: "key"
 ---
@@ -10,32 +10,34 @@ icon: "key"
   <img src="/images/plw-overview.png" alt="private location worker overview" />
 </Frame>
 
-The **private location worker** allows customers to include non-publicly available applications in Octomind test generation and execution. It is run by the customer within their private network, enabling it to reach internal applications for testing.
+The Private Location Worker allows customers to include non-publicly available applications in Octomind discovery and test execution. It is run by the customer within their private network, enabling it to reach internal applications for testing.
 
-The worker acts as a combination of a proxy and tunneling mechanism, connecting the private network with the Octomind tool. This feature ensures secure access to applications hosted behind firewalls or other private environments.
+The worker acts as a combination of a proxy and tunneling mechanism, connecting the private network with the Octomind platform. This feature ensures secure access to applications hosted behind firewalls or other private environments.
 
 ## Features
 
 ### Tunneling with FRP
 
-The tunneling is managed using [FRP](https://github.com/fatedier/frp), connecting the worker’s frp-client to Octomind’s proxy servers (EU or US).
-It requires access permission to specific public IPs: `35.192.162.70` or `34.159.153.198`.
+- The tunneling is managed using [FRP](https://github.com/fatedier/frp), connecting the worker’s frp-client to Octomind’s proxy servers (EU or US).
+- Requires access permission to specific public IPs: `35.192.162.70` or `34.159.153.198`.
 
-### Access to private web applications
+### Access to Private Web Applications
 
-The embedded Squid proxy server allows requests from the private network, mimicking public proxy requests from within the customer’s network.
+- The embedded Squid proxy server allows requests from the private network, mimicking public proxy requests from within the customer’s network.
 
-### Test execution and discovery
+### Test Execution and Discovery
 
-After registering the worker with Octomind, users can configure the proxy location for executing discovery or test runs.
+- After registering the worker with Octomind, users can configure the proxy location for executing discovery or test runs.
 
-## Usage
+# usage
 
-Customer can run and build the private location worker on their premises using a **container**.
+customer can run and build the private location worker on their premises using a container.
 
-Container image will be provided by Octomind, [see registry](https://eu.gcr.io/octomind-dev/plw:latest), or it can be built on your own. [See below](#build) to run the container a few environment variables are needed.
+container image will be provided by octomind see [registry](https://eu.gcr.io/octomind-dev/plw:latest) or it can be build on your own see [below](#build)
 
-## Environment vars
+to run the container a few environment variables are needed
+
+## environment vars
 
 - **APIKEY**: the octomind APIKEY for your organization
 - **PLW_NAME**: name of the private locations worker as registered in the octomind platform (name must match)
@@ -48,21 +50,17 @@ The PROXY_USER and PROXY_PASS will protect your local proxy from authenticated a
 You can start as many private location worker as you like, but each must be registered by name with octomind first. The name must
 be unique for your organization.
 
-<Info>
-  {" "}
-  Currently, only one instance of the worker is supported. We will support
-  multiple instances of the worker with the same name as we scale.
-</Info>
+NYI: for scaling we will also support multiple instances of worker with the same name, but currently only one instance is supported.
 
-## Run
+## run
 
-Private location worker can simply run as docker container:
+private location worker can simply run as docker container:
 
 ```
 docker run --rm -e PLW_NAME=worker1 -e APIKEY=12345 -e PROXY_PASS=secret -e PROXY_USER=octo eu.gcr.io/octomind-dev/plw:latest
 ```
 
-or use a docker composed like this:
+or use docker compose like this.
 
 ```yaml
 services:
@@ -76,13 +74,13 @@ services:
     restart: on-failure
 ```
 
-## Security considerations
+## Security Considerations
 
-- The container image is open-source, allowing customers to review and build their own versions. Check out its [GitHub repo](https://github.com/OctoMind-dev/private-location-worker).
+- The container image is open-source, allowing customers to review and build their own versions. [GitHub Repository](https://github.com/OctoMind-dev/private-location-worker).
 - Network access can be restricted to the tunnel server and test targets.
-- The Squid proxy requires authentication, ensuring secure access. Username and password is controlled by the customer.
+- The Squid proxy requires authentication, ensuring secure access. username and password is controlled by the customer.
 
-### Sequence on connect
+## sequence on connect
 
 ```mermaid
 sequenceDiagram
@@ -100,7 +98,7 @@ sequenceDiagram
     Note over octo-service: proxy will marked as online with IP & port
 ```
 
-### Sequence on disconnect
+## sequence on disconnect
 
 ```mermaid
 sequenceDiagram
@@ -115,10 +113,10 @@ sequenceDiagram
     frp-server->>frp-client: close
 ```
 
-## Additional links
+## Additional Links
 
-- [Docs: IP addresses](/data-governance/no-code-access#two-ip-addresses)
-- [Quickstart guide for API key](/integrations/quickstart-GitHub#1-create-an-api-key)
-- [Github Fast reverse proxy](https://github.com/fatedier/frp)
-- [Private location worker GitHub repo](https://github.com/OctoMind-dev/private-location-worker)
-- [API reference: register a private location](https://octomind.dev/docs/api-reference/register-a-private-location)
+- [Two IP Addresses Documentation](https://octomind.dev/docs/data-governance/no-code-access#two-ip-addresses)
+- [Quickstart Guide for API Key](https://octomind.dev/docs/integrations/quickstart-GitHub#1-create-an-api-key)
+- [Github Fast Reverse Proxy](https://github.com/fatedier/frp)
+- [Github Repository for Private Location Worker](https://github.com/OctoMind-dev/private-location-worker)
+- [API Ref: register a private location](https://octomind.dev/docs/api-reference/register-a-private-location)
