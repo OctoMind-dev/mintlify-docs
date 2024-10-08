@@ -1,26 +1,21 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Octomind Docs",
-
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg",
     "href": "https://www.octomind.dev/"
   },
-
   "analytics": {
     "posthog": {
       "apiKey": "phc_DZrVg5kgD45m4Au5nFt6m9rykBTg3mAkeHNY3atWNbW",
       "apiHost": "https://eu.posthog.com"
     }
   },
-
   "modeToggle": {
     "default": "dark"
   },
-
   "favicon": "/logo/favicon.svg",
-
   "colors": {
     "primary": "#00E2AA",
     "light": "#00CE9B",
@@ -30,13 +25,11 @@
       "light": "#FFFFFF"
     }
   },
-
   "topAnchor": {
     "name": "Documentation",
     "icon": "octopus-deploy",
     "iconType": "solid"
   },
-
   "anchors": [
     {
       "name": "GitHub",
@@ -55,37 +48,47 @@
       "icon": "square-terminal"
     }
   ],
-
   "topbarLinks": [
     {
       "name": "About",
       "url": "https://www.octomind.dev/about"
     }
   ],
-
   "topbarCtaButton": {
     "name": "Go to app",
     "url": "https://app.octomind.dev/setup/url?utm_source=docs&utm_medium=txt-lnk"
   },
-
   "navigation": [
     {
       "group": "Get Started",
       "pages": [
-        "first-steps",
+        "first-steps"
+      ]
+    },
+    {
+      "group": "Expand Your Test Suite",
+      "pages": [
         "new-test-case",
-        "edit-test-case",
+        "generate-more-test-cases",
+        "test-case-creation-strategy"
+      ]
+    },
+    {
+      "group": "Execute Your Tests",
+      "pages": [
         "execute-test-cases",
         "debugtopus",
         "scheduled-execution",
         "integrations-overview",
-        "execution-without-ci",
-        "maintain-tests"
+        "execution-without-ci"
       ]
     },
     {
-      "group": "Best Practices",
-      "pages": ["test-case-creation-strategy"]
+      "group": "Maintain Your Tests",
+      "pages": [
+        "edit-test-case",
+        "maintain-tests"
+      ]
     },
     {
       "group": "CI integrations",
@@ -118,7 +121,9 @@
     },
     {
       "group": "Changelog",
-      "pages": ["changelog"]
+      "pages": [
+        "changelog"
+      ]
     },
     {
       "group": "More Info",
@@ -130,14 +135,16 @@
     },
     {
       "group": "Data Governance",
-      "pages": ["data-governance/no-code-access", "data-governance/nda"]
+      "pages": [
+        "data-governance/no-code-access",
+        "data-governance/nda"
+      ]
     }
   ],
   "feedback": {
     "suggestEdit": true,
     "raiseIssue": true
   },
-
   "footerSocials": {
     "twitter": "https://twitter.com/Octomind_dev",
     "github": "https://github.com/OctoMind-dev",
