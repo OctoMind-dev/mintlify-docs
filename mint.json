@@ -87,7 +87,8 @@
       "group": "Maintain Your Tests",
       "pages": [
         "edit-test-case",
-        "maintain-tests"
+        "maintain-tests",
+        "mark-tests-as-active"
       ]
     },
     {
