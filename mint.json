@@ -68,8 +68,8 @@
     {
       "group": "Expand Your Test Suite",
       "pages": [
-        "new-test-case",
         "generate-more-test-cases",
+        "new-test-case",
         "test-case-creation-strategy"
       ]
     },
