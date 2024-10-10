@@ -1,0 +1,37 @@
+---
+title: AI-generate more tests
+description: "Use AI generation to add more test cases to your test suite."
+icon: "code-branch"
+---
+
+## Have the AI agent auto-generate more tests
+
+Similar to the initial **AI test generation** during project setup you can use the generate more feature to expand your test case suite.
+
+Go into the test case view and hover over the `generate more` icon - a button will appear. Click on it.
+
+<Frame caption="Have the AI agent generate more tests, 10/2024">
+  <img
+    src="/images/expand/generate-more.png"
+    alt="have AI generate more tests"
+  />
+</Frame>
+
+Our AI agent will generate up to 3 new tests following up on the test case you launched it from. The original test will be added as a **dependency** automatically. It will auto-generate steps for every generated test case.
+
+You can follow the progress of these newly created tests in the stack.
+
+<Frame caption="AI agent informs what it does, 10/2024">
+  <img
+    src="/images/expand/generating-more-agent-running.png"
+    alt="AI agent status indicator"
+  />
+</Frame>
+
+For each test, the AI agent has auto-generated test steps, validated them and where the validation succeeded, it turned the test **ON** - [into active mode](/execute-test-cases).
+
+Help the AI agent when it couldn't quite nail the auto-generation - **yellow alert** highlights a failed step generation. See how in the [edit test case](/edit-test-case) section.
+
+<Frame caption="New generated tests, 10/2024">
+  <img src="/images/expand/new-generated-tests.png" alt="New generated tests" />
+</Frame>

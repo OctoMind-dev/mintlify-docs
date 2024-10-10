@@ -1,40 +1,8 @@
 ---
-title: Create a new test case
+title: Create custom test case
 description: "Add more test cases to your test suite. Use AI generation or recording."
-icon: "arrow-progress"
+icon: "plus"
 ---
-
-## Have AI agent suggest and auto-generate more tests
-
-Similar to the inital **AI discovery** we can run the discovery feature to "spawn" individual test cases.
-
-Go into the test case and hover over the `suggest more` icon - a button will appear. Click on it.
-
-<Frame caption="Have the AI agent suggest more test cases, 08/2024">
-  <img
-    src="/images/setup/setup-11-suggest-more.png"
-    alt="have AI suggest more test cases"
-  />
-</Frame>
-
-Our AI agent will discover up to 3 new tests following up on the test case you launched it from. The original test will be added as a **dependency** automatically. It will auto-generate steps for every discovered test case and validate them.
-
-The AI agent status indicator will display what's going on.
-
-<Frame caption="AI agent informs what it does, 08/2024">
-  <img
-    src="/images/prompting/suggesting-more-agent-running.png"
-    alt="AI agent status indicator"
-  />
-</Frame>
-
-The new test will appear grouped by the originating test. The AI agent has auto-generated test steps, validated them and where the validation succeeded, it turned the test **ON** - [into active mode](/execute-test-cases).
-
-Help the AI agent when it couldn't quite nail the auto-generation - **yellow alert** highlights a failed step generation. See how in the [edit test case](/edit-test-case) section.
-
-<Frame caption="New suggested tests, 08/2024">
-  <img src="/images/prompting/suggested-tests.png" alt="New suggested tests" />
-</Frame>
 
 ## Prompt our AI agent to generate new tests
 
@@ -62,7 +30,7 @@ If the AI agent generated wrong steps or signals a failed step with a yellow ale
 2. Try a **different prompt** and restart the AI generation process.
 3. **Add, edit and remove steps manually.** Our virtual locator picker helps you edit tests in no time. Learn how to [edit test steps](/edit-test-case.mdx).
 
-<Frame caption="A generated test step failed, hightlighted by yellow alert, screenshot 07/2024">
+<Frame caption="A generated test step failed, highlighted by yellow alert, screenshot 07/2024">
   <img
     src="/images/prompting/failed-test-step.png"
     alt="A generated step failed and shows a yellow alert"
@@ -71,7 +39,7 @@ If the AI agent generated wrong steps or signals a failed step with a yellow ale
 
 ### Pre-prompted login test
 
-If your app has a login functionality that wasn't AI discovered at the set-up, we have a pre-prompted login test case for you. You can trigger it after giving us test user credentials.
+If your app has a login functionality that wasn't AI auto-generated during set-up, we have a pre-prompted login test case for you. You can trigger it after giving us test user credentials.
 
 Go to `settings` a.k.a. the `gear icon` in the upper right corner and select `test account`. Add test user credentials we can use to run the login test.
 

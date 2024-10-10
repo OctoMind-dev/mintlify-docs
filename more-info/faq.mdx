@@ -12,9 +12,9 @@ We will add building blocks which allow for more demanding scenarios over time, 
 
 ## 2. How are my tests generated?
 
-We are using our AI agents for test case discovery and test step generation. We'll discover the interaction chain of the test case in an intermediate representation. We'll generate a corresponding Playwright code on the fly and execute on a manual trigger, a schedule or against your pull request.
+We are using our AI agents for finding test cases and for generating test steps. We'll generate an interaction chain of the test case in an intermediate representation. We'll then generate a corresponding Playwright code on the fly and execute on a manual trigger, a schedule or against your pull request.
 
-We generate tests on [sign-up](/first-steps#4-open-the-octomind-app-for-the-first-time), when you launch [test discovery](/first-steps#5-discover-more-test-cases) and when you ask our AI agents to [suggest more](http://localhost:3000/new-test-case#have-ai-agent-suggest-and-auto-generate-more-tests) tests.
+We generate tests on [sign-up](/first-steps#4-open-the-octomind-app-for-the-first-time), when [we auto-generate 3 initial test cases](/first-steps#5-we-are-auto-generating-test-cases-for-you) and when you ask our AI agents to [generate more](/generate-more-test-cases) tests.
 
 ## 3. What code are you using for your tests?
 
@@ -27,7 +27,7 @@ End-to-end tests are notoriously flaky. Some of our strategies to fight flakines
 - Smart learning based retries
 - active interaction timing (sleeps)
 - AI based analysis of unexpected circumstances
-- Rediscovery in case of user flow changes
+- Regeneration in case of user flow changes
 
 ## 5. How can I run your tests locally?
 
@@ -35,7 +35,7 @@ Our open source tool [Debugtopus](https://github.com/OctoMind-dev/debugtopus) ca
 
 ## 6. How does the auto-maintenance work?
 
-This feature is under active development and not publicly accesible yet. We will follow a playbook to find out if a test failure is caused by a behavioral change of your user flows, the test code itself or a bug in your code.
+This feature is under active development and not publicly accessible yet. We will follow a playbook to find out if a test failure is caused by a behavioral change of your user flows, the test code itself or a bug in your code.
 
 In case of a behavioral change, we pinpoint the failing interaction. We apply machine learning to find out what's the new desired interaction to achieve the original goal of the test case.
 The interaction chain of this test case will be adjusted permanently to the new behavior as a result.

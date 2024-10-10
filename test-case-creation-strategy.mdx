@@ -1,38 +1,31 @@
 ---
-title: Test case creation
+title: Best Practices
 description: "How to nail creating new tests for your project"
 icon: "lightbulb"
 ---
 
 ## Tl;dr:
 
-- start with auto-discovery
-- have AI agent suggest more test cases
-- create more tests with a prompt
+- start with auto-generation
+- have AI agent generate more test cases
+- create test cases with a prompt
 - use `dependencies`
 - help the AI agent where it went wrong
 - use `run locally` and `Playwright Codegen`
 - work on multiple test cases in parallel
 
-## Start with the AI auto-discovery
+## Start with the AI auto-generation
 
-Always use the `Discover` button on the overview page. It gives you a head start with up to 3 AI auto-discovered tests.
+Our AI auto-generation gives you a head start with up to 3 AI auto-generated tests.
 
-<Frame caption="Have AI discover first 3 test cases from overiew page, 07/2024">
+You can have the AI agent generate more test cases. Go into the test case and hover over the `generate more` icon - a button will appear. Click on it. Find more on how `generate more` works [here](/generate-more-test-cases).
+
+The AI agent will auto-generate up to 3 new tests based on the one you started it from. The original test will be added as **dependency**. We will auto-generate steps for every found test case and validate them.
+
+<Frame caption="Have the AI agent generate more test cases, 10/2024">
   <img
-    src="/images/setup/setup-6-discover.png"
-    alt="have AI discover test cases from overview page"
-  />
-</Frame>
-
-You can have the AI agent auto-discover more test cases. Go into the test case and hover over the `suggest more` icon - a button will appear. Click on it. Find more on how `suggest more` works [here](/new-test-case).
-
-The AI agent will discover up to 3 new tests based on the one you started it from. The original test will be added as **dependency**. We will auto-generate steps for every discovered test case and validate them.
-
-<Frame caption="Have the AI agent suggest more test cases, 08/2024">
-  <img
-    src="/images/setup/setup-11-suggest-more.png"
-    alt="have AI suggest more test cases"
+    src="/images/expand/generate-more.png"
+    alt="have AI generate more test cases"
   />
 </Frame>
 
@@ -40,15 +33,15 @@ The AI agent will discover up to 3 new tests based on the one you started it fro
 
 <Info>
 
-At sign-up, we automatically discover **close cookie banner** and **"required" login** test cases. These are often the necessary prerequisites for all other tests. [Learn more.](/first-steps#4-open-the-octomind-app-for-the-first-time)
+At sign-up, we automatically auto-generate **close cookie banner** and **"required" login** test cases. These are often the necessary prerequisites for all other tests. [Learn more.](/first-steps#4-open-the-octomind-app-for-the-first-time)
 
 </Info>
 
 ## Create more tests with a prompt
 
-This comes in handy when you want a specific test the AI agent didn't discover. There are multiple ways to start with a prompt.
+This comes in handy when you want a specific test the AI agent didn't find during auto-generation. There are multiple ways to start with a prompt.
 
-Use the `create test case` button on the **overview page** or on the **test cases** page.
+Use the `generate test case` button on the **overview page** or on the **test cases** page.
 
 <Frame caption="Create new test case from the overview page, 07/2024">
   <img
