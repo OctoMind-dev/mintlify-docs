@@ -8,7 +8,7 @@ icon: "lightbulb"
 
 We'll ask for a URL to generate test cases. The URL has to be publicly accessible. We can test both in staging and in production, as long as we can access the site.
 
-<Frame caption="First page of the setup flow - link to your website, screenshot 07/2024">
+<Frame caption="First page of the setup flow - link to your website, screenshot 10/2024">
   <img src="/images/setup/setup-1-url.png" alt="enter your url screen" />
 </Frame>
 
@@ -30,23 +30,23 @@ But you can choose your own.
 
 Now we need to sign you up. Please, give us your email, so we can get in touch.
 
-<Frame caption="Third page of the setup flow - create account, screenshot 07/2024">
+<Frame caption="Third page of the setup flow - create account, screenshot 10/2024">
   <img
     src="/images/setup/setup-3-create-account.png"
-    alt="create account, screenshot 08/2023"
+    alt="create account, screenshot 10/2024"
   />
 </Frame>
 
-You should receive a confirmation email with your that contains a link for you confirm your email and set your password.
+You should receive a confirmation email that contains a link for you confirm your email and set your password.
 
 ## 4. Open the Octomind app for the first time
 
 After being redirected back to [app.octomind.dev](https://app.octomind.dev/), you will land on your **project overview** page.
 
-<Frame caption="Project overview page after sign-up, screenshot 07/2024">
+<Frame caption="Project overview page after sign-up, screenshot 10/2024">
   <img
     src="/images/setup/setup-4-overview.png"
-    alt="Opening the Octomind app on project overview for the first time, screenshot 07/2024"
+    alt="Opening the Octomind app on project overview for the first time, screenshot 10/2024"
   />
 </Frame>
 
@@ -68,12 +68,12 @@ These credentials are only usable for username/password logins not for social lo
 
 ## 5. We are auto-generating test cases for you
 
-Here comes the really cool part. Once we finished searching for a potential log-in and cookie banner test, we start generating 3 test cases for you automatically. You can follow the generation progress in the stack.
+Here comes the really cool part. Once we finished searching for a potential log-in and cookie banner test, we start generating 3 test cases for you automatically. You can follow the generation progress in the stack:
 
-<Frame caption="Clicking this button will let our AI agent discover test cases, screenshot 07/2024">
+<Frame caption="Stack showing ongoing AI-tasks, screenshot 10/2024">
   <img
-    src="/images/setup/setup-6-discover.png"
-    alt="AI discovery button, screenshot 07/2024"
+    src="/images/setup/setup-6-stack.png"
+    alt="Stack showing ongoing AI-tasks, screenshot 10/2024"
   />
 </Frame>
 
@@ -81,10 +81,10 @@ Here comes the really cool part. Once we finished searching for a potential log-
 
 We will [execute your generated test cases](/execute-test-cases.mdx) and create several test reports containing your test results. These will ensure that they successfully pass when executed on your site.
 
-<Frame caption="Run your tests for the first time - screenshot 07/2024">
+<Frame caption="Automatically executed test reports - screenshot 10/2024">
   <img
     src="/images/setup/setup-9-run-tests.png"
-    alt="Run your first test report - screenshot 07/2024"
+    alt="Automatically executed test reports - screenshot 10/2024"
   />
 </Frame>
 
@@ -108,6 +108,13 @@ Find out more about [test reports](/test-reports.mdx) and [debugging your tests]
 
 You can grow your test suite by adding more test cases. For this you can jump straight into the test case view by using the "go to test cases" button in the test report.
 
+<Frame caption="Go to the test case section to see the generated test cases - screenshot 10/2024">
+  <img
+    src="/images/setup/setup-11-go-to-test-cases.png"
+    alt="Go to the test case section to see the generated test cases - screenshot 10/2024 "
+  />
+</Frame>
+
 You should have your **first active test cases** generated. The AI agent has found several test cases, auto-generated the test steps and has run them to validate whether they work.
 
 Functioning tests are turned `on` which means they will run once you trigger a **test report**.
@@ -119,11 +126,8 @@ Functioning tests are turned `on` which means they will run once you trigger a *
   />
 </Frame>
 
+## Next steps
+
 Use auto-generation to [generate more test cases](/generate-more-test-cases.mdx) based off existing ones or prompt our AI agent [to create new ones](/new-test-case.mdx).
 
-<Frame caption="Adding new test case by prompting - screenshot 07/2024">
-  <img
-    src="/images/setup/setup-11-new-test-case.png"
-    alt="Adding new test case by prompting 07/2024"
-  />
-</Frame>
+If you are happy with the test cases we generated for you, you can [set up scheduling](/scheduled-execution) to periodically run your tests and ensure your site doesn't break.
