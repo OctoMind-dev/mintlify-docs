@@ -61,9 +61,7 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "first-steps"
-      ]
+      "pages": ["first-steps"]
     },
     {
       "group": "Expand Your Test Suite",
@@ -85,11 +83,7 @@
     },
     {
       "group": "Maintain Your Tests",
-      "pages": [
-        "edit-test-case",
-        "maintain-tests",
-        "mark-tests-as-active"
-      ]
+      "pages": ["edit-test-case", "maintain-tests", "mark-tests-as-active"]
     },
     {
       "group": "CI integrations",
@@ -117,14 +111,13 @@
         "rate-limiting",
         "proxy/private-location",
         "proxy/proxy-settings",
-        "bug-bounty-program"
+        "bug-bounty-program",
+        "octomind-bot"
       ]
     },
     {
       "group": "Changelog",
-      "pages": [
-        "changelog"
-      ]
+      "pages": ["changelog"]
     },
     {
       "group": "More Info",
@@ -136,10 +129,7 @@
     },
     {
       "group": "Data Governance",
-      "pages": [
-        "data-governance/no-code-access",
-        "data-governance/nda"
-      ]
+      "pages": ["data-governance/no-code-access", "data-governance/nda"]
     }
   ],
   "feedback": {
