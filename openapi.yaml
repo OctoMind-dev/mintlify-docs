@@ -357,7 +357,7 @@ paths:
   /apiKey/v2/test-targets/{testTargetId}/test-reports/{testReportId}:
     get:
       summary: Retrieve information about a test report.
-      description: Allows polling in a CI-pipeline to allow waiting for completion of the report.
+      description: Poll from within a CI-pipeline to wait for the completion of a report.
       parameters:
         - in: path
           name: testTargetId
