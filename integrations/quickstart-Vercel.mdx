@@ -55,6 +55,7 @@ jobs:
           testTargetId: "<yourTestTargetId>"
           url: ${{ github.event.deployment_status.target_url }}
           token: ${{ secrets.OCTOMIND_TOKEN }}
+          blocking: <if you want your pipeline to wait for all tests to pass>
 ```
 
 The test report link will be added to the workflow summary of the action, see [Example PR action summary](https://github.com/OctoMind-dev/vercel-actions-example/pull/11)
