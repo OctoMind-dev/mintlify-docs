@@ -17,26 +17,19 @@ Click on `Use this template` to copy the Mintlify starter kit. The starter kit c
 
 ### 👩‍💻 Development
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
+Enable [corepack](https://nodejs.org/api/corepack.html) to let it manage pnpm and its version for you:
+
+```shell
+corepack enable
+```
+
+Run the following command at the root of your documentation (where mint.json is) to see a local preview.
 
 ```
-npm i -g mintlify
-```
-
-Run the following command at the root of your documentation (where mint.json is)
-
-```
-mintlify dev
+pnpm dev
 ```
 
 ### Linting
-
-install pnpm once
-
-```shell
-npm i -g pnpm
-pnpm i
-```
 
 execute `pnpm lint`. _Note_ for pull requests we require that all linting errors have been resolved
 

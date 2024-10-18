@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Octomind external  API
-  description: Octomind API that allows you to execute test cases and register  by providing a URL and an ID.
+  description: Octomind API that allows you to execute test cases, fetch reports and register private location workers by providing a URL and an ID.
   version: 1.0.0
 servers:
   - url: https://app.octomind.dev/api
@@ -19,7 +19,7 @@ components:
           properties:
             source:
               type: string
-              enum: ["github"]
+              enum: [ "github" ]
               example: "github"
             issueNumber:
               type: integer
@@ -45,7 +45,7 @@ components:
               properties:
                 type:
                   type: string
-                  enum: ["USER"]
+                  enum: [ "USER" ]
                   example: "USER"
                 userId:
                   type: string
@@ -59,7 +59,7 @@ components:
           properties:
             source:
               type: string
-              enum: ["azureDevOps"]
+              enum: [ "azureDevOps" ]
               example: "azureDevOps"
             accessToken:
               type: string
@@ -91,7 +91,7 @@ components:
               properties:
                 type:
                   type: string
-                  enum: ["USER"]
+                  enum: [ "USER" ]
                   example: "USER"
                 userId:
                   type: string
@@ -105,7 +105,7 @@ components:
           properties:
             source:
               type: string
-              enum: ["discovery"]
+              enum: [ "discovery" ]
               example: "discovery"
             description:
               type: string
@@ -116,13 +116,13 @@ components:
                   properties:
                     type:
                       type: string
-                      enum: ["INITIAL"]
+                      enum: [ "INITIAL" ]
                       example: "INITIAL"
                 - type: object
                   properties:
                     type:
                       type: string
-                      enum: ["USER"]
+                      enum: [ "USER" ]
                       example: "USER"
                     userId:
                       type: string
@@ -132,7 +132,7 @@ components:
           properties:
             source:
               type: string
-              enum: ["manual"]
+              enum: [ "manual" ]
               example: "manual"
             description:
               type: string
@@ -142,7 +142,7 @@ components:
               properties:
                 type:
                   type: string
-                  enum: ["USER"]
+                  enum: [ "USER" ]
                   example: "USER"
                 userId:
                   type: string
@@ -152,7 +152,7 @@ components:
           properties:
             source:
               type: string
-              enum: ["scheduled"]
+              enum: [ "scheduled" ]
               example: "scheduled"
             triggeredBy:
               type: object
@@ -160,7 +160,7 @@ components:
               properties:
                 type:
                   type: string
-                  enum: ["USER"]
+                  enum: [ "USER" ]
                   example: "USER"
                 userId:
                   type: string
@@ -170,7 +170,7 @@ components:
           properties:
             source:
               type: string
-              enum: ["proposal"]
+              enum: [ "proposal" ]
               example: "proposal"
             description:
               type: string
@@ -181,13 +181,13 @@ components:
                   properties:
                     type:
                       type: string
-                      enum: ["INITIAL"]
+                      enum: [ "INITIAL" ]
                       example: "INITIAL"
                 - type: object
                   properties:
                     type:
                       type: string
-                      enum: ["USER"]
+                      enum: [ "USER" ]
                       example: "USER"
                     userId:
                       type: string
@@ -207,7 +207,7 @@ components:
           description: The URL of the test target for this run.
           example: "https://example.com"
         context:
-          $ref: '#/components/schemas/ExecutionContext'  
+          $ref: '#/components/schemas/ExecutionContext'
       required:
         - id
         - url
@@ -229,7 +229,7 @@ components:
       properties:
         source:
           type: string
-          enum: ["manual"]
+          enum: [ "manual" ]
           description: The source of the test trigger.
           example: "manual"
         description:
@@ -241,7 +241,7 @@ components:
           properties:
             type:
               type: string
-              enum: ["USER"]
+              enum: [ "USER" ]
               description: The type of entity triggering the test.
               example: "USER"
             userId:
@@ -278,6 +278,10 @@ components:
           format: uri
           description: The URL where the test execution was performed.
           example: "https://en.wikipedia.org/"
+        status:
+          type: string
+          enum: [ "WAITING", "PASSED", "FAILING" ]
+          description: The status of the test report, will be WAITING as long as any result is running, FAILED if the report is done but has any failed result and PASSED if all test results are done and successful
         context:
           $ref: '#/components/schemas/TestReportContext'
 
@@ -329,7 +333,7 @@ paths:
       summary: Execute all tests of the given test target with a given URL
       description: This endpoint triggers a test execution by sending an test target id and a URL.
       security:
-        - ApiKeyAuth: []
+        - ApiKeyAuth: [ ]
       requestBody:
         required: true
         content:
@@ -349,10 +353,46 @@ paths:
           description: Invalid or missing API key
         '500':
           description: Internal server error
+
+  /apiKey/v2/test-targets/{testTargetId}/test-reports/{testReportId}:
+    get:
+      summary: Retrieve information about a test report.
+      description: Poll from within a CI-pipeline to wait for the completion of a report.
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the test report belongs to
+        - in: path
+          name: testReportId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test report to fetch
+      security:
+        - ApiKeyAuth: [ ]
+      responses:
+        '200':
+          description: Test Report information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestReport'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Invalid or missing API key
+        '500':
+          description: Internal server error
+
   /apiKey/v1/private-location/register:
     put:
       security:
-        - ApiKeyAuth: []
+        - ApiKeyAuth: [ ]
       summary: register a private location
       description: 'registers a private location worker'
       requestBody:
@@ -376,7 +416,7 @@ paths:
   /apiKey/v1/private-location/unregister:
     put:
       security:
-        - ApiKeyAuth: []
+        - ApiKeyAuth: [ ]
       summary: unregister a private location
       description: 'unregisters a private location worker'
       requestBody:
