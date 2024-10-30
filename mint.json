@@ -129,7 +129,7 @@
     },
     {
       "group": "Data Governance",
-      "pages": ["data-governance/no-code-access", "data-governance/nda"]
+      "pages": ["data-governance/no-code-access", "data-governance/nda", "data-governance/gdpr"]
     }
   ],
   "feedback": {
