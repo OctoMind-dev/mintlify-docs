@@ -112,7 +112,8 @@
         "proxy/private-location",
         "proxy/proxy-settings",
         "bug-bounty-program",
-        "octomind-bot"
+        "octomind-bot",
+        "2fa"
       ]
     },
     {

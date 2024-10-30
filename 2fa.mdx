@@ -1,0 +1,52 @@
+---
+title: 2-Factor Authentication (2FA)
+description: "Logging in with a second factor"
+icon: "mobile"
+---
+
+# One-Time-Password handling
+
+Octomind supports logins that require a 2nd-Factor using a, a so-called one-time-password (OTP). See an example of an
+app implementing an OTP login.
+
+<Frame caption="screenshot 10/2024 2FA prompt">
+  <img src="/images/2fa/2fa-prompt.png" alt="screenshot 2FA prompt 10/2024" />
+</Frame>
+
+We support both time-based one-time-passwords (TOTP - RFC 6328) as well as HMAC-based (HOTP - RFC 4226). Octomind can
+login using a second factor if you provide us with an initialization key.
+
+You can get it during the enrollment of the account in question into 2-factor. Most of the time the initialization key
+can be seen on the same page that the QR-code for scanning it into your authenticator app is visible. See this example,
+the exact UI depends on your authentication provider.
+
+<Frame caption="screenshot 10/2024 2FA enrollment">
+  <img
+    src="/images/2fa/2fa-enrollment.png"
+    alt="screenshot 2FA enrollment 10/2024"
+  />
+</Frame>
+
+The initialization key that will be shown is a long string consisting of alphanumeric characters, the exact length
+depends on which algorithm the authentication provider chose to implement.
+
+<Frame caption="screenshot 10/2024 2FA initialization key">
+  <img
+    src="/images/2fa/2fa-initialization-key.png"
+    alt="screenshot 2FA initialization key 10/2024"
+  />
+</Frame>
+
+Once you have copied the initialization key and have enrolled and copied the otp initialization key you will need to
+enter it into the test account settings of octomind, find them by clicking the settings gear icon and then navigating
+to the "environments" section. Then enter the initialization key that you copied from your enrollment process and save.
+
+<Frame caption="screenshot 10/2024 octomind settings">
+  <img
+    src="/images/2fa/2fa-octomind.png"
+    alt="screenshot 2FA initialization key 10/2024"
+  />
+</Frame>
+
+Now both in prompts and test case steps you will be able to use the template <pre>$OCTO_TOTP</pre>. Find out more about
+variable usage in our [variables documentation](/variables).
