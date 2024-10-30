@@ -1,0 +1,38 @@
+---
+title: Environments
+# description: "Environments usage" todo: is description needed?
+icon: "square-root-variable"
+---
+
+# Overview
+
+Environments enable you to run your tests across multiple deployments of a website, ensuring that each instance of the
+site functions as expected. With environment support, you can configure testing to match specific deployment settings
+and validate changes across different stages.
+
+Environments provide a structured way to:
+
+- Isolate configurations for different deployments (e.g., development, staging, production).
+- Customize testing settings specific to each deployment (e.g. user credentials, etc.).
+- Perform targeted tests and debugging without interfering with production data or workflows.
+
+After creating a project, Octomind Provides you with the default environment, with the url you provided during setup.
+Also it shows the username and password you provided if you got the login test detection.
+
+# Creating an Additional Environment
+
+To add another environment, go to your project settings and open the Environments tab.
+There, select the `Add New Environment`.
+
+<Frame caption="Example of environment screen, 10/2024">
+  <img
+    src="/images/advanced/environments.png"
+    alt="Example of environment screen, 10/2024"
+  />
+</Frame>
+
+In the new environment setup:
+
+1. Name the Environment – Give a unique name to differentiate it from others.
+2. Set the Target URL – Specify the URL where the tests will run.
+3. Optional: Add Credentials – Provide a username and password if the URL requires login.
