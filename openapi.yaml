@@ -19,7 +19,7 @@ components:
           properties:
             source:
               type: string
-              enum: [ "github" ]
+              enum: ["github"]
               example: "github"
             issueNumber:
               type: integer
@@ -45,7 +45,7 @@ components:
               properties:
                 type:
                   type: string
-                  enum: [ "USER" ]
+                  enum: ["USER"]
                   example: "USER"
                 userId:
                   type: string
@@ -59,7 +59,7 @@ components:
           properties:
             source:
               type: string
-              enum: [ "azureDevOps" ]
+              enum: ["azureDevOps"]
               example: "azureDevOps"
             accessToken:
               type: string
@@ -91,7 +91,7 @@ components:
               properties:
                 type:
                   type: string
-                  enum: [ "USER" ]
+                  enum: ["USER"]
                   example: "USER"
                 userId:
                   type: string
@@ -105,7 +105,7 @@ components:
           properties:
             source:
               type: string
-              enum: [ "discovery" ]
+              enum: ["discovery"]
               example: "discovery"
             description:
               type: string
@@ -116,13 +116,13 @@ components:
                   properties:
                     type:
                       type: string
-                      enum: [ "INITIAL" ]
+                      enum: ["INITIAL"]
                       example: "INITIAL"
                 - type: object
                   properties:
                     type:
                       type: string
-                      enum: [ "USER" ]
+                      enum: ["USER"]
                       example: "USER"
                     userId:
                       type: string
@@ -132,7 +132,7 @@ components:
           properties:
             source:
               type: string
-              enum: [ "manual" ]
+              enum: ["manual"]
               example: "manual"
             description:
               type: string
@@ -142,7 +142,7 @@ components:
               properties:
                 type:
                   type: string
-                  enum: [ "USER" ]
+                  enum: ["USER"]
                   example: "USER"
                 userId:
                   type: string
@@ -152,7 +152,7 @@ components:
           properties:
             source:
               type: string
-              enum: [ "scheduled" ]
+              enum: ["scheduled"]
               example: "scheduled"
             triggeredBy:
               type: object
@@ -160,7 +160,7 @@ components:
               properties:
                 type:
                   type: string
-                  enum: [ "USER" ]
+                  enum: ["USER"]
                   example: "USER"
                 userId:
                   type: string
@@ -170,7 +170,7 @@ components:
           properties:
             source:
               type: string
-              enum: [ "proposal" ]
+              enum: ["proposal"]
               example: "proposal"
             description:
               type: string
@@ -181,13 +181,13 @@ components:
                   properties:
                     type:
                       type: string
-                      enum: [ "INITIAL" ]
+                      enum: ["INITIAL"]
                       example: "INITIAL"
                 - type: object
                   properties:
                     type:
                       type: string
-                      enum: [ "USER" ]
+                      enum: ["USER"]
                       example: "USER"
                     userId:
                       type: string
@@ -207,9 +207,14 @@ components:
           description: The URL of the test target for this run.
           example: "https://example.com"
         context:
-          $ref: '#/components/schemas/ExecutionContext'
+          $ref: "#/components/schemas/ExecutionContext"
+        environmentName:
+          type: string
+          format: environment name
+          description: the environment name you want to run your test against
+          default: default
       required:
-        - id
+        - testTargetId
         - url
         - context
     TestTargetExecutionResponse:
@@ -229,7 +234,7 @@ components:
       properties:
         source:
           type: string
-          enum: [ "manual" ]
+          enum: ["manual"]
           description: The source of the test trigger.
           example: "manual"
         description:
@@ -241,7 +246,7 @@ components:
           properties:
             type:
               type: string
-              enum: [ "USER" ]
+              enum: ["USER"]
               description: The type of entity triggering the test.
               example: "USER"
             userId:
@@ -280,10 +285,10 @@ components:
           example: "https://en.wikipedia.org/"
         status:
           type: string
-          enum: [ "WAITING", "PASSED", "FAILING" ]
+          enum: ["WAITING", "PASSED", "FAILING"]
           description: The status of the test report, will be WAITING as long as any result is running, FAILED if the report is done but has any failed result and PASSED if all test results are done and successful
         context:
-          $ref: '#/components/schemas/TestReportContext'
+          $ref: "#/components/schemas/TestReportContext"
 
     TestReportResponse:
       type: object
@@ -294,7 +299,7 @@ components:
           description: The URL where the test report can be accessed.
           example: "https://app.octomind.dev/testreports/826c15af-644b-4b28-89b4-f50ff34e46b7"
         testReport:
-          $ref: '#/components/schemas/TestReport'
+          $ref: "#/components/schemas/TestReport"
 
     SuccessResponse:
       type: object
@@ -333,25 +338,25 @@ paths:
       summary: Execute all tests of the given test target with a given URL
       description: This endpoint triggers a test execution by sending an test target id and a URL.
       security:
-        - ApiKeyAuth: [ ]
+        - ApiKeyAuth: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TestTargetExecutionRequest'
+              $ref: "#/components/schemas/TestTargetExecutionRequest"
       responses:
-        '200':
+        "200":
           description: Test executed successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TestReportResponse'
-        '400':
+                $ref: "#/components/schemas/TestReportResponse"
+        "400":
           description: Invalid request parameters
-        '401':
+        "401":
           description: Invalid or missing API key
-        '500':
+        "500":
           description: Internal server error
 
   /apiKey/v2/test-targets/{testTargetId}/test-reports/{testReportId}:
@@ -374,66 +379,65 @@ paths:
             format: uuid
           description: ID of the test report to fetch
       security:
-        - ApiKeyAuth: [ ]
+        - ApiKeyAuth: []
       responses:
-        '200':
+        "200":
           description: Test Report information
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TestReport'
-        '400':
+                $ref: "#/components/schemas/TestReport"
+        "400":
           description: Invalid request parameters
-        '401':
+        "401":
           description: Invalid or missing API key
-        '500':
+        "500":
           description: Internal server error
 
   /apiKey/v1/private-location/register:
     put:
       security:
-        - ApiKeyAuth: [ ]
+        - ApiKeyAuth: []
       summary: register a private location
-      description: 'registers a private location worker'
+      description: "registers a private location worker"
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RegisterRequest'
+              $ref: "#/components/schemas/RegisterRequest"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SuccessResponse'
-        '404':
+                $ref: "#/components/schemas/SuccessResponse"
+        "404":
           description: private location of that name not found
-        '500':
+        "500":
           description: Internal server error
 
   /apiKey/v1/private-location/unregister:
     put:
       security:
-        - ApiKeyAuth: [ ]
+        - ApiKeyAuth: []
       summary: unregister a private location
-      description: 'unregisters a private location worker'
+      description: "unregisters a private location worker"
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UnregisterRequest'
+              $ref: "#/components/schemas/UnregisterRequest"
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SuccessResponse'
-        '404':
+                $ref: "#/components/schemas/SuccessResponse"
+        "404":
           description: private location of that name not found
-        '500':
+        "500":
           description: Internal server error
-
