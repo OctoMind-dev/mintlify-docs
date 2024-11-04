@@ -108,6 +108,7 @@
       "group": "Advanced",
       "pages": [
         "variables",
+        "environments",
         "rate-limiting",
         "proxy/private-location",
         "proxy/proxy-settings",
