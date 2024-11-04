@@ -1,6 +1,6 @@
 ---
 title: Environments
-# description: "Environments usage" todo: is description needed?
+description: Environments in octomind
 icon: "seedling"
 ---
 
@@ -17,12 +17,12 @@ Environments provide a structured way to:
 - Perform targeted tests and debugging without interfering with production data or workflows.
 
 After creating a project, Octomind Provides you with the default environment, with the url you provided during setup.
-Also it shows the username and password you provided if you got the login test detection.
+Also it shows the username and password you provided if your page requires a login.
 
 # Creating an Additional Environment
 
 To add another environment, go to your project settings and open the Environments tab.
-There, select the `Add New Environment`.
+There, select the `Add New Environment` button.
 
 <Frame caption="Example of environment screen, 10/2024">
   <img
@@ -34,5 +34,5 @@ There, select the `Add New Environment`.
 In the new environment setup:
 
 1. Name the Environment – Give a unique name to differentiate it from others.
-2. Set the Target URL – Specify the URL where the tests will run.
+2. Set the Target URL – Specify the URL which describes the "default" deployment of this environment - you can still override the URL at runtime.
 3. Optional: Add Credentials – Provide a username and password if the URL requires login.
