@@ -88,6 +88,7 @@ Key functionalities include:
 The crawler’s user-agent string is set statically and remains the same across all requests.
 
 - **Static User-Agent:** The user-agent string is manually set for all requests, ensuring consistency.
+- `Octomind/X.x.y` is added as bot to the user agent signature, as suggested in [Crawler and UA strings](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent#crawler_and_bot_ua_strings)
 
 Example code snippet:
 
@@ -98,7 +99,7 @@ const { chromium } = require("playwright");
   const browser = await chromium.launch();
   const context = await browser.newContext({
     userAgent:
-      "octomind Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.4 Safari/537.36",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64; Octomind/1.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.4 Safari/537.36",
   });
   const page = await context.newPage();
   await page.goto("https://example.com");
