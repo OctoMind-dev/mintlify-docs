@@ -18,8 +18,8 @@ importers:
         specifier: ^5.2.1
         version: 5.2.1(eslint@8.57.1)(prettier@3.3.3)
       mintlify:
-        specifier: ^4.0.266
-        version: 4.0.266(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^4.0.267
+        version: 4.0.267(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -204,16 +204,16 @@ packages:
     peerDependencies:
       react: '>=16'
 
-  '@mintlify/cli@4.0.266':
-    resolution: {integrity: sha512-7h3XhqYOHtHYqanPZOgkqhD81CmepiHVLMoiJ0/w9RNbD7UBPk58oCgXKRziB4WzzDrRORG4KzkS1nfT4v4stw==}
+  '@mintlify/cli@4.0.267':
+    resolution: {integrity: sha512-rhfEMGPDxVR9n3KNC/iwGv2Lht1MkV9b6yTPsR6EyIA1ruJlQh2H0sLdsQ3DMq29MfTgpF/+FdnluJ8pe2GKcg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  '@mintlify/common@1.0.173':
-    resolution: {integrity: sha512-0mijCskdtUwYbZOVaJBJhGve44U5KYAbuMpMtYdjVd2utu19jd/WGHgG5d9DrPTBIB4bwa7kZApAEgtg1Ov+Og==}
+  '@mintlify/common@1.0.174':
+    resolution: {integrity: sha512-Ez0BI49oBXBXJq4jWaFWao3aTco/enVBgoT6uQN8ToHORbVD8M3pSLGTb8FgWdaDpYylUdSNJmW5i/nsYJ/AqA==}
 
-  '@mintlify/link-rot@3.0.260':
-    resolution: {integrity: sha512-eupGLtYieOVpoZ503VjHLrmLHvz/2/68VEFCCCOl0cX4PfTCiXOZpfjpSrUd1NdLC+sNgE2vcpvNoVm7YqNgMg==}
+  '@mintlify/link-rot@3.0.261':
+    resolution: {integrity: sha512-k0145s3Oc0G0mmrL0LEmJO6/rjTjxHd9UYf5IAlQN6Ej/ewZBn9CVAUR7sXL9FAztJ4RJnJj1+ryS/R3RkvHxw==}
     engines: {node: '>=18.0.0'}
 
   '@mintlify/mdx@0.0.49':
@@ -230,15 +230,15 @@ packages:
     resolution: {integrity: sha512-YobgWAQDtqcyr+7Rn3knHfw5P0vbd2PJngPIf+1ZREFPJUY/JpUD4Q5Ne1pvxiLvNKJC5EYVa9kPylUQV+bf9g==}
     engines: {node: '>=18'}
 
-  '@mintlify/prebuild@1.0.259':
-    resolution: {integrity: sha512-jzuNmKV8w7UqJCpo08CQWwdvfVndId/W4PRnzJMnshBrIAPQsgWmDfJy3FQ7bkhUzmqBKW6E1InwAAjSN43xpw==}
+  '@mintlify/prebuild@1.0.260':
+    resolution: {integrity: sha512-0RiUhl/Gm3j508PyNUM/GNKiibX/g6FESwTbCt8IfmVZ1zbjHd0Jkoc5sKkChkteHcRdFhWkZGzXOdU+QtHmRA==}
 
-  '@mintlify/previewing@4.0.260':
-    resolution: {integrity: sha512-MbGWmEEE+GXZtuv04S/KxDNy3iDipuwuHGAt2uCVA5kov5kydZkikBUZyD4K/kUwthVf/vtunaHzXuVdMFhLtA==}
+  '@mintlify/previewing@4.0.261':
+    resolution: {integrity: sha512-UEImed2uEJVHzX1/DuNvzjIxFDBAvz89olRlFp/4lgeOPARD+Li6MhcdRs0dLtxyCZLfUy0WyE1H0LHYPbhSdw==}
     engines: {node: '>=18.0.0'}
 
-  '@mintlify/scraping@4.0.12':
-    resolution: {integrity: sha512-6dgEU62H7NUIUtK43uBDh02p/2Q4j307nQYYQSHmSlAqnGMkfZJShMwKdBZL9cgVXSqIgDuSlE9xqLw0bzWF6g==}
+  '@mintlify/scraping@4.0.13':
+    resolution: {integrity: sha512-dBcFjdkOap+0cPwEJHLH1Qwj6ytWfrn47PBjaz0VvisXV9FYipCgWEId7me87I+X8wEwgE6w/HvFVIgEmpqf2g==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -2226,8 +2226,8 @@ packages:
     resolution: {integrity: sha512-bAxsR8BVfj60DWXHE3u30oHzfl4G7khkSuPW+qvpd7jFRHm7dLxOjUk1EHACJ/hxLY8phGJ0YhYHZo7jil7Qdg==}
     engines: {node: '>= 8'}
 
-  mintlify@4.0.266:
-    resolution: {integrity: sha512-YsAOzaElhwCUt8+kxamMGAMVeIjNEfVdR1LhHUj3ETPSBX8ZPRB9xe6x7/6HhnQo1YTmHiOafnsrdM27JtvfaA==}
+  mintlify@4.0.267:
+    resolution: {integrity: sha512-ioAWCraQzAow0L88CYtq6mBp16McDIIRdsZmHL26TNkbSMYIUuFfCGk6rDSgEJ4Tu7GWxx8YC6Wus2gzVRzQrA==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -3368,13 +3368,13 @@ snapshots:
       '@types/react': 18.2.58
       react: 18.2.0
 
-  '@mintlify/cli@4.0.266(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@mintlify/cli@4.0.267(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@mintlify/common': 1.0.173(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@mintlify/link-rot': 3.0.260(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@mintlify/common': 1.0.174(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@mintlify/link-rot': 3.0.261(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mintlify/models': 0.0.140
-      '@mintlify/prebuild': 1.0.259(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@mintlify/previewing': 4.0.260(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@mintlify/prebuild': 1.0.260(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@mintlify/previewing': 4.0.261(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mintlify/validation': 0.1.210
       chalk: 5.3.0
       detect-port: 1.5.1
@@ -3394,7 +3394,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@mintlify/common@1.0.173(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@mintlify/common@1.0.174(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@mintlify/mdx': 0.0.49(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mintlify/models': 0.0.140
@@ -3442,10 +3442,10 @@ snapshots:
       - react-dom
       - supports-color
 
-  '@mintlify/link-rot@3.0.260(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@mintlify/link-rot@3.0.261(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@mintlify/common': 1.0.173(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@mintlify/prebuild': 1.0.259(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@mintlify/common': 1.0.174(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@mintlify/prebuild': 1.0.260(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       chalk: 5.3.0
       fs-extra: 11.2.0
       gray-matter: 4.0.3
@@ -3497,11 +3497,11 @@ snapshots:
       leven: 4.0.0
       yaml: 2.6.0
 
-  '@mintlify/prebuild@1.0.259(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@mintlify/prebuild@1.0.260(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@mintlify/common': 1.0.173(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@mintlify/common': 1.0.174(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mintlify/openapi-parser': 0.0.6
-      '@mintlify/scraping': 4.0.12(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@mintlify/scraping': 4.0.13(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mintlify/validation': 0.1.210
       axios: 1.6.7
       chalk: 5.3.0
@@ -3521,10 +3521,10 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@mintlify/previewing@4.0.260(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@mintlify/previewing@4.0.261(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@mintlify/common': 1.0.173(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@mintlify/prebuild': 1.0.259(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@mintlify/common': 1.0.174(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@mintlify/prebuild': 1.0.260(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mintlify/validation': 0.1.210
       '@octokit/rest': 19.0.13
       better-opn: 3.0.2
@@ -3553,9 +3553,9 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@mintlify/scraping@4.0.12(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@mintlify/scraping@4.0.13(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@mintlify/common': 1.0.173(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@mintlify/common': 1.0.174(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@mintlify/openapi-parser': 0.0.6
       fs-extra: 11.2.0
       hast: 1.0.0
@@ -6424,9 +6424,9 @@ snapshots:
       minipass: 3.3.6
       yallist: 4.0.0
 
-  mintlify@4.0.266(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  mintlify@4.0.267(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
-      '@mintlify/cli': 4.0.266(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@mintlify/cli': 4.0.267(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     transitivePeerDependencies:
       - bufferutil
       - debug
