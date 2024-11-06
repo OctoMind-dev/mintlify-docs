@@ -381,6 +381,33 @@ Call log:
               type: string
               description: the address of the remote endpoint. IP and port
               example: 34.45.23.22:23455
+    ZodResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          code:
+            type: string
+            example: "invalid_type"
+            description: "What error code happened while parsing the request"
+          expected:
+            type: string
+            description: "What the expected type was"
+            example: "object"
+          received:
+            type: "string"
+            description: "What the actual passed type was"
+            example: "string"
+          path:
+            type: array
+            items:
+              type: string
+              description: "The json path to the wrong parameter"
+              example: "key"
+          message:
+            type: string
+            description: "Human-readable message of the error that occurred while parsing."
+            example: "Expected object, received string"
 paths:
   /apiKey/v2/execute:
     post:
@@ -403,6 +430,10 @@ paths:
                 $ref: "#/components/schemas/TestReportResponse"
         "400":
           description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZodResponse"
         "401":
           description: Invalid or missing API key
         "500":
@@ -438,6 +469,10 @@ paths:
                 $ref: "#/components/schemas/TestReport"
         "400":
           description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZodResponse"
         "401":
           description: Invalid or missing API key
         "500":
@@ -470,20 +505,23 @@ paths:
           name: filter
           required: false
           schema:
-            type: object
-            properties:
-              environmentId:
-                type: object
-                properties:
-                  operator:
-                    type: string
-                    enum: ["EQUALS"]
-                    description: How to compare the property in question, only EQUALS is supported so far.
-                  value:
-                    type: string
-                    format: uuid
-                    description: The value to compare with to find matches.
-                    example: "3435918b-3d29-4ebd-8c68-9a540532f45a"
+            type: array
+            items:
+              type: object
+              properties:
+                key:
+                  type: string
+                  description: "The name of the property to filter for, e.g. an environmentId"
+                  example: "environmentId"
+                operator:
+                  type: string
+                  enum: ["EQUALS"]
+                  description: How to compare the property in question, only EQUALS is supported so far.
+                value:
+                  type: string
+                  format: uuid
+                  description: The value to compare with to find matches.
+                  example: "3435918b-3d29-4ebd-8c68-9a540532f45a"
       security:
         - ApiKeyAuth: [ ]
       responses:
@@ -513,6 +551,11 @@ paths:
 
         "400":
           description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZodResponse"
+
         "401":
           description: Invalid or missing API key
         "500":
