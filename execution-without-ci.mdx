@@ -1,10 +1,10 @@
 ---
-title: Execute without CI
+title: Execute via shell script
 description: "Trigger test execution from outside our app with a curl command"
 icon: "person-digging"
 ---
 
-If you don't have pipelines and want to manually trigger the test execution from outside our app, you can do it with a **cURL command**.
+If you need to trigger the test execution from outside our app, you can do it with a **cURL command**.
 You can retrieve it conveniently with prefilled parameters from within the app by selecting `in app via terminal` from the `generate report` button on the overview page:
 
 <Frame caption="generate a test report from the terminal, screenshot 02/2024">
@@ -13,8 +13,6 @@ You can retrieve it conveniently with prefilled parameters from within the app b
     alt="modal to retrieve the curl command"
   />
 </Frame>
-
-You can see how to set up your `API key` below.
 
 The command will return a response with a link to your test report and some other information, see the [API Reference](/api-reference).
 
@@ -25,6 +23,14 @@ The command will return a response with a link to your test report and some othe
 ```
 
 If you follow this link, you can find the test report containing all test results of your execution.
+
+### Parameters
+
+- `x-api-key`: You can see how to set up your `API key` below at the end of the post.
+- `url`: it is populated with the default url but you can exchange it against any url.
+- `testTargetId`: will be set automatically on copy
+- `environmentName`: will be set automatically on copy in case you have environments defined (this parameter is optional)
+- `userId`: will be set automatically on copy
 
 ### Blocking your pipeline
 
