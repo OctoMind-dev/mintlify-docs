@@ -1,0 +1,144 @@
+---
+title: "Octomind bot"
+description: "How Octomind navigates and crawls web pages in order to generate end-to-end tests"
+icon: "code"
+---
+
+### Overview
+
+This document outlines the architecture and functionality of a web crawler or bot that leverages **AI capabilities** to navigate web pages autonomously
+in order to create **end-to-end** tests. The Octomind bot is built on the **Playwright** runtime, which allows it to handle headless browser automation, and integrates AI-driven decision-making to optimize page interactions, data extraction, and traversal patterns.
+
+### 1. Purpose and Functionality
+
+The Octomind bot is designed to autonomously interact with web pages in a human-like manner while efficiently collecting and processing data.
+It uses AI models to analyze the structure and content of web pages, determining the most relevant actions to take (such as following links, submitting forms, or clicking buttons). The goal is to create a **end-to-end** test flow that simulates human behavior using the web page.
+
+Key functionalities include:
+
+- **Web Page Navigation:** The Octomind bot uses Playwright to open web pages, interact with the DOM (Document Object Model), and move between different pages by analyzing links, forms, and other interactive elements.
+- **AI-Powered Decision Making:** AI models (such as LLMs) analyze the content on each page to make decisions about where to navigate next or which content to prioritize for extraction.
+- **Dynamic Content Handling:** The Octomind bot can handle dynamic and JavaScript-heavy web pages that require asynchronous content loading (e.g., single-page applications or infinite scrolling).
+- **Customizable Crawling Logic:** The crawler’s logic is customizable, allowing users to define specific targets (e.g., looking for prices, product details, items) or set conditions (e.g., only navigate to pages with specific keywords).
+- **Data Extraction:** The Octomind bot intelligently extracts structured and unstructured data, including tables, text, images, and more in order to provide context for test generation. The extracted data will no tbe stored any further or used to train AI models.
+
+---
+
+### 2. Technology Stack
+
+- **Playwright Runtime:** A framework for automating web browsers, offering cross-browser functionality (Chromium, Firefox, WebKit).
+- **AI Models:** Natural Language Processing (NLP), Computer Vision (CV) or multi-modal large language models for analyzing web page content and structure.
+- **Headless Mode:** The crawler runs in headless browser mode by default for efficiency but can be switched to a full browser mode for debugging or user simulation.
+
+---
+
+### 3. Workflow
+
+1. **Initialization:**
+
+   - The bot initializes the Playwright runtime and AI components. It loads necessary browser instances (Chromium, Firefox, etc.).
+   - It sets up proxy configurations for web requests.
+
+2. **User Agent Configuration:**
+
+   - The bot uses a static user-agent string to identify itself during web requests.
+   - **Example Static User-Agent String:**
+     ```plaintext
+     octomind Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.4 Safari/537.36
+     ```
+
+3. **IP Address Management:**
+
+   - The bot uses a proxy for all web requests, ensuring that the IP address is consistent across all interactions. It does not use IP rotation.
+   - The proxy server is configured by the octomind platform and currently uses 3 IP addresses `35.192.162.70`, `34.159.153.198`
+     and `34.129.193.156`.
+
+4. **Page Loading and AI Analysis:**
+
+   - Once a page is loaded, the AI model analyzes the page content. The AI identifies important elements (e.g., articles, prices, buttons) based on the task at hand.
+   - The crawler determines the next steps:
+     - **Extract data:** If the target data (e.g., product details) is found, it extracts the information.
+     - **Follow links:** If more pages need to be visited, the AI selects the most relevant links to follow.
+
+5. **Data Extraction:**
+
+   - The AI model uses techniques like XPath, CSS selectors, and machine learning models for intelligent data extraction.
+   - It dynamically adapts to changes in the page structure (e.g., CSS class changes) by analyzing the context around the data.
+
+6. **Data Storage**
+
+   - Extracted data is stored in a structured format (JSON, CSV, or database) for easy access and further analysis.
+   - Extracted data will only be used a context for AI models to generate test cases.
+   - Extracted data is not used to train any AI model or stored for any other purpose as test case generation context.
+
+7. **Termination:**
+   - The bot terminates the browser instance once all tasks are complete and the test case is generated or after a set time interval to avoid indefinite crawling.
+
+---
+
+### 4. Features and Configuration
+
+#### 4.1 AI Navigation
+
+- The crawler uses AI to:
+  - **Detect important page elements** like product listings, articles, or tables, adjusting the strategy based on content type.
+  - **Predict user interaction** by simulating human-like browsing behaviors (clicks, scrolling, input).
+
+#### 4.2 Static User Agent Configuration
+
+The crawler’s user-agent string is set statically and remains the same across all requests.
+
+- **Static User-Agent:** The user-agent string is manually set for all requests, ensuring consistency.
+- `octomind/X.x.y` is added as bot to the user agent signature, as suggested in [Crawler and UA strings](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent#crawler_and_bot_ua_strings)
+
+Example code snippet:
+
+```javascript
+const { chromium } = require("playwright");
+
+(async () => {
+  const browser = await chromium.launch();
+  const context = await browser.newContext({
+    userAgent:
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64; octomind/1.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.4 Safari/537.36",
+  });
+  const page = await context.newPage();
+  await page.goto("https://example.com");
+  await browser.close();
+})();
+```
+
+#### 4.3 Proxy Configuration
+
+The Octomind bot uses a static proxy for web requests. All traffic is routed through the configured proxy server, ensuring that the IP address is consistent across all interactions.
+
+Example Playwright configuration with proxy:
+
+```javascript
+const { chromium } = require("playwright");
+
+(async () => {
+  const browser = await chromium.launch();
+  const context = await browser.newContext({
+    proxy: {
+      server: "http://proxy-server.com:8000",
+      username: "user",
+      password: "pass",
+    },
+  });
+  const page = await context.newPage();
+  await page.goto("https://example.com");
+  await browser.close();
+})();
+```
+
+### 4.4 Headless Mode
+
+By default, the crawler operates in headless mode to reduce resource consumption.
+It can be configured to run in a full browser mode if visualization is required.
+
+---
+
+## 5. Conclusion
+
+Octomind's AI-driven bot provides a robust, scalable solution for generating **end-to-end browser tests**, leveraging Playwright's runtime for browser automation and AI for intelligent decision-making. With a static user-agent string and proxy-based IP management, the bot navigates complex web environments while maintaining a consistent browsing profile.

@@ -1,0 +1,25 @@
+---
+title: Variables
+description: "Variable templates in tests"
+icon: "square-root-variable"
+---
+
+Create custom variables that we will fill in for you. Reference them in prompts using `$` (e.g. $firstname) or in the locator picker by adjusting the `enter text` step.
+
+Do you have an existing variable list? No problem. You can upload it via a `json file`.
+
+<Frame caption="Example of custom variables, 11/2024">
+  <img
+    src="/images/advanced/variables.png"
+    alt="Example of variables inserted into a prompt, 08/2024"
+  />
+</Frame>
+
+## Other examples:
+
+- `$OCTO_USERNAME`: The username you configured for use with your page in the sign up flow or the settings
+- `$OCTO_PASSWORD`: The password you configured for use with your page in the sign up flow or in the settings
+- `$OCTO_URL`: The URL of your page
+- `$OCTO_STABLE_UUID`: A random combination of letters and numbers that will be consistent through multiple references across a single run, but different if you run the agent again - full uuid of 36 characters
+- `$OCTO_STABLE_UUID_SHORT`: A random combination of letters and numbers that will be consistent through multiple references across a single run, but different if you run the agent again - maximum length of 8 characters.
+- `$OCTO_TOTP`: 2-Factor authentication code if you require if for the login. Find out more about [2-FA enrollment](./2fa)

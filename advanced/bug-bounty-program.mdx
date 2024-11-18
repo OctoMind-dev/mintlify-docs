@@ -1,0 +1,92 @@
+---
+title: Bug bounty program
+description: "Policy for security flaws and bugs and bug bounty rewards"
+icon: "bug"
+---
+
+## Introduction
+
+At **Octomind**, security is at the core of everything we do. Our SaaS platform provides business critical test generation and execution,
+and we are committed to providing a secure environment for our users. We recognize that no technology is perfect, and we invite the global
+community to help us identify potential vulnerabilities through our **Bug Bounty Program**.
+
+If you believe you’ve found a security issue in our system, we encourage you to report it to us. By responsibly disclosing security
+vulnerabilities, you are helping us protect our users and improve our services.
+
+## Program Scope
+
+### In Scope:
+
+- All services under the domain **octomind.dev**, except all subdomains starting with **auth.**
+- SaaS platform, APIs, and related integrations
+
+### Out of Scope:
+
+- Third-party services or platforms (unless explicitly mentioned)
+- Social engineering (e.g., phishing attacks)
+- Physical security
+- Denial of Service (DoS) attacks or anything that affects service availability
+- Vulnerabilities in third-party libraries without demonstrable exploitability on **octomind.dev** services
+
+## Rewards
+
+Our reward program is based on the severity and impact of the vulnerability. Rewards will be determined by our internal assessment team,
+taking into account:
+
+- Vulnerability criticality
+- Potential impact on our users and infrastructure
+- Quality of the report and clarity of the reproduction steps
+
+| Severity | Example Impact                              | Minimum Reward |
+| -------- | ------------------------------------------- | -------------- |
+| Low      | Minor security misconfigurations            | $50            |
+| Medium   | Sensitive information exposure              | $100           |
+| High     | Unauthorized access to accounts or data     | $500           |
+| Critical | Remote Code Execution, privilege escalation | $1,000+        |
+
+**Note:** Rewards are at the sole discretion of Octomind’s security team, and we reserve the right to adjust based on the severity, impact, and report quality.
+
+## Eligibility
+
+To be eligible for a bounty, you must:
+
+1. Follow our **Responsible Disclosure Guidelines**.
+2. Not be an employee or contractor of **Octomind** or its subsidiaries.
+3. Be the first to report a previously unknown vulnerability.
+4. Avoid privacy violations, destruction of data, or interruption of service.
+
+## Responsible Disclosure Guidelines
+
+We ask that you:
+
+- Report vulnerabilities **privately** to our security team at [security@octomind.dev](mailto:security@octomind.dev).
+- Give us a reasonable amount of time to address the issue before publicly disclosing it (we aim to respond within 5 business days).
+- Do not exploit or further manipulate the vulnerability in any way other than for testing purposes.
+
+## How to Report
+
+1. **Summary**: Provide a clear description of the vulnerability.
+2. **Steps to Reproduce**: Provide detailed instructions on how to reproduce the issue.
+3. **Impact**: Explain the potential impact of the vulnerability.
+4. **Screenshots or Proof of Concept**: Include any supporting documentation that can help us understand the issue.
+
+Submit your report via email at [security@octomind.dev](mailto:security@octomind.dev).
+
+## Exclusions
+
+The following types of reports **will not** be eligible for a reward:
+
+- Findings from automated tools without clear exploitability
+- Bugs that require excessive or unlikely user interaction
+- Vulnerabilities affecting outdated or unsupported browsers or platforms
+- Issues related to browser cookies or best practices that do not lead to a specific vulnerability
+
+## Legal
+
+You must comply with all applicable laws when conducting research and must not engage in any illegal activity. By submitting a report, you agree that you are legally authorized to do so and that your actions align with the terms of this Bug Bounty Policy.
+
+## Contact
+
+For questions related to this program or to submit a report, please email [security@octomind.dev](mailto:security@octomind.dev).
+
+Thank you for helping us keep **Octomind** and our users safe!

@@ -4,16 +4,31 @@ description: "All the nice stuff you asked for"
 icon: "sparkles"
 ---
 
+## 2024-11-07
+
+- Visual locator picker **tracks animated elements** correctly in snapshots
+
+  <Frame caption="correct tracking of animated elements, 11/2024">
+    <img
+      src="images/changelog/animated-element-tracking-docs.gif"
+      alt="animated element tracking of visual locator picker"
+      width="500"
+    />
+  </Frame>
+
 ## 2024-11-06
 
-- new external api for retrieving test reports
-- otp (one time password) now configurable in settings
-- debugtopus (local runner) is now environment aware
+- new external api for **retrieving test reports**
+- debugtopus (local runner) is now **environment aware**
+
+## 2024-11-04
+
+- `Native support for OTP`: We support logins that require a 2nd factor using a one-time-password (OTP). Configurable in settings and works for local execution as well.
 
 ## 2024-10-28
 
-- multiple environments with separate test account, URL and OTP settings
-- screenshot and snapshot retention is now 6 weeks instead of 2
+- We support `multiple environments` with separate test accounts, URL and OTP settings now. A structured way to isolate configurations for different deployments and customize testing settings specific to each deployment.
+
   <Frame caption="multiple environments, 11/2024">
     <img
       src="images/environments-feature.png"
@@ -22,11 +37,15 @@ icon: "sparkles"
     />
   </Frame>
 
+## 2024-10-24
+
+- **Longer retention of snapshots.** We will retain your snapshots for 6 instead of 2 weeks.
+
 ## 2024-10-17
 
-- new API endpoint for blocking pipeline
-- multi select for step deletion
-- hotkeys for navigating and deleting of steps
+- New API endpoint for `blocking pipeline`. When integrated to CI, it can block the pipeline by polling the resulting test report until the status is 'PASSED' with a call to the test report API.
+- **Multi select** for step deletion
+- **New hotkeys** for navigating and deleting of steps
 
 ## 2024-10-07
 
