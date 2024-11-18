@@ -1,5 +1,5 @@
 ---
-title: "Compliance and Security"
+title: "Compliance and security"
 description: "All about Octomind data access and governance"
 icon: "code"
 ---
@@ -10,12 +10,26 @@ We operate by simulating a real user interacting with your web app, using your a
 inputs. We are also using **screenshots** of your web app. This doesn't require access to your source code. We are only seeing the parts of your app
 which are exposed to your users.
 
-## Data collected when using the Octomind application
+## Data retention policy
 
-The Octomind app is **not** collecting user or app specific data. Octomind is **not** using any customer data for training purposes. DOM structure and screenshots gathered by the AI agent to examine user flows
-within your app are not stored on our computers. They are only temporarily used to identify the next best action to take from a users perspective or to propose test cases.
+We ensure that all user data related to tests is **deleted after 6 weeks**, with the exception of essential user profiles that facilitate service continuity.
 
-Data from test runs like traces and screenshots are **deleted after 15 days automatically** as part of our data retention policy. From that time onwards you cannot access traces and screenshots anymore.
+All data is processed solely for the intended purpose of delivering and improving our services, and we strive to uphold the principles of **data minimization**, **purpose limitation**, and **security**. To ensure clients' needs are fully met, we are open to discussing any specific privacy or security concerns and are happy to sign a mutual NDA if needed.
+
+## No training and sharing with third parties
+
+Our solution only uses input data for the purpose of composing, running, and maintaining test cases. We do not use this data to train our solution, nor do we share input or output data with third-party companies outside of our standard service providers, such as AWS, Azure or GCP, which are necessary for infrastructure purposes.
+
+## Human inspection
+
+Human inspections of input or output data are not systematically conducted unless explicitly requested for support purposes. In such cases, only authorized support personnel have access, solely for the specific purpose of resolving issues. We analyze system failures, especially if our AI agent encounters difficulties during test case creation. These inspections are limited to individual test cases or specific steps within test cases and are carried out only by authorized support personnel.
+
+## GDPR / CCPA compliance
+
+The Octomind application is not GDPR or CCPA relevant since we are not collecting any user data (privacy relevant or not). You can strictly run
+Octomind on test data to make sure, your are not violating your own compliance requirements.
+
+Learn more about our [privacy policy here](https://www.octomind.dev/privacy-policy).
 
 ## CI/CD Integration
 
@@ -25,13 +39,6 @@ They require comment permissions only. Please check out the respective section (
 <Tip>Both integrations are open source so that you can run an audit.</Tip>
 
 Other intergrations into **Vercel**, **Jenkins** or the **curl** command are not able to comment back. Hence they do not need permissions.
-
-## GDPR / CCPA compliance
-
-The Octomind application is not GDPR or CCPA relevant since we are not collecting any user data (privacy relevant or not). You can strictly run
-Octomind on test data to make sure, your are not violating your own compliance requirements.
-
-As for our website and our business systems see [privacy policy](https://www.octomind.dev/privacy-policy).
 
 ## Exclude Octomind agent runs from your user metrics
 

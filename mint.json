@@ -107,14 +107,14 @@
     {
       "group": "Advanced",
       "pages": [
-        "variables",
-        "environments",
-        "rate-limiting",
+        "advanced/variables",
+        "advanced/environments",
+        "advanced/rate-limiting",
         "proxy/private-location",
         "proxy/proxy-settings",
-        "bug-bounty-program",
-        "octomind-bot",
-        "2fa"
+        "advanced/bug-bounty-program",
+        "advanced/octomind-bot",
+        "advanced/2fa"
       ]
     },
     {
@@ -139,7 +139,7 @@
     "raiseIssue": true
   },
   "footerSocials": {
-    "twitter": "https://twitter.com/Octomind_dev",
+    "twitter": "https://twitter.com/octominddotdev",
     "github": "https://github.com/OctoMind-dev",
     "discord": "https://discord.gg/3ShnZMKRfA"
   }
