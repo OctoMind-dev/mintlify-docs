@@ -1,12 +1,10 @@
 ---
 title: Variables
-description: "Variable templates in tests"
+description: "Customizable variables in tests"
 icon: "square-root-variable"
 ---
 
-Create custom variables that we will fill in for you. Reference them in visual locator picker using `$` (e.g. $firstname) by adjusting the `enter text` step.
-
-Do you have an existing variable list? No problem. You can upload it via a `json file`.
+Create custom variables that we will fill in for you. Reference them in the **visual locator picker** or when **prompting the AI agent** using `$` (e.g. $firstname) by adjusting the `enter text` step.
 
 <Frame caption="Example of custom variables, 11/2024">
   <img
@@ -25,11 +23,26 @@ Do you have an existing variable list? No problem. You can upload it via a `json
   />
 </Frame>
 
-## Other examples:
+Do you have an existing variable list? No problem. You can upload it via a `json file`. The file has to follow this format:
 
-- `$OCTO_USERNAME`: The username you configured for use with your page in the sign up flow or the settings
-- `$OCTO_PASSWORD`: The password you configured for use with your page in the sign up flow or in the settings
-- `$OCTO_URL`: The URL of your page
-- `$OCTO_STABLE_UUID`: A random combination of letters and numbers that will be consistent through multiple references across a single run, but different if you run the agent again - full uuid of 36 characters
-- `$OCTO_STABLE_UUID_SHORT`: A random combination of letters and numbers that will be consistent through multiple references across a single run, but different if you run the agent again - maximum length of 8 characters.
-- `$OCTO_TOTP`: 2-Factor authentication code if you require if for the login. Find out more about [2-FA enrollment](./2fa)
+```
+[
+  {
+    "name": "my_variable",
+    "values": ["a", "b", "c"]
+  }
+]
+```
+
+If you provide several values we will randomly choose one of them per run.
+
+## Predefined variables:
+
+We use also several predefined variables that do not show up in the default list, but can be used like the variables above:
+
+- `$OCTO_USERNAME`: the username you configured for use with your page in the sign up flow or the settings
+- `$OCTO_PASSWORD`: the password you configured for use with your page in the sign up flow or in the settings
+- `$OCTO_URL`: the URL of your page
+- `$OCTO_STABLE_UUID`: a random combination of letters and numbers that will be consistent through multiple references across a single run, but different if you run the agent again - full uuid of 36 characters
+- `$OCTO_STABLE_UUID_SHORT`: a random combination of letters and numbers that will be consistent through multiple references across a single run, but different if you run the agent again - maximum length of 8 characters.
+- `$OCTO_TOTP`: 2-Factor Authentication code if you require if for the login. Find out more about [2-FA enrollment](./2fa)
