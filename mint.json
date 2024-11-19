@@ -114,7 +114,8 @@
         "proxy/proxy-settings",
         "advanced/bug-bounty-program",
         "advanced/octomind-bot",
-        "advanced/2fa"
+        "advanced/2fa",
+        "advanced/basic-authentication"
       ]
     },
     {
