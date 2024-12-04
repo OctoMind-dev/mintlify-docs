@@ -15,6 +15,7 @@
   "modeToggle": {
     "default": "dark"
   },
+  "layout": "topnav",
   "favicon": "/logo/favicon.svg",
   "colors": {
     "primary": "#00E2AA",
@@ -24,11 +25,6 @@
       "dark": "#13142B",
       "light": "#FFFFFF"
     }
-  },
-  "topAnchor": {
-    "name": "Documentation",
-    "icon": "octopus-deploy",
-    "iconType": "solid"
   },
   "topbarLinks": [
     {
@@ -53,9 +49,9 @@
       "url": "guides"
     },
     {
-      "name": "API References",
+      "name": "API Reference",
       "url": "api-reference",
-      "openapi": "https://petstore3.swagger.io/api/v3/openapi.json"
+      "openapi": "/openapi.yaml"
     },
     {
       "name": "Integrations",
@@ -73,10 +69,9 @@
         "get-started/first-steps",
         "get-started/generate-more-test-cases",
         "get-started/new-test-case",
-        "get-started/edit-test-cases",
+        "get-started/edit-test-case",
         "get-started/execute-test-cases",
         "get-started/scheduled-execution",
-        "get-started/integrations-overview",
         "get-started/execution-without-ci",
         "get-started/debugtopus"
       ]
@@ -90,6 +85,7 @@
       "pages": [
         "account-view/account",
         "account-view/projects",
+        "account-view/environments",
         "account-view/test-cases",
         "account-view/test-reports"
       ]
@@ -98,7 +94,6 @@
       "group": "Advanced",
       "pages": [
         "advanced/variables",
-        "advanced/environments",
         "advanced/rate-limiting",
         "proxy/private-location",
         "proxy/proxy-settings",
