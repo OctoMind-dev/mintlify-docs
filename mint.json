@@ -77,6 +77,10 @@
       ]
     },
     {
+      "group": "Changelog",
+      "pages": ["changelog/changelog"]
+    },
+    {
       "group": "Maintain Your Tests",
       "pages": ["maintain/maintain-tests", "maintain/mark-tests-as-active"]
     },
