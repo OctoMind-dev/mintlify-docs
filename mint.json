@@ -81,6 +81,16 @@
       "pages": ["maintain/maintain-tests", "maintain/mark-tests-as-active"]
     },
     {
+      "group": "Integrations",
+      "pages": [
+        "integrations/quickstart-GitHub",
+        "integrations/quickstart-Azure",
+        "integrations/quickstart-Vercel",
+        "integrations/quickstart-Jenkins",
+        "integrations/quickstart-Other"
+      ]
+    },
+    {
       "group": "Account & Views",
       "pages": [
         "account-view/account",
