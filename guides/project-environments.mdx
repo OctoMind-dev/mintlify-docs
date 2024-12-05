@@ -1,0 +1,136 @@
+---
+title: Projects or environments?
+description: "Best practices for using Octomind"
+icon: "diagram-project"
+---
+
+Based on our usage data, the difference between `Environments` and `Projects` is sometimes not well understood. We will clarify the difference between the concepts and provide guidance on when and how to use each effectively.
+
+## Projects
+
+When you sign up for Octomind, you automatically create your first project during the onboarding process. A project serves as a foundational unit with the following attributes:
+
+- **Name:** You can change the project name at any time.
+- **URL:** This is fixed and cannot be changed after creation. The URL acts as the reference point for all agent interactions, such as test discovery, test proposals, and auto-maintenance. Think of it as the core reference system for our AI agent.
+
+When you create a project, a default environment is automatically set up for you:
+
+<Frame caption="New Octomind project created, 12/2024">
+  <img
+    src="/images/guides/project-settings.png"
+    alt="New Octomind project created"
+    width={400}
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="Default environment for a new project, 12/2024">
+  <img
+    src="/images/guides/project-environment.png"
+    alt="Default enviroment for a newproject created"
+    width={400}
+  />
+</Frame>
+
+Additionally, test runs accept a URL as a target for executing tests. This feature is particularly useful if you want to test against a specific branch.
+
+<note>
+  In our example, where only one environment is configured, the target URL must
+  match the same test user credentials and security settings as the default
+  environment.
+</note>
+
+<Frame caption="Running tests against a selected URL, 12/2024">
+  <img
+    src="/images/guides/run-against-url.png"
+    alt="Running tests against a selected UR"
+    width={400}
+  />
+</Frame>
+
+## Environments
+
+Environments exist within projects and represent different configurations for the same app under test. Each environment is defined by:
+
+- **Name** and **URL**
+- **Login parameters** (e.g., test user credentials)
+- **OTP secrets** (if applicable)
+- **Basic-auth settings** (if applicable)
+
+You can create as many environments as needed, tailoring each to specific deployment configurations.
+
+## Example: Sandbox and Staging environments
+
+Imagine your app is deployed in two distinct environments: `Sandbox` and `Staging`. Each environment has unique characteristics:
+
+1. **Sandbox:**
+
+- Behind basic-auth
+- Uses `testuser-sandbox@yourcompany.com`
+
+2. **Default environment (Staging):**
+
+- No basic-auth
+- Uses `testuser-staging@yourcompany.com`
+- Considered to be more stable and primarily used for QA before production deployment
+
+Here's how you'd configure Octomind for this setup:
+
+### 1. Project setup
+
+- Create a project using the `Staging` environment as the reference system.
+- During setup, provide the `Staging URL` and `testuser-staging` credentials.
+- Compose test cases based on the `Staging` environment.
+
+### 2. Adding Sandbox environment
+
+- Set up a new environment for `Sandbox`, specifying its unique URL, user credentials, and authentication settings.
+
+<Frame caption="Setting up a new enviroment for the Sandbox example, 12/2024">
+  <img
+    src="/images/guides/sandbox-environment.png"
+    alt="Set up of a new sandbox environment"
+    width={400}
+  />
+</Frame>
+
+Once configured, you can run all tests against the `Sandbox` environment by selecting it from the `environment drop-down menu` or by providing the **“environment name” parameter** in your pipeline. Please, see our [GitHub documentation](https://octomind.dev/docs/integrations/quickstart-GitHub#5-include-the-github-action) for the CI pipeline details.
+
+<Frame caption="Environment dropdown menu for the example, 12/2024">
+  <img
+    src="/images/guides/environment-dropdown.png"
+    alt="Environment dropdown menu for the example"
+    width={400}
+  />
+</Frame>
+
+## When to use multiple projects
+
+There are cases where multiple projects are more suitable than multiple environments within a single project. Here are two common scenarios:
+
+### A: Testing multiple apps
+
+Each app you test should have its own dedicated project. This keeps configurations and test cases separate, ensuring clarity and manageability.
+
+### B: Testing complex apps with distinct user roles
+
+For apps with users of significantly different roles and permissions, splitting tests across multiple projects can simplify testing. Let's look at two examples:
+
+#### Example 1: Online meeting app
+
+Your app includes two key roles:
+
+- **Meeting Host:** The paying customer who organizes meetings.
+- **Attendee:** A participant who typically doesn't have an account.
+
+Since the test cases for these roles are vastly different, it's best to create a separate project for each role.
+
+#### Example 2: Document signing app
+
+In this app, there are two main roles:
+
+- **User:** The paying customer who uploads documents, prepares them for signing, and shares them with participants.
+- **Participant:** A non-account user who can only sign documents with limited functionality.
+
+Here, too, splitting roles into different projects allows for cleaner, more focused test case management.
