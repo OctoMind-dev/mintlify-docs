@@ -1,0 +1,78 @@
+---
+title: Prompt debugging
+description: "How to fix prompts causing problems in Octomind tests"
+icon: "sparkles"
+---
+
+In the [first part of the test debugging guide][def] we have learned what can cause the failure of an Octomind test. Now, we'll show you how to debug specific use cases, starting with fixing a prompt.
+
+## Starting with a good prompt
+
+Before diving in, we want to point out some **prompt best practices** that reduce the amount of future debugging required.
+
+If the Agent failed to implement the steps for a test case, it's likely the prompt could use some refinement. The more detailed the instructions in your prompt, the more likely it is that the Agent will be successful in its design.
+
+For example, if creating a **checkout flow** test case. An example of a not-great prompt might be:
+
+```
+Navigate to the cart page and start checkout
+```
+
+A much better prompt would be a set of specific steps, such as:
+
+```
+1. Click on the cart icon.
+2. Click on the 'CHECKOUT' button.
+3. Verify the page title contains 'Checkout'
+```
+
+## Check AI agent comments for feedback
+
+You might have noticed another issue with the above prompts: A checkout test will likely fail unless a product has been added to the cart.
+
+Luckily, our Agent has your back, giving you precise feedback when it detects a test cannot successfully be implemented.
+
+<Frame caption="Agent explaining the reason for checkout test failure, 12/2024">
+  <img
+    src="/images/guides/cart-empty-fail.png"
+    alt="Agent explaining the reason for checkout test failure"
+    width="300"
+  />
+</Frame>
+
+## Split flows into smaller, sequential tests
+
+While one solution would be to add the steps for adding a product to the cart to the start of the prompt, this isn't great from a testing perspective as now both the add to cart and checkout flow are being tested. A good test only tests one feature.
+
+The right solution is to create an **add product to cart** test case, then set that test as a `dependency` for the **checkout** test.
+
+<Frame caption="Test dependency hierarchy of a checkout flow, 12/2024">
+  <img
+    src="/images/guides/checkout-test-dependency.png"
+    alt="Checkout flow split into sequential tests in a dependency hierarchy"
+  />
+</Frame>
+
+## Prompt quality check
+
+The quality of the steps produced by the Agent is usually the best indication of whether the prompt needs further refinement.
+
+If the prompt seems fine but the steps are all over the place, try `regenerating steps` (while keeping the good ones) as a first option or simply help out the agent by clicking the questionable step where it got wrong.
+
+<Frame caption="test step regeneration, 12/2024">
+  <img src="/images/guides/regenerate-steps.gif" alt="test step regeneration" />
+</Frame>
+
+But if you're still not having any luck, update the prompt instructions to be more element specific and action oriented—or you can manually refine specific steps which we'll cover next.
+
+<Frame caption="An example of a detailed prompt for a currency change test, 12/2024">
+  <img
+    src="/images/guides/detailed-prompt.png"
+    alt="an example of a detailed prompt in Octomind e2e tests"
+    width="300"
+  />
+</Frame>
+
+Your Octomind-specific prompting skills will improve with time, but if you ever get stuck, [reach out to our team on Discord](https://discord.gg/3ShnZMKRfA) for guidance.
+
+Okay, what if the prompt is not the cause of the problem? This is how you [fix the test using our visual editor](guides/test-debugging-3).
