@@ -83,6 +83,7 @@
     {
       "group": "Integrations",
       "pages": [
+        "integrations/integrations-overview",
         "integrations/quickstart-GitHub",
         "integrations/quickstart-Azure",
         "integrations/quickstart-Vercel",
