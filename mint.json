@@ -96,6 +96,16 @@
       ]
     },
     {
+      "group": "Guides",
+      "pages": [
+        "guides/test-creation-best-practices",
+        "guides/test-debugging-1",
+        "guides/test-debugging-2",
+        "guides/test-debugging-3",
+        "guides/test-debugging-4"
+      ]
+    },
+    {
       "group": "Account & Views",
       "pages": [
         "account-view/account",
