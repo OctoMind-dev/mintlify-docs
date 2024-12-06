@@ -15,7 +15,6 @@
   "modeToggle": {
     "default": "dark"
   },
-  "layout": "topnav",
   "favicon": "/logo/favicon.svg",
   "colors": {
     "primary": "#00E2AA",
@@ -26,68 +25,69 @@
       "light": "#FFFFFF"
     }
   },
-  "topbarLinks": [
+  "topAnchor": {
+    "name": "Documentation",
+    "icon": "octopus-deploy",
+    "iconType": "solid"
+  },
+  "anchors": [
     {
       "name": "GitHub",
+      "icon": "github",
       "url": "https://github.com/OctoMind-dev"
     },
     {
       "name": "Get easy help",
+      "icon": "discord",
       "url": "https://discord.gg/3ShnZMKRfA"
+    },
+    {
+      "name": "API Reference",
+      "openapi": "/openapi.yaml",
+      "url": "api-reference",
+      "icon": "square-terminal"
+    }
+  ],
+  "topbarLinks": [
+    {
+      "name": "About",
+      "url": "https://www.octomind.dev/about"
     }
   ],
   "topbarCtaButton": {
     "name": "Go to app",
     "url": "https://app.octomind.dev/setup/url?utm_source=docs&utm_medium=txt-lnk"
   },
-  "primaryTab": {
-    "name": "Documentation"
-  },
-  "tabs": [
-    {
-      "name": "Guides",
-      "url": "guides"
-    },
-    {
-      "name": "API Reference",
-      "url": "api-reference",
-      "openapi": "/openapi.yaml"
-    },
-    {
-      "name": "Integrations",
-      "url": "integrations"
-    },
-    {
-      "name": "Changelog",
-      "url": "changelog"
-    }
-  ],
   "navigation": [
     {
-      "group": "Get started",
+      "group": "Get Started",
+      "pages": ["first-steps"]
+    },
+    {
+      "group": "Expand Your Test Suite",
       "pages": [
-        "get-started/first-steps",
-        "get-started/generate-more-test-cases",
-        "get-started/new-test-case",
-        "get-started/edit-test-case",
-        "get-started/execute-test-cases",
-        "get-started/scheduled-execution",
-        "get-started/execution-without-ci",
-        "get-started/debugtopus"
+        "generate-more-test-cases",
+        "new-test-case",
+        "test-case-creation-strategy"
       ]
     },
     {
-      "group": "Changelog",
-      "pages": ["changelog/changelog"]
+      "group": "Execute Your Tests",
+      "pages": [
+        "execute-test-cases",
+        "debugtopus",
+        "scheduled-execution",
+        "integrations-overview",
+        "execution-without-ci"
+      ]
     },
     {
       "group": "Maintain Your Tests",
-      "pages": ["maintain/maintain-tests", "maintain/mark-tests-as-active"]
+      "pages": ["edit-test-case", "maintain-tests", "mark-tests-as-active"]
     },
     {
-      "group": "Integrations",
+      "group": "CI integrations",
       "pages": [
-        "integrations/integrations-overview",
         "integrations/quickstart-GitHub",
         "integrations/quickstart-Azure",
         "integrations/quickstart-Vercel",
@@ -96,21 +96,10 @@
       ]
     },
     {
-      "group": "Guides",
-      "pages": [
-        "guides/test-creation-best-practices",
-        "guides/test-debugging-1",
-        "guides/test-debugging-2",
-        "guides/test-debugging-3",
-        "guides/test-debugging-4"
-      ]
-    },
-    {
-      "group": "Account & views",
+      "group": "Account & Views",
       "pages": [
         "account-view/account",
         "account-view/projects",
-        "account-view/environments",
         "account-view/test-cases",
         "account-view/test-reports"
       ]
@@ -119,6 +108,7 @@
       "group": "Advanced",
       "pages": [
         "advanced/variables",
+        "advanced/environments",
         "advanced/rate-limiting",
         "proxy/private-location",
         "proxy/proxy-settings",
@@ -129,7 +119,11 @@
       ]
     },
     {
-      "group": "More info",
+      "group": "Changelog",
+      "pages": ["changelog"]
+    },
+    {
+      "group": "More Info",
       "pages": [
         "more-info/faq",
         "more-info/octo-dictionary",
@@ -137,7 +131,7 @@
       ]
     },
     {
-      "group": "Data governance",
+      "group": "Data Governance",
       "pages": ["data-governance/no-code-access", "data-governance/nda"]
     }
   ],
