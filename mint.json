@@ -64,7 +64,7 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Get started",
       "pages": [
         "get-started/first-steps",
         "get-started/generate-more-test-cases",
@@ -106,7 +106,7 @@
       ]
     },
     {
-      "group": "Account & Views",
+      "group": "Account & views",
       "pages": [
         "account-view/account",
         "account-view/projects",
@@ -129,7 +129,7 @@
       ]
     },
     {
-      "group": "More Info",
+      "group": "More info",
       "pages": [
         "more-info/faq",
         "more-info/octo-dictionary",
@@ -137,7 +137,7 @@
       ]
     },
     {
-      "group": "Data Governance",
+      "group": "Data governance",
       "pages": ["data-governance/no-code-access", "data-governance/nda"]
     }
   ],
