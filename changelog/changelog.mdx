@@ -4,71 +4,77 @@ description: "All the nice stuff you asked for"
 icon: "sparkles"
 ---
 
-## 2024-11-14
+## November 2024
+
+### 2024-11-14
 
 `AI agent`: we teach the agent to notice if it got stuck in a loop and abort.
 
-## 2024-11-12
+### 2024-11-12
 
 `Shared authentication state`: when you run the Octomind test suite now, we log in just once. All tests using the login as dependency share the auth state.
 
-## 2024-11-07
+### 2024-11-07
 
 - Visual locator picker **tracks animated elements** correctly in snapshots
 
   <Frame caption="correct tracking of animated elements, 11/2024">
     <img
-      src="images/changelog/animated-element-tracking-docs.gif"
+      src="/images/changelog/animated-element-tracking-docs.gif"
       alt="animated element tracking of visual locator picker"
       width="500"
     />
   </Frame>
 
-## 2024-11-06
+### 2024-11-06
 
 - new external api for **retrieving test reports**
 - debugtopus (local runner) is now **environment aware**
 
-## 2024-11-04
+### 2024-11-04
 
 - `Native support for OTP`: We support logins that require a 2nd factor using a one-time-password (OTP). Configurable in settings and works for local execution as well.
 
-## 2024-10-28
+## October 2024
+
+### 2024-10-28
 
 - We support `multiple environments` with separate test accounts, URL and OTP settings now. A structured way to isolate configurations for different deployments and customize testing settings specific to each deployment.
 
   <Frame caption="multiple environments, 11/2024">
     <img
-      src="images/environments-feature.png"
+      src="/images/environments-feature.png"
       alt="multiple environments"
       width="500"
     />
   </Frame>
 
-## 2024-10-24
+### 2024-10-24
 
 - **Longer retention of snapshots.** We will retain your snapshots for 6 instead of 2 weeks.
 
-## 2024-10-17
+### 2024-10-17
 
 - New API endpoint for `blocking pipeline`. When integrated to CI, it can block the pipeline by polling the resulting test report until the status is 'PASSED' with a call to the test report API.
 - **Multi select** for step deletion
 - **New hotkeys** for navigating and deleting of steps
 
-## 2024-10-07
+### 2024-10-07
 
 - new `pro plan`: for unlimited projects, test plans and use of our AI features, you can now upgrade to our pro plan.
 
-## 2024-09-24
+## September 2024
+
+### 2024-09-24
 
 - `Test Report Overview`: test reports have a new home now: the test report overview. Here you can see past test reports, start off new test reports and schedule them.
 
-## 2024-09-12
+### 2024-09-12
 
 - `Dependency View`: There's a new way to see your test cases: the dependency view! Now you can visually grasp which test cases cases depend on other test cases (when executed).
 - `Private Location Worker`: If you want to test a webapp that is not publicly available, we have something ready for you: [private location worker](/proxy/private-location.mdx)
 
-## 2024-09-04
+### 2024-09-04
 
 - `Editing` - We added **force click** and **right click** interactions to the visual locator picker.
 - `Snapshots` are faster now, showcasing the correct website when editing test steps and correctly displayed.
@@ -77,42 +83,44 @@ icon: "sparkles"
 
 <Frame caption="interactive insight into AI agents generating, 09/2024">
   <img
-    src="images/changelog/imax-screenshot.png"
+    src="/images/changelog/imax-screenshot.png"
     alt="interactive insight into the AI agent progress"
   />
 </Frame>
 
-## 2024-08-26
+## August 2024
+
+### 2024-08-26
 
 - `AI agents` - A new agent is specialized in assessing the purpose of a web page. You can rate the agent's description and give it a 👍 or a 👎
 - `Suggest more tests` feature got an upgrade. The suggested tests discovered by the AI agent are more meaningful and less redundant.
 
-## 2024-08-19
+### 2024-08-19
 
 - `What's new` - We have caught up with the `gift` notifications for our new shiny stuff. You will get new feature notifications 🎁 as they are shipped, dynamically.
 
-## 2024-08-13
+### 2024-08-13
 
 - `AI Agents` - improved world view
 
-## 2024-08-09
+### 2024-08-09
 
 - `UI tweak` for first time users: Test result details of user's first test run are visible directly in project overview.
 
 <Frame caption="First time users project overview with test result detail, 08/2024">
   <img
-    src="images/changelog/first-report.png"
+    src="/images/changelog/first-report.png"
     alt="First time users project overview with test result detail"
   />
 </Frame>
 
-## 2024-08-08
+### 2024-08-08
 
 - `Save & run`: New button to **run and save** an edited test case at once. You can click on the `run only` button if you want to validate the test first before saving it.
 
 <Frame caption="'save & run' the test to validate and save changes, 08/2024">
   <img
-    src="images/editing/save-run.png"
+    src="/images/editing/save-run.png"
     alt="Save and run the test case"
     width="300px"
   />
@@ -122,19 +130,19 @@ icon: "sparkles"
 
 <Frame caption="'run only' to validate the test before saving it, 08/2024">
   <img
-    src="images/editing/save-run-only.png"
+    src="/images/editing/save-run-only.png"
     alt="Run only to validate the test before saving it"
     width="300px"
   />
 </Frame>
 
-## 2024-08-06
+### 2024-08-06
 
 - `AI suggesting more tests`: Similar to the AI discovery at set-up, we expanded the AI discovery feature to “spawn” more test cases.
 
 <Frame caption="Have the AI agent suggest more test cases, 08/2024">
   <img
-    src="images/setup/setup-11-suggest-more.png"
+    src="/images/setup/setup-11-suggest-more.png"
     alt="have AI suggest more test cases"
   />
 </Frame>
@@ -143,21 +151,23 @@ icon: "sparkles"
 
 <Frame caption="Open status on new suggested tests, 08/2024">
   <img
-    src="images/changelog/open-status-proposals.png"
+    src="/images/changelog/open-status-proposals.png"
     alt="Open status on new suggested tests"
   />
 </Frame>
 
-## 2024-08-05
+### 2024-08-05
 
 - Speed is important. We sped up loading times on test cases overviews.
 - `AI agent can scroll now`: improved scrolling behavior of our AI agents when exploring elements increasing its success rate
 
-## 2024-07-29
+## July 2024
+
+### 2024-07-29
 
 - `Draftless editing`: No more draft state of a test case. Just open the test case and save your changes.
 
-## 2024-07-23
+### 2024-07-23
 
 - `Guidance through card focus`: We highlight the sections of our app to gently guide you to your **first test report**.
 - `AI agent progress indicator`: We reintroduced the progress bar and updated it. At any given moment, you'll have an idea what the agent is doing.
@@ -169,7 +179,7 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2024-07-18
+### 2024-07-18
 
 - `Copy paste test steps`: Use Ctrl+C Ctrl+V keystrokes (cmd+c cmd+v for mac users) to copy paste test steps within the same test or from other test cases.
 
@@ -177,7 +187,7 @@ icon: "sparkles"
   <img src="/images/changelog/copy-pasting-steps.gif" alt="test case filters" />
 </Frame>
 
-## 2024-07-16
+### 2024-07-16
 
 - `Faster AI Agent`: Natural scrolling when extracting web elements and checking for visibility took up 20% of the whole test generation process. We made it faster.
 - `Test case filters`: You can filter your tests based on the test statuses, now.
@@ -190,7 +200,7 @@ icon: "sparkles"
     />
   </Frame>
 
-## 2024-07-11
+### 2024-07-11
 
 - `Automatic login and cookie banner tests` at sign-up. When you sign up to Octomind or create new project (add a new URL):
 
@@ -209,20 +219,22 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2024-07-04
+### 2024-07-04
 
 - `Mobile + tablet use`: Test case editing works better on smaller screens now.
 
-## 2024-07-01
+### 2024-07-01
 
 - `Agent benchmark automation`: Every major change in the codebase impacts the AI agent performance. We get an automated ping whether the agent does what it's supposed to do, now.
 
-## 2024-06-27
+## June 2024
+
+### 2024-06-27
 
 - `Variable templates`: We fill more robust variable templates into the test when your test steps are auto-generated. [Learn more.](/variables)
 - `Shadow DOM & iFrames`: It looks like we figured out how to handle them. Until you serve us the next 100 edge cases.
 
-## 2024-06-24
+### 2024-06-24
 
 - `New project overview`: Your project homepage has a new overview layout. We aimed for a less cluttered design while keeping the flexibility and all features at hand.
 
@@ -233,7 +245,7 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2024-06-20
+### 2024-06-20
 
 - We merged and simplified test case view. Bye bye, way too many tabs.
   <Frame caption="merged test case view, screenshot 06/2024">
@@ -243,11 +255,11 @@ icon: "sparkles"
     />
   </Frame>
 
-## 2024-06-17
+### 2024-06-17
 
 - `shadow DOM and iFrames` - the AI agent can handle most shadow DOMs and iFrames now
 
-## 2024-06-13
+### 2024-06-13
 
 - We mark broken locators now. A yellow highlight and an indicator will point to the locator that doesn’t do the thing it’s supposed to.
   <Frame caption="screen recording of a broken locator being pinpointed, 06/2024">
@@ -257,41 +269,43 @@ icon: "sparkles"
     />
   </Frame>
 
-## 2024-06-10
+### 2024-06-10
 
 - We removed automatically generated `link tests`. We generated too many link tests on dynamic elements that broke constantly. We will come back with a better solution.
 
-## 2024-06-05
+### 2024-06-05
 
 - We add `dependencies` automatically now. We now add a cookie banner test as dependency automatically. We will be adding more common dependencies in the future.
 - less obstructive `test editing` - interaction and assertion types can be switched now
 
-## 2024-06-04
+### 2024-06-04
 
 - `AI discovery`: Instead of just giving you proposals for test cases, we now generate steps and validate the proposed test cases automatically. Tests we feel confident about are published to your test suite automatically.
 
-## 2024-05-27
+## May 2024
+
+### 2024-05-27
 
 - `improved AI discovery` - delivers more functional and less reachability-focused tests. The AI agent will also suggest less functionally similar tests.
 
-## 2024-05-23
+### 2024-05-23
 
 - most of `LangChain` has been removed from our stack. Learn [why we no longer use it to build our AI agents.](https://www.octomind.dev/blog/why-we-no-longer-use-langchain-for-building-our-ai-agents)
 - we support nested iFrames in snapshots now
 - `steps editing` - we added drag and drop for changing order
 - `AI agent` can handle elements with never ending animations and invisible input forms now, like password fields, checkboxes or radio boxes
 
-## 2024-05-15
+### 2024-05-15
 
-- ‍`reduced test flakiness` through improved timeout logic.
+- `reduced test flakiness` through improved timeout logic.
 
-## 2024-05-08
+### 2024-05-08
 
 - streaming `AI Agent indicators`: At any given moment, you'll know what the agent is doing during discovery or when it’s running in drafts. No more staring at a spinning circle ⭕️ wondering when it will finish.
 - improved UX for step deletion
 - improved `world model` of the AI agent: its ability to understand context and derive the correct actions
 
-## 2024-05-03
+### 2024-05-03
 
 - `hotkeys` added for editing test steps help you navigate between steps using arrow keys
 - `test case grouping`: We will group your test cases. We started with the “link tests” category and will add more soon.
@@ -299,15 +313,17 @@ icon: "sparkles"
 - `AI agent` can handle SVG elements like images and icons now
 - `duplicate navigation fixed`: We reduced the frequency in which agents get stuck in loops.
 
-## 2024-04-23
+## April 2024
+
+### 2024-04-23
 
 - `AI agent`: We are extracting all accessibility attributes to improve its performance.
 
-## 2024-04-18
+### 2024-04-18
 
 - `AI agent`: vision added to current agent state
 
-## 2024-04-15
+### 2024-04-15
 
 - `in-app & email notifications`: we will let you know in the app once your test run has finished or our AI agent completed its discovery. We will ONLY send you an email if your test report is red 🔴
 - `scheduling test reports`: We are now enabling you run your test reports on a fixed schedule (daily/ weekly/ bi-weekly). There's even email notifications now for when your scheduled run failed so you never miss a ~beat~ bug.
@@ -318,7 +334,7 @@ icon: "sparkles"
     />
   </Frame>
 
-## 2024-04-08
+### 2024-04-08
 
 - `snapshots for picking locators`: Not familiar with selectors and DOM elements? We got you covered! Test case steps now allow you to select elements in your page visually, both for interacting with them and asserting that they are there.
 
@@ -331,11 +347,13 @@ icon: "sparkles"
 
 - `reworked publish workflow`: whenever you save a draft of a test case, you get the option to publish it to include it in future test report runs
 
-## 2024-04-02
+### 2024-04-02
 
 - `expandable step editing`: the panel for editing test case steps now expands and gives you more space to make changes to your test cases
 
-## 2024-02-23
+## February 2024
+
+### 2024-02-23
 
 - `improved stability`: made sure our app is running smoothly without hick-ups even with multiple test report running in parallel. Now our agent and test execution are serverless.
 - `discover test cases`: our AI Agent will analyse your webpage and suggest multiple prompts
@@ -357,7 +375,7 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2024-02-15
+### 2024-02-15
 
 - `test report generation speed up` : we are now running published test cases within a report in parallel
 - `auto fix`: you can now select which test cases our AI Agent should try to auto fix once they fail
@@ -383,7 +401,7 @@ icon: "sparkles"
     />
   </Frame>
 
-## 2024-02-01
+### 2024-02-01
 
 - `Add a new project to your organization` added for more flexibility of managing your account
 
@@ -391,7 +409,9 @@ icon: "sparkles"
   <img src="/images/changelog/new-project.png" alt="Create new project" />
 </Frame>
 
-## 2024-01-26
+## January 2024
+
+### 2024-01-26
 
 - `Manual test creation`: We have added a low-code option to generate new tests if AI generation struggles. With increasing performance, our AI agent will do more and more of the heavy lifting. In the meantime, you can easily create a specific test case with a few clicks & adding selectors.
 
@@ -405,11 +425,11 @@ icon: "sparkles"
   allowFullScreen
 ></iframe>
 
-## 2024-01-24
+### 2024-01-24
 
 - Get rid off the test that doesn't spark joy. You can hard delete drafts now.
 
-## 2024-01-22
+### 2024-01-22
 
 - `Onboarding`: We want to give our users a smooth beginner experience. That is why we added an onboarding tour and helpful tooltips to make your journey of discovering all Octomind features a breeze.
 
@@ -423,11 +443,11 @@ icon: "sparkles"
   allowFullScreen
 ></iframe>
 
-## 2024-01-11
+### 2024-01-11
 
 - We have streamlived cookie consent management throughout all our subdomains. A cookie consent banner displays when coming to our sites for the first time. Is it annoying? It is. Is it necessary? It is.
 
-## 2024-01-08
+### 2024-01-08
 
 - `Test draft validation`: now, you can validate test draft before publishing telling you if the test works properly
 
@@ -435,7 +455,7 @@ icon: "sparkles"
   <img src="/images/changelog/test-validation.png" alt="Validated test draft" />
 </Frame>
 
-## 2024-01-03
+### 2024-01-03
 
 - You can add new steps to draft test cases now
 - `Element highlighter`: Element that was interacted with is highlighted by a purple dot in test step screenshots
@@ -447,17 +467,19 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-12-18
+## December 2023
+
+### 2023-12-18
 
 - Fixed: Sometimes some of our test runs got stuck, we improved this and no stuck tests should occur anymore.
 - `Selector editing`: You can now edit Playwright selectors used to find the element in question for a step
 
-## 2023-12-13
+### 2023-12-13
 
 - Delete steps option in a test case draft added
 - Idle `AI agent`: our agent will let you know if it's idle and waiting for more input
 
-## 2023-12-11
+### 2023-12-11
 
 - You can edit test cases, now. Mark steps as optional, so their failure is ignored. Adjust text parameters for steps entering text or selecting a menu item. You can create test case drafts and publish them.
 
@@ -468,7 +490,9 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-11-30
+## November 2023
+
+### 2023-11-30
 
 - We've added better desciptions to test steps our `AI agent` generated
 - `AI agent` informs users about test case discoveries in progress
@@ -480,7 +504,7 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-11-27
+### 2023-11-27
 
 - `What's new` modal notification after log-in added
 
@@ -488,7 +512,7 @@ icon: "sparkles"
   <img src="/images/changelog/whatsnew-modal-1.png" alt="New features modal" />
 </Frame>
 
-## 2023-11-14
+### 2023-11-14
 
 - `Debugtopus dialog`: The execution url is pre-filled by default, no need to copy paste
 - `Test hosting`: Run all test cases from the tool OR your terminal
@@ -501,7 +525,7 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-11-09
+### 2023-11-09
 
 - `In-context screenshots` of executed steps visibile directly in test report details
 - Screenshot carousel added to review executed test steps, screenshot by screenshot
@@ -513,11 +537,13 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-11-07
+### 2023-11-07
 
 - **AI discovery improved**: `AI agent` sees all elements on the page to generate better assertions
 
-## 2023-10-31
+## October 2023
+
+### 2023-10-31
 
 - `CI integrations`: Previous comments with test results are collapsed by default, click to expand
 
@@ -528,7 +554,7 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-10-17
+### 2023-10-17
 
 - `Chain test cases` functionality for new [AI agent discoveries](/discovery) added to UI
 - `AI Agent`: improved handling of blocking overlays
@@ -542,7 +568,7 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-10-16
+### 2023-10-16
 
 - Major `AI agent` revamp:
   - Improved page content understanding
@@ -550,7 +576,7 @@ icon: "sparkles"
   - Analytics added to embedding generation
 - Welcome modal for new users
 
-## 2023-10-10
+### 2023-10-10
 
 - Instroduction of stable IDs for an improved AI discovery
 - `Choose your first tests` selection at set-up added
@@ -563,15 +589,17 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-10-05
+### 2023-10-05
 
 - `AI Agent` and initial test generation upgrade - improved element visibility
 
-## 2023-10-03
+### 2023-10-03
 
 - Improved UX of the `overview page` and test report order at set-up
 
-## 2023-09-26
+## September 2023
+
+### 2023-09-26
 
 - `Tooltips` added to improve app onboarding experience
 - Test cases can be deleted now
@@ -585,13 +613,13 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-09-20
+### 2023-09-20
 
 **UI Improvements**:
 
 - Improve layout of overview grid and test report header on mobile
 
-## 2023-09-19
+### 2023-09-19
 
 **Features**:
 
@@ -602,7 +630,7 @@ icon: "sparkles"
 - Responsiveness on mobile for snackbars
 - Remove UI flashing on initial load
 
-## 2023-09-18
+### 2023-09-18
 
 **Features**:
 
@@ -617,7 +645,7 @@ icon: "sparkles"
 - Settings dialog looks better on mobile
 - Recording upload is more intuitive
 
-## 2023-09-14
+### 2023-09-14
 
 **Features**:
 
@@ -628,11 +656,11 @@ icon: "sparkles"
 - Planned steps within a test case are now expandable
 - Introduce larger settings modal
 
-## 2023-09-11
+### 2023-09-11
 
 - Workaround for browser extensions that modify the html document and cause issues when displaying our page
 
-## 2023-09-08
+### 2023-09-08
 
 - `Follow links` test case on initial set-up added
 - Sidebar navigation added
@@ -644,12 +672,14 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-08-28
+## August 2023
+
+### 2023-08-28
 
 - New test case on sign-up added: `Change language of the website`
 - AI discovered test cases will now have an assertion generated \(if possible\)
 
-## 2023-08-25
+### 2023-08-25
 
 - **Alpha release** - `Test recorder` as a non-AI option to generate new test cases
 - Security update
@@ -663,7 +693,7 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-08-14
+### 2023-08-14
 
 - Welcome page mobile view improved
 - Test recorder supports iframes now
@@ -677,7 +707,7 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-08-10
+### 2023-08-10
 
 - Captain Ink (AI agent) upgrade - page injection replaced navigating to a page for more stability and speed
 - We introduced a basic test case available for everyone
@@ -690,12 +720,12 @@ icon: "sparkles"
   />
 </Frame>
 
-## 2023-08-09
+### 2023-08-09
 
 - Interactible DIVs are correctly detected during discovery
 - Display test failure reasons in test overview
 
-## 2023-08-07
+### 2023-08-07
 
 - Bug fix - errored display for empty list of test reports
 - Cookie tracking removed from the app. We did't like them anyways.
