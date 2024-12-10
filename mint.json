@@ -99,6 +99,7 @@
       "group": "Guides",
       "pages": [
         "guides/test-creation-best-practices",
+        "guides/long-vs-short",
         "guides/test-debugging-1",
         "guides/test-debugging-2",
         "guides/test-debugging-3",
