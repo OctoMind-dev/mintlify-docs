@@ -1,0 +1,65 @@
+---
+title: Short vs. long tests
+description: "Which one is better? How should I structure my test suite?"
+icon: "ruler"
+---
+
+Have you ever wondered whether long test cases are better than short ones? Maybe you're envisioning a lengthy flow you're eager to test, covering multiple steps in a single sequence. But what happens if you run a couple of these tests at the same time?
+
+## What happens with long tests
+
+**Imagine this scenario:**
+You start by `Logging into your app`, navigate to `Settings`, proceed to `User Management`, create a new user, modify that user, check permissions, and finally delete the user. One massive test case, right?
+Now, let's say you also need test cases for other parts of the `Settings` area. Perhaps you need to verify `Billing Details` or `Account Preferences`. To do this, you'd repeat the `Login` step, navigate to `Settings`, and then proceed to the new section.
+The result? **Code duplication everywhere.**
+
+This creates several issues:
+
+1. **Maintenance headaches:** A small change to your login flow or navigation impacts multiple test cases. Suddenly, updating one test snowballs into a bigger task.
+2. **Clarity challenges:** Over time, it becomes harder to understand what each test is doing or how much of your app is actually covered.
+3. **Test runtime:** When you execute your test suite, you'll run the same test code several times, which might bloat the execution time.
+
+In traditional coding, when using frameworks like Playwright, you'd avoid this kind of duplication by structuring your tests into **modular units** - small, reusable components you can chain together using dependencies.
+
+Why not adopt the same principle in Octomind tests?
+
+## Benefits of chaining short tests together
+
+Octomind is designed with short test cases in mind, and here's why they work so well:
+
+1. **Reusability thanks to chaining:**
+   With Octomind, you can chain test cases together using dependencies. This allows you to reuse prior test cases with just one click. Instead of duplicating steps like login or navigation, you build on existing tests seamlessly.
+2. **Clear overview of test dependencies:**
+   Our dependency view gives you a visual representation of your test suite. Each short test case contributes to a larger coverage tree, making it easy to see which parts of your app are tested—or what still needs attention.
+
+<Frame caption="Dependency view displaying the dependency tree of chain tests, screenshot 12/2024">
+  <img
+    src="/images/guides/dependency-tree.png"
+    alt="dependency view displaying the dependency tree of chain tests"
+  />
+</Frame>
+
+3. **Effortless coverage expansion:**
+   You can have the Octomind **AI Agent** propose new tests at the end of an existing one. Every test case ends with the option to “generate more”. This lets you create new tests starting from the last step of an existing one, expanding your coverage naturally and without redundant effort.
+
+<Frame caption="Have the AI agent generate more tests, 10/2024">
+  <img
+    src="/images/expand/generate-more.png"
+    alt="have AI generate more tests"
+  />
+</Frame>
+
+4. **Simple test maintenance:**
+   Short tests are easier to maintain:
+   - Manual updates are quick and contained.
+   - Changes in one test case don't ripple unnecessarily into others.
+   - Your team will appreciate the clarity, as each test focuses on a specific functionality or route through the app.
+5. **Improved collaboration in your team:**
+   Short tests are easier for others to understand at a glance. Anyone reviewing your test suite can see exactly what each test does, where it starts, and how it fits into the broader testing strategy.
+
+## When long test cases are necessary
+
+While short test cases are generally preferable, there are **situations where long tests make sense**. For example, if you're testing a complex form with many interconnected fields and dependencies, splitting it into multiple short tests might feel artificial and cumbersome. A single long test is more practical in such cases.
+
+Short test cases offer numerous advantages over long ones. However, there's room for long test cases too - especially for complex, interconnected flows where breaking things up doesn't add value.
+The key is to strike the right balance. Use short tests to keep things modular and maintainable, and save long tests for specific scenarios that truly require them.
