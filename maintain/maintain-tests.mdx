@@ -10,7 +10,7 @@ icon: "traffic-cone"
 
 1. **You have a bug in your app**
 
-We will pinpoint you to exact moment where it broke. Swipe through the **report snapshots** or launch the **trace viewer** for more details. For an even more precise debugging, we created the open source [Debugtopus](/debugtopus.mdx) to use locally on your machine.
+We will pinpoint you to exact moment where it broke. Swipe through the **report snapshots** or launch the **trace viewer** for more details. For an even more precise debugging, we created the open source [Debugtopus](get-started/debugtopus.mdx) to use locally on your machine.
 
 <Frame caption="Snapshots in test reports showing what happened during the test run, 7/2024">
   <img
@@ -22,8 +22,6 @@ We will pinpoint you to exact moment where it broke. Swipe through the **report 
 2. **The test is broken**
 
 End-to-end tests tend to break when the app changes. This is not just annoying, but a major time investment.
-
-If you would like to fix the test on your own, read further. But we can also fix it for you. This feature in included in [Octomind's paid tiers](https://www.octomind.dev/pricing).
 
 <Frame caption="Example of a broken test reflecting a change in user flow, trace viewer screenshot 7/2024">
   <img
@@ -49,11 +47,11 @@ From the [test report](/account-view/test-reports.mdx), go to the **debug** tab 
 </Frame>
 
 The **trace viewer** will highlight the exact place in the test execution where the test failed. Learn how to inspect [Playwright trace viewer](https://playwright.dev/docs/trace-viewer) step by step to identify the culprit of the broken test.
-Our open source [Debugtopus](/debugtopus.mdx) is an additional help that allows you to set breakpoints and step through the code.
+Our open source [Debugtopus](/get-started/debugtopus.mdx) is an additional help that allows you to set breakpoints and step through the code.
 
 ## Correct the broken test steps
 
-This applies when your app works as intended, but the test fails to run. Use our editing tools to quickly add, remove steps or adjust locators. Here is how you [edit test cases](/edit-test-case.mdx).
+This applies when your app works as intended, but the test fails to run. Use our editing tools to quickly add, remove steps or adjust locators. Here is how you [edit test cases](/get-started/edit-test-case.mdx).
 
 ## The Hack: How we fix our own tests
 
@@ -67,7 +65,7 @@ Since we dogfood our own end-to-end tests, we have discovered this easy hack:
 4. select the last step you wish to keep
 5. confirm `generate steps`
 
-The **AI agent** will re-generate steps of your test and validate them. If it's alright, click `save & run`. If it needs adjustment, this is [how you edit test cases](/edit-test-case.mdx).
+The **AI agent** will re-generate steps of your test and validate them. If it's alright, click `save & run`. If it needs adjustment, this is [how you edit test cases](/get-started/edit-test-case.mdx).
 
 <Tip>
   Runs and respective snapshots and traces become outdated after a while. Start
