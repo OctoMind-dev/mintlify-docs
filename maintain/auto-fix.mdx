@@ -1,0 +1,63 @@
+---
+title: AI auto-fix (beta)
+description: "How to have the AI agent fix your broken tests automatically"
+icon: "bandage"
+---
+
+## Test maintenance is time consuming
+
+End-to-end tests break often. Maintenance of a test suite can be more time consuming than the set-up and scripting combined. It is one of the reasons we started Octomind.
+
+We gave our users access to the first version (beta) of our AI auto-fix feature.
+
+This feature is in beta mode. We want you to use it and give us feedback on anything you liked or missed, let us know how successful you were.
+
+This is how to proceed when you [diagnosed a broken test](/guides/test-debugging-4.mdx).
+
+1. Go to `test report` , into `test result` detail and click on the `auto-fix` tab.
+2. Have **Agent Bubbles** attempt the auto-fix by clicking on the `attempt auto-fix` button.
+
+<Frame caption="Agent auto-fix in beta version, 12/2024">
+  <img
+    src="/images/changelog/auto-fix-bubbles.png"
+    alt="beta version of test auto-maintenance feature"
+    width={500}
+  />
+</Frame>
+
+3. Agent will take some time to explore the fix. You will see its progress in the AI Agent status bar.
+
+<Frame caption="AI auto-fix in process, 12/2024">
+  <img
+    src="/images/maintain/autofix-processed.png"
+    alt="AI auto-fix in process"
+  />
+</Frame>
+
+4. Click on `see proposed solution` button.
+
+<Frame caption="Review proposed solution for the test auto-fix, 12/2024">
+  <img
+    src="/images/maintain/review-fix.png"
+    alt="review proposed test auto-fix"
+  />
+</Frame>
+
+5. Review proposed fix step by step (red steps are original - broken steps, green are new - proposed fixes). Approve or decline the auto-fix suggestion.
+
+<Frame caption="Review proposed test steps and approve the auto-fix, 12/2024">
+  <img
+    src="/images/maintain/autofix-results.png"
+    alt="Review proposed test steps and approve the auto-fix"
+  />
+</Frame>
+
+6. When you approved the fix, the new steps of the test case will be saved. If you didn't like the suggestions, you can:
+
+- have the Agent `retry the auto-fix`
+- decline the auto-fix and [edit the test case manually](/maintain/maintain-tests#correct-the-broken-test-steps)
+- try [editing the prompt](/guides/test-debugging-2)
+
+<Frame caption="Retry auto-fix button, 12/2024">
+  <img src="/images/maintain/retry-autofix.png" alt="Retry auto-fix" />
+</Frame>

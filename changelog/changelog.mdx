@@ -6,20 +6,46 @@ icon: "sparkles"
 
 ## December 2024
 
+### 2024-12-12
+
+- `AI Agent` upgrade, now it:
+
+1. considers multi-media sources in content extraction,
+2. supports transparent checkboxes
+3. can handle dropdowns and checkboxes that close on scroll by
+
 ### 2024-12-09
 
-- `file upload`: new step to upload data form a url
-- `auto fix`: first version (beta) of auto fix test cases
+- `File upload`: new step to upload data form a url
+- `Auto fix`: the first version (beta) of test auto-maintenance feature
+
+  <Frame caption="Agent auto-fix in beta version, 12/2024">
+    <img
+      src="/images/changelog/auto-fix-bubbles.png"
+      alt="beta version of test auto-maintenance feature"
+    />
+  </Frame>
 
 ### 2024-12-05
 
-- show latest test result (e.g. from failed run) in test case view
-- improved otp setup
-  <Frame caption="otp setup with next one time code, 12/2024">
+- 'Show latest test result' display (e.g. from failed run) added to the `test case view`
+- Improved `OTP setup`
+
+<Frame caption="otp setup with next one time code, 12/2024">
+  <img
+    src="/images/2fa/OTP.gif"
+    alt="animated element showing otp setup"
+    width="500"
+  />
+</Frame>
+
+- `Create new test from here` - a new option to expand your test suite with AI. Lets you prompt the Agent for a custom test with the originating test case as dependency.
+
+  <Frame caption="'create new test from here' button, 12/2024">
     <img
-      src="/images/2fa/OTP.gif"
-      alt="animated element showing otp setup"
-      width="500"
+      src="/images/changelog/create-new.png"
+      alt="create new test from here feature"
+      width="400"
     />
   </Frame>
 
@@ -27,19 +53,26 @@ icon: "sparkles"
 
 ### 2024-11-20
 
-- Folder view for test cases
-  <Frame caption="folders in test case view, 11/2024">
-    <img src="/images/changelog/folders.png" alt="folder view" width="500" />
-  </Frame>
-- `Basic authentication`: you can configure username and password for basic auth protected test targets
+- `Folders view` - organize your test cases in custom folders now
+
+<Frame caption="folder view with customizable test case arrangement, 12/2024">
+  <img
+    src="/images/changelog/folders.gif"
+    alt="customizable forlders view"
+    width="500"
+  />
+</Frame>
+
+- `Basic authentication`: you can configure username and password for basic auth
+  protected test targets
 
 ### 2024-11-14
 
-`AI agent`: we teach the agent to notice if it got stuck in a loop and abort.
+- `AI agent`: we teach the agent to notice if it got stuck in a loop and abort.
 
 ### 2024-11-12
 
-`Shared authentication state`: when you run the Octomind test suite now, we log in just once. All tests using the login as dependency share the auth state.
+- `Shared authentication state`: when you run the Octomind test suite now, we log in just once. All tests using the login as dependency share the auth state.
 
 ### 2024-11-07
 
