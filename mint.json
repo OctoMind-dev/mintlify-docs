@@ -82,7 +82,11 @@
     },
     {
       "group": "Maintain Your Tests",
-      "pages": ["maintain/maintain-tests", "maintain/mark-tests-as-active"]
+      "pages": [
+        "maintain/maintain-tests",
+        "maintain/auto-fix",
+        "maintain/mark-tests-as-active"
+      ]
     },
     {
       "group": "Integrations",

@@ -6,20 +6,29 @@ icon: "code-branch"
 
 ## Have the AI agent auto-generate more tests
 
-Similar to the initial **AI test generation** during project setup you can use the `generate more` feature to expand your test case suite.
+Similar to the initial **AI test generation** during project setup you can use the `generate more from here` feature and `create a new test from here` to expand your test case suite.
 
-Go into the test case view and hover over the `generate more` icon - a button will appear. Click on it.
+Go into the test case view and click on the `plus` icon. Two options open:
 
-<Frame caption="Have the AI agent generate more tests, 10/2024">
+<Frame caption="Have the AI agent generate more tests, 12/2024">
   <img
     src="/images/expand/generate-more.png"
     alt="have AI generate more tests"
   />
 </Frame>
 
-Our AI agent will generate up to 3 new tests following up on the test case you launched it from. The original test will be added as a **dependency** automatically. It will start generating steps for every generated test case.
+With the first - `generate more from here` - our AI Agent will discover and auto-generate up to 3 new tests "following" the test case you launched it from. The original test will be added as a **dependency** automatically.
 
-You can follow the progress of these newly created tests in the stack.
+The second option - `create new test from here` - allows you to prompt the Agent with a specific test flow instruction to create a test "following" the test you launched it from.
+
+<Frame caption="Prompt the Agent to generate a specific test case, 12/2024">
+  <img
+    src="/images/expand/create-prompt.png"
+    alt="Prompt the Agent to generate a specific test case"
+  />
+</Frame>
+
+You can follow the progress of these newly created tests in the **AI Agent status bar**.
 
 <Frame caption="AI agent informs what it does, 10/2024">
   <img
@@ -28,9 +37,9 @@ You can follow the progress of these newly created tests in the stack.
   />
 </Frame>
 
-At the end of the agent run, the AI agent should have auto-generated test steps and validated them for each test case. For those that the validation succeeded, it turned the test **ON** - [into active mode](/get-started/execute-test-cases).
+At the end of the agent run, the Agent should have auto-generated test steps and validated them for each test case. For those that the validation succeeded, it turned the test **ON** - [into active mode](/get-started/execute-test-cases).
 
-Help the AI agent when it couldn't quite nail the auto-generation - **yellow alert** highlights a failed step generation. See how in the [edit test case](/get-started/edit-test-case) section.
+Help the Agent when it couldn't quite nail the auto-generation - **yellow alert** highlights a failed step generation. See how in the [edit test case](/get-started/edit-test-case) section.
 
 <Frame caption="New generated tests, 10/2024">
   <img src="/images/expand/new-generated-tests.png" alt="New generated tests" />
