@@ -1,0 +1,23 @@
+---
+title: File upload
+description: "Adding a file upload step"
+icon: "upload"
+---
+
+Octomind supports file upload when running a test.
+
+To enable this simple insert a step in your test case and provide a URL where the data that you want to
+upload is located (e.g. google drive link).
+
+The url needs to be publicly available so that the test case runner can access the data to upload.
+
+<Frame caption="screenshot 12/2024 file upload">
+  <img src="/images/advanced/upload.png" alt="screenshot 12/2024 file upload" />
+</Frame>
+
+The locator needs to reference the file upload load element. You can use the picker to select the element
+on the page.
+
+Then select upload interaction type and paste the url for the data to upload in the input field below.
+
+The url accessibilty will be checked an you get a green checkmark if the url is correct and the data can be accessed.

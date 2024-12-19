@@ -131,7 +131,8 @@
         "advanced/bug-bounty-program",
         "advanced/octomind-bot",
         "advanced/2fa",
-        "advanced/basic-authentication"
+        "advanced/basic-authentication",
+        "advanced/upload"
       ]
     },
     {
