@@ -85,17 +85,17 @@ metadata:
   name: private-location-worker
 spec:
   containers:
-  - name: plw
-    image: eu.gcr.io/octomind-dev/plw:latest
-    env:
-    - name: APIKEY
-      value: <your api key>
-    - name: PLW_NAME
-      value: staging
-    - name: PROXY_USER
-      value: proxy
-    - name: PROXY_PASS
-      value: secret11
+    - name: plw
+      image: eu.gcr.io/octomind-dev/plw:latest
+      env:
+        - name: APIKEY
+          value: <your api key>
+        - name: PLW_NAME
+          value: staging
+        - name: PROXY_USER
+          value: proxy
+        - name: PROXY_PASS
+          value: secret11
 ```
 
 ## Security considerations
