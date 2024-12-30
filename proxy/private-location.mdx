@@ -76,6 +76,28 @@ services:
     restart: on-failure
 ```
 
+or on kubernetes it would look like this:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: private-location-worker
+spec:
+  containers:
+  - name: plw
+    image: eu.gcr.io/octomind-dev/plw:latest
+    env:
+    - name: APIKEY
+      value: <your api key>
+    - name: PLW_NAME
+      value: staging
+    - name: PROXY_USER
+      value: proxy
+    - name: PROXY_PASS
+      value: secret11
+```
+
 ## Security considerations
 
 - The container image is open-source, allowing customers to review and build their own versions. Check out its [GitHub repo](https://github.com/OctoMind-dev/private-location-worker).
