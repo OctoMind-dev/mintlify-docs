@@ -12,7 +12,7 @@ To check if there are any bugs in your new build or in production preventing you
 
 ### 1. Trigger a test run
 
-To run all active tests instantly click `run all` and then `in app`. This will trigger a test run resulting in a [test report](/account-view/test-reports.mdx) visible in the Octomind app. We run the tests in parallel to make sure they run completes under 20 minutes, regardless of the number of your active test cases.
+To run all active tests instantly click `run all` and then `in app`. This will trigger a test run resulting in a [test report](/account-view/test-reports) visible in the Octomind app. We run the tests in parallel to make sure they run completes under 20 minutes, regardless of the number of your active test cases.
 
 Useful for **branch deployments** - you can run your tests against any other accessible URL. Select `in app on a different URL` instead.
 
@@ -36,14 +36,14 @@ Useful for **branch deployments** - you can run your tests against any other acc
 
 Every test run will produce a **test report** where you will see all test results. They will tell you if everything runs as it's supposed to or if something is broken.
 
-Go to the [test report](/account-view/test-reports.mdx) section to learn about test reports.
+Go to the [test report](/account-view/test-reports) section to learn about test reports.
 
 ### 3. Why is a test red?
 
 Red signals the test has failed. This might have 3 reasons:
 
 1. You have a bug in your app
-   We will pinpoint you to exact moment where it broke. Swipe through the **report snapshots** or launch the **trace viewer** for more details. For an even more precise debugging, we created the open source [Debugtopus](/get-started/debugtopus.mdx) to use locally on your machine.
+   We will pinpoint you to exact moment where it broke. Swipe through the **report snapshots** or launch the **trace viewer** for more details. For an even more precise debugging, we created the open source [Debugtopus](/get-started/debugtopus) to use locally on your machine.
 
 <Frame caption="Snapshots in test reports showing what happened during the test run, 7/2024">
   <img
@@ -79,7 +79,7 @@ Red signals the test has failed. This might have 3 reasons:
 
 ## Schedule regular test runs
 
-The point of software testing is to test regularly. You can [schedule tests](/get-started/scheduled-execution.mdx) by clicking the `schedule` button in the `project overview`.
+The point of software testing is to test regularly. You can [schedule tests](/get-started/scheduled-execution) by clicking the `schedule` button in the `project overview`.
 This is a great strategy for synthetic monitoring of your app in production.
 
 <Frame caption="Scheduling test runs 7/2024">
@@ -88,12 +88,12 @@ This is a great strategy for synthetic monitoring of your app in production.
 
 ## Trigger test runs via curl command
 
-If you do not use pipelines and want to manually trigger the test execution from outside our app, e.g. from your terminal, you can do it with a cURL command. [Learn how.](/get-started/execution-without-ci.mdx)
+If you do not use pipelines and want to manually trigger the test execution from outside our app, e.g. from your terminal, you can do it with a cURL command. [Learn how.](/get-started/execution-without-ci)
 
 ## Trigger test runs from your CI
 
-Integrating our tests to your CI pipeline is a great way to make sure you didn't break the app with new releases. Learn [how to integrate Octomind into your CI/CD](/integrations/integrations-overview.mdx).
+Integrating our tests to your CI pipeline is a great way to make sure you didn't break the app with new releases. Learn [how to integrate Octomind into your CI/CD](/integrations/integrations-overview).
 
 ## Run your tests locally
 
-Octomind tests are written in standard Playwright code. You can download it an run the test locally. This is how you use our open source [Debugtopus](/get-started/debugtopus.mdx) to do so.
+Octomind tests are written in standard Playwright code. You can download it an run the test locally. This is how you use our open source [Debugtopus](/get-started/debugtopus) to do so.
