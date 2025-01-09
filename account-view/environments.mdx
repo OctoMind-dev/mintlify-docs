@@ -21,13 +21,12 @@ Also it shows the username and password you provided if your page requires a log
 
 # Creating an Additional Environment
 
-To add another environment, go to your project settings and open the Environments tab.
-There, select the `Add New Environment` button.
+To add another environment, go to the environments page
 
-<Frame caption="Example of environment screen, 10/2024">
+<Frame caption="Example of the environment page, 01/2025">
   <img
-    src="/images/advanced/environments.png"
-    alt="Example of environment screen, 10/2024"
+    src="/images/advanced/environments-page.png"
+    alt="Example of the environment page, 01/2025"
   />
 </Frame>
 
@@ -38,3 +37,25 @@ In the new environment setup:
 3. Optional: Add Credentials – Provide a username and password if the URL requires login.
 
 To clarify the difference between an `environment` and a `project` we created this [short guide](/guides/project-environments).
+
+# Configure variables
+
+Customize global variable values for each environment. By default the values from the default environment will be used.
+
+<Frame caption="Example of custom variable values, 01/2025">
+  <img
+    src="/images/advanced/additional-environment-variables.png"
+    alt="Example of custom variable values, 01/2025"
+  />
+</Frame>
+
+# Exclude test cases from specific environments
+
+To exclude a test case from an environment, open the test case and unselect it. Excluded environments won't trigger downstream test reports.
+
+<Frame caption="Example of an excluded test case, 01/2025">
+  <img
+    src="/images/advanced/exclude-tc-from-environment.png"
+    alt="Example of an excluded test case, 01/2025"
+  />
+</Frame>
