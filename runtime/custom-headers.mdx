@@ -1,0 +1,23 @@
+---
+title: Custom headers
+description: "Additional HTTP headers to be sent with every request"
+icon: "network-wired"
+---
+
+Octomind supports Playwright [extraHTTPHeaders](https://playwright.dev/docs/api/class-testoptions#test-options-extra-http-headers). Those headers are configurable on a project level. Open the Settings dialog to start setting custom header fields.
+
+<Frame caption="custom header configuration in the settings dialog">
+  <img
+    src="/images/advanced/custom_header_fields.png"
+    alt="custom header configuration in the settings dialog"
+  />
+</Frame>
+
+once configured we'll forward the extra http headers with every request.
+
+<Frame caption="example of a test case that asserts the value of a custom header field">
+  <img
+    src="/images/advanced/custom_header_fields_excecution.png"
+    alt="example of a test case that asserts the value of a custom header field"
+  />
+</Frame>
