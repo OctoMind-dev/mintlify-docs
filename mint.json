@@ -132,7 +132,8 @@
         "advanced/octomind-bot",
         "advanced/2fa",
         "advanced/basic-authentication",
-        "advanced/upload"
+        "advanced/upload", 
+        "runtime/custom-headers"
       ]
     },
     {
