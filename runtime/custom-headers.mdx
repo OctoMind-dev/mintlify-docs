@@ -13,7 +13,10 @@ Octomind supports Playwright [extraHTTPHeaders](https://playwright.dev/docs/api/
   />
 </Frame>
 
-once configured we'll forward the extra http headers with every request.
+### Purpose and Functionality
+
+- depending on your service you might use custom headers to disable bot protection or trigger app specific behavior
+- once configured we'll forward the extra http headers with every request.
 
 <Frame caption="example of a test case that asserts the value of a custom header field">
   <img
