@@ -133,7 +133,8 @@
         "advanced/2fa",
         "advanced/basic-authentication",
         "advanced/upload", 
-        "runtime/custom-headers"
+        "runtime/custom-headers",
+        "runtime/testid-attribute"
       ]
     },
     {
