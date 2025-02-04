@@ -193,6 +193,17 @@ components:
                       type: string
                       example: "user123"
 
+    Variables:
+      type: object
+      properties:
+        [key: string]:
+          type: array
+          items:
+            type: string
+          # description: The variables to overwrite exclusively for this test run.
+      example:
+        "SPACE_ID": ["64ee32b4-7365-47a6-b5b0-2903b6ad849d"]
+
     TestTargetExecutionRequest:
       type: object
       properties:
@@ -213,6 +224,8 @@ components:
           format: environment name
           description: the environment name you want to run your test against
           default: default
+        variablesToOverwrite:
+          $ref: "#/components/schemas/Variables"
       required:
         - testTargetId
         - url
