@@ -14,6 +14,13 @@ jobs:
         with:
           node-version: 20
 
-      - run: corepack enable
+      # https://vercel.com/guides/corepack-errors-github-actions
+      - name: Use Latest Corepack
+        run: |
+          echo "Before: corepack version => $(corepack --version || echo 'not installed')"
+          npm install -g corepack@latest
+          echo "After : corepack version => $(corepack --version)"
+          corepack enable
+          pnpm --version      
       - run: pnpm i
       - run: pnpm lint    
