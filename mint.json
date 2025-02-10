@@ -73,7 +73,8 @@
         "get-started/execute-test-cases",
         "get-started/scheduled-execution",
         "get-started/execution-without-ci",
-        "get-started/debugtopus"
+        "get-started/debugtopus",
+        "get-started/manage-tests"
       ]
     },
     {
@@ -132,7 +133,7 @@
         "advanced/octomind-bot",
         "advanced/2fa",
         "advanced/basic-authentication",
-        "advanced/upload", 
+        "advanced/upload",
         "runtime/custom-headers",
         "runtime/testid-attribute"
       ]
