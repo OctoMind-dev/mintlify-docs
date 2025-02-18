@@ -226,6 +226,12 @@ components:
           default: default
         variablesToOverwrite:
           $ref: "#/components/schemas/Variables"
+        tags:
+          type: array
+          items:
+            type: string
+          example: ["tag1", "tag2"]
+          default: []
       required:
         - testTargetId
         - url
