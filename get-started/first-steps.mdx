@@ -50,9 +50,9 @@ After being redirected back to [app.octomind.dev](https://app.octomind.dev/), yo
   />
 </Frame>
 
-Our AI agent might be still going through your website, checking if there is a **cookie banner** and a **required login functionality** that need to be tested.
+Our AI Agent might be still going through your website, checking if there is a **cookie banner** and a **required login functionality** that need to be tested.
 
-If the AI agent finds a required login, it will ask you for test credentials. It will use them to generate and run a **login test**. It will be added as dependency for other tests. So will be the **cookie banner test** if one is found.
+If the AI Agent finds a required login, it will ask you for test credentials. It will use them to generate and run a **login test**. It will be added as dependency for other tests. So will be the **cookie banner test** if one is found.
 
 <Warning>
 These credentials are only usable for username/password logins not for social logins. Login using your Google, Facebook, etc. account will not work.
@@ -77,7 +77,9 @@ Here comes the really cool part. Once we finished searching for a potential log-
   />
 </Frame>
 
-## 6. Check your site against the generated test suite
+It's possible that the Agent fails to generate a test ([here are some reasons why](/guides/agent-fails)) or needs help with something. This is how you [edit a yellow test case](/get-started/edit-test-case) to nudge the Agent into the right direction.
+
+## 6. Run your test suite to check your app for bugs
 
 We will [execute your generated test cases](/get-started/execute-test-cases) and create several test reports containing your test results. These will ensure that they successfully pass when executed on your site.
 
@@ -93,9 +95,11 @@ We will [execute your generated test cases](/get-started/execute-test-cases) and
 Inside each test report, you can find the test results for the executed test cases:
 
 - a green test result indicates a successful test run, meaning that your site passed the test described in the test case
-- a red test result indicates a test failure, meaning we could not successfully run the test case steps. Click on it to see in which step in the app that is broken.
+- a red test result indicates a test failure, meaning we could not successfully run the test case steps. The reason might be 1. a bug in your app or 2. a broken test.
 
-Find out more about [test reports](/account-view/test-reports) and [debugging your tests](/get-started/debugtopus).
+Click on it to see in which step is broken and diagnose the [reason for the failure](/guides/test-debugging-4).
+
+Find out more about [test reports](/account-view/test-reports) and [how to debug your red tests](/guides/test-debugging-4)
 
 <Frame caption="First test report - screenshot 07/2024">
   <img
@@ -106,7 +110,7 @@ Find out more about [test reports](/account-view/test-reports) and [debugging yo
 
 ## 8. Go to test cases to generate more tests
 
-You can grow your test suite by adding more test cases. For this you can jump straight into the test case view by using the "go to test cases" button in the test report.
+You can grow your test suite by adding more test cases. For this you can jump straight into the test case view by using the `go to test cases` button in the test report.
 
 <Frame caption="Go to the test case section to see the generated test cases - screenshot 10/2024">
   <img

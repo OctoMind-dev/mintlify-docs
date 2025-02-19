@@ -1,0 +1,57 @@
+---
+title: Why the AI agent fails
+description: "Why does the AI agent fail to to generate a test case?"
+icon: "circle-exclamation"
+---
+
+Octomind is building an AI agent that understands instructions provided in **natural language**. It navigates your web app to fulfill these instructions, behaving like a real user and finding its way through your app.
+
+You can compare it to the [computer use research experiment from OpenAI](https://openai.com/index/computer-using-agent/) that was presented recently, with the distinction that navigating the page is only the first step. We are also recording the actions and translating them into a step list that can be reproduced deterministically, quickly, and inexpensively for testing purposes.
+
+That being said, there are a few reasons why the AI agent might fail to fully automatically generate a test case from a description and subsequently ask for help. Let me explain.
+
+## The prompt
+
+The prompt must be sufficiently precise and encompass the steps needed to achieve the goal, similar to instructions given to a manual tester. Occasionally, a brief description or even a single word (e.g., "Log out") can suffice to compose comprehensive test cases, particularly if the application is designed intuitively. However, this is often not the case. If the prompt is too vague, deviates significantly, or requests interactions not present on the page, the agent will go wild. You will notice.
+
+## Missing Agent features
+
+The agent can compose test cases that require a common set of `interactions` and `assertions`. However, if something more exotic is required that the agent does not currently support, manual intervention will be necessary. We are constantly building new features to provide a more complete and automated experience.
+
+## Low accessibility of the application
+
+The agent relies on **screenshots and lists of extracted interactions** to determine the next best action. Unfortunately, current models cannot translate descriptions into x/y coordinates for mouse movements. To address this, we enhance our screenshots with colored boxes and IDs and supplement the list of interactive elements with as much contextual information as possible. This enriched screenshot and list should enable the agent to pinpoint the click target.
+
+However, the absence of ARIA labels, labels, placeholder text, or test IDs on the page makes it extremely difficult, if not impossible, for the agent to identify the correct element. This often manifests as locators like "nth element of object unknown." Even copy-and-paste errors during app development, like naming a button "copy_of_settings" instead of "close_window," can cause problems.
+
+You can significantly assist the agent by using clear and descriptive names, descriptions, and labels for interactive elements. This practice will also improve your accessibility scores.
+
+## Timing and hydration issues
+
+This is by far the trickiest issue on this list. A hydration issue can manifest in hundreds of different ways. Most commonly, text is wiped from an input field shortly after it has been inserted. More extreme cases involve login credentials being erased, preventing the agent from signing in.
+
+Hydration issues are rooted in the fact that **part of the page is presented to the user while other parts are still loading**. Once these other parts finally arrive, they cause nasty side effects, such as deleting text from input boxes. Real users are less likely to notice them since they are typically slow enough to not run into these issues, especially if they have a fast internet connection. This changes, of course, as soon as your infrastructure is less than optimal.
+
+If you report this problem to [Playwright maintainers](https://github.com/microsoft/playwright) directly, they will (rightfully) tell you that your app is not built to specifications.
+
+We try to mitigate the problem as much as possible. However, depending on the severity of the problem, we might not be able to work around it. In that case, the agent will fail, and you will have to insert the right assertions to make sure the system waits long enough to overcome the issues.
+
+## Bot protection and rate limiting
+
+When generating tests cases our AI agent to starts by navigating and crawling the application under test using the `Octomind bot`. Pages with strict bot protection can block it. [Here,](/advanced/octomind-bot) you'll find all necessary information you'll need to allow the Agent to interact with your application.
+
+In some cases, the Agent triggers rate limits protecting your app from DDOS attacks. Most of the time it interacts with the website slightly faster and sends more requests than a human would when generating or running tests.
+
+If your application is protected with a **rate limiter** it is very likely that the Agent will fail. This is how you [configure an exception for our IP addresses to avoid rate limiting](/advanced/rate-limiting).
+
+---
+
+## How to help the Agent
+
+As you can see, there are a few reasons why the AI agent might fail or cause frustration. You can it dramatically increase the chances of its success by:
+
+- Providing a good, comprehensive prompt
+- Avoid asking the Agent for interaction or assertion types it can't identify yet
+- Improve accessibility of your application
+- Address hydration issues of your application
+- Grant the Agent an exception in your bot protection and rate limiter setup
