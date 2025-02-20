@@ -18,21 +18,19 @@ The prompt must be sufficiently precise and encompass the steps needed to achiev
 
 The agent can compose test cases that require a common set of `interactions` and `assertions`. However, if something more exotic is required that the agent does not currently support, manual intervention will be necessary. We are constantly building new features to provide a more complete and automated experience.
 
+[This is an up-to-date list](/more-info/faq#13-what-types-of-interactions-and-assertions-can-the-agent-handle) of interaction and assertions types available to the Agent.
+
 ## Low accessibility of the application
 
-The agent relies on **screenshots and lists of extracted interactions** to determine the next best action. Unfortunately, current models cannot translate descriptions into x/y coordinates for mouse movements. To address this, we enhance our screenshots with colored boxes and IDs and supplement the list of interactive elements with as much contextual information as possible. This enriched screenshot and list should enable the agent to pinpoint the click target.
+Our Agent looks at **images** and the **DOM of the website** and extracts relevant information. Sometimes our extraction mechanisms misses important information or the extracted website elements are not very informative (missing element descriptions, e.g. ARIA labels). In such situations, the Agent gets stuck and needs human intervention.
 
-However, the absence of ARIA labels, labels, placeholder text, or test IDs on the page makes it extremely difficult, if not impossible, for the agent to identify the correct element. This often manifests as locators like "nth element of object unknown." Even copy-and-paste errors during app development, like naming a button "copy_of_settings" instead of "close_window," can cause problems.
-
-You can significantly assist the agent by using clear and descriptive names, descriptions, and labels for interactive elements. This practice will also improve your accessibility scores.
+You can significantly assist the Agent by using clear and descriptive names, descriptions, and labels for interactive elements. This practice will also improve your accessibility scores.
 
 ## Timing and hydration issues
 
 This is by far the trickiest issue on this list. A hydration issue can manifest in hundreds of different ways. Most commonly, text is wiped from an input field shortly after it has been inserted. More extreme cases involve login credentials being erased, preventing the agent from signing in.
 
 Hydration issues are rooted in the fact that **part of the page is presented to the user while other parts are still loading**. Once these other parts finally arrive, they cause nasty side effects, such as deleting text from input boxes. Real users are less likely to notice them since they are typically slow enough to not run into these issues, especially if they have a fast internet connection. This changes, of course, as soon as your infrastructure is less than optimal.
-
-If you report this problem to [Playwright maintainers](https://github.com/microsoft/playwright) directly, they will (rightfully) tell you that your app is not built to specifications.
 
 We try to mitigate the problem as much as possible. However, depending on the severity of the problem, we might not be able to work around it. In that case, the agent will fail, and you will have to insert the right assertions to make sure the system waits long enough to overcome the issues.
 
