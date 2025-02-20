@@ -6,6 +6,8 @@ info:
 servers:
   - url: https://app.octomind.dev/api
     description: Main API Endpoint
+  - url: http://localhost:3000/api
+    description: Dev API Endpoint
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -310,9 +312,7 @@ components:
           type: string
           nullable: true
           description: The error that has occurred during execution - only set if the status is FAILED or ERROR.
-          example: "TimeoutError: locator.click: Timeout 30000ms exceeded.
-Call log:
-  - waiting for getByText('run locally')"
+          example: "TimeoutError: locator.click: Timeout 30000ms exceeded."
         traceUrl:
           type: string
           nullable: true
@@ -357,7 +357,25 @@ Call log:
           type: array
           items:
             $ref: "#/components/schemas/TestResult"
-
+    PrivateLocationInfo:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - OFFLINE
+            - ONLINE
+        address:
+          type: string
+          format: uri
+          example: "https://example.com:3128"
+        name:
+          type: string
+          example: "my-private-location"
+      required:
+        - status
+        - address
+        - name
     TestReportResponse:
       type: object
       properties:
@@ -400,6 +418,69 @@ Call log:
               type: string
               description: the address of the remote endpoint. IP and port
               example: 34.45.23.22:23455
+    EnvironmentResponse:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+            testTargetId:
+              type: string
+              format: uuid
+            updatedAt:
+              type: string
+              format: date-time
+            type:
+              type: string
+            discoveryUrl:
+              type: string
+              format: url
+            additionalHeaderFields:
+              type: object
+              additionalProperties:
+                type: string
+              nullable: true
+            testAccount:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                otpInitializerKey:
+                  type: string
+                  nullable: true
+                updatedAt:
+                  type: string
+                  format: date-time
+              nullable: true
+            basicAuth:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                updatedAt:
+                  type: string
+                  format: date-time
+              nullable: true
+            privateLocation:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                name:
+                  type: string
+                status:
+                  type: string
+                type:
+                  type: string
     ZodResponse:
       type: array
       items:
@@ -457,6 +538,177 @@ paths:
           description: Invalid or missing API key
         "500":
           description: Internal server error
+
+  /apiKey/v2/test-targets/{testTargetId}/environments/{environmentId}:
+    delete:
+      summary: Delete an environment
+      security:
+      - ApiKeyAuth: [ ]
+      responses:
+        '200':
+          description: Environment deleted successfully 
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the test report belongs to
+        - in: path
+          name: environmentId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the environment to update
+    patch:
+      summary: Update an environment
+      security:
+      - ApiKeyAuth: [ ]
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the test report belongs to
+        - in: path
+          name: environmentId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the environment to update
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  nullable: true
+                discoveryUrl:
+                  type: string
+                  format: url
+                  nullable: true
+                testAccount:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                    otpInitializerKey:
+                      type: string
+                      nullable: true
+                  nullable: true
+                basicAuth:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                  nullable: true
+                privateLocationName:
+                  type: string
+                  nullable: true
+                  description: name of the private location
+                additionalHeaderFields:
+                  type: object
+                  additionalProperties:
+                    type: string
+                  nullable: true
+      responses:
+        '200':
+          description: Environment updated successfully
+
+  /apiKey/v2/test-targets/{testTargetId}/environments:
+    post:
+      summary: create a environments.
+      description: create a custom environment.
+      security:
+      - ApiKeyAuth: [ ]
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the test report belongs to
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                discoveryUrl:
+                  type: string
+                  format: url
+                testAccount:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                    otpInitializerKey:
+                      type: string
+                      nullable: true
+                  nullable: true
+                basicAuth:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                  nullable: true
+                privateLocationName:
+                  type: string
+                  description: name of the private location
+                additionalHeaderFields:
+                  type: object
+                  additionalProperties:
+                    type: string
+                  nullable: true
+
+      responses:
+        "201":
+          description: environment created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EnvironmentResponse"
+
+    get:
+      summary: Retrieve environments.
+      description: get a list of all defined environments.
+      security:
+      - ApiKeyAuth: [ ]
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the test report belongs to
+      responses:
+        "200":
+          description: environments
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EnvironmentResponse"
 
   /apiKey/v2/test-targets/{testTargetId}/test-reports/{testReportId}:
     get:
@@ -579,6 +831,20 @@ paths:
           description: Invalid or missing API key
         "500":
           description: Internal server error
+
+  /apiKey/v1/private-location:
+    get:
+      security:
+        - ApiKeyAuth: [ ]
+      summary: retrieve all private locations
+      description: "gets a list of private location workers"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PrivateLocationInfo"
 
   /apiKey/v1/private-location/register:
     put:
