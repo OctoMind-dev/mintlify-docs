@@ -3,6 +3,9 @@ info:
   title: Octomind external  API
   description: Octomind API that allows you to execute test cases, fetch reports and register private location workers by providing a URL and an ID.
   version: 1.0.0
+externalDocs:
+  description: Find out more
+  url: https://octomind.dev/docs/
 servers:
   - url: https://app.octomind.dev/api
     description: Main API Endpoint
@@ -511,8 +514,15 @@ components:
 paths:
   /apiKey/v2/execute:
     post:
-      summary: Execute all tests of the given test target with a given URL
-      description: This endpoint triggers a test execution by sending an test target id and a URL.
+      summary: Execute tests of the given test target
+      description: |
+        This endpoint triggers a test execution by sending an test target id, an URL and optionally tags, an environment and variables.
+        If you provide an enviroment name, the test are executed within that environment, meaning all settings (test account,  headers etc.)
+        of that environment are applied.
+        The tags list is used to filter test cases. If you provide more than one tag all test cases with at least one matching tags are executed.
+        Optionally you can overwrite variables defined in the environment for that specific run.
+      tags:
+        - execute
       security:
         - ApiKeyAuth: [ ]
       requestBody:
@@ -629,8 +639,8 @@ paths:
 
   /apiKey/v2/test-targets/{testTargetId}/environments:
     post:
-      summary: create a environments.
-      description: create a custom environment.
+      summary: Create an environment
+      description: Create a custom environment.
       security:
       - ApiKeyAuth: [ ]
       parameters:
@@ -690,7 +700,7 @@ paths:
                 $ref: "#/components/schemas/EnvironmentResponse"
 
     get:
-      summary: Retrieve environments.
+      summary: Retrieve environments
       description: get a list of all defined environments.
       security:
       - ApiKeyAuth: [ ]
@@ -712,7 +722,7 @@ paths:
 
   /apiKey/v2/test-targets/{testTargetId}/test-reports/{testReportId}:
     get:
-      summary: Retrieve information about a test report.
+      summary: Retrieve information about a test report
       description: Poll from within a CI-pipeline to wait for the completion of a report.
       parameters:
         - in: path
@@ -751,7 +761,7 @@ paths:
 
   /apiKey/v2/test-targets/{testTargetId}/test-reports:
     get:
-      summary: Retrieve paginated information about test reports.
+      summary: Retrieve paginated information about test reports
       description: Allow fetching the history of test reports for your test target.
       parameters:
         - in: path
@@ -836,8 +846,10 @@ paths:
     get:
       security:
         - ApiKeyAuth: [ ]
-      summary: retrieve all private locations
+      summary: Retrieve all private locations
       description: "gets a list of private location workers"
+      tags:
+      - private-location
       responses:
         "200":
           description: OK
@@ -850,8 +862,10 @@ paths:
     put:
       security:
         - ApiKeyAuth: [ ]
-      summary: register a private location
+      summary: Register a private location
       description: "registers a private location worker"
+      tags:
+        - private-location
       requestBody:
         required: true
         content:
@@ -874,8 +888,12 @@ paths:
     put:
       security:
         - ApiKeyAuth: [ ]
-      summary: unregister a private location
-      description: "unregisters a private location worker"
+      summary: Unregister a private location
+      description: "Unregisters a private location worker."
+      tags:
+        - private-location
+      externalDocs:
+        url: https://octomind.dev/docs/proxy/private-location
       requestBody:
         required: true
         content:
