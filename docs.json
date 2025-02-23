@@ -144,7 +144,7 @@
         "groups": [
           {
             "group": "Changelog",
-            "pages": ["changelog/changelog"]
+            "pages": ["changelog/changelog-25", "changelog/changelog-24", "changelog/changelog-23"]
           }
         ]
       }
