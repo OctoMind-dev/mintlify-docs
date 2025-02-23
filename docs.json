@@ -97,6 +97,9 @@
         "tab": "API Reference",
         "groups": [
           {
+            "group": "Overview", "pages": ["api/api-overview"]
+          },
+          {
             "group": "Execution & Test Reports",
             "pages": [
               "api/execute-all-tests-of-the-given-test-target-with-a-given-url",

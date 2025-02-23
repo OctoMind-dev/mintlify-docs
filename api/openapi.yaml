@@ -360,24 +360,26 @@ components:
           items:
             $ref: "#/components/schemas/TestResult"
     PrivateLocationInfo:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-            - OFFLINE
-            - ONLINE
-        address:
-          type: string
-          format: uri
-          example: "https://example.com:3128"
-        name:
-          type: string
-          example: "my-private-location"
-      required:
-        - status
-        - address
-        - name
+      type: array
+      items:
+        type: object
+        properties:
+          status:
+            type: string
+            enum:
+              - OFFLINE
+              - ONLINE
+          address:
+            type: string
+            format: uri
+            example: "https://example.com:3128"
+          name:
+            type: string
+            example: "my-private-location"
+        required:
+          - status
+          - address
+          - name
     TestReportResponse:
       type: object
       properties:
@@ -516,10 +518,6 @@ paths:
       summary: Execute tests of the given test target
       description: |
         This endpoint triggers a test execution by sending an test target id, an URL and optionally tags, an environment and variables.
-        If you provide an enviroment name, the test are executed within that environment, meaning all settings (test account,  headers etc.)
-        of that environment are applied.
-        The tags list is used to filter test cases. If you provide more than one tag all test cases with at least one matching tags are executed.
-        Optionally you can overwrite variables defined in the environment for that specific run.
       tags:
         - execute
       security:
