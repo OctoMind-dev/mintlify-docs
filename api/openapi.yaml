@@ -422,9 +422,60 @@ components:
               type: string
               description: the address of the remote endpoint. IP and port
               example: 34.45.23.22:23455
+    EnvironmentsResponse:
+      type: array
+      items:
+        $ref: "#/components/schemas/EnvironmentResponse"
     EnvironmentResponse:
-        type: array
-        items:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        testTargetId:
+          type: string
+          format: uuid
+        updatedAt:
+          type: string
+          format: date-time
+        type:
+          type: string
+        discoveryUrl:
+          type: string
+          format: url
+        additionalHeaderFields:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+        testAccount:
+          type: object
+          properties:
+            username:
+              type: string
+            password:
+              type: string
+            otpInitializerKey:
+              type: string
+              nullable: true
+            updatedAt:
+              type: string
+              format: date-time
+          nullable: true
+        basicAuth:
+          type: object
+          properties:
+            username:
+              type: string
+            password:
+              type: string
+            updatedAt:
+              type: string
+              format: date-time
+          nullable: true
+        privateLocation:
           type: object
           properties:
             id:
@@ -432,59 +483,10 @@ components:
               format: uuid
             name:
               type: string
-            testTargetId:
+            status:
               type: string
-              format: uuid
-            updatedAt:
-              type: string
-              format: date-time
             type:
               type: string
-            discoveryUrl:
-              type: string
-              format: url
-            additionalHeaderFields:
-              type: object
-              additionalProperties:
-                type: string
-              nullable: true
-            testAccount:
-              type: object
-              properties:
-                username:
-                  type: string
-                password:
-                  type: string
-                otpInitializerKey:
-                  type: string
-                  nullable: true
-                updatedAt:
-                  type: string
-                  format: date-time
-              nullable: true
-            basicAuth:
-              type: object
-              properties:
-                username:
-                  type: string
-                password:
-                  type: string
-                updatedAt:
-                  type: string
-                  format: date-time
-              nullable: true
-            privateLocation:
-              type: object
-              properties:
-                id:
-                  type: string
-                  format: uuid
-                name:
-                  type: string
-                status:
-                  type: string
-                type:
-                  type: string
     ZodResponse:
       type: array
       items:
