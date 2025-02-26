@@ -487,26 +487,88 @@ components:
               type: string
             type:
               type: string
-    TestSuiteResponse:
+
+    TestSuiteRequestCommons:
       type: object
       properties:
-        id:
+        beforeAll:
           type: string
           format: uuid
-        name:
+          nullable: true
+          description: The test case to run before all test cases
+        afterAll:
           type: string
-        testCases:
-          type: array
-          items:
-            type: string
-          example: ["5b844cf1-d597-4048-9e74-7c0f9ce3e2ee"]
-        updatedAt:
+          format: uuid
+          nullable: true
+          description: The test case to run after all test cases
+        beforeEach:
           type: string
-          format: date-time
+          format: uuid
+          nullable: true
+          description: The test case to run before each test case in the suite
+        afterEach:
+          type: string
+          format: uuid
+          nullable: true
+          description: The test case to run after each test case in the suite
+
+    TestSuitePatchRequest:
+      allOf:
+        - type: object
+          properties:
+            name:
+              type: string
+              description: The name of the test suite
+              example: "regression for chat"
+              nullable: true
+            testCases:
+              type: array
+              items:
+                type: string
+              example: ["5b844cf1-d597-4048-9e74-7c0f9ce3e2ee"]
+              description: The test cases to include in the suite
+              nullable: true
+            environmentName:
+              type: string
+              description: the environment name you want to run your test suite against
+              example: "default"
+              nullable: true
+        - $ref: "#/components/schemas/TestSuiteRequestCommons"
+
+    TestSuiteCreateRequest:
+      allOf:
+        - type: object
+          properties:
+            name:
+              type: string
+              description: The name of the test suite
+              example: "regression for chat"
+            testCases:
+              type: array
+              items:
+                type: string
+              example: ["5b844cf1-d597-4048-9e74-7c0f9ce3e2ee"]
+              description: The test cases to include in the suite
+            environmentName:
+              type: string
+              description: the environment name you want to run your test suite against
+              example: "default"
+        - $ref: "#/components/schemas/TestSuiteRequestCommons"
+
+    TestSuiteResponse:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+        - $ref: "#/components/schemas/TestSuiteCreateRequest"
+
     TestSuitesResponse:
       type: array
       items:
         $ref: "#/components/schemas/TestSuiteResponse"
+
     ZodResponse:
       type: array
       items:
@@ -550,6 +612,73 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/TestSuitesResponse"
+    post:
+      summary: Create a test suite
+      security:
+        - ApiKeyAuth: [ ]
+      tags:
+        - test-suites
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TestSuiteCreateRequest"
+      responses:
+        "200":
+          description: test suites
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestSuiteResponse"
+        "400":
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZodResponse"
+
+  /apiKey/v2/test-suites/{testSuiteId}:
+    patch:
+      summary: Update a test suite
+      security:
+        - ApiKeyAuth: [ ]
+      tags:
+        - test-suites
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TestSuitePatchRequest"
+      responses:
+        "200":
+          description: test suites
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestSuiteResponse"
+        "400":
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZodResponse"
+    delete:
+      summary: Delete a test suite
+      security:
+        - ApiKeyAuth: [ ]
+      tags:
+        - test-suites
+      responses:
+        "204":
+          description: test suites
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+        "404":
+          description: test suite not found
 
   /apiKey/v2/execute:
     post:
