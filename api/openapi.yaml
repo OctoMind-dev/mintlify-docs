@@ -487,6 +487,26 @@ components:
               type: string
             type:
               type: string
+    TestSuiteResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        testCases:
+          type: array
+          items:
+            type: string
+          example: ["5b844cf1-d597-4048-9e74-7c0f9ce3e2ee"]
+        updatedAt:
+          type: string
+          format: date-time
+    TestSuitesResponse:
+      type: array
+      items:
+        $ref: "#/components/schemas/TestSuiteResponse"
     ZodResponse:
       type: array
       items:
@@ -515,6 +535,22 @@ components:
             description: "Human-readable message of the error that occurred while parsing."
             example: "Expected object, received string"
 paths:
+  /apiKey/v2/test-suites:
+    get:
+      summary: Retrieve test suites
+      description: get a list of all defined test suites.
+      security:
+        - ApiKeyAuth: [ ]
+      tags:
+        - test-suites
+      responses:
+        "200":
+          description: test suites
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestSuitesResponse"
+
   /apiKey/v2/execute:
     post:
       summary: Execute tests of the given test target
@@ -553,6 +589,8 @@ paths:
       summary: Delete an environment
       security:
       - ApiKeyAuth: [ ]
+      tags:
+        - environments
       responses:
         '200':
           description: Environment deleted successfully 
@@ -575,6 +613,8 @@ paths:
       summary: Update an environment
       security:
       - ApiKeyAuth: [ ]
+      tags:
+        - environments
       parameters:
         - in: path
           name: testTargetId
@@ -642,6 +682,8 @@ paths:
       description: Create a custom environment.
       security:
       - ApiKeyAuth: [ ]
+      tags:
+        - environments
       parameters:
         - in: path
           name: testTargetId
@@ -703,6 +745,8 @@ paths:
       description: get a list of all defined environments.
       security:
       - ApiKeyAuth: [ ]
+      tags:
+        - environments
       parameters:
         - in: path
           name: testTargetId
@@ -723,6 +767,8 @@ paths:
     get:
       summary: Retrieve information about a test report
       description: Poll from within a CI-pipeline to wait for the completion of a report.
+      tags:
+        - reports
       parameters:
         - in: path
           name: testTargetId
@@ -762,6 +808,8 @@ paths:
     get:
       summary: Retrieve paginated information about test reports
       description: Allow fetching the history of test reports for your test target.
+      tags:
+        - reports
       parameters:
         - in: path
           name: testTargetId
