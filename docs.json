@@ -8,7 +8,13 @@
     "dark": "#7D7CE2"
   },
   "favicon": "/logo/favicon.svg",
-  "api": { "mdx": { "server": "https://app.octomind.dev/api", "auth": { "method": "key", "name": "x-api-key" } } },
+  "api": { 
+    "openapi": "/api/openapi.yaml", 
+    "mdx": { 
+      "server": "https://app.octomind.dev/api", 
+      "auth": { "method": "key", "name": "x-api-key" } 
+    }
+  },
   "navigation": {
     "tabs": [
       {
