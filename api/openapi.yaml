@@ -3,6 +3,9 @@ info:
   title: Octomind external  API
   description: Octomind API that allows you to execute test cases, fetch reports and register private location workers by providing a URL and an ID.
   version: 1.0.0
+externalDocs:
+  description: Find out more
+  url: https://octomind.dev/docs/
 servers:
   - url: https://app.octomind.dev/api
     description: Main API Endpoint
@@ -195,11 +198,10 @@ components:
 
     Variables:
       type: object
-      properties:
-        [key: string]:
-          type: array
-          items:
-            type: string
+      additionalProperties:
+        type: array
+        items:
+          type: string
       description: The variables to overwrite exclusively for this test run.
       example:
         "SPACE_ID": ["64ee32b4-7365-47a6-b5b0-2903b6ad849d"]
@@ -310,9 +312,7 @@ components:
           type: string
           nullable: true
           description: The error that has occurred during execution - only set if the status is FAILED or ERROR.
-          example: "TimeoutError: locator.click: Timeout 30000ms exceeded.
-Call log:
-  - waiting for getByText('run locally')"
+          example: "TimeoutError: locator.click: Timeout 30000ms exceeded."
         traceUrl:
           type: string
           nullable: true
@@ -357,7 +357,27 @@ Call log:
           type: array
           items:
             $ref: "#/components/schemas/TestResult"
-
+    PrivateLocationInfo:
+      type: array
+      items:
+        type: object
+        properties:
+          status:
+            type: string
+            enum:
+              - OFFLINE
+              - ONLINE
+          address:
+            type: string
+            format: uri
+            example: "https://example.com:3128"
+          name:
+            type: string
+            example: "my-private-location"
+        required:
+          - status
+          - address
+          - name
     TestReportResponse:
       type: object
       properties:
@@ -400,6 +420,153 @@ Call log:
               type: string
               description: the address of the remote endpoint. IP and port
               example: 34.45.23.22:23455
+    EnvironmentsResponse:
+      type: array
+      items:
+        $ref: "#/components/schemas/EnvironmentResponse"
+    EnvironmentResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        testTargetId:
+          type: string
+          format: uuid
+        updatedAt:
+          type: string
+          format: date-time
+        type:
+          type: string
+        discoveryUrl:
+          type: string
+          format: url
+        additionalHeaderFields:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+        testAccount:
+          type: object
+          properties:
+            username:
+              type: string
+            password:
+              type: string
+            otpInitializerKey:
+              type: string
+              nullable: true
+            updatedAt:
+              type: string
+              format: date-time
+          nullable: true
+        basicAuth:
+          type: object
+          properties:
+            username:
+              type: string
+            password:
+              type: string
+            updatedAt:
+              type: string
+              format: date-time
+          nullable: true
+        privateLocation:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+            status:
+              type: string
+            type:
+              type: string
+
+    TestSuiteRequestCommons:
+      type: object
+      properties:
+        beforeAll:
+          type: string
+          format: uuid
+          nullable: true
+          description: The test case to run before all test cases
+        afterAll:
+          type: string
+          format: uuid
+          nullable: true
+          description: The test case to run after all test cases
+        beforeEach:
+          type: string
+          format: uuid
+          nullable: true
+          description: The test case to run before each test case in the suite
+        afterEach:
+          type: string
+          format: uuid
+          nullable: true
+          description: The test case to run after each test case in the suite
+
+    TestSuitePatchRequest:
+      allOf:
+        - type: object
+          properties:
+            name:
+              type: string
+              description: The name of the test suite
+              example: "regression for chat"
+              nullable: true
+            testCases:
+              type: array
+              items:
+                type: string
+              example: ["5b844cf1-d597-4048-9e74-7c0f9ce3e2ee"]
+              description: The test cases to include in the suite
+              nullable: true
+            environmentName:
+              type: string
+              description: the environment name you want to run your test suite against
+              example: "default"
+              nullable: true
+        - $ref: "#/components/schemas/TestSuiteRequestCommons"
+
+    TestSuiteCreateRequest:
+      allOf:
+        - type: object
+          properties:
+            name:
+              type: string
+              description: The name of the test suite
+              example: "regression for chat"
+            testCases:
+              type: array
+              items:
+                type: string
+              example: ["5b844cf1-d597-4048-9e74-7c0f9ce3e2ee"]
+              description: The test cases to include in the suite
+            environmentName:
+              type: string
+              description: the environment name you want to run your test suite against
+              example: "default"
+        - $ref: "#/components/schemas/TestSuiteRequestCommons"
+
+    TestSuiteResponse:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+        - $ref: "#/components/schemas/TestSuiteCreateRequest"
+
+    TestSuitesResponse:
+      type: array
+      items:
+        $ref: "#/components/schemas/TestSuiteResponse"
+
     ZodResponse:
       type: array
       items:
@@ -428,10 +595,96 @@ Call log:
             description: "Human-readable message of the error that occurred while parsing."
             example: "Expected object, received string"
 paths:
+  /apiKey/v2/test-suites:
+    get:
+      summary: Retrieve test suites
+      description: get a list of all defined test suites.
+      security:
+        - ApiKeyAuth: [ ]
+      tags:
+        - test-suites
+      responses:
+        "200":
+          description: test suites
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestSuitesResponse"
+    post:
+      summary: Create a test suite
+      security:
+        - ApiKeyAuth: [ ]
+      tags:
+        - test-suites
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TestSuiteCreateRequest"
+      responses:
+        "200":
+          description: test suites
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestSuiteResponse"
+        "400":
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZodResponse"
+
+  /apiKey/v2/test-suites/{testSuiteId}:
+    patch:
+      summary: Update a test suite
+      security:
+        - ApiKeyAuth: [ ]
+      tags:
+        - test-suites
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TestSuitePatchRequest"
+      responses:
+        "200":
+          description: test suites
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestSuiteResponse"
+        "400":
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZodResponse"
+    delete:
+      summary: Delete a test suite
+      security:
+        - ApiKeyAuth: [ ]
+      tags:
+        - test-suites
+      responses:
+        "204":
+          description: test suites
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+        "404":
+          description: test suite not found
+
   /apiKey/v2/execute:
     post:
-      summary: Execute all tests of the given test target with a given URL
-      description: This endpoint triggers a test execution by sending an test target id and a URL.
+      summary: Execute tests of the given test target
+      description: |
+        This endpoint triggers a test execution by sending an test target id, an URL and optionally tags, an environment and variables.
+      tags:
+        - execute
       security:
         - ApiKeyAuth: [ ]
       requestBody:
@@ -458,10 +711,191 @@ paths:
         "500":
           description: Internal server error
 
+  /apiKey/v2/test-targets/{testTargetId}/environments/{environmentId}:
+    delete:
+      summary: Delete an environment
+      security:
+      - ApiKeyAuth: [ ]
+      tags:
+        - environments
+      responses:
+        '200':
+          description: Environment deleted successfully 
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the test report belongs to
+        - in: path
+          name: environmentId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the environment to update
+    patch:
+      summary: Update an environment
+      security:
+      - ApiKeyAuth: [ ]
+      tags:
+        - environments
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the environment belongs to
+        - in: path
+          name: environmentId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the environment to update
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  nullable: true
+                discoveryUrl:
+                  type: string
+                  format: url
+                  nullable: true
+                testAccount:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                    otpInitializerKey:
+                      type: string
+                      nullable: true
+                  nullable: true
+                basicAuth:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                  nullable: true
+                privateLocationName:
+                  type: string
+                  nullable: true
+                  description: name of the private location
+                additionalHeaderFields:
+                  type: object
+                  additionalProperties:
+                    type: string
+                  nullable: true
+      responses:
+        '200':
+          description: Environment updated successfully
+
+  /apiKey/v2/test-targets/{testTargetId}/environments:
+    post:
+      summary: Create an environment
+      description: Create a custom environment.
+      security:
+      - ApiKeyAuth: [ ]
+      tags:
+        - environments
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the environment belongs to
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                discoveryUrl:
+                  type: string
+                  format: url
+                testAccount:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                    otpInitializerKey:
+                      type: string
+                      nullable: true
+                  nullable: true
+                basicAuth:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                  nullable: true
+                privateLocationName:
+                  type: string
+                  description: name of the private location
+                additionalHeaderFields:
+                  type: object
+                  additionalProperties:
+                    type: string
+                  nullable: true
+
+      responses:
+        "201":
+          description: environment created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EnvironmentResponse"
+
+    get:
+      summary: Retrieve environments
+      description: get a list of all defined environments.
+      security:
+      - ApiKeyAuth: [ ]
+      tags:
+        - environments
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the test report belongs to
+      responses:
+        "200":
+          description: environments
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EnvironmentResponse"
+
   /apiKey/v2/test-targets/{testTargetId}/test-reports/{testReportId}:
     get:
-      summary: Retrieve information about a test report.
+      summary: Retrieve information about a test report
       description: Poll from within a CI-pipeline to wait for the completion of a report.
+      tags:
+        - reports
       parameters:
         - in: path
           name: testTargetId
@@ -499,8 +933,10 @@ paths:
 
   /apiKey/v2/test-targets/{testTargetId}/test-reports:
     get:
-      summary: Retrieve paginated information about test reports.
+      summary: Retrieve paginated information about test reports
       description: Allow fetching the history of test reports for your test target.
+      tags:
+        - reports
       parameters:
         - in: path
           name: testTargetId
@@ -580,12 +1016,30 @@ paths:
         "500":
           description: Internal server error
 
+  /apiKey/v1/private-location:
+    get:
+      security:
+        - ApiKeyAuth: [ ]
+      summary: Retrieve all private locations
+      description: "gets a list of private location workers"
+      tags:
+      - private-location
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PrivateLocationInfo"
+
   /apiKey/v1/private-location/register:
     put:
       security:
         - ApiKeyAuth: [ ]
-      summary: register a private location
+      summary: Register a private location
       description: "registers a private location worker"
+      tags:
+        - private-location
       requestBody:
         required: true
         content:
@@ -608,8 +1062,12 @@ paths:
     put:
       security:
         - ApiKeyAuth: [ ]
-      summary: unregister a private location
-      description: "unregisters a private location worker"
+      summary: Unregister a private location
+      description: "Unregisters a private location worker."
+      tags:
+        - private-location
+      externalDocs:
+        url: https://octomind.dev/docs/proxy/private-location
       requestBody:
         required: true
         content:

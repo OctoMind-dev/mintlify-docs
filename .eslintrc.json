@@ -5,6 +5,7 @@
     "mdx/code-blocks": true
   },
   "rules": {
-    "prettier/prettier": "warn"
+    "prettier/prettier": "warn",
+    "no-unused-expressions": "off"
   }
 }

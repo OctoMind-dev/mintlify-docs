@@ -1,0 +1,204 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Octomind Docs",
+  "colors": {
+    "primary": "#00E2AA",
+    "light": "#00CE9B",
+    "dark": "#7D7CE2"
+  },
+  "favicon": "/logo/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get started",
+            "pages": [
+              "get-started/first-steps",
+              "get-started/generate-more-test-cases",
+              "get-started/new-test-case",
+              "get-started/edit-test-case",
+              "get-started/execute-test-cases",
+              "get-started/scheduled-execution",
+              "get-started/execution-without-ci",
+              "get-started/debugtopus",
+              "get-started/manage-tests"
+            ]
+          },
+          {
+            "group": "Maintain Your Tests",
+            "pages": [
+              "maintain/maintain-tests",
+              "maintain/auto-fix",
+              "maintain/mark-tests-as-active"
+            ]
+          },
+          {
+            "group": "Account & views",
+            "pages": [
+              "account-view/account",
+              "account-view/projects",
+              "account-view/environments",
+              "account-view/test-cases",
+              "account-view/test-reports"
+            ]
+          },
+          {
+            "group": "Advanced",
+            "pages": [
+              "advanced/variables",
+              "advanced/rate-limiting",
+              "proxy/private-location",
+              "proxy/proxy-settings",
+              "advanced/bug-bounty-program",
+              "advanced/octomind-bot",
+              "advanced/2fa",
+              "advanced/basic-authentication",
+              "advanced/upload",
+              "runtime/custom-headers",
+              "runtime/testid-attribute"
+            ]
+          },
+          {
+            "group": "More info",
+            "pages": [
+              "more-info/faq",
+              "more-info/octo-dictionary",
+              "more-info/under-the-hood"
+            ]
+          },
+          {
+            "group": "Data governance",
+            "pages": ["data-governance/no-code-access", "data-governance/nda"]
+          }
+        ]
+      },
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Guides",
+            "pages": [
+              "guides/test-creation-best-practices",
+              "guides/long-vs-short",
+              "guides/agent-fails",
+              "guides/test-debugging-1",
+              "guides/test-debugging-2",
+              "guides/test-debugging-3",
+              "guides/test-debugging-4",
+              "guides/project-environments"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Overview", "pages": ["api/api-overview"]
+          },
+          {
+            "group": "Test execution",
+            "pages": [
+              "api/execute/execute-tests-of-the-given-test-target"
+            ]
+          },
+          {
+            "group": "Test reports",
+            "pages": [
+              "api/reports/retrieve-information-about-a-test-report",
+              "api/reports/retrieve-paginated-information-about-test-reports"
+            ]
+          },
+          {
+            "group": "Environments",
+            "pages": [
+              "api/environments/retrieve-environments",
+              "api/environments/create-an-environment",
+              "api/environments/update-an-environment",
+              "api/environments/delete-an-environment"
+            ]
+          },
+          {
+            "group": "Private locations",
+            "pages": [
+              "api/private-location/retrieve-all-private-locations",
+              "api/private-location/register-a-private-location",
+              "api/private-location/unregister-a-private-location"
+            ]
+          }       ]
+      },
+      {
+        "tab": "Integrations",
+        "groups": [
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/integrations-overview",
+              "integrations/quickstart-GitHub",
+              "integrations/quickstart-Azure",
+              "integrations/quickstart-Vercel",
+              "integrations/quickstart-Jenkins",
+              "integrations/quickstart-Other"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "groups": [
+          {
+            "group": "Changelog",
+            "pages": ["changelog/changelog"]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://www.octomind.dev/"
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "background": {
+    "color": {
+      "light": "#FFFFFF",
+      "dark": "#13142B"
+    }
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/OctoMind-dev"
+      },
+      {
+        "label": "Get easy help",
+        "href": "https://discord.gg/3ShnZMKRfA"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Go to app",
+      "href": "https://app.octomind.dev/setup/url?utm_source=docs&utm_medium=txt-lnk"
+    }
+  },
+  "footer": {
+    "socials": {
+      "twitter": "https://twitter.com/octominddotdev",
+      "github": "https://github.com/OctoMind-dev",
+      "discord": "https://discord.gg/3ShnZMKRfA"
+    }
+  },
+  "integrations": {
+    "posthog": {
+      "apiKey": "phc_DZrVg5kgD45m4Au5nFt6m9rykBTg3mAkeHNY3atWNbW",
+      "apiHost": "https://eu.posthog.com"
+    }
+  }
+}
