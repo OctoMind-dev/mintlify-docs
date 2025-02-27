@@ -9,8 +9,6 @@ externalDocs:
 servers:
   - url: https://app.octomind.dev/api
     description: Main API Endpoint
-  - url: http://localhost:3000/api
-    description: Dev API Endpoint
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -751,7 +749,7 @@ paths:
           schema:
             type: string
             format: uuid
-          description: ID of the test target to which the test report belongs to
+          description: ID of the test target to which the environment belongs to
         - in: path
           name: environmentId
           required: true
@@ -820,7 +818,7 @@ paths:
           schema:
             type: string
             format: uuid
-          description: ID of the test target to which the test report belongs to
+          description: ID of the test target to which the environment belongs to
       requestBody:
         required: true
         content:

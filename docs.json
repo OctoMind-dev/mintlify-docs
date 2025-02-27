@@ -100,31 +100,35 @@
             "group": "Overview", "pages": ["api/api-overview"]
           },
           {
-            "group": "Execution & Test Reports",
+            "group": "Test execution",
             "pages": [
-              "api/execute-all-tests-of-the-given-test-target-with-a-given-url",
-              "api/retrieve-information-about-a-test-report",
-              "api/retrieve-paginated-information-about-test-reports"
+              "api/execute/execute-tests-of-the-given-test-target"
+            ]
+          },
+          {
+            "group": "Test reports",
+            "pages": [
+              "api/reports/retrieve-information-about-a-test-report",
+              "api/reports/retrieve-paginated-information-about-test-reports"
             ]
           },
           {
             "group": "Environments",
             "pages": [
-              "api/retrieve-environments",
-              "api/create-a-environments",
-              "api/update-an-environment",
-              "api/delete-an-environment"
+              "api/environments/retrieve-environments",
+              "api/environments/create-an-environment",
+              "api/environments/update-an-environment",
+              "api/environments/delete-an-environment"
             ]
           },
           {
-            "group": "Private Locations",
+            "group": "Private locations",
             "pages": [
-              "api/retrieve-all-private-locations",
-              "api/register-a-private-location",
-              "api/unregister-a-private-location"
+              "api/private-location/retrieve-all-private-locations",
+              "api/private-location/register-a-private-location",
+              "api/private-location/unregister-a-private-location"
             ]
-          }
-        ]
+          }       ]
       },
       {
         "tab": "Integrations",
