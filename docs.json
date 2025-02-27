@@ -9,11 +9,7 @@
   },
   "favicon": "/logo/favicon.svg",
   "api": { 
-    "openapi": "/api/openapi.yaml",
-    "mdx": { 
-      "server": "https://app.octomind.dev/api", 
-      "auth": { "method": "key", "name": "x-api-key" } 
-    }
+    "openapi": "/api/openapi.yaml"
   },
   "navigation": {
     "tabs": [
@@ -107,34 +103,11 @@
             "group": "Overview", "pages": ["api/api-overview"]
           },
           {
-            "group": "Test execution",
-            "pages": [
-              "api/execute/execute-tests-of-the-given-test-target"
-            ]
-          },
-          {
-            "group": "Test reports",
-            "pages": [
-              "api/reports/retrieve-information-about-a-test-report",
-              "api/reports/retrieve-paginated-information-about-test-reports"
-            ]
-          },
-          {
-            "group": "Environments",
-            "pages": [
-              "api/environments/retrieve-environments",
-              "api/environments/create-an-environment",
-              "api/environments/update-an-environment",
-              "api/environments/delete-an-environment"
-            ]
-          },
-          {
-            "group": "Private locations",
-            "pages": [
-              "api/private-location/retrieve-all-private-locations",
-              "api/private-location/register-a-private-location",
-              "api/private-location/unregister-a-private-location"
-            ]
+            "group": "Endpoints",
+            "openapi": {
+              "source": "/api/openapi.yaml",
+              "directory": "api-reference"
+            }
           }
         ]
       },
