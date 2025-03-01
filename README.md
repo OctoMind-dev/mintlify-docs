@@ -35,13 +35,15 @@ api docs is done based on a openapi.yaml definition. There is a few options on h
 [api docs with mintlify](https://mintlify.com/docs/api-playground/openapi/setup).
 
 In this repo we use the MDX way, that means we leverage the scraper tool.
+It is called like this
 
 ```
 npx @mintlify/scraping@latest openapi-file ./api-ref/openapi.yaml -o api-ref
 ```
 
-Then all generated MDX can be added additional information if needed. Tags in the openapi.yaml definition
-will be converted to subdirectories in the `api-ref` directory to get a structure.
+One can add additional information to the generated MDX documents if needed. Tags in the
+openapi.yaml definition will be converted to subdirectories in the `api-ref` directory
+to get a structure.
 
 ### Linting
 
