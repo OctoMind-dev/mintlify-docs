@@ -595,96 +595,13 @@ components:
             description: "Human-readable message of the error that occurred while parsing."
             example: "Expected object, received string"
 paths:
-  /apiKey/v2/test-suites:
-    get:
-      summary: Retrieve test suites
-      description: get a list of all defined test suites.
-      security:
-        - ApiKeyAuth: [ ]
-      tags:
-        - test-suites
-      responses:
-        "200":
-          description: test suites
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/TestSuitesResponse"
-    post:
-      summary: Create a test suite
-      security:
-        - ApiKeyAuth: [ ]
-      tags:
-        - test-suites
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/TestSuiteCreateRequest"
-      responses:
-        "200":
-          description: test suites
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/TestSuiteResponse"
-        "400":
-          description: Invalid request parameters
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ZodResponse"
-
-  /apiKey/v2/test-suites/{testSuiteId}:
-    patch:
-      summary: Update a test suite
-      security:
-        - ApiKeyAuth: [ ]
-      tags:
-        - test-suites
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/TestSuitePatchRequest"
-      responses:
-        "200":
-          description: test suites
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/TestSuiteResponse"
-        "400":
-          description: Invalid request parameters
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ZodResponse"
-    delete:
-      summary: Delete a test suite
-      security:
-        - ApiKeyAuth: [ ]
-      tags:
-        - test-suites
-      responses:
-        "204":
-          description: test suites
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/SuccessResponse"
-        "404":
-          description: test suite not found
-
   /apiKey/v2/execute:
     post:
       summary: Execute tests of the given test target
       description: |
         This endpoint triggers a test execution by sending an test target id, an URL and optionally tags, an environment and variables.
       tags:
-        - execute
+        - Execute
       security:
         - ApiKeyAuth: [ ]
       requestBody:
@@ -711,191 +628,12 @@ paths:
         "500":
           description: Internal server error
 
-  /apiKey/v2/test-targets/{testTargetId}/environments/{environmentId}:
-    delete:
-      summary: Delete an environment
-      security:
-      - ApiKeyAuth: [ ]
-      tags:
-        - environments
-      responses:
-        '200':
-          description: Environment deleted successfully 
-      parameters:
-        - in: path
-          name: testTargetId
-          required: true
-          schema:
-            type: string
-            format: uuid
-          description: ID of the test target to which the test report belongs to
-        - in: path
-          name: environmentId
-          required: true
-          schema:
-            type: string
-            format: uuid
-          description: ID of the environment to update
-    patch:
-      summary: Update an environment
-      security:
-      - ApiKeyAuth: [ ]
-      tags:
-        - environments
-      parameters:
-        - in: path
-          name: testTargetId
-          required: true
-          schema:
-            type: string
-            format: uuid
-          description: ID of the test target to which the environment belongs to
-        - in: path
-          name: environmentId
-          required: true
-          schema:
-            type: string
-            format: uuid
-          description: ID of the environment to update
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  nullable: true
-                discoveryUrl:
-                  type: string
-                  format: url
-                  nullable: true
-                testAccount:
-                  type: object
-                  properties:
-                    username:
-                      type: string
-                    password:
-                      type: string
-                    otpInitializerKey:
-                      type: string
-                      nullable: true
-                  nullable: true
-                basicAuth:
-                  type: object
-                  properties:
-                    username:
-                      type: string
-                    password:
-                      type: string
-                  nullable: true
-                privateLocationName:
-                  type: string
-                  nullable: true
-                  description: name of the private location
-                additionalHeaderFields:
-                  type: object
-                  additionalProperties:
-                    type: string
-                  nullable: true
-      responses:
-        '200':
-          description: Environment updated successfully
-
-  /apiKey/v2/test-targets/{testTargetId}/environments:
-    post:
-      summary: Create an environment
-      description: Create a custom environment.
-      security:
-      - ApiKeyAuth: [ ]
-      tags:
-        - environments
-      parameters:
-        - in: path
-          name: testTargetId
-          required: true
-          schema:
-            type: string
-            format: uuid
-          description: ID of the test target to which the environment belongs to
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                discoveryUrl:
-                  type: string
-                  format: url
-                testAccount:
-                  type: object
-                  properties:
-                    username:
-                      type: string
-                    password:
-                      type: string
-                    otpInitializerKey:
-                      type: string
-                      nullable: true
-                  nullable: true
-                basicAuth:
-                  type: object
-                  properties:
-                    username:
-                      type: string
-                    password:
-                      type: string
-                  nullable: true
-                privateLocationName:
-                  type: string
-                  description: name of the private location
-                additionalHeaderFields:
-                  type: object
-                  additionalProperties:
-                    type: string
-                  nullable: true
-
-      responses:
-        "201":
-          description: environment created
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/EnvironmentResponse"
-
-    get:
-      summary: Retrieve environments
-      description: get a list of all defined environments.
-      security:
-      - ApiKeyAuth: [ ]
-      tags:
-        - environments
-      parameters:
-        - in: path
-          name: testTargetId
-          required: true
-          schema:
-            type: string
-            format: uuid
-          description: ID of the test target to which the test report belongs to
-      responses:
-        "200":
-          description: environments
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/EnvironmentResponse"
-
   /apiKey/v2/test-targets/{testTargetId}/test-reports/{testReportId}:
     get:
       summary: Retrieve information about a test report
       description: Poll from within a CI-pipeline to wait for the completion of a report.
       tags:
-        - reports
+        - Reports
       parameters:
         - in: path
           name: testTargetId
@@ -936,7 +674,7 @@ paths:
       summary: Retrieve paginated information about test reports
       description: Allow fetching the history of test reports for your test target.
       tags:
-        - reports
+        - Reports
       parameters:
         - in: path
           name: testTargetId
@@ -1016,6 +754,186 @@ paths:
         "500":
           description: Internal server error
 
+  /apiKey/v2/test-targets/{testTargetId}/environments/{environmentId}:
+    delete:
+      summary: Delete an environment
+      security:
+      - ApiKeyAuth: [ ]
+      tags:
+        - Environments
+      responses:
+        '200':
+          description: Environment deleted successfully 
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the test report belongs to
+        - in: path
+          name: environmentId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the environment to update
+    patch:
+      summary: Update an environment
+      security:
+      - ApiKeyAuth: [ ]
+      tags:
+        - Environments
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the environment belongs to
+        - in: path
+          name: environmentId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the environment to update
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  nullable: true
+                discoveryUrl:
+                  type: string
+                  format: url
+                  nullable: true
+                testAccount:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                    otpInitializerKey:
+                      type: string
+                      nullable: true
+                  nullable: true
+                basicAuth:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                  nullable: true
+                privateLocationName:
+                  type: string
+                  nullable: true
+                  description: name of the private location
+                additionalHeaderFields:
+                  type: object
+                  additionalProperties:
+                    type: string
+                  nullable: true
+      responses:
+        '200':
+          description: Environment updated successfully
+
+  /apiKey/v2/test-targets/{testTargetId}/environments:
+    post:
+      summary: Create an environment
+      description: Create a custom environment.
+      security:
+      - ApiKeyAuth: [ ]
+      tags:
+        - Environments
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the environment belongs to
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                discoveryUrl:
+                  type: string
+                  format: url
+                testAccount:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                    otpInitializerKey:
+                      type: string
+                      nullable: true
+                  nullable: true
+                basicAuth:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                  nullable: true
+                privateLocationName:
+                  type: string
+                  description: name of the private location
+                additionalHeaderFields:
+                  type: object
+                  additionalProperties:
+                    type: string
+                  nullable: true
+
+      responses:
+        "201":
+          description: environment created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EnvironmentResponse"
+
+    get:
+      summary: Retrieve environments
+      description: get a list of all defined environments.
+      security:
+      - ApiKeyAuth: [ ]
+      tags:
+        - Environments
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to which the test report belongs to
+      responses:
+        "200":
+          description: environments
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EnvironmentResponse"
+
+
   /apiKey/v1/private-location:
     get:
       security:
@@ -1023,7 +941,7 @@ paths:
       summary: Retrieve all private locations
       description: "gets a list of private location workers"
       tags:
-      - private-location
+      - Private-location
       responses:
         "200":
           description: OK
@@ -1039,7 +957,7 @@ paths:
       summary: Register a private location
       description: "registers a private location worker"
       tags:
-        - private-location
+        - Private-location
       requestBody:
         required: true
         content:
@@ -1065,7 +983,7 @@ paths:
       summary: Unregister a private location
       description: "Unregisters a private location worker."
       tags:
-        - private-location
+        - Private-location
       externalDocs:
         url: https://octomind.dev/docs/proxy/private-location
       requestBody:

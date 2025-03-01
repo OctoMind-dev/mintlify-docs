@@ -29,6 +29,22 @@ Run the following command at the root of your documentation (where mint.json is)
 pnpm dev
 ```
 
+### API docs
+
+api docs is done based on a openapi.yaml definition. There is a few options on how to do this see
+[api docs with mintlify](https://mintlify.com/docs/api-playground/openapi/setup).
+
+In this repo we use the MDX way, that means we leverage the scraper tool.
+It is called like this
+
+```
+npx @mintlify/scraping@latest openapi-file ./api-ref/openapi.yaml -o api-ref
+```
+
+One can add additional information to the generated MDX documents if needed. Tags in the
+openapi.yaml definition will be converted to subdirectories in the `api-ref` directory
+to get a structure.
+
 ### Linting
 
 execute `pnpm lint`. _Note_ for pull requests we require that all linting errors have been resolved

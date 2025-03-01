@@ -8,6 +8,13 @@
     "dark": "#7D7CE2"
   },
   "favicon": "/logo/favicon.svg",
+  "api": { 
+    "openapi": "/api-ref/openapi.yaml",
+    "mdx": { 
+      "server": "https://app.octomind.dev/api", 
+      "auth": { "method": "key", "name": "x-api-key" } 
+    }
+  },
   "navigation": {
     "tabs": [
       {
@@ -97,39 +104,39 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "Overview", "pages": ["api/api-overview"]
+            "group": "Overview", "pages": ["api-ref/api-overview"]
           },
           {
             "group": "Test execution",
             "pages": [
-              "api/execute/execute-tests-of-the-given-test-target"
+              "api-ref/execute/execute-tests-of-the-given-test-target"
             ]
           },
           {
             "group": "Test reports",
             "pages": [
-              "api/reports/retrieve-information-about-a-test-report",
-              "api/reports/retrieve-paginated-information-about-test-reports"
+              "api-ref/reports/retrieve-information-about-a-test-report",
+              "api-ref/reports/retrieve-paginated-information-about-test-reports"
             ]
           },
           {
             "group": "Environments",
             "pages": [
-              "api/environments/retrieve-environments",
-              "api/environments/create-an-environment",
-              "api/environments/update-an-environment",
-              "api/environments/delete-an-environment"
+              "api-ref/environments/retrieve-environments",
+              "api-ref/environments/create-an-environment",
+              "api-ref/environments/update-an-environment",
+              "api-ref/environments/delete-an-environment"
             ]
           },
           {
             "group": "Private locations",
             "pages": [
-              "api/private-location/retrieve-all-private-locations",
-              "api/private-location/register-a-private-location",
-              "api/private-location/unregister-a-private-location"
+              "api-ref/private-location/retrieve-all-private-locations",
+              "api-ref/private-location/register-a-private-location",
+              "api-ref/private-location/unregister-a-private-location"
             ]
-          }       ]
-      },
+          }
+        ]},
       {
         "tab": "Integrations",
         "groups": [
