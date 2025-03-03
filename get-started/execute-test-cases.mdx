@@ -86,6 +86,18 @@ This is a great strategy for synthetic monitoring of your app in production.
   <img src="/images/executing/schedule.png" alt="scheduling test runs" />
 </Frame>
 
+### Test timeout
+
+You can use the `global step timeout` in the [environment settings](/account-view/environments) to shorten the timeout between steps if you have to run the tests faster. Our default is 30 seconds. This option should be enjoyed with caution - it can lead to more frequent failures due to timing issues.
+
+<Frame caption="global settings timeout in environment settings, 03/2025">
+  <img
+    src="/images/executing/timeout.png"
+    alt="global settings timeout in environment settings"
+    width="500px"
+  />
+</Frame>
+
 ## Trigger test runs via curl command
 
 If you do not use pipelines and want to manually trigger the test execution from outside our app, e.g. from your terminal, you can do it with a cURL command. [Learn how.](/get-started/execution-without-ci)
@@ -93,6 +105,17 @@ If you do not use pipelines and want to manually trigger the test execution from
 ## Trigger test runs from your CI
 
 Integrating our tests to your CI pipeline is a great way to make sure you didn't break the app with new releases. Learn [how to integrate Octomind into your CI/CD](/integrations/integrations-overview).
+
+### Test sharding
+
+Use [tags](/get-started/manage-tests#tags) to you can filter and shard test execution. Organize your test suite and split test runs into smaller chunks which can all run in parallel!
+
+<Frame caption="test sharding with tags, screenshot 03/2025">
+  <img
+    src="/images/executing/test-sharding.png"
+    alt="test sharding with tags"
+  />
+</Frame>
 
 ## Run your tests locally
 
