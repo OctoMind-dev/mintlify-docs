@@ -14,7 +14,7 @@ We will add building blocks which allow for more demanding scenarios over time, 
 
 We are using our AI agents for finding test cases and for generating test steps. We'll generate an interaction chain of the test case in an intermediate representation. We'll then generate a corresponding Playwright code on the fly and execute on a manual trigger, a schedule or against your pull request.
 
-We generate tests on [sign-up](/first-steps#4-open-the-octomind-app-for-the-first-time), when [we auto-generate 3 initial test cases](/first-steps#5-we-are-auto-generating-test-cases-for-you) and when you ask our AI agents to [generate more](/generate-more-test-cases) tests.
+We generate tests on [sign-up](/get-started/first-steps#4-open-the-octomind-app-for-the-first-time), when [we auto-generate 3 initial test cases](/get-started/first-steps#5-we-are-auto-generating-test-cases-for-you) and when you ask our AI agents to [generate more](/get-started/generate-more-test-cases) tests.
 
 ## 3. What code are you using for your tests?
 
@@ -31,7 +31,7 @@ End-to-end tests are notoriously flaky. Some of our strategies to fight flakines
 
 ## 5. How can I run your tests locally?
 
-Our open source tool [Debugtopus](https://github.com/OctoMind-dev/debugtopus) can pull the latest test case from our repository and execute it against your local environment. [Learn how.](/debugtopus)
+Our open source tool [Debugtopus](https://github.com/OctoMind-dev/debugtopus) can pull the latest test case from our repository and execute it against your local environment. [Learn how.](/get-started/debugtopus)
 
 ## 6. How does the auto-maintenance work?
 
@@ -42,15 +42,15 @@ The interaction chain of this test case will be adjusted permanently to the new 
 
 ## 7. How do I write a good prompt?
 
-See [our section about prompting a new test case](../new-test-case.mdx#free-prompting-best-practices).
+See [our section about prompting a new test case](get-started/new-test-case#free-prompting-best-practices).
 
 ## 8. I do not use use GitHub, can I use your tests?
 
 Yes. Apart from GitHub we do offer a native integration for Azure DevOps and API based integrations for Vercel and Jenkins. For all other build pipelines you can script your own test trigger so that our test suite is triggered whenever you run a pull request.
-Lean more about our [CI integration options](/integrations-overview).
+Lean more about our [CI integration options](/integrations/integrations-overview).
 
 Unfortunately, we won't be able to comment back into your pipeline. Instead, you'll be able to receive the test results through our app.
-You can also run us [programmatically without using a CI](/execution-without-ci), schedule regular test runs or trigger test runs manually.
+You can also run us [programmatically without using a CI](/get-started/execution-without-ci), schedule regular test runs or trigger test runs manually.
 
 ## 9. How can I get in touch with you?
 
