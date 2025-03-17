@@ -1,0 +1,29 @@
+---
+title: Help the agent with generation
+description: "Repair an unsuccessful generation together with the agent"
+icon: "circle-stop"
+---
+
+Now that we've gotten a better understanding of **why** the agent can fail to generate a test, we will take a look at the tooling available to help the agent succeed in generating your test.
+
+## Starting point
+
+Let's say you tried to generate a test using a prompt and the agent stopped the generation early:
+
+// screenshot row
+
+When you click on such a test case, you will land in the overview section of the test case panel with the option to "Repair" the unsuccessful attempt of the agent. Once you click "Repair", you will land in a specialized "repair" section that will allow you to better understand what happened and gives you option to nudge the agent in the right direction.
+
+In the first step of the repair section, you are tasked to first of all "identify the issue". For this, you are provided with:
+
+1. the prompt: as a reminder on what the test was supposed to cover
+2. the agent reasoning for the failure: why test agent thinks it didn't succeed in translating the prompt to test steps
+3. the timeline: a sequence of screenshots following the agent's actions on the page until the point of stoppage
+
+## Working with the timeline to identify the point of failure
+
+The timeline consists of all test case steps until the point of stoppage. Test steps of dependencies (e.g. a login test that was executed before the test that failed to generate) will be displayed in the white section of the slider. Your job is to select the **first step where the agent went off-track**. This could be clicking the wrong element, entering a wrong value or more generally interacting with the page in the wrong way.+
+
+// tip: you can use the arrow keys to skip back and forth
+
+Once you have identified the first step
