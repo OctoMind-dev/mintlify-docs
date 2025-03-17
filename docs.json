@@ -103,7 +103,7 @@
             "group": "Test generation failure",
             "pages": [
               "guides/agent-fails",
-              "guides/prompt-debugging"
+              "guides/test-debugging-2"
             ]
           },
           {
