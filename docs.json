@@ -115,9 +115,10 @@
             ]
           },
           {
-            "group": "Organization",
+            "group": "Test orchestration",
             "pages": [
-              "guides/project-environments"
+              "guides/project-environments",
+              "guides/long-running"
             ]
           }
         ]
