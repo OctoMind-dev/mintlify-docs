@@ -1,6 +1,6 @@
 ---
-title: Help the agent with generation
-description: "Repair an unsuccessful generation together with the agent"
+title: Help the Agent generate
+description: "Repair an unsuccessful test generation together with the Agent"
 icon: "circle-stop"
 ---
 
@@ -10,20 +10,165 @@ Now that we've gotten a better understanding of **why** the agent can fail to ge
 
 Let's say you tried to generate a test using a prompt and the agent stopped the generation early:
 
-// screenshot row
+<Frame caption="Agent stopped working and needs your help, screenshot 03/2025">
+  <img
+    src="/images/cocreation/agent-needs-help.png"
+    alt="agent stopped working and needs your help, screenshot"
+  />
+</Frame>
 
-When you click on such a test case, you will land in the overview section of the test case panel with the option to "Repair" the unsuccessful attempt of the agent. Once you click "Repair", you will land in a specialized "repair" section that will allow you to better understand what happened and gives you option to nudge the agent in the right direction.
+When you click on such a test case, you will land in the overview section of the test case panel with the option to `Repair` the unsuccessful attempt of the agent. Once you click "Repair", you will land in a specialized "repair" section that will allow you to better understand what happened and gives you option to nudge the agent in the right direction.
+
+<Frame caption="Click the repair button to fix a yellow test, screenshot 03/2025">
+  <img
+    src="/images/cocreation/repair-button.webp"
+    alt="click the repair button, screenshot"
+  />
+</Frame>
 
 In the first step of the repair section, you are tasked to first of all "identify the issue". For this, you are provided with:
 
-1. the prompt: as a reminder on what the test was supposed to cover
-2. the agent reasoning for the failure: why test agent thinks it didn't succeed in translating the prompt to test steps
-3. the timeline: a sequence of screenshots following the agent's actions on the page until the point of stoppage
+1. **the prompt:** as a reminder on what the test was supposed to cover
+2. **the agent** reasoning for the failure: why test agent thinks it didn't succeed in translating the prompt to test steps
+3. **the timeline:** a sequence of screenshots following the agent's actions on the page until the point of stoppage
 
 ## Working with the timeline to identify the point of failure
 
-The timeline consists of all test case steps until the point of stoppage. Test steps of dependencies (e.g. a login test that was executed before the test that failed to generate) will be displayed in the white section of the slider. Your job is to select the **first step where the agent went off-track**. This could be clicking the wrong element, entering a wrong value or more generally interacting with the page in the wrong way.+
+The timeline consists of all test case steps until the point of stoppage. Test steps of **dependencies** (e.g. a login test that was executed before the test that failed to generate) will be displayed in the **white dotted section** of the slider. Your job is to select the **first step where the agent went off-track**. This could be clicking the wrong element, entering a wrong value or more generally interacting with the page in the wrong way.
 
-// tip: you can use the arrow keys to skip back and forth
+<Frame caption="test timeline for repairing failed agent creation, screenshot 03/2025">
+  <img
+    src="/images/cocreation/cocreation-timeline.webp"
+    alt="test timeline for repairing failed agent creation"
+  />
+</Frame>
 
-Once you have identified the first step
+<Tip>You can use the arrow keys to skip back and forth</Tip>
+
+## Identify where agent needs help - select a step on the timeline
+
+To identify where the agent went off track, move the slider along the timeline and stop at the first incorrect step. This selects the step you want to modify.
+
+### Meaning of the colors on the timeline
+
+As you move the slider, you'll notice changes in the step colors:
+
+1. **Green steps:** These steps remain unchanged. Everything before your selected step is preserved in the next test generation
+2. **Red steps:** These steps will be discarded and regenerated. The selected step and all subsequent steps turn red to indicate they will be replaced.
+3. **White dotted section:** Highlights the dependencies that were executed prior to this generation.
+
+## Repair the test
+
+No matter how you choose to fix the test, always follow these steps:
+
+1. Select the step you want to modify.
+2. Click the "repair issue" button.
+3. Click "save & generate" to apply the changes.
+
+Click `save & generate` to apply the changes.
+
+## 1. Add new step
+
+The most common use case for this is when an assertion is missing at the end of the test. You can also use it to guide the Agent forward by adding a nudge.
+
+Adding a new step:
+
+- Click the `+` button at the end of the timeline.
+- Click `repair issue`.
+- Add an interaction or assertion by **selecting an element on the page**.
+- Click `save & generate` to apply the changes.
+
+<Frame caption="adding a step on the timeline, screenshot 03/2025">
+  <img
+    src="/images/cocreation/add-step.png"
+    alt="adding a step on the timeline, screenshot"
+    width="400"
+  />
+</Frame>
+
+Select an element on the page
+
+- Hover your mouse over the page.
+- Click the element you want to select.
+- Choose the interaction type in the pane on the right.
+
+<Frame caption="Selecting locators with the visual locator picker, 7/2024">
+  <img
+    src="/images/editing/change-locator.gif"
+    alt="selecting locators with visual locator picker"
+  />
+</Frame>
+
+## 2. Modify the prompt
+
+Use this when multiple steps need to be changed, or when the agent requires clearer guidance on the action it should take.
+
+To update the prompt:
+
+- Select the step you want to modify. (Everything before this step will be preserved in the next test generation. To regenerate the entire test, move the slider to the first step.)
+- Click `repair issue`.
+- Click the `prompt` tab.
+- Update the prompt as needed.
+- Click `save & generate` to apply the changes.
+
+<Frame caption="modifying the prompt to repair a yellow test, screenshot 03/2025">
+  <img
+    src="/images/cocreation/modify-prompt.webp"
+    alt="modifying the prompt to repair a yellow test, screenshot"
+  />
+</Frame>
+
+## 3. Modify a step
+
+If the Agent selects the wrong element or applies an incorrect interaction or assertion, use this method to correct it.
+
+To correct a step:
+
+- Select the step you want to change.
+- Click `repair issue`.
+- Open the `step` tab.
+- Update the interaction or assertion by selecting the correct element on the page.
+- Click `save & generate` to apply the changes.
+
+<Frame caption="select step editing, screenshot 03/2025">
+  <img
+    src="/images/cocreation/edit-step.png"
+    alt="select step editing, screenshot"
+    width="400"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="select an interaction or an assertion type, screenshot 03/2025">
+  <img
+    src="/images/cocreation/select-type.png"
+    alt="select a interaction or assertion type, screenshot"
+    width="400"
+  />
+</Frame>
+
+## What if the test generation is actually successful?
+
+While identifying the issue, it's possible that there isn't one. The Agent usually indicates this with messages like **"I am not sure if I am done"**.
+
+In this case, click the `test is good` button below the Agent's message. This will ensure no changes are made, and you can continue with the test validation process.
+
+<Frame caption="confirm if test is good, screenshot 03/2025">
+  <img
+    src="/images/cocreation/test-good.webp"
+    alt="confirm if test is good, screenshot"
+  />
+</Frame>
+
+## What if the generation is unsuccessful again?
+
+This can happen with more complex or longer tests. In such cases, identify where the agent went off track and repeat the repair process.
+
+## Most common reasons the Agent needs help
+
+- Agent went off-track early: If the agent strays at the beginning of the test, you'll need to fix the first step.
+- Agent is stuck in a loop: When the agent repeats the same action without success, identify where the loop starts and apply a fix from there.
+- Agent needs input: The agent may require input, such as what to enter in a text field.
+- Agent doesn't know which button to click: In cases where there are multiple entry points (e.g., header vs. footer navigation), the agent may be unsure of which button to click.
+- Agent doesn't know what the success should be at the end of the test: If the agent is unclear on what the expected success is, resulting in the absence of an assertion at the end, add a new step to define the expected outcome and complete the test.
