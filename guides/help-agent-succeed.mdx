@@ -1,10 +1,10 @@
 ---
 title: Help the Agent generate
-description: "Repair an unsuccessful test generation together with the Agent"
+description: "Finetune a generated test together with the Agent"
 icon: "circle-stop"
 ---
 
-Now that we've gotten a better understanding of **why** the agent can fail to generate a test, we will take a look at the tooling available to help the agent succeed in generating your test.
+Now that we've gotten a better understanding of [why the agent can fail](/guides/agent-fails) to generate a test, we will take a look at the tooling available to help the agent succeed in generating your test.
 
 ## Starting point
 
@@ -62,10 +62,8 @@ As you move the slider, you'll notice changes in the step colors:
 No matter how you choose to fix the test, always follow these steps:
 
 1. Select the step you want to modify.
-2. Click the "repair issue" button.
-3. Click "save & generate" to apply the changes.
-
-Click `save & generate` to apply the changes.
+2. Click the `repair issue` button.
+3. Click `save & generate` to apply the changes.
 
 ## 1. Add new step
 
@@ -172,3 +170,4 @@ This can happen with more complex or longer tests. In such cases, identify where
 - Agent needs input: The agent may require input, such as what to enter in a text field.
 - Agent doesn't know which button to click: In cases where there are multiple entry points (e.g., header vs. footer navigation), the agent may be unsure of which button to click.
 - Agent doesn't know what the success should be at the end of the test: If the agent is unclear on what the expected success is, resulting in the absence of an assertion at the end, add a new step to define the expected outcome and complete the test.
+- For a deep dive, see [more common reasons here](/guides/agent-fails)
