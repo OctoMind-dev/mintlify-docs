@@ -81,10 +81,7 @@
           },
           {
             "group": "Data governance",
-            "pages": [
-              "data-governance/no-code-access",
-              "data-governance/nda"
-            ]
+            "pages": ["data-governance/no-code-access", "data-governance/nda"]
           }
         ]
       },
@@ -101,24 +98,15 @@
           },
           {
             "group": "Test generation failure",
-            "pages": [
-              "guides/agent-fails",
-              "guides/test-debugging-2"
-            ]
+            "pages": ["guides/agent-fails", "guides/test-debugging-2"]
           },
           {
             "group": "Failed test runs",
-            "pages": [
-              "guides/test-debugging-3",
-              "guides/test-debugging-4"
-            ]
+            "pages": ["guides/test-debugging-3", "guides/test-debugging-4"]
           },
           {
             "group": "Test orchestration",
-            "pages": [
-              "guides/project-environments",
-              "guides/long-running"
-            ]
+            "pages": ["guides/project-environments", "guides/long-running"]
           }
         ]
       },
@@ -127,15 +115,11 @@
         "groups": [
           {
             "group": "Overview",
-            "pages": [
-              "api-ref/api-overview"
-            ]
+            "pages": ["api-ref/api-overview"]
           },
           {
             "group": "Test execution",
-            "pages": [
-              "api-ref/execute/execute-tests-of-the-given-test-target"
-            ]
+            "pages": ["api-ref/execute/execute-tests-of-the-given-test-target"]
           },
           {
             "group": "Test reports",
@@ -174,7 +158,8 @@
               "integrations/quickstart-Azure",
               "integrations/quickstart-Vercel",
               "integrations/quickstart-Jenkins",
-              "integrations/quickstart-Other"
+              "integrations/quickstart-Other",
+              "integrations/test-management"
             ]
           }
         ]
@@ -184,9 +169,7 @@
         "groups": [
           {
             "group": "Changelog",
-            "pages": [
-              "changelog/changelog"
-            ]
+            "pages": ["changelog/changelog"]
           }
         ]
       }
