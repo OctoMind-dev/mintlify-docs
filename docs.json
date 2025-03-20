@@ -98,7 +98,11 @@
           },
           {
             "group": "Test generation failure",
-            "pages": ["guides/agent-fails", "guides/test-debugging-2"]
+            "pages": [
+              "guides/agent-fails",
+              "guides/help-agent-succeed",
+              "guides/test-debugging-2"
+            ]
           },
           {
             "group": "Failed test runs",
