@@ -122,6 +122,16 @@
             "pages": ["api-ref/api-overview"]
           },
           {
+            "group": "TestTargets",
+            "pages": [
+              "api-ref/testtargets/get-a-list-of-all-test-targets",
+              "api-ref/testtargets/get-a-test-target",
+              "api-ref/testtargets/create-a-new-test-target",
+              "api-ref/testtargets/update-a-test-target",
+              "api-ref/testtargets/delete-a-test-target"
+            ]
+                  },
+          {
             "group": "Test execution",
             "pages": ["api-ref/execute/execute-tests-of-the-given-test-target"]
           },

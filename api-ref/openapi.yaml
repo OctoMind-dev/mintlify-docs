@@ -9,6 +9,8 @@ externalDocs:
 servers:
   - url: https://app.octomind.dev/api
     description: Main API Endpoint
+  - url: http://localhost:3000/api
+    description: Dev API Endpoint
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -567,6 +569,38 @@ components:
       items:
         $ref: "#/components/schemas/TestSuiteResponse"
 
+    TestTargetResponse:
+      type: object
+      required: [id, app, createdAt, timeoutPerStep]
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the test report.
+          example: "826c15af-644b-4b28-89b4-f50ff34e46b7"
+        app:
+          type: string
+          description: the name of the test target or project
+          example: test project for octomind
+        testIdAttribute:
+          type: string
+          description: the name of the html tag attribute to use, when discovering the page
+          example: data-test-id
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        timeoutPerStep:
+          type: number
+          description: timeout per step in milli seconds
+
+    TestTargetsResponse:
+      type: array
+      items:
+        $ref: "#/components/schemas/TestTargetResponse"
+    
     ZodResponse:
       type: array
       items:
@@ -627,6 +661,155 @@ paths:
           description: Invalid or missing API key
         "500":
           description: Internal server error
+
+  /apiKey/v2/test-targets:
+    get:
+      summary: Get a list of all test targets
+      description: get a list of test targets for the org
+      security:
+        - ApiKeyAuth: [ ]
+      tags:
+        - TestTargets
+      responses:
+        "200":
+          description: List of test targets
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestTargetsResponse"
+        "400":
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZodResponse"
+
+    post:
+      summary: Create a new test target
+      description: create a new test target
+      security:
+        - ApiKeyAuth: [ ]
+      tags:
+        - TestTargets
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                app:
+                  type: string
+                  description: name of the project or test target
+                  example: test project for octomind
+                testIdAttribute:
+                  type: string
+                timeoutPerStep:
+                  type: number
+                  description: timeout per step in millis seconds
+                  example: 3000
+      responses:
+        "204":
+          description: created test targets
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestTargetResponse"
+        "400":
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZodResponse"
+
+  /apiKey/v2/test-targets/{testTargetId}:
+    get:
+      summary: Get a test target
+      description: get a test target
+      security:
+        - ApiKeyAuth: [ ]
+      tags:
+        - TestTargets
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target 
+      responses:
+        "200":
+          description: Test target
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestTargetResponse"
+        "400":
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ZodResponse"
+
+    delete:
+      summary: Delete a test target
+      security:
+      - ApiKeyAuth: [ ]
+      tags:
+        - TestTargets
+      responses:
+        '200':
+          description: test target deleted successfully 
+        '404':
+          description: test target does not exist 
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target to delete
+
+    patch:
+      summary: Update a test target
+      security:
+      - ApiKeyAuth: [ ]
+      tags:
+        - TestTargets
+      parameters:
+        - in: path
+          name: testTargetId
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID of the test target 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                app:
+                  type: string
+                  description: name of the project or test target
+                  example: test project for octomind
+                testIdAttribute:
+                  type: string
+                timeoutPerStep:
+                  type: number
+                  description: timeout per step in millis seconds
+                  example: 3000
+      responses:
+        '200':
+          description: test target deleted successfully 
+        '404':
+          description: test target does not exist 
+
 
   /apiKey/v2/test-targets/{testTargetId}/test-reports/{testReportId}:
     get:
@@ -845,7 +1028,8 @@ paths:
       responses:
         '200':
           description: Environment updated successfully
-
+        '404':
+          description: Environment does not exist
   /apiKey/v2/test-targets/{testTargetId}/environments:
     post:
       summary: Create an environment
