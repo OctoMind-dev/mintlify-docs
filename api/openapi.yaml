@@ -238,6 +238,7 @@ components:
         - testTargetId
         - url
         - context
+
     TestTargetExecutionResponse:
       type: object
       properties:
@@ -357,6 +358,7 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/TestResult"
+
     PrivateLocationInfo:
       type: array
       items:
@@ -378,6 +380,7 @@ components:
           - status
           - address
           - name
+
     TestReportResponse:
       type: object
       properties:
@@ -402,6 +405,7 @@ components:
       properties:
         name:
           type: string
+
     RegisterRequest:
       type: object
       properties:
@@ -420,10 +424,12 @@ components:
               type: string
               description: the address of the remote endpoint. IP and port
               example: 34.45.23.22:23455
+
     EnvironmentsResponse:
       type: array
       items:
         $ref: "#/components/schemas/EnvironmentResponse"
+
     EnvironmentResponse:
       type: object
       properties:
@@ -594,6 +600,7 @@ components:
             type: string
             description: "Human-readable message of the error that occurred while parsing."
             example: "Expected object, received string"
+
 paths:
   /apiKey/v2/test-suites:
     get:
@@ -1016,6 +1023,72 @@ paths:
         "500":
           description: Internal server error
 
+  /apiKey/v2/test-targets/{testTargetId}/notifications:
+    get:
+      summary: Retrieve notifications
+      description: Get a list of notifications for a specific test target.
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Notifications
+      parameters:
+        - name: testTargetId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: The ID of the test target
+      responses:
+        '200':
+          description: List of notifications
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    testTargetId:
+                      type: string
+                      format: uuid
+                    createdAt:
+                      type: string
+                      format: date-time
+                    updatedAt:
+                      type: string
+                      format: date-time
+                    payload:
+                      type: object
+                      properties:
+                        failed:
+                          type: boolean
+                        context:
+                          $ref: '#/components/schemas/ExecutionContext'
+                        testReportId:
+                          type: string
+                          format: uuid
+                        testCaseId:
+                          type: string
+                          format: uuid
+                    type:
+                      type: string
+                      enum:
+                        - REPORT_EXECUTION_FINISHED
+                        - VALIDATION_PASSED
+                    ack:
+                      type: string
+                      enum:
+                        - IN_WEB_APP
+                      nullable: true
+        '401':
+          description: Unauthorized - Invalid or missing API key
+        '404':
+          description: Test target not found
+
   /apiKey/v1/private-location:
     get:
       security:
@@ -1085,3 +1158,357 @@ paths:
           description: private location of that name not found
         "500":
           description: Internal server error
+
+  /apiKey/v2/test-targets/{testTargetId}/test-cases/{testCaseId}:
+    get:
+      summary: Retrieve a test case
+      description: Get detailed information about a specific test case
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Test Cases
+      parameters:
+        - name: testTargetId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: The ID of the test target
+        - name: testCaseId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: The ID of the test case
+      responses:
+        '200':
+          description: Test case details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  testTargetId:
+                    type: string
+                    format: uuid
+                  type:
+                    type: string
+                    nullable: true
+                  elements:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                        index:
+                          type: integer
+                        interaction:
+                          type: object
+                          nullable: true
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            action:
+                              type: string
+                              enum: [EXTRACT, ENTER_TEXT, CLICK, SELECT_OPTION, TYPE_TEXT, KEY_PRESS, HOVER,UPLOAD, GO_TO, DRAG_AND_DROP, CLOSE_PAGE, OPEN_EMAIL]
+                            calledWith:
+                              type: string
+                              nullable: true
+                            testCaseElementId:
+                              type: string
+                              format: uuid
+                        assertion:
+                          type: object
+                          nullable: true
+                          properties:
+                            id:
+                              type: string
+                              format: uuid
+                            expectation:
+                              type: string
+                              enum: [VISIBLE, NOT_VISIBLE, TO_BE_CHECKED, NOT_TO_BE_CHECKED, TO_HAVE_VALUE, TO_CONTAIN_TEXT, TO_HAVE_STYLE]
+                            calledWith:
+                              type: string
+                              nullable: true
+                            testCaseElementId:
+                              type: string
+                              format: uuid
+                        scrollState:
+                          type: object
+                          nullable: true
+                        selectors:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                format: uuid
+                              index:
+                                type: integer
+                              selector:
+                                type: string
+                              selectorType:
+                                type: string
+                                enum: [TEXT, LABEL, PLACEHOLDER, ROLE]
+                              options:
+                                type: object
+                                nullable: true
+                                properties:
+                                  name:
+                                    type: string
+                              testCaseElementId:
+                                type: string
+                                format: uuid
+                              scrollStateId:
+                                type: string
+                                nullable: true
+                        testCaseId:
+                          type: string
+                          format: uuid
+                        ignoreFailure:
+                          type: boolean
+                  createdAt:
+                    type: string
+                    format: date-time
+                  updatedAt:
+                    type: string
+                    format: date-time
+                  description:
+                    type: string
+                  status:
+                    type: string
+                    enum: [ENABLED, DRAFT]
+                  externalId:
+                    type: string
+                    nullable: true
+                  entryPointUrlPath:
+                    type: string
+                    nullable: true
+                  tags:
+                    type: array
+                    items:
+                      type: string
+                  createdBy:
+                    type: string
+                    enum: [EDIT]
+                  runStatus:
+                    type: string
+                    enum: [ON, OFF]
+                  prerequisiteId:
+                    type: string
+                    nullable: true
+                  proposalRunId:
+                    type: string
+                    nullable: true
+                  folderId:
+                    type: string
+                    nullable: true
+                  discovery:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      freePrompt:
+                        type: string
+                      traceUrl:
+                        type: string
+                        nullable: true
+                      traceJsonManifestUrl:
+                        type: string
+                        nullable: true
+                      status:
+                        type: string
+                        enum: [OUTDATED]
+                      abortCause:
+                        type: string
+                        nullable: true
+                      message:
+                        type: string
+                        nullable: true
+                      testCaseId:
+                        type: string
+                        format: uuid
+                      lastJobExecutionName:
+                        type: string
+                        nullable: true
+                      createdAt:
+                        type: string
+                        format: date-time
+                      updatedAt:
+                        type: string
+                        format: date-time
+                      executedTestCaseElements:
+                        type: array
+                        items:
+                          type: string
+                      testCase:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            format: uuid
+                          testTargetId:
+                            type: string
+                            format: uuid
+                          description:
+                            type: string
+                          createdAt:
+                            type: string
+                            format: date-time
+                          updatedAt:
+                            type: string
+                            format: date-time
+                          entryPointUrlPath:
+                            type: string
+                            nullable: true
+                          type:
+                            type: string
+                            nullable: true
+                          status:
+                            type: string
+                            enum: [ENABLED]
+                          runStatus:
+                            type: string
+                            enum: [ON]
+                          interactionStatus:
+                            type: string
+                            enum: [NEW]
+                          createdBy:
+                            type: string
+                            enum: [EDIT]
+                          proposalRunId:
+                            type: string
+                            nullable: true
+                          externalId:
+                            type: string
+                            nullable: true
+                          folderId:
+                            type: string
+                            nullable: true
+                          prerequisiteId:
+                            type: string
+                            nullable: true
+                          predecessorId:
+                            type: string
+                            format: uuid
+                          testTarget:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                format: uuid
+                              app:
+                                type: string
+                              createdAt:
+                                type: string
+                                format: date-time
+                              updatedAt:
+                                type: string
+                                format: date-time
+                              orgId:
+                                type: string
+                                format: uuid
+                              testIdAttribute:
+                                type: string
+                                nullable: true
+                              timeoutPerStep:
+                                type: integer
+        '401':
+          description: Unauthorized - Invalid or missing API key
+        '404':
+          description: Test target or test case not found
+
+  /apiKey/v2/test-targets/{testTargetId}/discoveries:
+    post:
+      summary: Create a discovery
+      description: Create a new test case discovery with a given name and prompt
+      security:
+        - ApiKeyAuth: []
+      tags:
+        - Discoveries
+      parameters:
+        - name: testTargetId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: The ID of the test target
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - prompt
+              properties:
+                name:
+                  type: string
+                  description: Name of the discovery
+                  example: "foo"
+                prompt:
+                  type: string
+                  description: The prompt describing what to discover
+                  example: "make sure current time is visible"
+                entryPointUrlPath:
+                  type: string
+                  description: Optional URL path for the entry point
+                  nullable: true
+                prerequisiteId:
+                  type: string
+                  format: uuid
+                  description: Optional ID of a prerequisite test case
+                  nullable: true
+                externalId:
+                  type: string
+                  description: Optional external identifier
+                  nullable: true
+                assignedTagIds:
+                  type: array
+                  description: Optional list of tag IDs to assign
+                  items:
+                    type: string
+                    format: uuid
+                  nullable: true
+                folderId:
+                  type: string
+                  format: uuid
+                  description: Optional ID of the folder to place the discovery in
+                  nullable: true
+      responses:
+        '200':
+          description: Discovery created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - discoveryId
+                  - testCaseId
+                properties:
+                  discoveryId:
+                    type: string
+                    format: uuid
+                    description: The ID of the created discovery
+                  testCaseId:
+                    type: string
+                    format: uuid
+                    description: The ID of the associated test case
+        '401':
+          description: Unauthorized - Invalid or missing API key
+        '404':
+          description: Test target not found
+        '400':
+          description: Invalid request body
