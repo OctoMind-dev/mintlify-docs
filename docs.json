@@ -95,58 +95,7 @@
       },
       {
         "tab": "API Reference",
-        "groups": [
-          {
-            "group": "Overview", "pages": ["api/api-overview"]
-          },
-          {
-            "group": "Test execution",
-            "pages": [
-              "api/execute/execute-tests-of-the-given-test-target"
-            ]
-          },
-          {
-            "group": "Test reports",
-            "pages": [
-              "api/reports/retrieve-information-about-a-test-report",
-              "api/reports/retrieve-paginated-information-about-test-reports"
-            ]
-          },
-          {
-            "group": "Environments",
-            "pages": [
-              "api/environments/retrieve-environments",
-              "api/environments/create-an-environment",
-              "api/environments/update-an-environment",
-              "api/environments/delete-an-environment"
-            ]
-          },
-          {
-            "group": "Notifications",
-            "pages": [
-              "api/notifications/retrieve-notifications"
-            ]
-          },
-          {
-            "group": "Test Cases",
-            "pages": [
-              "api/test-cases/retrieve-a-test-case"
-            ]
-          },
-          {
-            "group": "Discoveries",
-            "pages": [
-              "api/discoveries/create-a-discovery"
-            ]
-          },
-          {
-            "group": "Private locations",
-            "pages": [
-              "api/private-location/retrieve-all-private-locations",
-              "api/private-location/register-a-private-location",
-              "api/private-location/unregister-a-private-location"
-            ]
-          }       ]
+        "openapi": "https://octomind.me/openapi.yaml"
       },
       {
         "tab": "Integrations",
