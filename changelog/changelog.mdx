@@ -4,7 +4,113 @@ description: "All the nice stuff you asked for"
 icon: "sparkles"
 ---
 
+## March 2025
+
+### 2025-03-18
+
+- `unfolded dependendcies`: after each run, we automatically unfold dependencies in test report detail making it easy to spot the issue.
+
+<Frame caption="dependencies unfolded in a test result detail, screenshot 03/2025">
+  <img
+    src="/images/changelog/dependencies-unfolded.png"
+    alt="dependencies unfolded in a test result detail, screenshot"
+    width="400"
+  />
+</Frame>
+
+### 2025-03-17
+
+- `interactive repair mode`: Help the AI agent finish test discovery in an interactive step-by-step repair mode
+
+<Frame caption="yellow alert test repair mode, screenshot 03/2025">
+  <img
+    src="/images/changelog/co-creation.webp"
+    alt="interactive test repair mode, screenshot"
+  />
+</Frame>
+
+### 2025-03-12
+
+- `Test managment integration` - we integrate with TestRail or other test management solutions now
+- `Traces for retries` - we now provide all traces, allowing you to compare both runs and better understand the failure
+
+<Frame caption="traces for retries, screenshot 03/2025">
+  <img
+    src="/images/changelog/traces-retries.png"
+    alt="traces for retries, screenshot"
+    width="400"
+  />
+</Frame>
+
+### 2025-03-06
+
+- `Tags`: you can filter test cases by tags now from search
+
+<Frame caption="filtering tests by tags, screenshot 03/2025">
+  <img
+    src="/images/changelog/tags-filtering.png"
+    alt="filtering tests by tags, screenshot"
+    width="400"
+  />
+</Frame>
+
+### 2025-03-04
+
+- `test failure classification` - we automatically analyze each failed test case and classifies it into four common error categories now
+
+<Frame caption="test failure classification, screenshot 03/2025">
+  <img
+    src="/images/changelog/classification.png"
+    alt="test failure classification, screenshot"
+    width="400"
+  />
+</Frame>
+
 ## February 2025
+
+### 2025-02-25
+
+- `UI`: new `project preferences` view in `environments` settings
+
+<Frame caption="environments settings view, 03/2025">
+  <img
+    src="/images/advanced/environments-settings.png"
+    alt="environments settings view"
+  />
+</Frame>
+
+### 2025-02-18
+
+- `Agent upgrade`: The agent identifies hover interactions and acts accordingly when discovering and generating test cases when you prompt it to
+- **HTTP websites:** you can submit a `http://` site as a test target when creating a new project.
+- `Tags`: You can filter and shard test execution, available via CI/CD and curl
+
+### 2025-02-17
+
+- revamped `test case overview` UI
+- split view width in test detail is **user-defined** now
+
+<Frame caption="custom split view width, 03/2025">
+  <img
+    src="/images/changelog/custom-width.gif"
+    alt="custom split view width"
+    width="500px"
+  />
+</Frame>
+
+### 2025-02-13
+
+- `GOTO`: Use the **go to URL step** in your test case when editing
+- We added the Playwright `type characters` step to support rich text editors for fields with custom keyboard event handling.
+- `global step timeout`: to shorten the timeout between steps if you want to run the tests faster
+
+<Frame caption="global settings timeout in environment settings, 03/2025">
+  <img
+    src="/images/executing/timeout.png"
+    alt="global settings timeout in environment settings"
+    width="500px"
+  />
+</Frame>
 
 ### 2025-02-10
 
@@ -28,7 +134,7 @@ icon: "sparkles"
 ### 2025-01-30
 
 - New `assertion` types: We added `contain text` and `have style` into the visual editor
-- improved searchability of test cases
+- improved searching for test cases
 - **Recorded test cases** can be enhanced with an editable prompt
 
 ### 2025-01-28
@@ -114,10 +220,10 @@ icon: "sparkles"
 - 'Show latest test result' display (e.g. from failed run) added to the `test case view`
 - Improved `OTP setup`
 
-<Frame caption="otp setup with next one time code, 12/2024">
+<Frame caption="OTP setup with next one time code, 12/2024">
   <img
     src="/images/2fa/OTP.gif"
-    alt="animated element showing otp setup"
+    alt="animated element showing OTP setup"
     width="500"
   />
 </Frame>
@@ -141,7 +247,7 @@ icon: "sparkles"
 <Frame caption="folder view with customizable test case arrangement, 12/2024">
   <img
     src="/images/changelog/folders.gif"
-    alt="customizable forlders view"
+    alt="customizable folders view"
     width="500"
   />
 </Frame>
@@ -214,8 +320,8 @@ icon: "sparkles"
 
 ### 2024-09-12
 
-- `Dependency View`: There's a new way to see your test cases: the dependency view! Now you can visually grasp which test cases cases depend on other test cases (when executed).
-- `Private Location Worker`: If you want to test a webapp that is not publicly available, we have something ready for you: [private location worker](/proxy/private-location)
+- `Dependency View`: There's a new way to see your test cases: the dependency view! Now you can visually grasp which test cases depend on other test cases (when executed).
+- `Private Location Worker`: If you want to test a web app that is not publicly available, we have something ready for you: [private location worker](/proxy/private-location)
 
 ### 2024-09-04
 
@@ -282,14 +388,6 @@ icon: "sparkles"
 ### 2024-08-06
 
 - `AI suggesting more tests`: Similar to the AI discovery at set-up, we expanded the AI discovery feature to “spawn” more test cases.
-
-<Frame caption="Have the AI agent suggest more test cases, 08/2024">
-  <img
-    src="/images/setup/setup-11-suggest-more.png"
-    alt="have AI suggest more test cases"
-  />
-</Frame>
-
 - `Open status for new test cases`: In order to mark test cases coming out of **suggest more** as new (until you've opened them for the first time), we introduced a new column **open status** .
 
 <Frame caption="Open status on new suggested tests, 08/2024">
@@ -374,7 +472,7 @@ icon: "sparkles"
 
 ### 2024-06-27
 
-- `Variable templates`: We fill more robust variable templates into the test when your test steps are auto-generated. [Learn more.](/variables)
+- `Variable templates`: We fill more robust variable templates into the test when your test steps are auto-generated. [Learn more.](/advanced/variables)
 - `Shadow DOM & iFrames`: It looks like we figured out how to handle them. Until you serve us the next 100 edge cases.
 
 ### 2024-06-24
@@ -699,7 +797,7 @@ icon: "sparkles"
 
 ### 2023-10-17
 
-- `Chain test cases` functionality for new [AI agent discoveries](/discovery) added to UI
+- `Chain test cases` functionality for new [AI agent discoveries](/get-started/generate-more-test-cases) added to UI
 - `AI Agent`: improved handling of blocking overlays
 - UI: improved UX when switching between test targets and organizations
 - UI: progress bar for running test reports in project overview
@@ -873,7 +971,3 @@ icon: "sparkles"
 - Bug fix - errored display for empty list of test reports
 - Cookie tracking removed from the app. We did't like them anyways.
 - Test database introduced - collection of test cases displayed on the app welcome page:
-
-<Frame caption="Example test cases displayed within a test database, screenshot 08/2023">
-  <img src="/images/test-database-example.png" alt="test database example" />
-</Frame>

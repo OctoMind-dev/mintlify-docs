@@ -4,7 +4,7 @@ description: Environments in octomind
 icon: "seedling"
 ---
 
-# Overview
+## Overview
 
 Environments enable you to run your tests across multiple deployments of a website, ensuring that each instance of the
 site functions as expected. With environment support, you can configure testing to match specific deployment settings
@@ -16,10 +16,16 @@ Environments provide a structured way to:
 - Customize testing settings specific to each deployment (e.g. user credentials, etc.).
 - Perform targeted tests and debugging without interfering with production data or workflows.
 
-After creating a project, Octomind Provides you with the default environment, with the url you provided during setup.
-Also it shows the username and password you provided if your page requires a login.
+After creating a project, Octomind provides you with the default environment, with the url you provided during setup.
 
-# Creating an Additional Environment
+<Frame caption="environments settings view, 03/2025">
+  <img
+    src="/images/advanced/environments-settings.png"
+    alt="environments settings view"
+  />
+</Frame>
+
+## Creating an Additional Environment
 
 To add another environment, go to the environments page
 
@@ -38,7 +44,7 @@ In the new environment setup:
 
 To clarify the difference between an `environment` and a `project` we created this [short guide](/guides/project-environments).
 
-# Configure variables
+## Configure variables
 
 Customize global variable values for each environment. By default the values from the default environment will be used.
 
@@ -49,7 +55,7 @@ Customize global variable values for each environment. By default the values fro
   />
 </Frame>
 
-# Exclude test cases from specific environments
+## Exclude test cases from specific environments
 
 To exclude a test case from an environment, open the test case and unselect it. Excluded environments won't trigger downstream test reports.
 
@@ -59,3 +65,12 @@ To exclude a test case from an environment, open the test case and unselect it. 
     alt="Example of an excluded test case, 01/2025"
   />
 </Frame>
+
+## Additional settings
+
+In the `enviroments settings` view, you can:
+
+- select a [proxy server](/proxy/proxy-settings)
+- add a custom [test ID attribute](/runtime/testid-attribute)
+- customize [timeout per step](/get-started/execute-test-cases#test-timeout)
+- add [custom headers](/runtime/custom-headers)

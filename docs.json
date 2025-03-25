@@ -8,6 +8,16 @@
     "dark": "#7D7CE2"
   },
   "favicon": "/logo/favicon.svg",
+  "api": {
+    "openapi": "/api-ref/openapi.yaml",
+    "mdx": {
+      "server": "https://app.octomind.dev/api",
+      "auth": {
+        "method": "key",
+        "name": "x-api-key"
+      }
+    }
+  },
   "navigation": {
     "tabs": [
       {
@@ -79,23 +89,34 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Guides",
+            "group": "Test creation",
             "pages": [
               "guides/test-creation-best-practices",
               "guides/long-vs-short",
-              "guides/agent-fails",
-              "guides/test-debugging-1",
-              "guides/test-debugging-2",
-              "guides/test-debugging-3",
-              "guides/test-debugging-4",
-              "guides/project-environments"
+              "guides/test-debugging-1"
             ]
+          },
+          {
+            "group": "Test generation failure",
+            "pages": [
+              "guides/agent-fails",
+              "guides/help-agent-succeed",
+              "guides/test-debugging-2"
+            ]
+          },
+          {
+            "group": "Failed test runs",
+            "pages": ["guides/test-debugging-3", "guides/test-debugging-4"]
+          },
+          {
+            "group": "Test orchestration",
+            "pages": ["guides/project-environments", "guides/long-running"]
           }
         ]
       },
       {
         "tab": "API Reference",
-        "openapi": "https://octomind.me/openapi.yaml"
+        "openapi": "https://app.octomind.dev/openapi.yaml"
       },
       {
         "tab": "Integrations",
@@ -108,7 +129,8 @@
               "integrations/quickstart-Azure",
               "integrations/quickstart-Vercel",
               "integrations/quickstart-Jenkins",
-              "integrations/quickstart-Other"
+              "integrations/quickstart-Other",
+              "integrations/test-management"
             ]
           }
         ]
