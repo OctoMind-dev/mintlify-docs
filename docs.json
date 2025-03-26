@@ -119,7 +119,7 @@
         "groups": [
           {
             "group": "Overview",
-            "pages": ["mcp/install-octo-mcp"]
+            "pages": ["mcp/install-octomind-mcp"]
           }
         ]
       },
