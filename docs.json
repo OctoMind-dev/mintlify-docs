@@ -115,6 +115,15 @@
         ]
       },
       {
+        "tab": "MCP",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["mcp/install-octomind-mcp"]
+          }
+        ]
+      },
+      {
         "tab": "API Reference",
         "openapi": "https://app.octomind.dev/openapi.yaml"
       },
