@@ -115,6 +115,15 @@
         ]
       },
       {
+        "tab": "MCP",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["mcp/install-octo-mcp"]
+          }
+        ]
+      },
+      {
         "tab": "API Reference",
         "groups": [
           {

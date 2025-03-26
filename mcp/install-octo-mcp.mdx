@@ -1,0 +1,98 @@
+---
+title: "Install the Octo MCP server"
+description: "Learn everything about the Octo Model Context Protocol (MCP) server"
+icon: "mcp"
+---
+
+## What is MCP?
+
+MCP is a communication protocol designed to facilitate interactions between AI models and external systems. It provides a
+standardized way for models to receive context, make decisions, and execute tasks efficiently. MCP enables seamless integration
+between AI agents and various environments, allowing for dynamic learning, understanding, and task execution.
+
+Antrophic launched the specification of MCP in November 2024. This is the announcement from the Antrophic blog:
+[Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol)
+
+The full documentation can be found here: [Model Context Protocol](https://modelcontextprotocol.io/introduction)
+
+## What is the Octo MCP Server?
+
+The Octo MCP Server is a lightweight component designed to communicate with our apis efficiently. It serves as a wrapper
+around our APIs, enabling any agent with MCP support to seamlessly integrate with Octomind for building, running, and maintaining
+test cases.
+
+<Info>
+When Octomind gets integrated into an AI agent like Claude Desktop or Cursor, this AI agent can make use of Octomind
+and any other MCP server which is integrated into the same agent.
+
+Think about it like this: Your agent can access JIRA and Octomind at the same time. Now you can ask your agent to analyze
+your JIRA tickets, to come up with test scenarios for these tickets and then to use Octomind to actually create automated
+test cases for these tickets. All you need to do is to type in your instructions in natural language and off you go.
+
+This is why we are so excited about the MCP protocol. It literally opens a new world of possibilities. Only the sky is the limit!
+
+</Info>
+
+## Octomind supports tools, prompts and resources
+
+### Tools
+
+In the context of MCP, tools refer to external functionalities or modules that an AI agent
+can invoke to perform specific tasks or access information beyond its core capabilities. These tools enable the agent
+to interact with external systems, databases, APIs, or even other AI models.
+
+Octomind is exposing its full API.
+
+In Cursor you can see a list of supported tools inside the mcp server box which is located in settings.
+
+<Frame caption="mcp tools in Cursor">
+  <img src="/images/mcp/mcp-server-cursor.png" alt="mcp tools in Cursor" />
+</Frame>
+
+### Prompts
+
+Prompts enable servers to define reusable prompt templates and workflows that clients can easily surface
+to users and LLMs. They provide a powerful way to standardize and share common LLM interactions.
+
+Octomind is providing sample prompts which are optimized and which can be used for common tasks.
+
+<Frame caption="share context with Claude">
+  <img
+    src="/images/mcp/share-context-with-claude.png"
+    alt="share context with Claude"
+  />
+</Frame>
+
+### Resources
+
+Resources are standardized data access points that provide AI models with structured access to external information
+sources. They act like a bridge between the AI model and various types of data repositories.
+
+Octomind is provding test reports and test cases as resources.
+
+## Client Support
+
+As of today not all clients are supporting all MCP functionality. But as the field is moving very fast broad support is expected soon.
+A current comparison of the available clients and what they support can be found here: [Example Clients](https://modelcontextprotocol.io/clients)
+
+- Integrate into [Claude Desktop](https://modelcontextprotocol.io/quickstart/user)
+
+## Installation
+
+Octomind provides the stdio version of MCP which is running locally on your machine. Please find the config file below.
+
+```json
+{
+  "mcpServers": {
+    "octomind": {
+      "command": "npx",
+      "args": ["@octomind/octomind-mcp"],
+      "env": {
+        "APIKEY": "<YOUR API KEY>"
+      }
+    }
+  }
+}
+```
+
+This config can be put into any client supporting MCP. Below you can find a more detailed description for Cursor, Windsurf and Claude Desktop.
