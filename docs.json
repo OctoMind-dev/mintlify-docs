@@ -58,7 +58,7 @@
           {
             "group": "Advanced",
             "pages": [
-              "advanced/variables",
+               "advanced/variables",
               "advanced/rate-limiting",
               "proxy/private-location",
               "proxy/proxy-settings",
