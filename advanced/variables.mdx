@@ -59,3 +59,18 @@ We use also several predefined variables that do not show up in the default list
 - `$OCTO_STABLE_UUID`: a random combination of letters and numbers that will be consistent through multiple references across a single run, but different if you run the agent again - full uuid of 36 characters
 - `$OCTO_STABLE_UUID_SHORT`: a random combination of letters and numbers that will be consistent through multiple references across a single run, but different if you run the agent again - maximum length of 8 characters.
 - `$OCTO_TOTP`: 2-Factor Authentication code if you require if for the login. Find out more about [2-FA enrollment](/advanced/2fa)
+
+## Dynamic variables:
+
+In addition to the predefined variables, we also support dynamic variables that are generated during the test execution. Dynamic variables are 
+noted as $$varname and will be replaced by their current value.
+
+Names of dynamic variables are case sensitive and must start with a letter or underscore, followed by any number of letters, digits, or underscores.
+A dynamic variable is created by an **extract step** that extracts a value from a web page using a locator and assigning it to a dynamic variable.
+
+<Frame caption="Example of extract step, 03/2025">
+  <img
+    src="/images/advanced/extract-step.png"
+    alt="Example of extract step, 03/2025"
+  />
+</Frame>
