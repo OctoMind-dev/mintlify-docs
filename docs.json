@@ -58,6 +58,7 @@
           {
             "group": "Advanced",
             "pages": [
+              "advanced/email-flows",
               "advanced/variables",
               "advanced/rate-limiting",
               "proxy/private-location",
