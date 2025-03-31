@@ -1,0 +1,62 @@
+---
+title: Email Flows
+description: "Logging in or signing up with email"
+icon: "envelope"
+---
+
+## Logging in with Email
+
+There are two ways to log in with email:
+
+1. Your authentication provider sends an email with a link to log in
+2. Your authentication provider sends an email with a one-time password
+
+In both cases, you need an email inbox that you can access. For this purpose, we've added an integrated inbox with a specific email address for your test environments.
+
+You can find your email address in the environments section of your project under the "Authentication" tab.
+
+<Frame caption="Screenshot 03/2025: Octomind environment, email address">
+  <img
+    src="/images/advanced/email-address.png"
+    alt="Email address, screenshot 03/2025"
+  />
+</Frame>
+
+This email address is also available via the `$OCTO_EMAIL` variable.
+
+To prepare for a login test, you should add this email address to the account you want to test.
+
+You can manually test the flow and check for emails by using the `view received emails` button in the Octomind app.
+
+This will open a view where you can see all the emails that were sent to the email address you added.
+
+<Frame caption="Screenshot 03/2025: Octomind view received emails">
+  <img
+    src="/images/advanced/view-received-emails.png"
+    alt="View received emails, screenshot 03/2025"
+  />
+</Frame>
+
+In your test case, you can now use a specific step to handle the email flow.
+
+<Frame caption="screenshot 03/2025: Octomind email step">
+  <img
+    src="/images/advanced/email-step.png"
+    alt="Email step, screenshot 03/2025"
+  />
+</Frame>
+
+This step will wait for the email to arrive and open it on the right side like a normal web page.
+
+You can then use additional steps in your test case to handle the email flow. Either click on the link or extract the one-time password.
+
+To extract the one-time password, you can use the "Extract" step.
+
+<Frame caption="Screenshot 03/2025: Octomind extract step">
+  <img
+    src="/images/advanced/extract-step2.png"
+    alt="Extract step, screenshot 03/2025"
+  />
+</Frame>
+
+The extracted value will be stored in a [dynamic variable](/advanced/variables#dynamic-variables) that you can use in your test case.
