@@ -69,7 +69,8 @@
               "advanced/basic-authentication",
               "advanced/upload",
               "runtime/custom-headers",
-              "runtime/testid-attribute"
+              "runtime/testid-attribute",
+              "advanced/cross-origin-iframes"
             ]
           },
           {

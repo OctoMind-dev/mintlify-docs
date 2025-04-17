@@ -1,0 +1,19 @@
+---
+title: Cross origin iframes
+description: "Disable browser cross-origin protections"
+icon: "lock"
+---
+
+<Frame caption="cross origin iframe configuration in the settings dialog">
+  <img
+    src="/images/advanced/cross_origin_iframes.png"
+    alt="cross origin iframe configuration in the settings dialog"
+  />
+</Frame>
+
+### Purpose and Functionality
+By default, octomind runs with all web security features enabled. 
+However, during AI test case creation, cross origin iframes may not be processed correctly.
+- enable cross origin iframes to facilitate iframe access for our agent
+- Use with caution: this starts the browser with `--disable-web-security`, 
+which also impacts other security features that might change the website's behavior
