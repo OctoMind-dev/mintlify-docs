@@ -1,88 +1,78 @@
 ---
-title: Handle broken tests
-description: "How to fix your broken tests easily"
+title: Inspect broken tests
+description: "Identify the cause of a broken test easily"
 icon: "traffic-cone"
 ---
 
-## Why tests fail
+No need to sift through a red wall of broken tests. Figuring out what went wrong can be a huge time investment, especially when your test suite grows.
 
-`Red` signals the test has failed. This is due to 3 reasons:
+We will help you make you identify the reason for the failure really fast.
 
-1. **You have a bug in your app**
+## We have classified the root cause of the broken test
 
-We will pinpoint you to exact moment where it broke. Swipe through the **report snapshots** or launch the **trace viewer** for more details. For an even more precise debugging, we created the open source [Debugtopus](/get-started/debugtopus) to use locally on your machine.
+Octomind analyzes the root cause of failed tests automatically. Slow page loading, potential bug, failed test dependency ... we will do the first step you indentify why the test failed.
 
-<Frame caption="Snapshots in test reports showing what happened during the test run, 7/2024">
+And we will give you the tools to investigate further.
+
+<Frame caption="Automatic identification of the root cause of broken tests, 4/2025">
   <img
-    src="/images/executing/report-snapshots.png"
-    alt="snapshots carousel in test reports"
+    src="/images/maintain/pre-classified.png"
+    alt="Automatic identification of the root cause of broken tests"
   />
 </Frame>
 
-2. **The test is broken**
+## Inspect what happened in one single place
 
-End-to-end tests tend to break when the app changes. This is not just annoying, but a major time investment.
+To save you the hassle of jumping mental context back and forth to figure out what went wrong, we have packed everything into one view.
 
-<Frame caption="Example of a broken test reflecting a change in user flow, trace viewer screenshot 7/2024">
+One place to oversee the test run timeline, root cause, agent commentary, compare test runs, check error log and more.
+
+<Frame caption="One view with all information to inspect what went wrong with a broken test, 4/2025">
   <img
-    src="/images/executing/broken-test.png"
-    alt="broken test in Playwright trace viewer"
+    src="/images/maintain/timeline-inspect-options.png"
+    alt="One view with all information to inspect what went wrong with a broken test"
   />
 </Frame>
 
-3. **The test is flaky**
+## Compare the broken test with previous successful test runs
 
-Flaky tests produce different results when running the exact same test case. We are deploying multiple strategies to fight flakiness, but it can't be prevented 100% of the time just yet.
+It's possible you have many tests to manage and you're not sure where that failed step was supposed to go. Maybe you didn't even create the test and don't have the context.
 
-## Inspect the reason of the failure
+Click on `compare runs` in the upper right corner and swipe through the last successful runs and their timeline history.
 
-From the [test report](/account-view/test-reports), go to the **debug** tab of your test result and launch the **trace viewer**.
-
-<Frame caption="Launch trace viewer for more test run details, 7/2024">
+<Frame caption="test run history to compare failed and successful test runs to investigate the test context, 4/2025">
   <img
-    src="/images/executing/see-trace-viewer.png"
-    alt="launch trace viewer"
-    width="300px"
+    src="/images/maintain/compare-runs.png"
+    alt="test run history to compare failed and successful test runs to investigate the test context"
   />
 </Frame>
 
-The **trace viewer** will highlight the exact place in the test execution where the test failed. Learn how to inspect [Playwright trace viewer](https://playwright.dev/docs/trace-viewer) step by step to identify the culprit of the broken test.
-Our open source [Debugtopus](/get-started/debugtopus) is an additional help that allows you to set breakpoints and step through the code.
+## Advanced test debugging
 
-## Correct the broken test steps
+If you need more detailed insight into the test failure you can:
 
-This applies when your app works as intended, but the test fails to run. Use our editing tools to quickly add, remove steps or adjust locators. Here is how you [edit test cases](/get-started/edit-test-case).
+- launch the **Playwright trace viewer** to investigate the playwright traces step by step
+- run the test locally with our open source [Debugtopus](/get-started/debugtopus). It is an additional help that allows you to set breakpoints and step through the code.
 
-## The Hack: How we fix our own tests
-
-Test often break in more places and fixing them one by one can become annoying. It doesn't have to.
-
-Since we dogfood our own end-to-end tests, we have discovered this easy hack:
-
-1. go to the test case
-2. check the **prompt** - if it's not matching the desired flow anymore, adjust it
-3. click `regenerate steps`
-4. select the last step you wish to keep
-5. confirm `generate steps`
-
-The **AI agent** will re-generate steps of your test and validate them. If it's alright, click `save & run`. If it needs adjustment, this is [how you edit test cases](/get-started/edit-test-case).
-
-<Tip>
-  Runs and respective snapshots and traces become outdated after a while. Start
-  another run to see an up-to-date state to tell which step broke. Refresh it by
-  hitting the `run only` button under `save & run`.
-</Tip>
-
-<div class="mt-8" />
-
-<Frame caption="'run only' to validate the test before saving it, screenshot 08/2024">
+<Frame caption="Advanced test debuggin options to open playwright trace recording and run the test locally, 4/2025">
   <img
-    src="/images/editing/save-run-only.png"
-    alt="Run only to validate the test before saving it"
-    width="300px"
+    src="/images/maintain/advanced-debugging.png"
+    alt="Advanced test debuggin options to open playwright trace recording and run the test locally"
   />
 </Frame>
 
-## Try the new AI auto-fix beta version
+## What to do next? How to I fix the test?
 
-Try our newly released [beta version for auto-maintenance](/maintain/auto-fix) and have the AI Agent attempt to fix your test.
+In the event the test is fixable. If change in the app caused it - a new build has broken the test locator for example.
+
+There are several options how to fix it:
+
+- Try our [auto-fix feature](/maintain/auto-fix) and have the AI Agent attempt to fix your test.
+- [Edit test steps](/get-started/edit-test-case.mdx) manually with our visual test editor
+
+<Frame caption="Option to fix your broken test, 4/2025">
+  <img
+    src="/images/maintain/fix-options.png"
+    alt="Options to fix your broken test"
+  />
+</Frame>
