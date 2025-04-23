@@ -38,8 +38,9 @@
             ]
           },
           {
-            "group": "Maintain Your Tests",
+            "group": "Maintain your tests",
             "pages": [
+              "maintain/why-tests-fail",
               "maintain/maintain-tests",
               "maintain/auto-fix",
               "maintain/mark-tests-as-active"
