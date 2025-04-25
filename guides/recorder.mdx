@@ -1,0 +1,29 @@
+---
+title: Recorder
+description: "How to record new tests for your project"
+icon: "tape"
+---
+
+## Tl;dr:
+
+You can use the recorder to record steps for your test case. You can either start from scratch or
+start from a prompt / existing steps unsing the "record from here" button.
+
+## How is the octomind recorder different from Playwright Codegen?
+
+The recorder is a feature that allows you to record steps for your test case. It is different from Playwright Codegen in that it is a tool
+that allows you to control what step to record. It works based on snapshots that represent the current state of the page.
+
+So for example when you choose an element to interact with, the recorder will only record the interaction and change the browsers state when
+you click the `record the next step` button. This allows correcting either the element or the interaction type. You can also
+record **assertions** to validate the state of the page.
+
+<Frame caption="Record from here, 08/2024">
+  <img src="/images/guides/record-from-here.png" alt="record from here" />
+</Frame>
+
+You can first define the element to interact with. Then you can choose the interaction type. This way you have fine control over what
+interaction to record. This is especially useful when you want to record for instance hovering or drag'n'drop.
+
+The interaction will only executed when you click the `record the next step` button. The browser will then move forward and the
+recordder presents the next snapshot after the interaction was executed.
