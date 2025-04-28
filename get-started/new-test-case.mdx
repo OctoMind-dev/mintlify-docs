@@ -118,31 +118,39 @@ This is how you do it:
 
 ## Record a test case
 
-For more manual control and for cases that the AI model struggles with, we are offering the option to enter code directly. Ideally, produce your code with Playwright Codegen.
-You can find the commands required to use Playwright Codegen directly in Octomind, ready to be copy and pasted.
+For more manual control and for cases that the AI model struggles with, we have an option to enter code directly.
 
-Once you finished your recording, just copy and paste the whole code into the code field.
+You can use the recorder to record steps for your test case. You can either start from scratch or
+start from a prompt or existing steps unsing the `record from here` button.
 
-Recorded test cases can be enhanced with an **editable prompt**. This is a necessary step in getting them ready for the auto-fix function.
+### How is the Octomind recorder different from Playwright Codegen?
 
-<Frame caption="Test case recording, screenshot 02/2024">
+The recorder is a feature that allows you to record steps for your test case. It is different from Playwright Codegen in that it is a tool
+that allows you to control what step to record. It works based on snapshots that represent the current state of the page.
+
+For example, when you choose an element to interact with, the recorder will only record the interaction and change the browsers state when
+you click the `record the next step` button. This allows correcting either the element or the interaction type. You can also
+record **assertions** to validate the state of the page.
+
+<Frame caption="`Record from here` button to launch Octomind recorder, 04/2025">
   <img
-    src="/images/Test-case-recording.png"
-    alt="Test case recording"
-    width="300px"
+    src="/images/recorder/recorder-test-detail.png"
+    alt="record from here button in the octomind app to launch Octomind recorder"
   />
 </Frame>
 
-<div class="mt-8" />
+You can first define the element to interact with. Then you can choose the interaction type. This way you have fine control over what
+interaction to record. This is especially useful when you want to record for instance hovering or drag'n'drop.
+
+The interaction will only executed when you click the `record the next step` button. The browser will then move forward and the
+recorder presents the next snapshot after the interaction was executed.
 
 <Tip>
 
 **Good to know**
 
-- Make sure to only record actions you actually want in your
-  test case.
+- Make sure to only record actions you actually want in your test case.
 - Make sure to include all steps. E.g. the test runner might be located in a different geography than you and therefore might see different presets than you.
-- We don't support all interactions, yet. Clicks, entering text and
-  visibility assertions are supported.
+- We don't support all interactions and assertions types, but we are adding new ones as we go.
 
 </Tip>
