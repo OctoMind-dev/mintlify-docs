@@ -96,7 +96,8 @@
             "pages": [
               "guides/test-creation-best-practices",
               "guides/long-vs-short",
-              "guides/test-debugging-1"
+              "guides/test-debugging-1",
+              "guides/recorder"
             ]
           },
           {
