@@ -9,7 +9,7 @@
   },
   "favicon": "/logo/favicon.svg",
   "api": {
-    "openapi": "/api-ref/openapi.yaml",
+    "openapi": "https://app.octomind.dev/openapi.yaml",
     "mdx": {
       "server": "https://app.octomind.dev/api",
       "auth": {
