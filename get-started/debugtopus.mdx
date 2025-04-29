@@ -1,10 +1,10 @@
 ---
-title: Run tests locally and debug
+title: "Run tests locally and debug"
 description: "Debugtopus will help you pinpoint the problem"
 icon: "bug"
 ---
 
-Debugtopus is our [open source tool](https://github.com/OctoMind-dev/debugtopus) enabling you to run tests locally for easier debugging. Follow the steps below to
+🐙 Debugtopus is our [open source tool](https://github.com/OctoMind-dev/debugtopus) enabling you to run tests locally for easier debugging. Follow the steps below to
 execute a test case on your machine and against your local dev environment. This is good for setting breakpoints and
 stepping through the code once our tests have identified an issue.
 
@@ -13,13 +13,13 @@ stepping through the code once our tests have identified an issue.
 Click on `run locally` to get a shell script snippet which you can use to install and start Debugtopus.
 
 <Frame caption="screenshot 02/2024">
-  <img src="/images/test-result-failure.png" alt="screenshot 02/2024" />
+  ![screenshot 02/2024](/images/test-result-failure.png)
 </Frame>
 
 Click on "copy to clipboard".
 
 <Frame caption="screenshot 02/2024">
-  <img src="/images/screenshot-run-locally.png" alt="screenshot 02/2024" />
+  ![screenshot 02/2024](/images/screenshot-run-locally.png)
 </Frame>
 
 ## 2. Start test locally
@@ -27,10 +27,7 @@ Click on "copy to clipboard".
 Open a terminal window and paste the shell script from your clipboard.
 
 <Frame caption="screenshot 02/2024">
-  <img
-    src="/images/Terminal-run-locally-npx-command-pasted.png"
-    alt="screenshot 02/2024"
-  />
+  ![screenshot 02/2024](/images/Terminal-run-locally-npx-command-pasted.png)
 </Frame>
 
 Now change the **url** with the url of your locally running application. In the example screenshot below,
@@ -39,10 +36,7 @@ For example, if your test case assumes to run from the sign-in page you have to 
 e.g. _localhost:3000/signin_.
 
 <Frame caption="screenshot 02/2024">
-  <img
-    src="/images/Terminal-run-locally-npx-command-url-adjusted.png"
-    alt="screenshot 02/2024"
-  />
+  ![screenshot 02/2024](/images/Terminal-run-locally-npx-command-url-adjusted.png)
 </Frame>
 
 ## 3. First time users
@@ -51,10 +45,7 @@ If either Playwright or Chromium are not available on your computer, the shell s
 the Debugtopus package and its dependencies on your computer. You have to confirm by entering **y**.
 
 <Frame caption="Install Debugtopus">
-  <img
-    src="/images/Debugtopus-install.png"
-    alt="Debugtopus install screenshot"
-  />
+  ![Debugtopus install screenshot](/images/Debugtopus-install.png)
 </Frame>
 
 The biggest portion of this package is Playwright. If you want to see the full package list, please check out
@@ -68,27 +59,15 @@ first run will take some time to complete.
 Click the `run` button which is displayed on the right side of the test case to run your test.
 
 <Frame caption="Run test">
-  <img src="/images/Playwright-run-testcase.png" alt="Run test screenshot" />
+  ![Run test screenshot](/images/Playwright-run-testcase.png)
 </Frame>
 
 Now the Playwright UI is shown.
 
 <Frame caption="Playwright UI screenshot">
-  <img
-    src="/images/Trace-viewer-screenshot-082023.png"
-    alt="Playwright UI screenshot"
-  />
+  ![Playwright UI screenshot](/images/Trace-viewer-screenshot-082023.png)
 </Frame>
 
 Watch this this video for more insight on how to run Octomind tests:
 
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/j5w5ylOyW28?si=8-naTzE211JAeanl"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen
-></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/j5w5ylOyW28?si=8-naTzE211JAeanl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
