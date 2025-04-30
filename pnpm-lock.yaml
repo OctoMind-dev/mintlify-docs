@@ -22,8 +22,8 @@ importers:
         specifier: ^5.2.6
         version: 5.2.6(eslint@8.57.1)(prettier@3.5.3)
       mintlify:
-        specifier: ^4.0.511
-        version: 4.0.511(@types/node@22.15.3)(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^4.0.513
+        version: 4.0.513(@types/node@22.15.3)(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
@@ -455,8 +455,8 @@ packages:
       '@types/react': '>=16'
       react: '>=16'
 
-  '@mintlify/cli@4.0.510':
-    resolution: {integrity: sha512-avNxSZehyzKhfJ0j9mVn9wC1/UKFJRRmDCf+B/tzRhNNoIfvSw9828CjkUNO3vDmDLw053HA7VM7A6bVVkMoHg==}
+  '@mintlify/cli@4.0.512':
+    resolution: {integrity: sha512-FRfDW5IcMHU3i/y67dA+x5C5gPC/CD1EJW+9OzbuJXIFpRp1JXuAwhpPIZpSN2dQ+vf5yupKuxnoiZFAruZdog==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -484,8 +484,8 @@ packages:
   '@mintlify/prebuild@1.0.470':
     resolution: {integrity: sha512-cxoqoX9cJo+MuSHGpBPnX/+kE+zJFnxqWnixxDxH2cgpgN8wJxKIhxegieVZtqMmJRzpi9oF697IZtHaL+vqSg==}
 
-  '@mintlify/previewing@4.0.501':
-    resolution: {integrity: sha512-cl2aIUx+6IDqAo23O/BdgsIN7G1+GJ1kEFH2LcyVH1gGWetZb5wGtZnbCQZbho3aDCqvT6Z7pX7yCWSo9UObSw==}
+  '@mintlify/previewing@4.0.503':
+    resolution: {integrity: sha512-awVdaL5sFcWWqb+Y9Mz4b7tJzY9wRFn08a7tpEFPzykdOM0p+ammhCHdvy8uM1+QlAt0gGz3Kr0U+j9SRzb/nw==}
     engines: {node: '>=18.0.0'}
 
   '@mintlify/scraping@4.0.217':
@@ -2429,8 +2429,8 @@ packages:
     resolution: {integrity: sha512-bAxsR8BVfj60DWXHE3u30oHzfl4G7khkSuPW+qvpd7jFRHm7dLxOjUk1EHACJ/hxLY8phGJ0YhYHZo7jil7Qdg==}
     engines: {node: '>= 8'}
 
-  mintlify@4.0.511:
-    resolution: {integrity: sha512-kInFZqchDEMSq1XNudkGNTtuTsTghRAGwMGC+uYzxWAw8SkuaYXYobBKbB6htR344wKkkyBxQgDj0tp9HRFTJw==}
+  mintlify@4.0.513:
+    resolution: {integrity: sha512-Xc3XEZTosXfC4r24vlTJHI/UFGbEguJj1aWcNxUtoWvjrj9O2TIIUxy/sq0F5MquSvbyNgrGGDeqfGC/5KdlGg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -3934,13 +3934,13 @@ snapshots:
       '@types/react': 19.0.2
       react: 18.3.1
 
-  '@mintlify/cli@4.0.510(@types/node@22.15.3)(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@mintlify/cli@4.0.512(@types/node@22.15.3)(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@mintlify/common': 1.0.362(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mintlify/link-rot': 3.0.473(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mintlify/models': 0.0.188
       '@mintlify/prebuild': 1.0.470(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mintlify/previewing': 4.0.501(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@mintlify/previewing': 4.0.503(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mintlify/validation': 0.1.355
       chalk: 5.4.1
       detect-port: 1.6.1
@@ -4089,7 +4089,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@mintlify/previewing@4.0.501(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@mintlify/previewing@4.0.503(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@mintlify/common': 1.0.362(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mintlify/prebuild': 1.0.470(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -6712,9 +6712,9 @@ snapshots:
       minipass: 3.3.6
       yallist: 4.0.0
 
-  mintlify@4.0.511(@types/node@22.15.3)(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  mintlify@4.0.513(@types/node@22.15.3)(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@mintlify/cli': 4.0.510(@types/node@22.15.3)(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@mintlify/cli': 4.0.512(@types/node@22.15.3)(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - '@types/node'
       - '@types/react'
