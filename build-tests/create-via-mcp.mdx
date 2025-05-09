@@ -1,0 +1,95 @@
+---
+title: Use your AI via MCP
+description: "Use your own AI tools connected to data sources to create Octomind tests"
+icon: "robot"
+---
+
+## Creating ready-to-run tests from your agent-powered IDE
+
+You can use your MCP suppported IDE client to have let Octomind generate test directly from your codebase. The tests will be stored and hosted in the Octomind app, ready for immediate execution and built for easy maintenance.
+
+Here is how you get started:
+
+#### Prerequisites
+
+- Your IDE installed (Cursor, Windsurf, etc.)
+- Node.js and npm installed
+- An [Octomind API key](/api-reference)
+
+#### Steps to Configure Octomind MCP
+
+1. **Open your IDE**
+
+- Launch your IDE application
+
+2. **Navigate to settings**
+
+- In the Settings panel, look for `User Settings` or `Settings (JSON)`
+- This will open the settings.json file that contains your IDE configuration
+
+3. **Add the Octomind MCP configuration**
+
+- Locate the closing curly brace at the end of the file
+- Before that closing brace, add a comma (if there are other settings) and then paste the Octomind MCP configuration:
+
+```javascript
+{
+  "mcpServers": {
+    "octomind": {
+      "command": "npx",
+      "args": ["-y", "@octomind/octomind-mcp@latest"],
+      "env": {
+        "APIKEY": "<YOUR API KEY>"
+      }
+    }
+  }
+}
+```
+
+4. **Replace the API key**
+
+- Replace your-actual-api-key-here with your actual Octomind API key
+- Make sure to keep the quotes around your API key
+
+5. **Save the file**
+6. **Restart your IDE**
+
+- Close and reopen your IDE to apply the changes
+
+7. **Verify installation**
+
+- Open a terminal in your IDE and run a simple Octomind command to verify the installation
+
+You can tell the AI agent in your IDE to create tests from the codebase or use another data source connected to it.
+
+Like Jira tickets for example. Check it out in this video:
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/71zh5vWwfb4?si=oWjYNHUu9fHKaqAQ"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+## Create tests from various data sources via MCP
+
+If you are using an **AI agent** like Claude Desktop and you have it connected to other data sources like Jira, Slack, test management tool or even your docs, you can easily create ready-to-run Octomind test by just telling the AI agent.
+
+Watch this example of how we used Claude to automate manual tests from their descriptions in TestRail test management system:
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/I7lc9I0S62Y?si=K0weVFWlBhPB7Uf3"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+Learn more about [MCP and our Octomind MCP server](/mcp/).
