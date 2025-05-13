@@ -1,0 +1,134 @@
+---
+title: Prompt AI Agent
+description: "Use natural language to prompt our AI agent to generate new tests"
+icon: "language"
+---
+
+## Prompt the Agent to generate a specific test case
+
+If you want to translate a custom user flow into a test, you can have AI generate it from your prompt. Give us a short prompt and we deploy our `AI agent` to find the interactions leading towards your desired user flow.
+
+<Frame caption="Create a new test case by prompting the AI agent, 07/2024">
+  <img
+    src="/images/build/create-test-prompting.png"
+    alt="AI agent informs about its progress"
+  />
+</Frame>
+
+While our `AI Agent` generates the steps of your test cases, it informs you about its progress.
+
+<Frame caption="AI Agent informs about the progress of test step generation, 07/2024">
+  <img
+    src="/images/build/AI-Agent-generating-steps.png"
+    alt="AI Agent informs you about the progress of test step generation"
+  />
+</Frame>
+
+If the AI agent signals a failed step with a yellow alert, click on `repair test` to help the Agent finish the generation successfully.
+
+<Frame caption="The AI agent needs help your input to finalize generation - click repair test, 05/2025">
+  <img
+    src="/images/build/repair-yellow-test.png"
+    alt="The AI agent needs your input to finalize generation - click repair test"
+  />
+</Frame>
+
+Follow the instruction of the agent to repair the test.
+
+<Frame caption="Follow the instructions of the AI agent to repair and finalize test generation, 05/2025">
+  <img
+    src="/images/build/repair-mode.png"
+    alt="Follow the instructions of the AI agent to repair and finalize test generation"
+  />
+</Frame>
+
+## Pre-prompted login test
+
+If your app has a login functionality that wasn't AI auto-generated during set-up, we have a pre-prompted login test case for you. You can trigger it after giving us test user credentials.
+
+Go to the `environments` menu item in the left project menu bar and click on the `default environment` in the list.
+
+Select the `authentication` tab and add test user credentials we can use to generate the login test.
+
+<Tip>
+This test is also created on the fly for a **new project**, if we detect a login flow and you provide us with test user credentials.
+
+</Tip>
+
+<div class="mt-8" />
+
+<Frame caption="Provide test user credentials for login test generation in environment settings, 05/2025">
+  <img
+    src="/images/build/environments-default-settings.png"
+    alt="Provide test user credentials for login test generation in environment settings"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="Add test user credentials for the login test generation in the authentication tab of the environments settings, 05/2025">
+  <img
+    src="/images/build/pre-prompted-login-test.png"
+    alt="Add test user credentials for the login test generation in the authentication tab of the environments settings"
+    width="500"
+  />
+</Frame>
+
+Or check out this video instead:
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/zUMeZ7sXdqc?si=a1nm8Pv_Hez3HNjK"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+## Chain tests for faster test runs & maintenance
+
+A user flow is virtually a chain of test cases. When using the AI agent, you can use a dependency to chain test cases together. Shorter flows are faster, more specific and more reliable.
+
+We fill in some dependencies for you at set-up of your Octomind project. These are the **cookie banner test** (in case your site has a cookie banner) and **required login test** if you need to be logged in to operate the app.
+You can keep, remove or add other dependencies if you wish.
+
+This is how you do it:
+
+- Give us a path where the AI agent should start its test case generation process, e.g. `/products/`
+- Select a test case that should run before the test AI agent starts its generation.
+
+<Frame caption="Chain tests in dependencies when you create them, 08/2024">
+  <img
+    src="/images/build/define-dependency-new-test.png"
+    alt="Chain tests in dependencies when you create them"
+    width="400px"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+## Free prompting best practices
+
+1. Keep prompts short and to the point.
+2. Mention all steps required, e.g. if you have to click away a cookie banner, mention it.
+
+   - Example without a cookie banner: `sign in using username $OCTO_USERNAME and password $OCTO_PASSWORD`
+   - Example with a cookie banner: `accept cookies then sign in using username $OCTO_USERNAME and password $OCTO_PASSWORD`
+
+3. You have access to the following template variables that we will fill for you, so just use them in the prompt as they appear here and in the example above. (You can also use these when manually editing a step).
+
+   - `$OCTO_USERNAME`: The username you configured for use with your page in the sign up flow or the settings
+   - `$OCTO_PASSWORD`: The password you configured for use with your page in the sign up flow or in the settings
+   - `$OCTO_URL`: The URL of your page
+   - `$OCTO_STABLE_UUID`: A random combination of letters and numbers that will be consistent through multiple references across a single run, but different if you run the agent again
+
+4. These are the limitations so far:
+
+   - We can only handle flows which happen inside the app and in certain cases navigate to different urls. Cross-device flows are not supported. We are able to test [email confirmation flow](/advanced/email-flows.mdx) with an Octomind provided email address.
+   - We cannot handle captchas yet, unless it's avoidable via [custom headers](/runtime/custom-headers)
+   - Our AI Agent might get [blocked by robot detection](/advanced/octomind-bot) on some high traffic sites. Sites / apps in production are more bot-protected than staging / test systems.
+   - Our Agent is blocked by a rate limiter. This is [how you mitigate rate limitation](/advanced/rate-limiting).
+   - The Agent might not support the required type of interactions & assertions yet. [Manual intervention will be necessary.](/get-started/edit-test-case.mdx)
+   - [Timing and hydration issues](/guides/agent-fails#timing-and-hydration-issues) can cause the Agent to fail, too.

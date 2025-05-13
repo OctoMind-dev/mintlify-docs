@@ -38,7 +38,15 @@
             ]
           },
           {
-            "group": "Maintain your tests",
+            "group": "Build tests",
+            "pages": [
+              "build-tests/autogenerate-tests",
+              "build-tests/prompt-agent",
+              "build-tests/create-via-mcp"
+            ]
+          },
+          {
+            "group": "Maintain tests",
             "pages": [
               "maintain/why-tests-fail",
               "maintain/maintain-tests",
