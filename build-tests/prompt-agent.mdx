@@ -126,7 +126,7 @@ This is how you do it:
 
 4. These are the limitations so far:
 
-   - We can only handle flows which happen inside the app. Cross-app or cross-device flows are not supported, but we are able to test [email confirmation flow](/advanced/email-flows.mdx) with an Octomind provided email address.
+   - We can only handle flows which happen inside the app and in certain cases navigate to different urls. Cross-device flows are not supported. We are able to test [email confirmation flow](/advanced/email-flows.mdx) with an Octomind provided email address.
    - We cannot handle captchas yet, unless it's avoidable via [custom headers](/runtime/custom-headers)
    - Our AI Agent might get [blocked by robot detection](/advanced/octomind-bot) on some high traffic sites. Sites / apps in production are more bot-protected than staging / test systems.
    - Our Agent is blocked by a rate limiter. This is [how you mitigate rate limitation](/advanced/rate-limiting).
