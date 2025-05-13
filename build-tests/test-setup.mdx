@@ -1,0 +1,68 @@
+---
+title: Test setup
+description: "A checklist to setup your test suite quickly."
+icon: "wrench"
+---
+
+Test setup is just a part of the job setting up a working test suite. We've built Octomind to make your set-up fast and as painless as possible.
+
+## Reaching your app
+
+1. **Allowing Octomind to access your application**
+
+   We need access to your application first to test it. In case you have a stringent bot protection, our Octomind bot will have to get whitelisted - it's how Octomind navigates and crawls web pages in order to generate end-to-end tests. Here are all the details explaining how [Octomind bot works](/advanced/octomind-bot).
+
+2. **Testing private apps**
+
+   We are able to test applications that are not publicly accessible thanks to our open-sourced [private location worker](/advanced/private-location). It's open-source so you can review its code before setting it up.
+
+3. **Configure exception to avoid rate limiting**
+
+   We deploy strategies not to trigger rate limiters when creating and running tests like shared auth state, but it's possible we hit it anyways. The easier solution is to [configure an exception to our IP addresses](/advanced/rate-limiting).
+
+## Location
+
+You can decide what proxy servers to use for a specific test target and a specific environment. This is [how to access from different geographies or a private location](/proxy/proxy-settings.mdx).
+
+## You can set up multiple environments
+
+You can configure testing to match specific deployment settings and validate changes across different stages. You'll find the `environments` settings in the left project menu.
+
+After creating a project, Octomind provides you with a `default environment` with the url you provided during setup. You can create [multiple environment and set them up separately](/account-view/environments).
+
+<Frame caption="Environment settings in project menu, 03/2025">
+  <img
+    src="/images/build/environments-settings.png"
+    alt="Environment settings in project menu"
+  />
+</Frame>
+
+## Variables
+
+Variables are a helpful tool to handle test data and isolate. With Octomind, you can chose from a set of [pre-defined variables, create custom ones or dynamic variables](/advanced/variables). They can be set-up in the left project menu under the `environments` and `global variables` tab in each environment.
+
+## Authentication
+
+If your application requires a user to be logged in to access most of its functionality, you'd need your tests to login. Check out how to set up [basic authentication](/advanced/basic-authentication) or [OTP](/advanced/2fa) including[email flows](/advanced/email-flows.mdx).
+
+To avoid load at test runtime we employ a shared auth state by sharing cookies between multiple test runs.
+
+## CI integration
+
+Octomind supports a variety of different [CI/CD providers](/integrations/) with native integrations and via [cURL command](/integrations/quickstart-other).
+Follow the respective step-by-steps to integrate Octomind tests into your CI pipeline.
+
+## Advanced setup
+
+We've added support for multiple advanced features based on the feedback of our users. Maybe you can use some of the following:
+
+- [testID attribute](/runtime/testid-attribute) to describe your html elements for tests
+- [cross origin iFrames](/advanced/cross-origin-iframes) - to enable accessing cross origin iframes when generating tests.
+- [custom headers](/runtime/custom-headers) e.g. to avoid captchas
+- [global step timeout](/get-started/execute-test-cases#test-timeout) - if your test steps need more time to run
+
+## Setting up test runs
+
+Octomind tests are ready-to-run after they've been generated and validated. We parallelize automatically to make the runtime faster.
+
+We run all [active tests in your test suite](/maintain/mark-tests-as-active) unless you use `tags` for [test sharding](/get-started/execute-test-cases#test-sharding) to chop your test execution into smaller chunks.
