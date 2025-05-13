@@ -16,7 +16,7 @@ Test setup is just a part of the job setting up a working test suite. We've buil
 
    We are able to test applications that are not publicly accessible thanks to our open-sourced [private location worker](/advanced/private-location). It's open-source so you can review its code before setting it up.
 
-3. **Configure exception for avoid rate limiting**
+3. **Configure exception to avoid rate limiting**
 
    We deploy strategies not to trigger rate limiters when creating and running tests like shared auth state, but it's possible we hit it anyways. The easier solution is to [configure an exception to our IP addresses](/advanced/rate-limiting).
 
