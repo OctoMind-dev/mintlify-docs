@@ -42,7 +42,10 @@
             "pages": [
               "build-tests/autogenerate-tests",
               "build-tests/prompt-agent",
-              "build-tests/create-via-mcp"
+              "build-tests/create-via-mcp",
+              "build-tests/recorder",
+              "build-tests/import-tests",
+              "build-tests/test-setup"
             ]
           },
           {

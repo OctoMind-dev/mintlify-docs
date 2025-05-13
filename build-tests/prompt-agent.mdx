@@ -89,7 +89,7 @@ Or check out this video instead:
 
 ## Chain tests for faster test runs & maintenance
 
-A user flow is virtually a chain of test cases. When using the AI agent, you can use a dependency to chain test cases together. Shorter flows are faster, more specific and more reliable.
+A user flow is a chain of shorter test cases. When using the AI agent, you can use a dependency to chain test cases together. Shorter flows are faster, more specific and more reliable.
 
 We fill in some dependencies for you at set-up of your Octomind project. These are the **cookies banner test** (in case your site has a cookie banner) and **required login test** if you need to be logged in to operate the app.
 You can keep, remove or add other dependencies if you wish.
@@ -117,12 +117,7 @@ This is how you do it:
    - Example without a cookie banner: `sign in using username $OCTO_USERNAME and password $OCTO_PASSWORD`
    - Example with a cookie banner: `accept cookies then sign in using username $OCTO_USERNAME and password $OCTO_PASSWORD`
 
-3. You have access to the following template variables that we will fill for you, so just use them in the prompt as they appear here and in the example above. (You can also use these when manually editing a step).
-
-   - `$OCTO_USERNAME`: The username you configured for use with your page in the sign up flow or the settings
-   - `$OCTO_PASSWORD`: The password you configured for use with your page in the sign up flow or in the settings
-   - `$OCTO_URL`: The URL of your page
-   - `$OCTO_STABLE_UUID`: A random combination of letters and numbers that will be consistent through multiple references across a single run, but different if you run the agent again
+3. You have access to [pre-defined variables](/advanced/variables) that we will fill for you, so just use them in the prompt as they appear here and in the example above. You can also use these when manually editing a step.
 
 4. These are the limitations so far:
 
