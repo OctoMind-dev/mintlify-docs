@@ -45,7 +45,7 @@ Variables are a helpful tool to handle test data and isolate. With Octomind, you
 
 If your application requires a user to be logged in to access most of its functionality, you'd need your tests to login. Check out how to set up [basic authentication](/advanced/basic-authentication) or [OTP](/advanced/2fa) including[email flows](/advanced/email-flows.mdx).
 
-To avoid load at test runtime we deploy shared auth state.
+To avoid load at test runtime we employ a shared auth state by sharing cookies between multiple test runs.
 
 ## CI integration
 
