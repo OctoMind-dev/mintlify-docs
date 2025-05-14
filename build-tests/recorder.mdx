@@ -4,9 +4,9 @@ description: "A brand new test Recorder that collaborates with the AI Agent or w
 icon: "record-vinyl"
 ---
 
-We have created a new Recorder to create test case in collaboration with the AI Agent or independently. Instead of just generating locator to copy into code (Playwright Codegen) it interacts with Octomind advanced features (e.g. variables) right from the recording window and finishes up your tests.
+We have created a new Recorder to create test case in collaboration with the AI Agent or independently. Instead of just generating locators to copy into code (e.g. like Playwright codegen) it interacts with Octomind's advanced features (e.g. variables) right from the recording window and finishes up your tests.
 
-## How to use Recorder
+## How to use the Recorder
 
 1. Launch the Recorder (see options in the use cases below). A red-framed window opens.
 2. Use your mouse to select the element you want to interact with in the displayed snapshot.
@@ -20,10 +20,10 @@ We have created a new Recorder to create test case in collaboration with the AI 
 
 3. Pick the desired interaction or assertion type.
 
-<Frame caption="Select the interaction or assertion type in Recorder, 05/2025">
+<Frame caption="Select the interaction or assertion type in the Recorder, 05/2025">
   <img
     src="/images/build/recorder-2-select-type.png"
-    alt="Select the interaction or assertion type in Recorder"
+    alt="Select the interaction or assertion type in the Recorder"
     width="400"
   />
 </Frame>
@@ -34,12 +34,12 @@ In the lower right corner of the window you have access to options opening views
 
 - advanced setting displaying the locator code
 - recorded steps summary
-- their representation added to the prompt of the test case
+- the prompt of the test case
 
 <Frame caption="Advanced view showing more details of the recording, 05/2025">
   <img
     src="/images/build/recorder-3-options.gif"
-    alt="Select the interaction or assertion type in Recorder"
+    alt="Advanced view showing more details of the recording"
     width="400"
   />
 </Frame>
@@ -59,11 +59,11 @@ The modals can be dragged by the six-dot icon and moved for better visibility.
 
 Where can you use the Recorder?
 
-You can flexibly hand over between the Recorder and Agent during the **test generation process**, in the **editing** and the **repair mode** to help you re-record failed steps. You can record a **new test case from scratch**.
+You can flexibly hand over between the Recorder and Agent during the **test generation process**, in the **editing** and the **repair mode** to help you re-record failed steps. You can also record a **new test case from scratch**.
 
 ### 1. Take over from the Agent during test generation
 
-When the Agent generates a test case it might take a path you dont want it to . You can stop it and take over from it . It open the Recorder at the spot the Agent left off and you can proceed recording next steps the test case.
+When the Agent generates a test case it might take a path you don't want it to. You can stop it and take over from it. It opens the Recorder at the spot the Agent left off and you can proceed recording the next steps of the test case.
 
 <Frame caption="Taking over test generation from the Agent to record further, 05/2025">
   <img
@@ -72,12 +72,12 @@ When the Agent generates a test case it might take a path you dont want it to . 
   />
 </Frame>
 
-You can also hand over from the Recorder back to the Agent when you've on right path. Click `finish recording` and `continue with the agent` in the modal that popped up.
+You can also hand over from the Recorder back to the Agent when you're back on the right path. Click `finish recording` and `continue with the agent` in the modal that pops up.
 
-<Frame caption="Handing over test generation back the Agent from the Recorder, 05/2025">
+<Frame caption="Handing over test generation back to the Agent from the Recorder, 05/2025">
   <img
     src="/images/build/recorder-hand-back.png"
-    alt="Handing over test generation back the Agent from the Recorder"
+    alt="Handing over test generation back to the Agent from the Recorder"
   />
 </Frame>
 
@@ -87,21 +87,21 @@ In the repair mode, you can use the use the Recorder to re-record the right step
 
 In the repair mode, navigate to the step where you want to start with the recording and hit the `record steps from here` button.
 
-<Frame caption="Using recorder to repair a test case that stopp generating, 05/2025">
+<Frame caption="Using the Recorder to repair a test case that stop generating, 05/2025">
   <img
     src="/images/build/recorder-repair.png"
-    alt="Using recorder to repair a test case that stopp generating"
+    alt="Using the Recorder to repair a test case that stopped generating"
   />
 </Frame>
 
 ### 3. Record next steps in manual editor mode
 
-You can access the Recorder from within the test case detail in the `steps` tab. Again, navigate to the step where you want to start recording and click the `record from here` button.
+You can access the Recorder from within the test case details in the `steps` tab.
 
-<Frame caption="Using recorder to edit a test case manually, 05/2025">
+<Frame caption="Using the Recorder to edit a test case manually, 05/2025">
   <img
     src="/images/build/recorder-editor.png"
-    alt="Using recorder to edit a test case manually"
+    alt="Using the Recorder to edit a test case manually"
   />
 </Frame>
 
@@ -119,7 +119,7 @@ If the Recorder button is disabled, the likely reason is that you have some unsa
 
 If recording is your preferred way of creating test cases, you can even record a test case from scratch. Click `generate a test case` anywhere in the app - a `new test case` window opens.
 
-Hit `record` button and record your test by navigating a selecting steps in the displayed screenshots.
+Hit the `record` button and record your test by navigating and selecting steps in the displayed screenshots.
 
 <Frame caption="Record a new test case from scratch - button in test case window, 05/2025">
   <img
