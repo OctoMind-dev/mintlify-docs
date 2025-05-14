@@ -1,6 +1,6 @@
 ---
-title: Run tests locally and debug
-description: "Debugtopus will help you pinpoint the problem"
+title: Run tests locally
+description: "Debugtopus will help to run your test locally and debug"
 icon: "bug"
 ---
 
@@ -12,24 +12,30 @@ stepping through the code once our tests have identified an issue.
 
 Click on `run locally` to get a shell script snippet which you can use to install and start Debugtopus.
 
-<Frame caption="screenshot 02/2024">
-  <img src="/images/test-result-failure.png" alt="screenshot 02/2024" />
+<Frame caption="Run locally button in advanced debugging tools in test result detail, 05/2025">
+  <img
+    src="/images/run/run-locally-from-failed.png"
+    alt="Run locally button in advanced debugging tools in test result detail"
+  />
 </Frame>
 
-Click on "copy to clipboard".
+Click on `copy to clipboard`.
 
-<Frame caption="screenshot 02/2024">
-  <img src="/images/screenshot-run-locally.png" alt="screenshot 02/2024" />
+<Frame caption="Debugtopus shell script, 05/2025">
+  <img
+    src="/images/run/copy-to-run-locally.png"
+    alt="Debugtopus shell script"
+  />
 </Frame>
 
 ## 2. Start test locally
 
 Open a terminal window and paste the shell script from your clipboard.
 
-<Frame caption="screenshot 02/2024">
+<Frame caption="Pasting debugtopus shell script to terminal, 02/2024">
   <img
-    src="/images/Terminal-run-locally-npx-command-pasted.png"
-    alt="screenshot 02/2024"
+    src="/images/run/Terminal-run-locally-npx-command-pasted.png"
+    alt="Pasting debugtopus shell script to terminal, 02/2024"
   />
 </Frame>
 
@@ -38,22 +44,22 @@ the placeholder was replaced with _localhost:3000_. You might also have to inclu
 For example, if your test case assumes to run from the sign-in page you have to add the route to the sign-in page
 e.g. _localhost:3000/signin_.
 
-<Frame caption="screenshot 02/2024">
+<Frame caption="Change the url placeholder with your locally running application, 02/2024">
   <img
-    src="/images/Terminal-run-locally-npx-command-url-adjusted.png"
-    alt="screenshot 02/2024"
+    src="/images/run/Terminal-run-locally-npx-command-url-adjusted.png"
+    alt="hange the url placeholder with your locally running application"
   />
 </Frame>
 
-## 3. First time users
+## 3. First time users - install Debugtopus package
 
 If either Playwright or Chromium are not available on your computer, the shell script command will install
 the Debugtopus package and its dependencies on your computer. You have to confirm by entering **y**.
 
-<Frame caption="Install Debugtopus">
+<Frame caption="Install Debugtopus, 02/2024">
   <img
-    src="/images/Debugtopus-install.png"
-    alt="Debugtopus install screenshot"
+    src="/images/run/Debugtopus-install.png"
+    alt="Install Debugtopus script"
   />
 </Frame>
 
@@ -63,19 +69,22 @@ the [Debugtopus Github repository](https://github.com/OctoMind-dev/debugtopus).
 If you do not have Chromium installed, debugtopus will run **npx playwright install chromium** for you and the
 first run will take some time to complete.
 
-## 4. Run test locally
+## 4. Run test locally in the Playwright UI
 
 Click the `run` button which is displayed on the right side of the test case to run your test.
 
-<Frame caption="Run test">
-  <img src="/images/Playwright-run-testcase.png" alt="Run test screenshot" />
+<Frame caption="Run test button in Playwright UI, 02/2024">
+  <img
+    src="/images/run/Playwright-run-testcase.png"
+    alt="Run test button in Playwright UI"
+  />
 </Frame>
 
 Now the Playwright UI is shown.
 
-<Frame caption="Playwright UI screenshot">
+<Frame caption="Playwright UI screenshot, 02/2024 ">
   <img
-    src="/images/Trace-viewer-screenshot-082023.png"
+    src="/images/run/Trace-viewer-screenshot.png"
     alt="Playwright UI screenshot"
   />
 </Frame>

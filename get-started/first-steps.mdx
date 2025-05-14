@@ -1,18 +1,27 @@
 ---
-title: First steps
+title: Create first tests
 description: "Generate your first tests and run them. Find bugs in your app before your users do."
 icon: "lightbulb"
 ---
 
-## 1. Give us a URL
+## Sign up to Octomind in under 2 minutes
 
-We'll ask for a URL to generate test cases. The URL has to be publicly accessible. We can test both in staging and in production, as long as we can access the site.
+### 1. Give us a URL
+
+We'll ask for a URL of the application you want to test. The URL has to be publicly accessible. We can test both in staging and in production, as long as we can access the site.
+
+<info>
+  We can also test private apps, but we can't use it in our sign-up process. To
+  create an account, give us a publicly available URL first. Once in the app,
+  you'll be able create a new project for the private app via [private location
+  worker](/proxy/private-location.mdx).
+</info>
 
 <Frame caption="First page of the setup flow - link to your website, screenshot 10/2024">
   <img src="/images/setup/setup-1-url.png" alt="enter your url screen" />
 </Frame>
 
-## 2. Name your project
+### 2. Name your project
 
 The second page will render a screenshot of the url you provided. We check if it is accessible. You can name your project now. We'll propose one similar to the url you provided.
 But you can choose your own.
@@ -26,7 +35,7 @@ But you can choose your own.
 
 <div class="mt-8" />
 
-## 3. Sign up
+### 3. Sign up
 
 Now we need to sign you up. Please, give us your email, so we can get in touch.
 
@@ -39,7 +48,7 @@ Now we need to sign you up. Please, give us your email, so we can get in touch.
 
 You should receive a confirmation email that contains a link for you confirm your email and set your password.
 
-## 4. Open the Octomind app for the first time
+### 4. Open the Octomind app for the first time
 
 After being redirected back to [app.octomind.dev](https://app.octomind.dev/), you will land on your **project overview** page.
 
@@ -66,7 +75,7 @@ These credentials are only usable for username/password logins not for social lo
   />
 </Frame>
 
-## 5. We are auto-generating test cases for you
+### 5. We are auto-generating test cases for you
 
 Here comes the really cool part. Once we finished searching for a potential log-in and cookie banner test, we start generating 3 test cases for you automatically. You can follow the generation progress in the stack:
 
@@ -79,7 +88,7 @@ Here comes the really cool part. Once we finished searching for a potential log-
 
 It's possible that the Agent fails to generate a test ([here are some reasons why](/guides/agent-fails)) or needs help with something - the test is highlighed in **yellow**. This is a [step by step guide on how you'll help the Agent by nudging it in the right direction](/guides/help-agent-succeed).
 
-## 6. Run your test suite to check your app for bugs
+## Run tests to check your app for bugs
 
 We will [execute your generated test cases](/get-started/execute-test-cases) and create several test reports containing your test results. These will ensure that they successfully pass when executed on your site.
 
@@ -90,16 +99,16 @@ We will [execute your generated test cases](/get-started/execute-test-cases) and
   />
 </Frame>
 
-## 7. Evaluate your test results
+## Evaluate your test results
 
 Inside each test report, you can find the test results for the executed test cases:
 
 - a green test result indicates a successful test run, meaning that your site passed the test described in the test case
-- a red test result indicates a test failure, meaning we could not successfully run the test case steps. The reason might be 1. a bug in your app or 2. a broken test.
+- a red test result indicates a test failure, meaning we could not successfully run the test case steps. These are the [possible reasons for failed test](/maintain/why-tests-fail).
 
-Click on it to see in which step is broken and diagnose the [reason for the failure](/maintain/maintain-tests).
+Click on it to see in which step is broken and [diagnose the reason for the failure](/maintain/maintain-tests). If it's fixable, you can [debug it](/maintain/maintain-tests#what-to-do-next%3F-how-to-i-fix-the-test%3F).
 
-Find out more about [test reports](/account-view/test-reports) and [how to debug your red tests](/guides/test-debugging-4)
+Find out more about [test reports](/account-view/test-reports).
 
 <Frame caption="First test report - screenshot 07/2024">
   <img
@@ -108,7 +117,7 @@ Find out more about [test reports](/account-view/test-reports) and [how to debug
   />
 </Frame>
 
-## 8. Go to test cases to generate more tests
+## Go to test cases to generate more tests
 
 You can grow your test suite by adding more test cases. For this you can jump straight into the test case view by using the `go to test cases` button in the test report.
 

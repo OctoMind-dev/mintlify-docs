@@ -1,16 +1,27 @@
 ---
 title: Edit a test case
-description: "Add, remove, copy-paste and edit test steps. Pick locators from snapshots."
+description: "Use manual editing, the Recorder or the Agent to edit test steps"
 icon: "pen-to-square"
 ---
 
-## Edit steps
+There are many ways how you can fix, update or enhance an existing a test case in Octomind.
 
-There are many ways how you can fix, update or enhance an existing test case by editing its steps.
+## Edit test steps manually
+
+Manual editing is accessible via `steps` tab in the **test detail view**.
+
+<Frame caption="Edit test steps in the 'steps' tab, 5/2025">
+  <img
+    src="/images/get-started/steps-tab.png"
+    alt="Edit test steps in the 'steps' tab"
+  />
+</Frame>
 
 ### Change locator
 
-Did the AI agent address the wrong locator? Did you change a flow in the app and you have to point to a different element?
+Locator indicates the element in your app you want to interact with in a particular test step. When should you change it?
+
+Maybe the AI Agent addressed the wrong locator when generating the test. Or the flow in the app changed and you have to point the test step to a different element.
 
 - Go to the snapshot of the relevant test step
 - Hover over the **visual locator picker**
@@ -19,34 +30,38 @@ Did the AI agent address the wrong locator? Did you change a flow in the app and
 
 <Frame caption="Changing locators with the visual locator picker, 7/2024">
   <img
-    src="/images/editing/change-locator.gif"
+    src="/images/get-started/change-locator.gif"
     alt="changing locators with visual locator picker"
   />
 </Frame>
 
 ### Change interaction or assertion type
 
-Use the **visual locator picker** to change the type of the locator. Your options are:
+Use the **visual locator picker** to change the type of the locator. Your options are currently:
 
-- `interactions` - enter text, press key, select option, click, hover, upload, drag
+- `interactions` - enter text, type multiple character, execute javascript, navigate to, press key, select option, click, hover, upload, drag, extract, open email in new page, close page, wait for
 - `assertions` - visible, hidden, disabled, have value, checked, unchecked, contains text, has style
 
-<Frame caption="Changing locators types with the visual locator picker, 1/2025">
+These are all available for manual editing and in the [Recorder](/build-tests/recorder). A more [limited selection](/more-info/faq#13-what-types-of-interactions-and-assertions-can-the-agent-handle%3F) can be used by our AI Agent.
+
+We are constantly adding new interaction and assertion types.
+
+<Frame caption="Changing interaction and assertion types in the visual locator picker dropdown, 05/2025">
   <img
-    src="/images/editing/change-locator-type.png"
-    alt="changing locators types with visual locator picker"
+    src="/images/get-started/types-selection.png"
+    alt="Changing interaction and assertion types in the visual locator picker dropdown"
   />
 </Frame>
 
 ### Add and remove steps
 
-Click on `add step` and drag the `new step` to its respective place in the step sequence. The snapshot will adapt so you can use the **visual locator picker** to select the interaction or assertion type.
+Click on `add step` and drag the `new step` to its respective place in the step sequence. The **snapshot** on the right will adapt so you can use the **visual locator picker** to select the locator.
 
 Delete steps by clicking on the `trash` icon in the upper right corner of the test step view or by pressing backspace(`⌫`) or the delete key(`DEL`).
 
 <Frame caption="Adding a step with the visual locator picker, 7/2024">
   <img
-    src="/images/editing/add-steps.gif"
+    src="/images/get-started/add-steps.gif"
     alt="adding a step with the visual locator picker"
   />
 </Frame>
@@ -55,7 +70,7 @@ Delete steps by clicking on the `trash` icon in the upper right corner of the te
 
 <Frame caption="Drag & drop a new step, delete a step, 7/2024">
   <img
-    src="/images/editing/drag-n-drop.gif"
+    src="/images/get-started/drag-n-drop.gif"
     alt="drag and drop a test step and delete it"
   />
 </Frame>
@@ -65,10 +80,24 @@ Delete steps by clicking on the `trash` icon in the upper right corner of the te
 Octomind test steps can be flexibly manipulated. You can **drag and drop** steps to different places in the sequence, duplicate them by clicking on the `duplicate` icon in the upper right corner or simply `select` a step and **copy & paste** it where you need it. `Ctrl+C` and `Ctrl+V` (or `Cmd-C` / `Cmd-V` for Mac) works also for copy pasting steps from other test cases.
 
 <Frame caption="Duplicate a step, delete a step, 7/2024">
-  <img src="/images/editing/duplicate-step.png" alt="duplicating test steps" />
+  <img
+    src="/images/get-started/duplicate-step.png"
+    alt="duplicating test steps"
+  />
 </Frame>
 
-## Edit prompt and restart AI auto-generation
+## Record new steps
+
+You can access the `Recorder` from within the test case detail. Navigate to the step where you want to start recording and click the `record from here` button.
+
+<Frame caption="Using recorder to edit a test case manually, 05/2025">
+  <img
+    src="/images/build/recorder-editor.png"
+    alt="Using recorder to edit a test case manually"
+  />
+</Frame>
+
+## Edit prompt and restart AI generation
 
 You can edit the prompt and have the AI agent `regenerate` test steps based on the new prompt. We will ask you to select **the last step** in the sequence you want to keep. The AI agent will regenerate test steps from this step onward.
 
@@ -76,7 +105,7 @@ Or you have simply hit the `regenerate` button to regenerate the steps based on 
 
 <Frame caption="Edit prompt and restart AI auto-generation, 7/2024">
   <img
-    src="/images/editing/regenerate.gif"
+    src="/images/get-started/regenerate.gif"
     alt="edit the prompt regenerate the test steps"
   />
 </Frame>
@@ -87,7 +116,7 @@ Click on the `refresh` icon next to the existing **test dependency** and select 
 
 <Frame caption="Editing dependencies in a test case, 7/2024">
   <img
-    src="/images/editing/edit-dependency.png"
+    src="/images/get-started/edit-dependency.png"
     alt="editing dependencie in a test case"
   />
 </Frame>
@@ -96,14 +125,14 @@ Click on the `refresh` icon next to the existing **test dependency** and select 
 
 <Frame caption="Choose a different dependency, 7/2024">
   <img
-    src="/images/editing/edit-dependency-2.png"
+    src="/images/get-started/edit-dependency-2.png"
     alt="editing dependencie in a test case"
   />
 </Frame>
 
 ## Save and run edits
 
-`Save & run` your test case to see if it works. You can click on the `run only` button if you want to validate the test first before saving it.
+`Save & run` your test case to see if it works. You can click on the `run only` button if you want to validate the test first before saving it or `save only` if you want to keep the changes without validating them.
 
 By the way, we will warn you if you try to leave without saving the test case.
 
@@ -112,20 +141,19 @@ By the way, we will warn you if you try to leave without saving the test case.
   active tests will run it in your next **test report**.
 </Tip>
 
-<Frame caption="'save & run' the test to validate and save changes, screenshot 08/2024">
+<Frame caption="'save & run' the test to validate and save changes, screenshot 05/2025">
   <img
-    src="/images/editing/save-run.png"
+    src="/images/get-started/save-run.png"
     alt="Save and run the test case"
-    width="300px"
   />
 </Frame>
 
 <div class="mt-8" />
 
-<Frame caption="'run only' to validate the test before saving it, screenshot 08/2024">
+<Frame caption="'run only' and 'save only' options when editing, 05/2025">
   <img
-    src="/images/editing/save-run-only.png"
-    alt="Run only to validate the test before saving it"
+    src="/images/get-started/save-run-only.png"
+    alt="'run only' and 'save only' options when editing"
     width="300px"
   />
 </Frame>
