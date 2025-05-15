@@ -26,15 +26,9 @@
           {
             "group": "Get started",
             "pages": [
-              "get-started/first-steps",
-              "get-started/generate-more-test-cases",
-              "get-started/new-test-case",
-              "get-started/edit-test-case",
-              "get-started/execute-test-cases",
-              "get-started/scheduled-execution",
-              "get-started/execution-without-ci",
-              "get-started/debugtopus",
-              "get-started/manage-tests"
+              "get-started/create-first-tests",
+              "get-started/edit-tests",
+              "get-started/execute-tests"
             ]
           },
           {
@@ -49,22 +43,34 @@
             ]
           },
           {
-            "group": "Maintain tests",
+            "group": "Run tests",
             "pages": [
-              "maintain/why-tests-fail",
-              "maintain/maintain-tests",
-              "maintain/auto-fix",
-              "maintain/mark-tests-as-active"
+              "run-tests/execution-scheduled",
+              "run-tests/execution-curl",
+              "run-tests/execution-local"
             ]
           },
           {
-            "group": "Account & views",
+            "group": "Maintain tests",
             "pages": [
-              "account-view/account",
-              "account-view/projects",
-              "account-view/environments",
-              "account-view/test-cases",
-              "account-view/test-reports"
+              "maintain-tests/why-tests-fail",
+              "maintain-tests/inspect-broken-tests",
+              "maintain-tests/auto-fix"
+            ]
+          },
+          {
+            "group": "Manage tests",
+            "pages": [
+              "manage-tests/test-cases",
+              "manage-tests/test-reports",
+              "manage-tests/environments"
+            ]
+          },
+          {
+            "group": "Account",
+            "pages": [
+              "account/account-settings",
+              "account/projects"
             ]
           },
           {

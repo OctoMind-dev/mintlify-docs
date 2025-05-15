@@ -19,7 +19,7 @@ To check if there are any bugs in your new build or in production preventing you
 
 ### 1. Trigger a test run
 
-To run all active tests instantly click `run all active` and then `in app`. This will trigger a test run resulting in a [test report](/account-view/test-reports) visible in the Octomind app. We run the tests in parallel to make sure they run completes under 20 minutes, regardless of the number of your active test cases.
+To run all active tests instantly click `run all active` and then `in app`. This will trigger a test run resulting in a [test report](/manage-tests/test-reports) visible in the Octomind app. We run the tests in parallel to make sure they run completes under 20 minutes, regardless of the number of your active test cases.
 
 Useful for **branch deployments** - you can run your tests against any other accessible URL. Select `in app on a different URL` instead.
 
@@ -44,7 +44,7 @@ Useful for **branch deployments** - you can run your tests against any other acc
 
 Every test run will produce a **test report** where you will see all test results. They will tell you if everything runs as it's supposed to or if something is broken.
 
-Go to the [test report](/account-view/test-reports) section to learn about test reports.
+Go to the [test report](/manage-tests/test-reports) section to learn about test reports.
 
 ### 3. Why is a test red?
 
@@ -54,11 +54,11 @@ Red signals the test has failed. This might have 3 reasons:
 2. The test is broken.
 3. The test is flaky.
 
-Learn more about [why tests fail](/maintain/why-tests-fail), how to [easily diagnose the cause of a failed test](/maintain/maintain-tests) and how to [fix a broken test](/maintain/maintain-tests#what-to-do-next%3F-how-to-i-fix-the-test%3F).
+Learn more about [why tests fail](/maintain-tests/why-tests-fail), how to [easily diagnose the cause of a failed test](/maintain-tests/inspect-broken-tests) and how to [fix a broken test](/maintain-tests/inspect-broken-tests#what-to-do-next%3F-how-to-i-fix-the-test%3F).
 
 ## Schedule regular test runs
 
-The point of software testing is to test regularly. You can [schedule tests](/get-started/scheduled-execution) by clicking the `schedule` button in the `project overview`.
+The point of software testing is to test regularly. You can [schedule tests](/run-tests/execution-scheduled) by clicking the `schedule` button in the `project overview`.
 This is a great strategy for synthetic monitoring of your app in production.
 
 <Frame caption="Scheduling test runs 7/2024">
@@ -67,7 +67,7 @@ This is a great strategy for synthetic monitoring of your app in production.
 
 ### Test timeout
 
-You can use the `global step timeout` in the [environment settings](/account-view/environments) to shorten the timeout between steps if you want to run the tests faster. Our default is 30 seconds. This option should be enjoyed with caution - it can lead to more frequent failures due to timing issues.
+You can use the `global step timeout` in the [environment settings](/manage-tests/environments) to shorten the timeout between steps if you want to run the tests faster. Our default is 30 seconds. This option should be enjoyed with caution - it can lead to more frequent failures due to timing issues.
 
 <Frame caption="global settings timeout in environment settings, 03/2025">
   <img
@@ -79,7 +79,7 @@ You can use the `global step timeout` in the [environment settings](/account-vie
 
 ## Trigger test runs via curl command
 
-If you do not use pipelines and want to manually trigger the test execution from outside our app, e.g. from your terminal, you can do it with a cURL command. [Learn how.](/get-started/execution-without-ci)
+If you do not use pipelines and want to manually trigger the test execution from outside our app, e.g. from your terminal, you can do it with a cURL command. [Learn how.](/run-tests/execution-curl)
 
 ## Trigger test runs from your CI
 
@@ -87,7 +87,7 @@ Integrating our tests to your CI pipeline is a great way to make sure you didn't
 
 ### Test sharding
 
-Use [tags](/get-started/manage-tests#tags) to filter and shard test execution. Organize your test suite and split test runs into smaller chunks which can all run in parallel!
+Use [tags](/manage-tests/test-cases#use-tags) to filter and shard test execution. Organize your test suite and split test runs into smaller chunks which can all run in parallel!
 
 <Frame caption="test sharding with tags, screenshot 03/2025">
   <img
@@ -98,4 +98,4 @@ Use [tags](/get-started/manage-tests#tags) to filter and shard test execution. O
 
 ## Run your tests locally
 
-Octomind tests are written in standard Playwright code. You can download it an run the test locally. This is how you use our open source [Debugtopus](/get-started/debugtopus) to do so.
+Octomind tests are written in standard Playwright code. You can download it an run the test locally. This is how you use our open source [Debugtopus](/run-tests/execution-local) to do so.

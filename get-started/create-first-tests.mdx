@@ -1,7 +1,7 @@
 ---
 title: Create first tests
 description: "Generate your first tests and run them. Find bugs in your app before your users do."
-icon: "lightbulb"
+icon: "flag-checkered"
 ---
 
 ## Sign up to Octomind in under 2 minutes
@@ -90,7 +90,7 @@ It's possible that the Agent fails to generate a test ([here are some reasons wh
 
 ## Run tests to check your app for bugs
 
-We will [execute your generated test cases](/get-started/execute-test-cases) and create several test reports containing your test results. These will ensure that they successfully pass when executed on your site.
+We will [execute your generated test cases](/get-started/execute-tests) and create several test reports containing your test results. These will ensure that they successfully pass when executed on your site.
 
 <Frame caption="Automatically executed test reports - screenshot 10/2024">
   <img
@@ -104,16 +104,16 @@ We will [execute your generated test cases](/get-started/execute-test-cases) and
 Inside each test report, you can find the test results for the executed test cases:
 
 - a green test result indicates a successful test run, meaning that your site passed the test described in the test case
-- a red test result indicates a test failure, meaning we could not successfully run the test case steps. These are the [possible reasons for failed test](/maintain/why-tests-fail).
+- a red test result indicates a test failure, meaning we could not successfully run the test case steps. These are the [possible reasons for failed test](/maintain-tests/why-tests-fail).
 
-Click on it to see in which step is broken and [diagnose the reason for the failure](/maintain/maintain-tests). If it's fixable, you can [debug it](/maintain/maintain-tests#what-to-do-next%3F-how-to-i-fix-the-test%3F).
+Click on it to see in which step is broken and [diagnose the reason for the failure](/maintain-tests/inspect-broken-tests). If it's fixable, you can [debug it](/maintain-tests/inspect-broken-tests#what-to-do-next%3F-how-to-i-fix-the-test%3F).
 
-Find out more about [test reports](/account-view/test-reports).
+Find out more about [test reports](/manage-tests/test-reports).
 
-<Frame caption="First test report - screenshot 07/2024">
+<Frame caption="Example of a Octomind test report, 05/2025">
   <img
-    src="/images/setup/setup-10-test-report.png"
-    alt="First first test report - screenshot 07/2024"
+    src="/images/manage/test-report.png"
+    alt="Example of a Octomind test report"
   />
 </Frame>
 
@@ -141,6 +141,6 @@ Functioning tests are turned `on` which means they will run once you trigger a *
 
 ## Next steps
 
-Use auto-generation to [generate more test cases](/get-started/generate-more-test-cases) based off existing ones or prompt our AI agent [to create new ones](/get-started/new-test-case).
+Use AI autogeneration to [generate more test cases](/build-tests/autogenerate-tests) based off existing ones or prompt our AI agent [to create new ones](/build-tests/prompt-agent).
 
-If you are happy with the test cases we generated for you, you can [set up scheduling](/get-started/scheduled-execution) to periodically run your tests and ensure your site doesn't break.
+If you are happy with the test cases we generated for you, you can [set up scheduling](/run-tests/execution-scheduled) to periodically run your tests and ensure your site doesn't break.
