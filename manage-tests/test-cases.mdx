@@ -1,0 +1,101 @@
+---
+title: "Test cases"
+description: "This is where all your tests live"
+icon: "database"
+---
+
+A **test case** is a set of steps that mimic a user flow. You can find an overview of all your test cases in the `test case` section of the `project overview` page or in the `test cases` page accessible from the left sidebar.
+
+It is the place where you can add, edit or delete test cases. From here, you can also grow your test suite by [having our AI agent generate new tests](/build-tests/autogenerate-tests) based on specific test cases.
+
+Tests are displayed in `dependency view` mode as default. It shows the test case hierarchy - how tests are chained together and which tests will run after which when executed.
+
+<Frame caption="'test cases' section in 'project overview', 08/2024">
+  <img
+    src="/images/manage/test-cases-section.png"
+    alt="test cases section in project overview"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="test cases page in project menu, 05/2025">
+  <img
+    src="/images/manage/test-cases-project-menu.png"
+    alt="test cases page in project menu"
+  />
+</Frame>
+
+## Views
+
+You have 2 options to view your test cases. In the `dependencies` view, you can see the test cases as they chain together in execution sequences:
+
+<Frame caption="'test cases' page - dependency view, 12/2024">
+  <img
+    src="/images/manage/test-cases-page.png"
+    alt="test cases page view in dependency view"
+  />
+</Frame>
+
+Or you can use the customizable `folders` view. If you don't like the dependency tree view and prefer your own arrangement, you can use the folder view now. Create new folders and move your test cases into them to organize your list as you wish.
+
+<Frame caption="creating a folder in 'folders' view, 02/2025">
+  <img
+    src="/images/manage/folders-view.png"
+    alt="creating a new folder in 'folders' view"
+  />
+</Frame>
+
+## Organize tests in folders
+
+In the `folders` view, use a unique name to create and edit folder as you wish. Use the `into folder` icon in the test case you want to move.
+
+You can also pick folders right from the start when creating tests.
+
+<Frame caption="moving a test case to another folder in the 'folders' view, 02/2025">
+  <img
+    src="/images/manage/moving-to-folders.png"
+    alt="creating a new folder in 'folders' view"
+    width="500px"
+  />
+</Frame>
+
+## Use tags
+
+We added customizable tags to test cases so you can slice & dice your test suites and run the happy path tests more frequently or tag to exclude your flaky tests. Go to the test case, add a tag and save the test.
+
+<Frame caption="adding tags to test cases, 02/2025">
+  <img
+    src="/images/manage/tags.png"
+    alt="add tags to your test cases"
+    width="500px"
+  />
+</Frame>
+
+You can use tags to [filter and shard test execution](/get-started/execute-tests#test-sharding). Right now, only available via CI/CD and curl, but we're working on the UI part.
+
+## Search tests
+
+Go to the `search` window to look for specific test cases in your test suite.
+
+<Frame caption="search for a specific test cases, 02/2025">
+  <img
+    src="/images/manage/search.png"
+    alt="search for a specific test case"
+    width="500px"
+  />
+</Frame>
+
+## Activate your tests for execution
+
+The more your test suite grows, the more important it gets to keep an overview over which of your tests are executed and contained in the newest test report.
+In Octomind, we speak of `active` test cases, which are all the tests being run when a test report is triggered.
+
+<Frame caption="Active test cases in a test suite, 05/2025">
+  <img
+    src="/images/manage/active-test-cases.png"
+    alt="Active test cases in the test suite"
+  />
+</Frame>
+
+Our Agent sets newly created tests to active by default, but you can always set the active status according to your liking. Use the toggle button to switch the test between `ON` and `OFF`.

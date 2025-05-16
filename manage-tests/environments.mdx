@@ -1,10 +1,8 @@
 ---
 title: Environments
-description: Environments in octomind
+description: Use of test environments in Octomind
 icon: "seedling"
 ---
-
-## Overview
 
 Environments enable you to run your tests across multiple deployments of a website, ensuring that each instance of the
 site functions as expected. With environment support, you can configure testing to match specific deployment settings
@@ -25,22 +23,21 @@ After creating a project, Octomind provides you with the default environment, wi
   />
 </Frame>
 
-## Creating an Additional Environment
+## Creating a new test environment
 
 To add another environment, go to the environments page
 
-<Frame caption="Example of the environment page, 01/2025">
+<Frame caption="Example of multiple environments, 01/2025">
   <img
     src="/images/advanced/environments-page.png"
-    alt="Example of the environment page, 01/2025"
+    alt="Example of multiple environments"
   />
 </Frame>
 
 In the new environment setup:
 
-1. Name the Environment – Give a unique name to differentiate it from others.
-2. Set the Target URL – Specify the URL which describes the "default" deployment of this environment - you can still override the URL at runtime.
-3. Optional: Add Credentials – Provide a username and password if the URL requires login.
+1. Name the environment – give a it a unique name to differentiate it from others.
+2. Set the target URL – specify the URL which describes the "default" deployment of this environment - you can still override the URL at runtime.
 
 To clarify the difference between an `environment` and a `project` we created this [short guide](/guides/project-environments).
 
@@ -51,7 +48,20 @@ Customize global variable values for each environment. By default the values fro
 <Frame caption="Example of custom variable values, 01/2025">
   <img
     src="/images/advanced/additional-environment-variables.png"
-    alt="Example of custom variable values, 01/2025"
+    alt="Example of custom variable values"
+  />
+</Frame>
+
+## Configure authentication
+
+You can set up authentication for each environment. By default the values from the default environment will be used.
+
+You can setup [basic authentication](/advanced/basic-authentication) or [2-factor-authentication](/advanced/2fa).
+
+<Frame caption="Authentication settings in test environments, 05/2025">
+  <img
+    src="/images/manage/environments-authentication.png"
+    alt="Authentication settings in test environments"
   />
 </Frame>
 
@@ -68,10 +78,10 @@ To exclude a test case from an environment, open the test case and unselect it. 
 
 ## Additional settings
 
-In the `enviroments settings` view, you can:
+In the `enviroments settings` view, you can also:
 
 - select a [proxy server](/proxy/proxy-settings)
 - add a custom [test ID attribute](/runtime/testid-attribute)
-- customize [timeout per step](/get-started/execute-test-cases#test-timeout)
+- customize [timeout per step](/get-started/execute-tests#test-timeout)
 - add [custom headers](/runtime/custom-headers)
 - enable [cross origin iframes](/advanced/cross-origin-iframes).
