@@ -218,8 +218,8 @@
   },
   "redirects": [
     {
-      "source": "account-view/environments",
-      "destination": "manage-tests/environments"
+      "source": "/account-view/environments",
+      "destination": "/manage-tests/environments"
     }
   ]
 }
