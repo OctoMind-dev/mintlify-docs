@@ -73,6 +73,7 @@
           {
             "group": "Advanced",
             "pages": [
+              "advanced/waiting",
               "advanced/email-flows",
               "advanced/variables",
               "advanced/rate-limiting",
