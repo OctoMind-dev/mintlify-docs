@@ -1,11 +1,10 @@
 ---
-title: Test steps debugging
+title: Test steps debugging deepdive
 description: "How to fix test steps with Octomind's visual editor"
 icon: "hammer"
 ---
 
-Previously, we've introduced the [most common reasons why Octomind's tests fail](/guides/test-debugging-1) and showed how to fix them if the [prompt is causing the AI agent getting stuck](/guides/test-debugging-2).
-In this debugging guide we'll give you a 'how to' for debugging your test step by step.
+We covered the basics of [steps editing](/get-started/edit-tests) in the `Get started` section of the Documentation.
 
 This is where we'll be diving deeper into Octomind's debug tools, starting with the **visual editor panel**.
 
@@ -20,27 +19,7 @@ Steps are the translation of the prompt into a list of interactions or assertion
   />
 </Frame>
 
-<note>
-  We chose to build Octomind on top of Playwright's to give you all the benefits
-  of Playwright's low-level debugging tooling such as the `Trace Viewer` and the
-  ability to debug Octomind-generated test code in your local development
-  environment.
-</note>
-
-`Interactions` simulate user actions by sending events to the browser:
-
-- Enter text
-- Press key
-- Click
-- Selection option
-- Hover
-
-While `assertions` inspect the state of the page:
-
-- Visible
-- Hidden
-- Disabled
-- Have value
+`Interactions` simulate user actions by sending events to the browser, while `assertions` inspect the state of the page.
 
 The current locator for the step is **highlighted in green** with the visual locator picker hovering next to it.
 
@@ -68,7 +47,7 @@ A step will fail if the locator isn't found within the 30s timeout period or if 
 
 Let's see how to fix locator and assertion errors using a broken **'search for a product'** test case.
 
-The first step has a locator error caused by the search placeholder text—expecting 'Search…', not 'Search here…'
+The first step has a locator error caused by the search placeholder text - expecting 'Search…', not 'Search here…'
 
 <Frame caption="Timeout caused by a locator error, 12/2024">
   <img
@@ -113,6 +92,19 @@ We'll change the locator to be something stable by selecting the 'Search in…' 
 ></iframe>
 
 That's how easy it is to fix locator and assertion errors using the `visual locator picker`. But if you want to go deeper, Octomind has you covered.
+
+## Record next steps
+
+An alternative to adding / changing steps is recording them based on step-by-step snapshots. You can access the Recorder from within the test case detail in the `steps` tab in the manual edit mode. To start recording, click the `record from here` button and the Recorder opens.
+
+<Frame caption="Using recorder to edit a test case manually, 05/2025">
+  <img
+    src="/images/build/recorder-editor.png"
+    alt="Using recorder to edit a test case manually"
+  />
+</Frame>
+
+Learn more about the [Recorder](/build-tests/recorder) and how to use it.
 
 ## Code-level debugging
 
