@@ -1,0 +1,73 @@
+---
+title: Waiting for a specific event
+description: "Waiting for a specific event to proceed and make the test more stable"
+icon: "clock"
+---
+
+## Introduction
+
+When running end-to-end tests with Playwright, timing is crucial. Tests can fail if they proceed before the application is fully ready, especially in modern JavaScript frameworks that use client-side rendering and hydration. The `wait for` step in Octomind allows you to pause test execution until specific events or conditions are met, making your tests more reliable and less prone to flakiness.
+
+## Understanding hydration
+
+Hydration is a critical concept in modern web frameworks. It refers to the process where a server-rendered HTML page becomes interactive by attaching event listeners and state to the pre-rendered DOM. During hydration:
+
+1. The server sends pre-rendered HTML to the browser
+2. The JavaScript framework loads and "hydrates" the static HTML
+3. Event listeners are attached to DOM elements
+4. The application becomes fully interactive
+
+Without proper waiting for hydration to complete, tests might interact with elements before they're ready to receive events, leading to flaky tests.
+
+## Available wait options
+
+### Browser events
+
+- **Page to be ready (load event)**: Waits for the page's `load` event, which fires when all resources like images and stylesheets have finished loading.
+
+- **Page to be ready (DOM content loaded)**: Waits for the `DOMContentLoaded` event, which fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+
+- **Network finished**: Waits until there are no network connections for at least 500ms. This is useful when you want to ensure all AJAX requests have completed.
+
+### Framework-specific events
+
+- **Nuxt hydration**: Waits for [Nuxt.js](https://nuxtjs.org/) to complete its hydration process. This ensures that all components are interactive before proceeding with the test.
+
+- **Nuxt delay hydration**: Waits for Nuxt's delayed hydration feature, which allows developers to control when hydration occurs for performance optimization.
+
+- **Web Components**: Waits for custom elements to be defined and upgraded. This is essential when testing applications that use the [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) standard.
+
+- **Preact**: Waits for [Preact](https://preactjs.com/) to complete rendering and hydration. Preact is a fast 3kB alternative to React with the same modern API.
+
+- **Qwik**: Waits for [Qwik](https://qwik.builder.io/) to complete its resumability process. Qwik is designed for instant loading web applications with automatic lazy-loading.
+
+### Time-based waiting
+
+- **Fixed time**: Waits for a specified amount of time in milliseconds. While not ideal for most scenarios (as it can make tests slower than necessary), it can be useful in specific situations where other wait strategies aren't applicable.
+
+### Custom conditions
+
+- **Custom code**: Waits until a custom JavaScript function returns `true`. This gives you the flexibility to define complex conditions specific to your application.
+
+<Frame caption="waiting for custom code, 05/2025">
+  <img
+    src="/images/advanced/waiting-custom-code.png"
+    alt="waiting for custom code"
+    width="400"
+  />
+</Frame>
+
+## Example usage
+
+<Frame caption="waiting for nuxt hydration, 05/2025">
+  <img src="/images/advanced/waiting.png" alt="waiting for nuxt hydration" />
+</Frame>
+
+## Best practices
+
+1. **Prefer event-based waits** over fixed time delays when possible
+2. **Use framework-specific waits** for applications built with supported frameworks
+3. **Create custom wait conditions** for application-specific states
+4. **Combine wait strategies** when necessary for complex applications
+
+By using the appropriate wait strategies, you can create more reliable and maintainable end-to-end tests that accurately reflect user interactions with your application.
