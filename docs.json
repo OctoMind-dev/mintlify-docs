@@ -46,6 +46,7 @@
             "group": "Run tests",
             "pages": [
               "run-tests/execution-scheduled",
+              "run-tests/execution-CI",
               "run-tests/execution-curl",
               "run-tests/execution-local"
             ]
