@@ -51,7 +51,7 @@ Click on `compare runs` in the upper right corner and swipe through the last suc
 
 If you need more detailed insight into the test failure you can:
 
-- launch the **Playwright trace viewer** to investigate the playwright traces step by step
+- launch the **Playwright Trace Viewer** to investigate the playwright traces step by step
 - run the test locally with our open source [Debugtopus](/run-tests/execution-local). It is an additional help that allows you to set breakpoints and step through the code.
 
 <Frame caption="Advanced test debuggin options to open playwright trace recording and run the test locally, 4/2025">
@@ -60,6 +60,21 @@ If you need more detailed insight into the test failure you can:
     alt="Advanced test debuggin options to open playwright trace recording and run the test locally"
   />
 </Frame>
+
+### Playwright Trace Viewer
+
+In the `advanced` section of a test result, click on the respective Playwright trace to access to the `Playwright Trace Viewer` for an advanced visual debugging UI.
+
+A GUI tool will open, with a granular timeline complete and detailed diagnostic information such as actions (clicks, navigation), events, console messages, network requests, and more that were generated during a test run.
+
+<Frame caption="Screenshot of Playwright Trace Viewer with failed steps, 12/2024">
+  <img
+    src="/images/guides/trace-viewer.png"
+    alt="Screenshot of Playwright Trace Viewer with failed steps"
+  />
+</Frame>
+
+Developers will be familiar with the tabbed interface at the bottom of the screen which functions similarly to in-browser developer tools.
 
 ## What to do next? How to I fix the test?
 

@@ -65,7 +65,7 @@ No matter how you choose to fix the test, always follow these steps:
 2. Click the `repair issue` button.
 3. Click `save & generate` to apply the changes.
 
-## 1. Add new step
+### 1. Add new step
 
 The most common use case for this is when an assertion is missing at the end of the test. You can also use it to guide the Agent forward by adding a nudge.
 
@@ -97,7 +97,7 @@ Select an element on the page
   />
 </Frame>
 
-## 2. Modify the prompt
+### 2. Modify the prompt
 
 Use this when multiple steps need to be changed, or when the agent requires clearer guidance on the action it should take.
 
@@ -116,7 +116,7 @@ To update the prompt:
   />
 </Frame>
 
-## 3. Modify a step
+### 3. Modify a step
 
 If the Agent selects the wrong element or applies an incorrect interaction or assertion, use this method to correct it.
 
@@ -145,6 +145,21 @@ To correct a step:
     width="400"
   />
 </Frame>
+
+### 4. Repair the test by re-recording failed steps
+
+In the repair mode, you can use the use the Recorder to re-record the right steps and finalize the test case that stopped generating.
+
+In the repair mode, navigate to the step where you want to start with the recording and hit the `record steps from here` button.
+
+<Frame caption="Using recorder to repair a test case that stopp generating, 05/2025">
+  <img
+    src="/images/build/recorder-repair.png"
+    alt="Using recorder to repair a test case that stopp generating"
+  />
+</Frame>
+
+Learn more about the [Recorder](/build-tests/recorder) and how to use it.
 
 ## What if the test generation is actually successful?
 
