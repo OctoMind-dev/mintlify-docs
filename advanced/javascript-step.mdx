@@ -1,0 +1,69 @@
+---
+title: Execute custom JS
+description: "Execute custom JavaScript or TypeScript code in isolation during your test flow."
+icon: "code"
+---
+
+The `execute javascript` interaction step allows you to execute arbitrary JavaScript or TypeScript code as part of your test flow. This is useful for performing custom logic, calculations, or interacting with APIs that are not directly accessible through other test steps.
+
+<Frame caption="'execute javascript' interaction option in a test step, 05/2025">
+  <img
+    src="/images/advanced/execute-js.png"
+    alt="'execute javascript' interaction option in a test step"
+  />
+</Frame>
+
+<info>
+  **Note:** The code runs in a secure, isolated environment and **cannot access
+  the Playwright runtime or browser context directly**. This restriction is in
+  place for security and stability reasons.
+</info>
+
+## Isolation and limitations
+
+- **No direct access to Playwright or browser context:** Your script cannot interact with page elements, cookies, or the DOM directly.
+- **Resource limits:**
+  - **Runtime:** Scripts are limited in execution time to prevent infinite loops and slow tests.
+  - **Memory:** Scripts have a capped memory allocation.
+  - **Network:** Outbound network requests may be restricted or rate-limited.
+
+## Setting dynamic variables
+
+You can create [dynamic variables](/advanced/variables) by printing a JSON object to `stdout` using `console.log`. These variables can be used in subsequent steps of your test.
+
+For example, if your script creates a new document in your application and receives a document ID in the response, you can expose this ID as a dynamic variable:
+
+```js
+// Example: Creating a document and exporting its ID as a dynamic variable
+async function main() {
+  const response = await fetch("https://api.example.com/documents", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "My Document" }),
+  });
+  const data = await response.json();
+  // Set the dynamic variable by logging a JSON object
+  console.log(JSON.stringify({ documentId: data.id }));
+}
+
+main();
+```
+
+After this script runs, you can reference the dynamic variable in later steps using `$$documentId`.
+
+<Frame caption="Example: Exporting a dynamic variable from a JavaScript step">
+  <img
+    src="/images/advanced/js-step-navigate.png"
+    alt="Example: Exporting a dynamic variable from a javascript step"
+    width="400"
+  />
+</Frame>
+
+## Best practices
+
+1. **Keep scripts short and efficient** to avoid hitting resource limits.
+2. **Validate outputs** before logging dynamic variables to prevent errors in later steps.
+3. **Avoid sensitive operations** since scripts run in an isolated environment with limited permissions.
+4. **Use dynamic variables** to pass data between steps and make your tests more flexible.
+
+By leveraging the `execute javascript` step, you can extend your tests with custom logic while maintaining security and reproducibility.

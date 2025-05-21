@@ -75,6 +75,7 @@
             "group": "Advanced",
             "pages": [
               "advanced/waiting",
+              "advanced/javascript-step",
               "advanced/email-flows",
               "advanced/variables",
               "advanced/rate-limiting",
