@@ -1,0 +1,190 @@
+.cookie-overlay {
+    display: none;
+}
+
+.modal-cookie {
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 20px;
+    z-index: 998;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    text-align: left;
+    object-fit: contain;
+    background-color: #00a079;
+    border: 1px solid #b2f1dd;
+    border-radius: 26px;
+    flex-wrap: wrap;
+    place-content: center flex-start;
+    align-items: center;
+    width: 90%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+    display: flex;
+    position: fixed;
+    inset: auto auto 14% 10%;
+    box-shadow: 0 0 20px #b2f1dd;
+}
+
+.cookie-image {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 100;
+}
+
+.cookie-frame {
+    clear: none;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    flex-wrap: wrap;
+    place-content: center flex-start;
+    align-items: flex-end;
+    width: auto;
+    display: flex
+}
+
+.cookie-text-block {
+    justify-content: flex-start;
+    max-width: 500px;
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.cookie-text {
+    color: #fff;
+    padding: 5px;
+    font-family: objektiv-mk1, sans-serif
+}
+
+.button {
+    aspect-ratio: auto;
+    text-align: center;
+    object-fit: fill;
+    background-color: #3898ec00;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    flex-flow: column;
+    flex: 1;
+    place-content: center;
+    align-self: center;
+    align-items: flex-start;
+    height: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: objektiv-mk1, sans-serif;
+    display: flex;
+    overflow: visible;
+    color: #fff;
+    line-height: inherit;
+    cursor: pointer;
+    padding: 9px 15px;
+    text-decoration: none;
+    min-width: 175px;
+}
+
+.allow-essential-btn {
+    aspect-ratio: auto;
+    text-align: center;
+    object-fit: fill;
+    background-color: #3898ec00;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    flex-flow: column;
+    flex: 1;
+    place-content: center;
+    align-self: center;
+    align-items: flex-start;
+    height: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: objektiv-mk1, sans-serif;
+    display: flex;
+    overflow: visible;
+    margin-right: 8px;
+}
+
+.button-allow-all {
+    aspect-ratio: auto;
+    color: rgb(39, 38, 92);
+    text-align: center;
+    object-fit: fill;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    flex-flow: column;
+    flex: 1;
+    place-content: center;
+    align-self: center;
+    align-items: center;
+    height: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: objektiv-mk1, sans-serif;
+    display: flex;
+    overflow: visible
+}
+
+.link-white {
+    color: rgb(92, 91, 219);
+    text-decoration: underline;
+}
+
+.essential-button-inner {
+    pointer-events:auto;
+    color:#fff;
+    text-align:center;
+    letter-spacing:.05em;
+    -webkit-text-stroke-color:#0c101b;
+    flex-flow:column;
+    flex:1;
+    justify-content:center;
+    align-self:center;
+    align-items:center;
+    width:auto;
+    margin-left:auto;
+    margin-right:auto;
+    font-family:objektiv-mk1,sans-serif;
+    font-size:13px;
+    font-weight:400;
+    line-height:18px;
+    display:flex;
+}
+
+
+@font-face {
+    font-family: objektiv-mk1;
+    src: url(https://use.typekit.net/af/5296eb/00000000000000007735fd7b/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("woff2"), url(https://use.typekit.net/af/5296eb/00000000000000007735fd7b/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("woff"), url(https://use.typekit.net/af/5296eb/00000000000000007735fd7b/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    font-display: auto;
+}
+
+@font-face {
+    font-family: objektiv-mk1;
+    src: url(https://use.typekit.net/af/e91fed/00000000000000007735fd7a/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff2"), url(https://use.typekit.net/af/e91fed/00000000000000007735fd7a/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff"), url(https://use.typekit.net/af/e91fed/00000000000000007735fd7a/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-stretch: normal;
+    font-display: auto;
+}
+
+@font-face {
+    font-family: objektiv-mk1;
+    src: url(https://use.typekit.net/af/fdbde9/00000000000000007735fd85/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"), url(https://use.typekit.net/af/fdbde9/00000000000000007735fd85/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"), url(https://use.typekit.net/af/fdbde9/00000000000000007735fd85/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    font-display: auto;
+}
+
+@font-face {
+    font-family: objektiv-mk1;
+    src: url(https://use.typekit.net/af/7bfe96/00000000000000007735fd7f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff2"), url(https://use.typekit.net/af/7bfe96/00000000000000007735fd7f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff"), url(https://use.typekit.net/af/7bfe96/00000000000000007735fd7f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    font-display: auto;
+}
