@@ -89,7 +89,8 @@ const posthogInit = (persistence) => {
   const distinctId = currentUrl.searchParams.get("distinctId");
 
   posthog.init("phc_DZrVg5kgD45m4Au5nFt6m9rykBTg3mAkeHNY3atWNbW", {
-    api_host: "https://eu.posthog.com",
+    api_host: "https://octomind.dev/events",
+    ui_host: "https://eu.posthog.com",
     disable_session_recording: true,
     person_profiles: "always",
     persistence,
