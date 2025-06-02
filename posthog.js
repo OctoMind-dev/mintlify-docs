@@ -203,7 +203,6 @@ const sleep = async (numberOfMilliseconds) => {
 };
 
 const onLoad = async () => {
-  console.log("onLoad");
   while (!window.next?.router?.isReady) {
     console.log("waiting for next hydration");
     await sleep(10);
@@ -230,7 +229,4 @@ const onLoad = async () => {
   setupCookieButton("allow-all-btn", true);
 };
 
-console.log("executing");
-window.addEventListener("load", () => {
-  void onLoad();
-});
+void onLoad();
