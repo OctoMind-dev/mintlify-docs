@@ -196,7 +196,18 @@ const addCookieBanner = () => {
   document.querySelector("main").appendChild(cookieBannerOverlay);
 };
 
-window.addEventListener("load", () => {
+const sleep = async (numberOfMilliseconds) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, numberOfMilliseconds);
+  });
+};
+
+const onLoad = async () => {
+  while (!window.next?.router?.isReady) {
+    console.log("waiting for next hydration");
+    await sleep(10);
+  }
+
   addCookieBanner();
 
   const consentCookieValue = parseCookiesForConsentCookie();
@@ -216,4 +227,8 @@ window.addEventListener("load", () => {
 
   setupCookieButton("allow-essential-btn", false);
   setupCookieButton("allow-all-btn", true);
+};
+
+window.addEventListener("load", () => {
+  void onLoad();
 });
