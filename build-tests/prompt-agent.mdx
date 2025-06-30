@@ -113,14 +113,12 @@ This is how you do it:
 
 1. Keep prompts short and to the point.
 2. Mention all steps required, e.g. if you have to click away a cookie banner, mention it.
-
    - Example without a cookie banner: `sign in using username $OCTO_USERNAME and password $OCTO_PASSWORD`
    - Example with a cookie banner: `accept cookies then sign in using username $OCTO_USERNAME and password $OCTO_PASSWORD`
 
 3. You have access to [pre-defined variables](/advanced/variables) that we will fill for you, so just use them in the prompt as they appear here and in the example above. You can also use these when manually editing a step.
 
 4. These are the limitations so far:
-
    - We can only handle flows which happen inside the app and in certain cases navigate to different urls. Cross-device flows are not supported. We are able to test [email confirmation flow](/advanced/email-flows) with an Octomind provided email address.
    - We cannot handle captchas yet, unless it's avoidable via [custom headers](/runtime/custom-headers)
    - Our AI Agent might get [blocked by robot detection](/advanced/octomind-bot) on some high traffic sites. Sites / apps in production are more bot-protected than staging / test systems.
