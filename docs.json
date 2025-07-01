@@ -35,7 +35,7 @@
           {
             "group": "Build tests",
             "pages": [
-              "build-tests/autogenerate-tests",
+              "build-tests/recommended-tests",
               "build-tests/prompt-agent",
               "build-tests/create-via-mcp",
               "build-tests/recorder",
