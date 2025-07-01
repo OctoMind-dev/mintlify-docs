@@ -28,7 +28,8 @@
             "pages": [
               "get-started/create-first-tests",
               "get-started/edit-tests",
-              "get-started/execute-tests"
+              "get-started/execute-tests",
+              "get-started/chat-with-ai"
             ]
           },
           {
