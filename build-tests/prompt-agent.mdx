@@ -8,7 +8,7 @@ icon: "language"
 
 If you want to translate a custom user flow into a test, you can have AI generate it from your prompt. Give us a short prompt and we deploy our `AI agent` to find the interactions leading towards your desired user flow.
 
-<Frame caption="Create a new test case by prompting the AI agent, 07/2024">
+<Frame caption="Create a new test case by prompting the AI agent, 07/2025">
   <img
     src="/images/build/create-test-prompting.png"
     alt="AI agent informs about its progress"
@@ -24,12 +24,21 @@ While our `AI Agent` generates the steps of your test cases, it informs you abou
   />
 </Frame>
 
-If the AI agent signals a failed step with a yellow alert, click on `repair test` to help the Agent finish the generation successfully.
+You can also take over from the agent if you see it is going into the wrong direction to record the rest of the test case.
 
-<Frame caption="The AI agent needs help your input to finalize generation - click repair test, 05/2025">
+<Frame caption="You can take over from the AI agent to allow, 07/2025">
   <img
-    src="/images/build/repair-yellow-test.png"
-    alt="The AI agent needs your input to finalize generation - click repair test"
+    src="/images/build/take-over.png"
+    alt="record the test case instead of the agent finishing it - click take over"
+  />
+</Frame>
+
+If the AI agent signals that it needs help, click on `record from here` or `edit step manually` to help the Agent finish the generation successfully.
+
+<Frame caption="The AI agent needs help your input to finalize generation - 07/2025">
+  <img
+    src="/images/build/record-from-here.png"
+    alt="The AI agent needs your input to finalize generation - click record from here or edit step manually"
   />
 </Frame>
 
@@ -99,7 +108,7 @@ This is how you do it:
 - Give us a path where the AI agent should start its test case generation process, e.g. `/products/`
 - Select a test case that should run before the test AI agent starts its generation.
 
-<Frame caption="Chain tests in dependencies when you create them, 08/2024">
+<Frame caption="Chain tests in dependencies when you create them, 07/2025">
   <img
     src="/images/build/define-dependency-new-test.png"
     alt="Chain tests in dependencies when you create them"
