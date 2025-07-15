@@ -52,54 +52,99 @@ You should receive a confirmation email that contains a link for you confirm you
 
 After being redirected back to [app.octomind.dev](https://app.octomind.dev/), you will land on your **project overview** page.
 
-<Frame caption="Project overview page after sign-up, screenshot 10/2024">
+`Create a new test` section is highlighted - that's the place to start.
+
+<Frame caption="Project overview page after sign-up, 07/2025">
   <img
-    src="/images/setup/setup-4-overview.png"
-    alt="Opening the Octomind app on project overview for the first time, screenshot 10/2024"
+    src="/images/get-started/open-first.png"
+    alt="Opening the Octomind app on project overview for the first time"
   />
 </Frame>
 
-Our AI Agent might be still going through your website, checking if there is a **cookie banner** and a **required login functionality** that need to be tested.
+### 5. Create your first tests
+
+Click on the `get started` button. A selection of `recommended tests` will appear.
+
+<Frame caption="Recommended tests section, 07/2025">
+  <img
+    src="/images/get-started/recommended-tests.png"
+    alt="Recommended tests section when creating first tests"
+  />
+</Frame>
+
+Our AI Agent has gone through your website, checked what relevant test cases you might want to create first. Select one or refresh to get new recommendations.
+
+Click `next`.
+
+<info>
+  **cookie banner** and a **required login functionality** will be the first
+  ones to be identified - their functionality is usually a prerequisites for all
+  the other tests. They will be added as dependency for other tests.
+</info>
 
 If the AI Agent finds a required login, it will ask you for test credentials. It will use them to generate and run a **login test**. It will be added as dependency for other tests. So will be the **cookie banner test** if one is found.
+
+<Frame caption="Required login test identified and recommended, 07/2025">
+  <img
+    src="/images/get-started/login-test-recommended.png"
+    alt="Required login test identified and recommended"
+  />
+</Frame>
 
 <Warning>
 These credentials are only usable for username/password logins not for social logins. Login using your Google, Facebook, etc. account will not work.
 
 </Warning>
 
-<Frame caption="AI agent asks for test credentials to auto-generate and run a login test, screenshot 07/2024">
+You can create a login test later. Learn how to create a [pre-prompted login test](/build-tests/prompt-agent#pre-prompted-login-test).
+
+### 6. Refine the prompt
+
+We will generate test cases you selected. But first, we need you to review the prompt we prepared. You can instruct the Agent in natural language to change the prompt here, or refine the prompt manually in the next step.
+
+<Frame caption="Refine prompt example, 07/2025">
   <img
-    src="/images/setup/setup-5-login-credentials.png"
-    alt="AI agent asks for login test credentials, screenshot 07/2024"
+    src="/images/get-started/refine-prompt.png"
+    alt="Refine prompt example"
   />
 </Frame>
 
-### 5. We are auto-generating test cases for you
+Click `generate` to add details, rename the test or refine the prompt. When everything is all set, click `finalize`.
 
-Here comes the really cool part. Once we finished searching for a potential log-in and cookie banner test, we start generating 3 test cases for you automatically. You can follow the generation progress in the stack:
+<Frame caption="Finalize test case, 07/2025">
+  <img src="/images/get-started/finalize-test.png" alt="Finalize test case" />
+</Frame>
 
-<Frame caption="Stack showing ongoing AI-tasks, screenshot 10/2024">
+### 7. We generate the test case
+
+We started generating your test case.
+
+<Frame caption="Test is being generated, 07/2025">
   <img
-    src="/images/setup/setup-6-stack.png"
-    alt="Stack showing ongoing AI-tasks, screenshot 10/2024"
+    src="/images/get-started/generation-ongoing.png"
+    alt="test case in the process of being generated"
   />
 </Frame>
 
 It's possible that the Agent fails to generate a test ([here are some reasons why](/guides/agent-fails)) or needs help with something - the test is highlighed in **yellow**. This is a [step by step guide on how you'll help the Agent by nudging it in the right direction](/guides/help-agent-succeed).
 
-## Run tests to check your app for bugs
+After being generated successfuly, in the right panel, proceed to **validation** to run it and check whether it's working properly.
 
-We will [execute your generated test cases](/get-started/execute-tests) and create several test reports containing your test results. These will ensure that they successfully pass when executed on your site.
-
-<Frame caption="Automatically executed test reports - screenshot 10/2024">
+<Frame caption="validate a generated test case, 07/2025">
   <img
-    src="/images/setup/setup-9-run-tests.png"
-    alt="Automatically executed test reports - screenshot 10/2024"
+    src="/images/get-started/validate.png"
+    alt="Validate a generated test case"
+    width="300"
   />
 </Frame>
 
-## Evaluate your test results
+Create more tests using our [recommendations](/build-tests/recommended-tests), [spawn existing tests](/build-tests/recommended-tests#spawning-from-existing-test-cases) or [prompt new tests from scratch](/build-tests/prompt-agent).
+
+## 8. Run tests to check your app for bugs
+
+Once you've built your test suite, you can [execute your active test cases](/get-started/execute-tests) to check your app for bugs. Every test execution will produce a [test report](/manage-tests/test-reports) with details of the run and debugging information in case of a failed test.
+
+## 9. Evaluate your test results
 
 Inside each test report, you can find the test results for the executed test cases:
 
@@ -116,31 +161,3 @@ Find out more about [test reports](/manage-tests/test-reports).
     alt="Example of a Octomind test report"
   />
 </Frame>
-
-## Go to test cases to generate more tests
-
-You can grow your test suite by adding more test cases. For this you can jump straight into the test case view by using the `go to test cases` button in the test report.
-
-<Frame caption="Go to the test case section to see the generated test cases - screenshot 10/2024">
-  <img
-    src="/images/setup/setup-11-go-to-test-cases.png"
-    alt="Go to the test case section to see the generated test cases - screenshot 10/2024 "
-  />
-</Frame>
-
-You should have your **first active test cases** generated. The AI agent has found several test cases, auto-generated the test steps and has run them to validate whether they work.
-
-Functioning tests are turned `on` which means they will run once you trigger a **test report**.
-
-<Frame caption="First active test cases auto-generated - screenshot 07/2024">
-  <img
-    src="/images/setup/setup-8-first-tests.png"
-    alt="First active test cases AI auto-generated - screenshot 07/2024 "
-  />
-</Frame>
-
-## Next steps
-
-Use AI autogeneration to [generate more test cases](/build-tests/autogenerate-tests) based off existing ones or prompt our AI agent [to create new ones](/build-tests/prompt-agent).
-
-If you are happy with the test cases we generated for you, you can [set up scheduling](/run-tests/execution-scheduled) to periodically run your tests and ensure your site doesn't break.
