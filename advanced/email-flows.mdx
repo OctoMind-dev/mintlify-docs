@@ -71,3 +71,11 @@ To extract the one-time password, you can use the "Extract" step.
 </Frame>
 
 The extracted value will be stored in a [dynamic variable](/advanced/variables#dynamic-variables) that you can use in your test case.
+
+## More emails
+
+You can also use more than just one email address in your test case by combining the `$OCTO_EMAIL_PREFIX` and `$OCTO_EMAIL_DOMAIN` variables.
+
+When you need to test with different email addresses, you can use the `$OCTO_EMAIL_PREFIX+1@$OCTO_EMAIL_DOMAIN` variable expression to generate 
+different email addresses. The part after the plus can be anything that is valid in an email address and will be still delivered to the 
+Octomind inbox.
