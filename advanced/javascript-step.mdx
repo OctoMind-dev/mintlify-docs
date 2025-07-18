@@ -4,7 +4,7 @@ description: "Execute custom JavaScript or TypeScript code during your test flow
 icon: "code"
 ---
 
-The `execute javascript` interaction step allows you to execute arbitrary JavaScript or TypeScript code as part of your test flow. 
+The `execute javascript` interaction step allows you to execute arbitrary JavaScript or TypeScript code as part of your test flow.
 This is useful for performing custom logic, calculations, or interacting with APIs that are not directly accessible through other test steps.
 
 <Frame caption="'execute javascript' interaction option in a test step, 05/2025">
@@ -19,11 +19,11 @@ This is useful for performing custom logic, calculations, or interacting with AP
 There is two contexts that the code can run in:
 
 1. **Sandbox**: The code runs in a secure, isolated environment and **cannot access
-the Playwright runtime or browser context directly**. This restriction is in
-place for security and stability reasons.
+   the Playwright runtime or browser context directly**. This restriction is in
+   place for security and stability reasons.
 
 2. **Browser**: The code runs in the browser context and **can access
- browser context directly**. This is useful for performing custom on your application like setting cookies, etc.
+   browser context directly**. This is useful for performing custom on your application like setting cookies, etc.
 
 ### Sandbox isolation and limitations
 
@@ -36,8 +36,7 @@ place for security and stability reasons.
 ### Browser isolation and limitations
 
 - code will be executed in the browser context and **can access
- browser context directly**. e.g. window, document, etc.
-
+  browser context directly**. e.g. window, document, etc.
 
 <Frame caption="'execute javascript' interaction option executed in browser context, 07/2025">
   <img
