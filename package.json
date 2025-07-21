@@ -9,7 +9,7 @@
   "devDependencies": {
     "eslint": "8.57.1",
     "eslint-plugin-mdx": "3.6.2",
-    "eslint-plugin-prettier": "5.5.1",
+    "eslint-plugin-prettier": "5.5.3",
     "mintlify": "4.2.15",
     "prettier": "3.6.2"
   },
