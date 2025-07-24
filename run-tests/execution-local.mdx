@@ -1,12 +1,74 @@
 ---
 title: Run tests locally
-description: "Debugtopus will help to run your test locally and debug"
+description: "Run your tests locally against your development environment"
 icon: "bug"
 ---
 
-Debugtopus is our [open source tool](https://github.com/OctoMind-dev/debugtopus) enabling you to run tests locally for easier debugging. Follow the steps below to
-execute a test case on your machine and against your local dev environment. This is good for setting breakpoints and
-stepping through the code once our tests have identified an issue.
+# Running Tests Locally
+
+There are two ways to run Octomind tests locally against your development environment:
+
+1. Using the **Octomind CLI** (recommended)
+2. Using **Debugtopus** (legacy method)
+
+Running tests locally is ideal for setting breakpoints, stepping through code, and debugging issues identified by Octomind tests.
+
+## Using the Octomind CLI
+
+The Octomind CLI provides a simple way to run tests locally with the `debug` command. This is the recommended approach for local test execution.
+
+### 1. Install the Octomind CLI
+
+If you haven't already installed the CLI, you can do so with:
+
+```bash
+npm i -g @octomind/octomind
+```
+
+Or use it directly with npx:
+
+```bash
+npx @octomind/octomind
+```
+
+### 2. Initialize the CLI
+
+If you haven't already initialized the CLI with your API key:
+
+```bash
+octomind init
+```
+
+### 3. Run Tests Locally
+
+Use the `debug` command to run tests against your local development environment:
+
+```bash
+octomind debug --url http://localhost:3000
+```
+
+This will use a local browser controlled by Playwright to run the test cases. It will still use the configured setup including the proxy settings for the environment.
+
+#### Options
+
+- `--url <url>` (required): URL of your locally running application
+- `--id <uuid>`: ID of a specific test case you want to run
+- `--environmentId <uuid>`: ID of the environment to use
+- `--testTargetId <uuid>`: ID of the test target (optional if configured via `init`)
+- `--headless`: Run without the UI of Playwright and the browser
+- `--persist`: Write Playwright config and files to current directory for later use
+
+#### Example
+
+To run a specific test case against your local development server:
+
+```bash
+octomind debug --url http://localhost:3000 --id 12345678-1234-1234-1234-123456789012
+```
+
+## Using Debugtopus (Legacy Method)
+
+Debugtopus is our [open source tool](https://github.com/OctoMind-dev/debugtopus) that was previously used for local test execution. While the CLI method is now recommended, Debugtopus is still available for users who prefer it.
 
 ## 1. Get shell script
 

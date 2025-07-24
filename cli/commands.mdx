@@ -1,0 +1,380 @@
+---
+title: Commands 
+description: "How to use the CLI tool"
+icon: "terminal"
+---
+
+# Octomind CLI Commands
+
+The Octomind CLI provides several commands to help you interact with the Octomind API. This guide covers all available commands and their options.
+
+## Execute Tests
+
+Run test cases against a specified URL.
+
+```bash
+octomind execute \
+  --url <url> \
+  [--api-key <key>] \
+  [--test-target-id <id>] \
+  [--environment <n>] \
+  [--tags <list of tags>] \
+  [-v, --variables-to-overwrite <variables>] \
+  [--description <text>] \
+  [--json]
+```
+
+### Options
+- `-u, --url` (required): URL to test
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-t, --test-target-id`: Test target ID (optional if configured via `init`)
+- `-e, --environment`: Environment name (default: "default")
+- `-d, --description`: Test description
+- `-g, --tags`: comma separated list of tags for tests to execute
+- `-v, --variables-to-overwrite`: JSON object for variables to override for this run e.g. `{ "key": ["v1", "v2"]}`
+- `-j, --json`: Output raw JSON response
+
+## Get Test Report
+
+Retrieve details about a specific test report.
+
+```bash
+octomind report \
+  --report-id <id> \
+  [--api-key <key>] \
+  [--test-target-id <id>] \
+  [--json]
+```
+
+### Options
+- `-r, --report-id` (required): Test report ID
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-t, --test-target-id`: Test target ID (optional if configured via `init`)
+- `-j, --json`: Output raw JSON response
+
+### Example Output
+
+Text output:
+```
+Test Report Details:
+Status: PASSED
+Execution URL: https://example.com
+
+Test Results:
+- Test abc-123-456: PASSED
+  Trace: https://storage.googleapis.com/automagically-traces/abc-123-trace.zip
+- Test def-456-789: PASSED
+  Trace: https://storage.googleapis.com/automagically-traces/def-456-trace.zip
+```
+
+JSON output (with `--json` flag):
+```json
+{
+  "id": "826c15af-644b-4b28-89b4-f50ff34e46b7",
+  "testTargetId": "3435918b-3d29-4ebd-8c68-9a540532f45a",
+  "status": "PASSED",
+  "executionUrl": "https://example.com",
+  "testResults": [
+    {
+      "id": "abc-123-456",
+      "testTargetId": "3435918b-3d29-4ebd-8c68-9a540532f45a",
+      "testCaseId": "test-1",
+      "status": "PASSED",
+      "traceUrl": "https://storage.googleapis.com/automagically-traces/abc-123-trace.zip"
+    },
+    {
+      "id": "def-456-789",
+      "testTargetId": "3435918b-3d29-4ebd-8c68-9a540532f45a",
+      "testCaseId": "test-2",
+      "status": "PASSED",
+      "traceUrl": "https://storage.googleapis.com/automagically-traces/def-456-trace.zip"
+    }
+  ]
+}
+```
+
+## Register Private Location
+
+Register a new private location worker. If you use the [private location worker](https://github.com/OctoMind-dev/private-location-worker) it will register itself on startup automatically.
+
+```bash
+octomind register-location \
+  --name <n> \
+  --proxypass <password> \
+  --proxyuser <user> \
+  --address <address> \
+  [--api-key <key>] \
+  [--json]
+```
+
+### Options
+- `-n, --name` (required): Location name
+- `-p, --proxypass` (required): Proxy password
+- `-u, --proxyuser` (required): Proxy user
+- `-a, --address` (required): Location address (format: IP:PORT)
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-j, --json`: Output raw JSON response
+
+## Unregister Private Location
+
+Remove a registered private location worker. If you use the [private location worker](https://github.com/OctoMind-dev/private-location-worker) it will unregister itself when going offline automatically.
+
+```bash
+octomind unregister-location \
+  --name <n> \
+  [--api-key <key>] \
+  [--json]
+```
+
+### Options
+- `-n, --name` (required): Location name
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-j, --json`: Output raw JSON response
+
+## List Private Locations
+
+List all registered private locations.
+
+```bash
+octomind list-private-locations \
+  [--api-key <key>] \
+  [--json]
+```
+
+### Options
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-j, --json`: Output raw JSON response
+
+### Example Output
+
+```
+Private Locations:
+- Name: location-1
+  Status: ONLINE
+  Address: https://location-1.example.com
+- Name: location-2
+  Status: OFFLINE
+  Address: https://location-2.example.com
+```
+
+## List Environments
+
+List all available environments.
+
+```bash
+octomind list-environments \
+  [--api-key <key>] \
+  [--test-target-id <id>] \
+  [--json]
+```
+
+### Options
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-t, --test-target-id`: Test target ID (optional if configured via `init`)
+- `-j, --json`: Output raw JSON response
+
+## Create Environment
+
+Create a new environment for a test target.
+
+```bash
+octomind create-environment \
+  --name <n> \
+  --discovery-url <url> \
+  [--api-key <key>] \
+  [--test-target-id <id>] \
+  [--test-account-username <username>] \
+  [--test-account-password <password>] \
+  [--test-account-otp-initializer-key <key>] \
+  [--basic-auth-username <username>] \
+  [--basic-auth-password <password>] \
+  [--private-location-name <n>] \
+  [--additional-header-fields <fields>] \
+  [--json]
+```
+
+### Options
+- `-n, --name` (required): Environment name
+- `-d, --discovery-url` (required): Discovery URL
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-t, --test-target-id`: Test target ID (optional if configured via `init`)
+- `--test-account-username`: Test account username
+- `--test-account-password`: Test account password
+- `--test-account-otp-initializer-key`: OTP initializer key for test account
+- `--basic-auth-username`: Basic auth username
+- `--basic-auth-password`: Basic auth password
+- `--private-location-name`: Private location name
+- `--additional-header-fields`: Additional header fields (JSON string)
+- `-j, --json`: Output raw JSON response
+
+## Update Environment
+
+Update an existing environment.
+
+```bash
+octomind update-environment \
+  --environment-id <id> \
+  [--api-key <key>] \
+  [--test-target-id <id>] \
+  [--name <n>] \
+  [--discovery-url <url>] \
+  [--test-account-username <username>] \
+  [--test-account-password <password>] \
+  [--test-account-otp-initializer-key <key>] \
+  [--basic-auth-username <username>] \
+  [--basic-auth-password <password>] \
+  [--private-location-name <n>] \
+  [--additional-header-fields <fields>] \
+  [--json]
+```
+
+### Options
+- `-e, --environment-id` (required): Environment ID
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-t, --test-target-id`: Test target ID (optional if configured via `init`)
+- `-n, --name`: New environment name
+- `-d, --discovery-url`: New discovery URL
+- `--test-account-username`: New test account username
+- `--test-account-password`: New test account password
+- `--test-account-otp-initializer-key`: New OTP initializer key for test account
+- `--basic-auth-username`: New basic auth username
+- `--basic-auth-password`: New basic auth password
+- `--private-location-name`: New private location name
+- `--additional-header-fields`: New additional header fields (JSON string)
+- `-j, --json`: Output raw JSON response
+
+## Delete Environment
+
+Delete an existing environment.
+
+```bash
+octomind delete-environment \
+  --environment-id <id> \
+  [--api-key <key>] \
+  [--test-target-id <id>] \
+  [--json]
+```
+
+### Options
+- `-e, --environment-id` (required): Environment ID
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-t, --test-target-id`: Test target ID (optional if configured via `init`)
+- `-j, --json`: Output raw JSON response
+
+## Start Private Location
+
+Start a private location worker.
+
+```bash
+octomind start-private-location \
+  --name <name> \
+  --username <username> \
+  --password <password>
+```
+
+### Options
+- `-n, --name`: Location name
+- `-u, --username`: Proxy user
+- `-p, --password`: Proxy password
+
+## Stop Private Location
+
+Stop a running private location worker.
+
+```bash
+octomind stop-private-location
+```
+
+## Get Notifications
+
+Get notifications for a test target.
+
+```bash
+octomind notifications \
+  [--api-key <key>] \
+  [--test-target-id <id>] \
+  [--json]
+```
+
+### Options
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-t, --test-target-id`: Test target ID (optional if configured via `init`)
+- `-j, --json`: Output raw JSON response
+
+## Get Test Case
+
+Get details of a specific test case.
+
+```bash
+octomind test-case \
+  --test-case-id <id> \
+  [--api-key <key>] \
+  [--test-target-id <id>] \
+  [--json]
+```
+
+### Options
+- `-c, --test-case-id` (required): Test case ID
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-t, --test-target-id`: Test target ID (optional if configured via `init`)
+- `-j, --json`: Output raw JSON response
+
+## Create Discovery
+
+Create a new test case discovery.
+
+```bash
+octomind create-discovery \
+  --name <name> \
+  --prompt <prompt> \
+  [--api-key <key>] \
+  [--test-target-id <id>] \
+  [--entry-point-url-path <path>] \
+  [--prerequisite-id <id>] \
+  [--external-id <id>] \
+  [--assigned-tag-ids <ids>] \
+  [--folder-id <id>] \
+  [--json]
+```
+
+### Options
+- `-n, --name` (required): Discovery name
+- `-p, --prompt` (required): Discovery prompt
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-t, --test-target-id`: Test target ID (optional if configured via `init`)
+- `-e, --entry-point-url-path`: Entry point URL path
+- `--prerequisite-id`: Prerequisite test case ID
+- `--external-id`: External identifier
+- `--assigned-tag-ids`: Comma-separated list of tag IDs
+- `--folder-id`: Folder ID
+- `-j, --json`: Output raw JSON response
+
+## Debug
+
+Run test cases locally. This will use a local browser controlled by playwright to run the test cases.
+It will still use the configured setup include the proxy setting for the environment.
+You can bypass the proxy by using "http://localhost:port" as the URL.
+
+```bash
+octomind debug \
+  --url <url> \
+  [--api-key <key>] \
+  [--id <uuid>] \
+  [--environmentId <uuid>] \
+  [--testTargetId <uuid>] \
+  [--headless] \
+  [--persist]
+```
+
+### Options
+- `-u, --url` (required): URL the tests should run against
+- `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
+- `-i, --id`: ID of the test case you want to run (if not provided, will run all test cases in the test target)
+- `-e, --environmentId`: ID of the environment you want to run against (if not provided, will run against the default environment)
+- `-a, --testTargetId`: ID of the test target of the test case
+- `--headless`: Run headless without the UI of Playwright and the browser
+- `--persist`: Write Playwright config and files to current directory (you can then run 'npx playwright test' to run them again)
+
+## Output Formats
+
+By default, the CLI provides formatted text output for better readability. Add the `--json` flag to any command to get the raw JSON response instead. This is useful for scripting or when you need to process the output programmatically.

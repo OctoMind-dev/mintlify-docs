@@ -1,0 +1,61 @@
+---
+title: Install CLI tool
+description: "How to install to octomind CLI tool"
+icon: "terminal"
+---
+
+## Installation
+
+You can install the Octomind CLI in two ways:
+
+1. Install the package globally:
+```bash
+npm i -g @octomind/octomind
+```
+Then use it directly:
+```bash
+octomind -h
+```
+
+2. Use the CLI through npx without installation:
+```bash
+npx @octomind/octomind -h
+```
+
+## Initializing the CLI
+
+After installing the CLI, you need to initialize it by setting up your API key and optionally a test target ID. This configuration allows you to avoid passing these parameters for subsequent commands.
+
+```bash
+octomind init \
+  [--api-key <key>] \
+  [--test-target-id <id>] \
+  [--force]
+```
+
+### Options
+
+- `-k, --api-key`: Your Octomind API key (will prompt if not provided)
+- `-t, --test-target-id`: Test target ID (optional)
+- `-f, --force`: Force overwrite existing configuration
+
+### Getting Your API Key
+
+If you don't provide the API key via the command line option, the CLI will prompt you to enter it interactively. 
+You can get your API key from the [API documentation](https://octomind.dev/docs/run-tests/execution-curl#create-an-api-key).
+
+### Example
+
+```bash
+# Initialize with API key
+octomind init --api-key your-api-key-here
+
+# Initialize with API key and test target ID
+octomind init --api-key your-api-key-here --test-target-id your-test-target-id
+
+# Force overwrite existing configuration
+octomind init --force
+```
+
+Once initialized, you can use other CLI commands without having to specify your API key or test 
+target ID with each command.
