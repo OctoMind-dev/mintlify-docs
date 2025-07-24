@@ -14,23 +14,23 @@ Run test cases against a specified URL.
 
 ```bash
 octomind execute \
-  --url <url> \
-  [--api-key <key>] \
-  [--test-target-id <id>] \
-  [--environment <n>] \
-  [--tags <list of tags>] \
+  -u, --url <url> \
+  [-k, --api-key <key>] \
+  [-t, --test-target-id <id>] \
+  [-e, --environmentName <name>] \
+  [-d, --description <text>] \
+  [-g, --tags <list of tags>] \
   [-v, --variables-to-overwrite <variables>] \
-  [--description <text>] \
-  [--json]
+  [-j, --json]
 ```
 
 ### Options
 - `-u, --url` (required): URL to test
 - `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
 - `-t, --test-target-id`: Test target ID (optional if configured via `init`)
-- `-e, --environment`: Environment name (default: "default")
+- `-e, --environmentName`: Environment name (default: "default")
 - `-d, --description`: Test description
-- `-g, --tags`: comma separated list of tags for tests to execute
+- `-g, --tags`: Comma separated list of tags for tests to execute
 - `-v, --variables-to-overwrite`: JSON object for variables to override for this run e.g. `{ "key": ["v1", "v2"]}`
 - `-j, --json`: Output raw JSON response
 
@@ -39,15 +39,15 @@ octomind execute \
 Retrieve details about a specific test report.
 
 ```bash
-octomind report \
-  --report-id <id> \
-  [--api-key <key>] \
-  [--test-target-id <id>] \
-  [--json]
+octomind test-report \
+  -r, --test-report-id <id> \
+  [-k, --api-key <key>] \
+  [-t, --test-target-id <id>] \
+  [-j, --json]
 ```
 
 ### Options
-- `-r, --report-id` (required): Test report ID
+- `-r, --test-report-id` (required): Test report ID
 - `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
 - `-t, --test-target-id`: Test target ID (optional if configured via `init`)
 - `-j, --json`: Output raw JSON response
@@ -99,18 +99,18 @@ Register a new private location worker. If you use the [private location worker]
 
 ```bash
 octomind register-location \
-  --name <n> \
-  --proxypass <password> \
-  --proxyuser <user> \
-  --address <address> \
-  [--api-key <key>] \
-  [--json]
+  -n, --name <name> \
+  -p, --password <password> \
+  -u, --username <user> \
+  -a, --address <address> \
+  [-k, --api-key <key>] \
+  [-j, --json]
 ```
 
 ### Options
 - `-n, --name` (required): Location name
-- `-p, --proxypass` (required): Proxy password
-- `-u, --proxyuser` (required): Proxy user
+- `-p, --password` (required): Proxy password
+- `-u, --username` (required): Proxy user
 - `-a, --address` (required): Location address (format: IP:PORT)
 - `-k, --api-key`: Your Octomind API key (optional if configured via `init`)
 - `-j, --json`: Output raw JSON response
@@ -121,9 +121,9 @@ Remove a registered private location worker. If you use the [private location wo
 
 ```bash
 octomind unregister-location \
-  --name <n> \
-  [--api-key <key>] \
-  [--json]
+  -n, --name <name> \
+  [-k, --api-key <key>] \
+  [-j, --json]
 ```
 
 ### Options
@@ -137,8 +137,8 @@ List all registered private locations.
 
 ```bash
 octomind list-private-locations \
-  [--api-key <key>] \
-  [--json]
+  [-k, --api-key <key>] \
+  [-j, --json]
 ```
 
 ### Options
@@ -163,9 +163,9 @@ List all available environments.
 
 ```bash
 octomind list-environments \
-  [--api-key <key>] \
-  [--test-target-id <id>] \
-  [--json]
+  [-k, --api-key <key>] \
+  [-t, --test-target-id <id>] \
+  [-j, --json]
 ```
 
 ### Options
@@ -179,18 +179,18 @@ Create a new environment for a test target.
 
 ```bash
 octomind create-environment \
-  --name <n> \
-  --discovery-url <url> \
-  [--api-key <key>] \
-  [--test-target-id <id>] \
+  -n, --name <name> \
+  -d, --discovery-url <url> \
+  [-k, --api-key <key>] \
+  [-t, --test-target-id <id>] \
   [--test-account-username <username>] \
   [--test-account-password <password>] \
   [--test-account-otp-initializer-key <key>] \
   [--basic-auth-username <username>] \
   [--basic-auth-password <password>] \
-  [--private-location-name <n>] \
+  [--private-location-name <name>] \
   [--additional-header-fields <fields>] \
-  [--json]
+  [-j, --json]
 ```
 
 ### Options
@@ -213,19 +213,19 @@ Update an existing environment.
 
 ```bash
 octomind update-environment \
-  --environment-id <id> \
-  [--api-key <key>] \
-  [--test-target-id <id>] \
-  [--name <n>] \
-  [--discovery-url <url>] \
+  -e, --environment-id <id> \
+  [-k, --api-key <key>] \
+  [-t, --test-target-id <id>] \
+  [-n, --name <name>] \
+  [-d, --discovery-url <url>] \
   [--test-account-username <username>] \
   [--test-account-password <password>] \
   [--test-account-otp-initializer-key <key>] \
   [--basic-auth-username <username>] \
   [--basic-auth-password <password>] \
-  [--private-location-name <n>] \
+  [--private-location-name <name>] \
   [--additional-header-fields <fields>] \
-  [--json]
+  [-j, --json]
 ```
 
 ### Options
@@ -249,10 +249,10 @@ Delete an existing environment.
 
 ```bash
 octomind delete-environment \
-  --environment-id <id> \
-  [--api-key <key>] \
-  [--test-target-id <id>] \
-  [--json]
+  -e, --environment-id <id> \
+  [-k, --api-key <key>] \
+  [-t, --test-target-id <id>] \
+  [-j, --json]
 ```
 
 ### Options
@@ -267,15 +267,15 @@ Start a private location worker.
 
 ```bash
 octomind start-private-location \
-  --name <name> \
-  --username <username> \
-  --password <password>
+  [-n, --name <name>] \
+  [-u, --username <username>] \
+  [-p, --password <password>]
 ```
 
 ### Options
-- `-n, --name`: Location name
-- `-u, --username`: Proxy user
-- `-p, --password`: Proxy password
+- `-n, --name`: Location name, default is "default-plw"
+- `-u, --username`: Proxy user, default is random username
+- `-p, --password`: Proxy password, default is random password
 
 ## Stop Private Location
 
@@ -291,9 +291,9 @@ Get notifications for a test target.
 
 ```bash
 octomind notifications \
-  [--api-key <key>] \
-  [--test-target-id <id>] \
-  [--json]
+  [-k, --api-key <key>] \
+  [-t, --test-target-id <id>] \
+  [-j, --json]
 ```
 
 ### Options
@@ -307,10 +307,10 @@ Get details of a specific test case.
 
 ```bash
 octomind test-case \
-  --test-case-id <id> \
-  [--api-key <key>] \
-  [--test-target-id <id>] \
-  [--json]
+  -c, --test-case-id <id> \
+  [-k, --api-key <key>] \
+  [-t, --test-target-id <id>] \
+  [-j, --json]
 ```
 
 ### Options
@@ -325,16 +325,16 @@ Create a new test case discovery.
 
 ```bash
 octomind create-discovery \
-  --name <name> \
-  --prompt <prompt> \
-  [--api-key <key>] \
-  [--test-target-id <id>] \
-  [--entry-point-url-path <path>] \
+  -n, --name <name> \
+  -p, --prompt <prompt> \
+  [-k, --api-key <key>] \
+  [-t, --test-target-id <id>] \
+  [-e, --entry-point-url-path <path>] \
   [--prerequisite-id <id>] \
   [--external-id <id>] \
   [--assigned-tag-ids <ids>] \
   [--folder-id <id>] \
-  [--json]
+  [-j, --json]
 ```
 
 ### Options
@@ -357,11 +357,11 @@ You can bypass the proxy by using "http://localhost:port" as the URL.
 
 ```bash
 octomind debug \
-  --url <url> \
-  [--api-key <key>] \
-  [--id <uuid>] \
-  [--environmentId <uuid>] \
-  [--testTargetId <uuid>] \
+  -u, --url <url> \
+  [-k, --api-key <key>] \
+  [-i, --id <uuid>] \
+  [-e, --environmentId <uuid>] \
+  [-a, --testTargetId <uuid>] \
   [--headless] \
   [--persist]
 ```
