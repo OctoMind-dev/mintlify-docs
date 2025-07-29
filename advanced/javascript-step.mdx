@@ -1,10 +1,11 @@
 ---
 title: Execute custom JS
-description: "Execute custom JavaScript or TypeScript code in isolation during your test flow."
+description: "Execute custom JavaScript or TypeScript code during your test flow."
 icon: "code"
 ---
 
-The `execute javascript` interaction step allows you to execute arbitrary JavaScript or TypeScript code as part of your test flow. This is useful for performing custom logic, calculations, or interacting with APIs that are not directly accessible through other test steps.
+The `execute javascript` interaction step allows you to execute arbitrary JavaScript or TypeScript code as part of your test flow.
+This is useful for performing custom logic, calculations, or interacting with APIs that are not directly accessible through other test steps.
 
 <Frame caption="'execute javascript' interaction option in a test step, 05/2025">
   <img
@@ -13,19 +14,38 @@ The `execute javascript` interaction step allows you to execute arbitrary JavaSc
   />
 </Frame>
 
-<info>
-  **Note:** The code runs in a secure, isolated environment and **cannot access
-  the Playwright runtime or browser context directly**. This restriction is in
-  place for security and stability reasons.
-</info>
+If the executed javascript throws an exception, the `execute javascript` step fails.
 
-## Isolation and limitations
+## Sandbox or browser execution
+
+The code can run in 2 different contexts:
+
+1. **Sandbox**: The code runs in a secure, isolated environment and **cannot access
+   the Playwright runtime or browser context directly**. This restriction is in
+   place for security and stability reasons.
+
+2. **Browser**: The code runs in the browser context and **can access
+   browser context directly**. This is useful for performing custom on your application like setting cookies, etc.
+
+### Sandbox isolation and limitations
 
 - **No direct access to Playwright or browser context:** Your script cannot interact with page elements, cookies, or the DOM directly.
 - **Resource limits:**
   - **Runtime:** Scripts are limited in execution time to prevent infinite loops and slow tests.
   - **Memory:** Scripts have a capped memory allocation.
   - **Network:** Outbound network requests may be restricted or rate-limited.
+
+### Browser isolation and limitations
+
+- code will be executed in the browser context and **can access
+  browser context directly**. e.g. window, document, etc.
+
+<Frame caption="'execute javascript' interaction option executed in browser context, 07/2025">
+  <img
+    src="/images/advanced/js-step-browser.png"
+    alt="'execute javascript' interaction option executed in browser context"
+  />
+</Frame>
 
 ## Setting dynamic variables
 
@@ -41,6 +61,9 @@ async function main() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ title: "My Document" }),
   });
+  if (!response.ok) {
+    throw new Error(`Response status: ${response.status}`);
+  }
   const data = await response.json();
   // Set the dynamic variable by logging a JSON object
   console.log(JSON.stringify({ documentId: data.id }));
