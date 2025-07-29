@@ -35,12 +35,10 @@ Key functionalities include:
 ### 3. Workflow
 
 1. **Initialization:**
-
    - The bot initializes the Playwright runtime and AI components. It loads necessary browser instances (Chromium, Firefox, etc.).
    - It sets up proxy configurations for web requests.
 
 2. **User Agent Configuration:**
-
    - The bot uses a static user-agent string to identify itself during web requests.
    - **Example Static User-Agent String:**
      ```plaintext
@@ -48,25 +46,21 @@ Key functionalities include:
      ```
 
 3. **IP Address Management:**
-
    - The bot uses a proxy for all web requests, ensuring that the IP address is consistent across all interactions. It does not use IP rotation.
    - The proxy server is configured by the octomind platform and currently uses 3 IP addresses `35.192.162.70`, `34.159.153.198`
      and `34.129.193.156`.
 
 4. **Page Loading and AI Analysis:**
-
    - Once a page is loaded, the AI model analyzes the page content. The AI identifies important elements (e.g., articles, prices, buttons) based on the task at hand.
    - The crawler determines the next steps:
      - **Extract data:** If the target data (e.g., product details) is found, it extracts the information.
      - **Follow links:** If more pages need to be visited, the AI selects the most relevant links to follow.
 
 5. **Data Extraction:**
-
    - The AI model uses techniques like XPath, CSS selectors, and machine learning models for intelligent data extraction.
    - It dynamically adapts to changes in the page structure (e.g., CSS class changes) by analyzing the context around the data.
 
 6. **Data Storage**
-
    - Extracted data is stored in a structured format (JSON, CSV, or database) for easy access and further analysis.
    - Extracted data will only be used a context for AI models to generate test cases.
    - Extracted data is not used to train any AI model or stored for any other purpose as test case generation context.
