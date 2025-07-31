@@ -32,19 +32,29 @@ In other cases, the form expects input to start from the **first visible digit b
 
 However, this behavior **often doesn't work with a regular `enter text step`**, because it mimics pasting rather than typing. Instead, you should use `type multiple characters` - this simulates real typing, one character at a time.
 
+<Frame caption="Type multiple characters interaction type, 07/2025">
+  <img
+    src="/images/guides/type-multiple-charaters.png"
+    alt="Type multiple characters interaction type"
+    width="300"
+  />
+</Frame>
+
+<div class="mt-8" />
+
 <Warning>
   If the default typing speed is too fast (default: 10ms between characters),
   some digits may be dropped or skipped. This can cause the input to be
   incomplete or incorrect.
 </Warning>
 
-#### **Solution:**
+#### Solution
 
 - Use the setting `character delay in ms` to slow down typing speed.
 - Try increasing the delay to `100ms` or even `200ms` to ensure stability.
 - Adjust based on how sensitive the input fields are to rapid keystrokes.
 
-## Tl;dr
+## Tl;dr:
 
 When automating OTP or multi-field number inputs, it's important to understand how the input is processed by the UI. Use one of the following strategies depending on your case:
 

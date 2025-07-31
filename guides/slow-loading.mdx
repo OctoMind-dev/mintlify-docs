@@ -34,6 +34,10 @@ Assertions can be used to wait for conditions like the disappearance of a loadin
 - Mark it as `optional`, so that if the assertion fails, the test still continues.
 - Each optional assertion adds **up to 30 seconds** of additional wait time.
 
+<Frame caption="Adding optional step, 07/2025">
+  <img src="/images/guides/optional-step.png" alt="Adding optional step" />
+</Frame>
+
 <Tip>
   In fast environments like PROD, these assertions pass instantly and don't
   delay the test run.
@@ -41,17 +45,31 @@ Assertions can be used to wait for conditions like the disappearance of a loadin
 
 2. **Use the wait step**
 
+<Frame caption="Wait step interaction type, 07/2025">
+  <img
+    src="/images/guides/wait-step.png"
+    alt="Wait step interaction type"
+    width="400"
+  />
+</Frame>
+
 You can also use the `wait step`, which supports several waiting strategies:
 
 - Wait for elements to appear, disappear, or become clickable.
 - Use dynamic waits based on element states.
 - A **fixed wait time** is also available (though not recommended), as it can either be too short or unnecessarily long.
 
+<Frame caption="Fixed timeout per step, 07/2025">
+  <img src="/images/guides/timeout-per-step.png" alt="Fixed timeout per step" />
+</Frame>
+
+<div class="mt-8" />
+
 <Info>
   Each wait step provides an **additional 30 seconds** of potential wait time.
 </Info>
 
-For some background information on this topic and our `wait steps` rationale - read our article [where we explain why we added waiting to Octomind tests](https://octomind.dev/blog/why-we-finally-allowed-arbitrary-waits-in-our-tests).
+For some background information on this topic and our "waiting" rationale - read our article [where we explain why we added waiting to Octomind tests](https://octomind.dev/blog/why-we-finally-allowed-arbitrary-waits-in-our-tests).
 
 ## Tl;dr
 
