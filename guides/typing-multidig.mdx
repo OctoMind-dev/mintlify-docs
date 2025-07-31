@@ -1,0 +1,56 @@
+---
+title: Mutli-digit codes
+description: "Typing multi-digit codes into OTP fields"
+icon: "typewriter"
+---
+
+## A digit typing problem
+
+In some test scenarios, such as verifying One-Time Passwords (OTPs), you may need to enter a number (e.g. a 6-digit code) into six separate input fields. This pattern is common across login flows, 2FA prompts, and similar UI components.
+
+> “Sometimes, I need to type a number - say, 6 digits - into 6 different fields. How do I automate this reliably?”
+
+While this may seem straightforward, there are some nuances that can make automation tricky. Fortunately, there are a few strategies you can use depending on how the form is implemented.
+
+## Strategies for typing OTPs into separate fields
+
+### 1. Hidden input field (overlay)
+
+Many implementations use a **single hidden input field** overlaid on the six visible boxes. When you paste the full code into this hidden field, it automatically distributes the digits into the appropriate boxes.
+
+**How to handle this:**
+
+- Locate the hidden input (using inspect or test recording).
+- Paste the entire OTP code into this field using a standard Enter text step.
+- The page logic should split and fill each digit correctly.
+
+This is usually the most reliable approach if supported by the application.
+
+### 2. Typing into the first box (with character simulation)
+
+In other cases, the form expects input to start from the **first visible digit box**, and then distributes each subsequent digit automatically.
+
+However, this behavior **often doesn't work with a regular `enter text step`**, because it mimics pasting rather than typing. Instead, you should use `type multiple characters` - this simulates real typing, one character at a time.
+
+<Warning>
+  If the default typing speed is too fast (default: 10ms between characters),
+  some digits may be dropped or skipped. This can cause the input to be
+  incomplete or incorrect.
+</Warning>
+
+#### **Solution:**
+
+- Use the setting `character delay in ms` to slow down typing speed.
+- Try increasing the delay to `100ms` or even `200ms` to ensure stability.
+- Adjust based on how sensitive the input fields are to rapid keystrokes.
+
+## Tl;dr
+
+When automating OTP or multi-field number inputs, it's important to understand how the input is processed by the UI. Use one of the following strategies depending on your case:
+
+- A hidden field? → Paste the full code directly.
+- Visible fields with auto-forwarding? → Use Type multiple characters with an increased character delay.
+
+Both methods can be fine-tuned for speed and reliability using the available test settings.
+
+Need help identifying which pattern your app uses? Reach out to our [support team](https://discord.gg/3ShnZMKRfA).
