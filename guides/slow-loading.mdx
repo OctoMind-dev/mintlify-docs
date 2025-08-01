@@ -1,0 +1,81 @@
+---
+title: Slow loading elements
+description: "Managing timeouts and handling slow-Loading elements"
+icon: "turtle"
+---
+
+## The problem with slow loading elements
+
+In many testing setups, **development environments (DEV)** tend to be slower than **production (PROD) environments**. This can lead to longer page load times and failed test steps if timeouts are too short.
+
+For example:
+
+> “Is there any way we can increase the timeout from 30s? I have a page that takes a while to load because it's on the test system.”
+
+This is a common challenge, and while the **global timeout is intentionally capped at 30 seconds**, there are effective strategies to handle slow-loading pages without slowing down your tests across the board.
+
+## Why we limit the global timeout
+
+The global timeout applies to all failures, across all test steps. Raising it can cause several problems:
+
+- **Slower feedback loops**: If a step fails while composing or debugging a test, you'd need to wait the full timeout duration to see the error.
+- **Longer execution times**: If a failing test is part of a suite and gets rerun, the delay is doubled for every affected step.
+- In our experience, longer timeouts significantly **reduce the usability and efficiency** of the testing workflow.
+
+## Recommended strategies for handling loading delays
+
+To deal with longer load times - especially in slower environments like DEV - we recommend the following solutions:
+
+1. **Use optional assertions**
+
+Assertions can be used to wait for conditions like the disappearance of a loading spinner or the appearance of key elements. To make this more flexible:
+
+- Add an `assertion` to wait for a specific element (e.g. spinner) to disappear.
+- Mark it as `optional`, so that if the assertion fails, the test still continues.
+- Each optional assertion adds **up to 30 seconds** of additional wait time.
+
+<Frame caption="Adding optional step, 07/2025">
+  <img src="/images/guides/optional-step.png" alt="Adding optional step" />
+</Frame>
+
+<Tip>
+  In fast environments like PROD, these assertions pass instantly and don't
+  delay the test run.
+</Tip>
+
+2. **Use the wait step**
+
+<Frame caption="Wait step interaction type, 07/2025">
+  <img
+    src="/images/guides/wait-step.png"
+    alt="Wait step interaction type"
+    width="400"
+  />
+</Frame>
+
+You can also use the `wait step`, which supports several waiting strategies:
+
+- Wait for elements to appear, disappear, or become clickable.
+- Use dynamic waits based on element states.
+- A **fixed wait time** is also available (though not recommended), as it can either be too short or unnecessarily long.
+
+<Frame caption="Fixed timeout per step, 07/2025">
+  <img src="/images/guides/timeout-per-step.png" alt="Fixed timeout per step" />
+</Frame>
+
+<div class="mt-8" />
+
+<Info>
+  Each wait step provides an **additional 30 seconds** of potential wait time.
+</Info>
+
+For some background information on this topic and our "waiting" rationale - read our article [where we explain why we added waiting to Octomind tests](https://octomind.dev/blog/why-we-finally-allowed-arbitrary-waits-in-our-tests).
+
+## Tl;dr
+
+Although the global timeout is limited to 30 seconds for performance reasons, you can manage slow-loading pages by using `optional assertions` or `wait steps`.
+These techniques allow for flexible waiting, adapt to varying load speeds between environments, and help you avoid unnecessary delays in faster systems.
+
+## Need more guidance?
+
+Check out our documentation for [assertions](/get-started/edit-tests#change-interaction-or-assertion-type) and [wait steps](/advanced/waiting), or [contact our support team](https://discord.gg/3ShnZMKRfA) for personalized help.

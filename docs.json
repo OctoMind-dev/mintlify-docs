@@ -131,6 +131,10 @@
           {
             "group": "Test orchestration",
             "pages": ["guides/project-environments", "guides/long-running"]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": ["guides/slow-loading", "guides/typing-multidig"]
           }
         ]
       },
