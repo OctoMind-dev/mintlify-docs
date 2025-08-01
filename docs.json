@@ -167,6 +167,17 @@
             ]
           }
         ]
+      }, {
+        "tab": "CLI",
+        "groups": [
+          {
+            "group": "Command Line Interface",
+            "pages": [
+              "cli/installation",
+              "cli/commands"
+            ]
+          }
+        ]
       },
       {
         "tab": "Changelog",
