@@ -5,7 +5,9 @@ icon: "mcp"
 ---
 
 # Hosted Octomind MCP Server
+
 Octomind offers a cloud-hosted MCP server that provides an easy way to integrate with our platform without requiring local installation or configuration.
+
 ## Getting Started
 
 **Endpoint**: https://mcp.app.octomind.dev/mcp
@@ -24,6 +26,7 @@ This hosted option is perfect for teams who want to quickly start using Octomind
 ## Authentication
 
 The hosted MCP server requires an API key for authentication. You can find your API key in the Octomind app under Settings > API keys.
+
 <Snippet file="snippet-apiKey.mdx" />
 
 Despite the normale Header for API key authentication is `x-api-key`, the hosted MCP server uses `Authorization: Bearer <API_KEY>`.
@@ -36,47 +39,48 @@ const apiKey = process.env.API_KEY;
 
 console.log("Testing MCP server at:", serverUrl);
 try {
-    const transport = new StreamableHTTPClientTransport(new URL(serverUrl), {
-      requestInit: {
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "x-session-id": "unique-session-id",  // Optional, but recommended for sticky session routing
-        },
+  const transport = new StreamableHTTPClientTransport(new URL(serverUrl), {
+    requestInit: {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "x-session-id": "unique-session-id", // Optional, but recommended for sticky session routing
       },
-    });
-    const client = new Client(
-      {
-        name: "test-client",
-        version: "1.0.0",
-      },
-      {
-        capabilities: {},
-      },
-    );
-    console.log("Client created successfully!");
+    },
+  });
+  const client = new Client(
+    {
+      name: "test-client",
+      version: "1.0.0",
+    },
+    {
+      capabilities: {},
+    },
+  );
+  console.log("Client created successfully!");
 
-    await client.connect(transport);
-    console.log("✅ Connected successfully!");
+  await client.connect(transport);
+  console.log("✅ Connected successfully!");
 
-    console.log("Server capabilities:", client.getServerCapabilities());
-    console.log("Server version:", client.getServerVersion());
-    const capabilities = client.getServerCapabilities();
-    // Test basic capabilities
-    const tools = await client.listTools();
-    console.log(
-      "🔧 Available tools:",
-      tools.tools.map((t) => t.name),
-    );
-  } catch (error) {
-    console.error("❌ Error connecting to MCP server:", error);
-  }
+  console.log("Server capabilities:", client.getServerCapabilities());
+  console.log("Server version:", client.getServerVersion());
+  const capabilities = client.getServerCapabilities();
+  // Test basic capabilities
+  const tools = await client.listTools();
+  console.log(
+    "🔧 Available tools:",
+    tools.tools.map((t) => t.name),
+  );
+} catch (error) {
+  console.error("❌ Error connecting to MCP server:", error);
+}
 ```
+
 To test this example, you need to have the `@modelcontextprotocol/client` package installed. You can install it using npm or yarn.
 Set the `API_KEY` environment variable to your API key.
 
 ### Sticky session routing
 
-The hosted MCP server supports sticky session routing. This means that the same session will be used for all requests. 
+The hosted MCP server supports sticky session routing. This means that the same session will be used for all requests.
 To support sticky session routing, you need to set the `x-session-id` header to a unique value in the `requestInit` object.
 
 ```javascript
@@ -84,7 +88,7 @@ const transport = new StreamableHTTPClientTransport(new URL(serverUrl), {
   requestInit: {
     headers: {
       Authorization: `Bearer ${apiKey}`,
-      "x-session-id": "unique-session-id",  // Optional, but recommended for sticky session routing
+      "x-session-id": "unique-session-id", // Optional, but recommended for sticky session routing
     },
   },
 });
