@@ -6,21 +6,21 @@ icon: "terminal"
 
 ## Installation
 
-You can install the Octomind CLI in two ways:
+1. To install the package **globally** do **NOT** just a `npm i -g @octomind/octomind` but instead 
+```bash
+mkdir -p ~/.local/packages
+cd ~/.local/packages
+npm install @octomind/octomind@latest
+# either create an alias
+alias octomind="node ~/.local/packages/node_modules/@octomind/octomind/dist/index.js"
+# or create a symlink
+sudo ln -s ~/.local/packages/node_modules/@octomind/octomind/dist/index.js /usr/local/bin/octomind
+```
 
-1. Install the package globally:
-```bash
-npm i -g @octomind/octomind
-```
-Then use it directly:
-```bash
-octomind -h
-```
+this will install the package to `~/.local/packages` and create symlinks in `/usr/local/bin` or creates an alias. 
+This is necessary for the cli to work and avoid dependency conflicts, when installing the package globally.
 
-2. Use the CLI through npx without installation:
-```bash
-npx @octomind/octomind -h
-```
+2. Use the cli through **npx** e.g. `npx @octomind/octomind -h`
 
 ## Initializing the CLI
 
@@ -41,8 +41,7 @@ octomind init \
 
 ### Getting Your API Key
 
-If you don't provide the API key via the command line option, the CLI will prompt you to enter it interactively. 
-You can get your API key from the [API documentation](https://octomind.dev/docs/run-tests/execution-curl#create-an-api-key).
+<Snippet file="snippet-apiKey.mdx" />
 
 ### Example
 
@@ -59,3 +58,22 @@ octomind init --force
 
 Once initialized, you can use other CLI commands without having to specify your API key or test 
 target ID with each command.
+
+## Autocompletion
+
+On macOS and linux you can enable autocompletion by running the following command (works for bash, zsh & fish):
+```bash
+npx @octomind/octomind install-completion
+```
+You can disable autocompletion by running the following command:
+```bash
+npx @octomind/octomind uninstall-completion
+```
+
+Autocompletion will only work if you have installed the package globally and created a config file with `npx @octomind/octomind init`.
+This way even entityIds like environmentIds or testCaseIds will be autocompleted.
+
+# Source
+
+The source code for the CLI is available on [GitHub](https://github.com/octomind-dev/cli) 
+<Icon icon="github" size={24} />.
