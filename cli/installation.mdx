@@ -6,7 +6,8 @@ icon: "terminal"
 
 ## Installation
 
-1. To install the package **globally** do **NOT** just a `npm i -g @octomind/octomind` but instead 
+1. To install the package **globally** do **NOT** just a `npm i -g @octomind/octomind` but instead
+
 ```bash
 mkdir -p ~/.local/packages
 cd ~/.local/packages
@@ -17,7 +18,7 @@ alias octomind="node ~/.local/packages/node_modules/@octomind/octomind/dist/inde
 sudo ln -s ~/.local/packages/node_modules/@octomind/octomind/dist/index.js /usr/local/bin/octomind
 ```
 
-this will install the package to `~/.local/packages` and create symlinks in `/usr/local/bin` or creates an alias. 
+this will install the package to `~/.local/packages` and create symlinks in `/usr/local/bin` or creates an alias.
 This is necessary for the cli to work and avoid dependency conflicts, when installing the package globally.
 
 2. Use the cli through **npx** e.g. `npx @octomind/octomind -h`
@@ -56,16 +57,19 @@ octomind init --api-key your-api-key-here --test-target-id your-test-target-id
 octomind init --force
 ```
 
-Once initialized, you can use other CLI commands without having to specify your API key or test 
+Once initialized, you can use other CLI commands without having to specify your API key or test
 target ID with each command.
 
 ## Autocompletion
 
 On macOS and linux you can enable autocompletion by running the following command (works for bash, zsh & fish):
+
 ```bash
 npx @octomind/octomind install-completion
 ```
+
 You can disable autocompletion by running the following command:
+
 ```bash
 npx @octomind/octomind uninstall-completion
 ```
@@ -75,5 +79,6 @@ This way even entityIds like environmentIds or testCaseIds will be autocompleted
 
 # Source
 
-The source code for the CLI is available on [GitHub](https://github.com/octomind-dev/cli) 
+The source code for the CLI is available on [GitHub](https://github.com/octomind-dev/cli)
+
 <Icon icon="github" size={24} />.
