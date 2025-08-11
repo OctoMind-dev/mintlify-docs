@@ -1,0 +1,93 @@
+---
+title: CLI tool
+description: "How to use & install the octomind CLI tool"
+icon: "terminal"
+---
+
+# How does it look like?
+
+<Frame caption="Example of octomind cli tool, 08/2025">
+  <img
+    src="/images/cli/octomind-cli-opt.gif"
+    alt="Example of octomind cli tool, 08/2025"
+  />
+</Frame>
+
+## Installation
+
+1. To install the package **globally** do **NOT** just a `npm i -g @octomind/octomind` but instead
+
+```bash
+mkdir -p ~/.local/packages
+cd ~/.local/packages
+npm install @octomind/octomind@latest
+# either create an alias
+alias octomind="node ~/.local/packages/node_modules/@octomind/octomind/dist/index.js"
+# or create a symlink
+sudo ln -s ~/.local/packages/node_modules/@octomind/octomind/dist/index.js /usr/local/bin/octomind
+```
+
+this will install the package to `~/.local/packages` and create symlinks in `/usr/local/bin` or creates an alias.
+This is necessary for the cli to work and avoid dependency conflicts, when installing the package globally.
+
+2. Use the cli through **npx** e.g. `npx @octomind/octomind -h`
+
+## Initializing the CLI
+
+After installing the CLI, you need to initialize it by setting up your API key and optionally a test target ID. This configuration allows you to avoid passing these parameters for subsequent commands.
+
+```bash
+octomind init \
+  [--api-key <key>] \
+  [--test-target-id <id>] \
+  [--force]
+```
+
+### Options
+
+- `-k, --api-key`: Your Octomind API key (will prompt if not provided)
+- `-t, --test-target-id`: Test target ID (optional)
+- `-f, --force`: Force overwrite existing configuration
+
+### Getting Your API Key
+
+<Snippet file="snippet-apiKey.mdx" />
+
+### Example
+
+```bash
+# Initialize with API key
+octomind init --api-key your-api-key-here
+
+# Initialize with API key and test target ID
+octomind init --api-key your-api-key-here --test-target-id your-test-target-id
+
+# Force overwrite existing configuration
+octomind init --force
+```
+
+Once initialized, you can use other CLI commands without having to specify your API key or test
+target ID with each command.
+
+## Autocompletion
+
+On macOS and linux you can enable autocompletion by running the following command (works for bash, zsh & fish):
+
+```bash
+npx @octomind/octomind install-completion
+```
+
+You can disable autocompletion by running the following command:
+
+```bash
+npx @octomind/octomind uninstall-completion
+```
+
+Autocompletion will only work if you have installed the package globally and created a config file with `npx @octomind/octomind init`.
+This way even entityIds like environmentIds or testCaseIds will be autocompleted.
+
+# Source
+
+The source code for the CLI is available on [GitHub](https://github.com/octomind-dev/cli)
+
+<Icon icon="github" size={24} />.
