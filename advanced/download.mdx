@@ -1,0 +1,26 @@
+---
+title: File download
+description: "Adding a file download step"
+icon: "download"
+---
+
+Octomind supports file download when running a test.
+
+To enable this simple insert a download step in your test case and and select the element that triggers the download.
+
+You can then add the expected file name to the step.
+
+<Frame caption="screenshot 08/2025 download step">
+  <img
+    src="/images/advanced/download-step.png"
+    alt="screenshot 08/2025 download step"
+  />
+</Frame>
+
+The locator needs to reference the element that triggers the download. You can use the picker to select the element
+on the page.
+
+Then select download interaction type and paste the expected file name in the input field below.
+
+The file can also be a regex pattern although this needs a special escape sequence. To wait for and pdf file (_.pdf)
+use the following pattern: `OCTOREGEX._\.pdfOCTOREGEX`
