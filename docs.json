@@ -87,6 +87,7 @@
               "advanced/2fa",
               "advanced/basic-authentication",
               "advanced/upload",
+              "advanced/download",
               "runtime/custom-headers",
               "runtime/testid-attribute",
               "advanced/cross-origin-iframes"
