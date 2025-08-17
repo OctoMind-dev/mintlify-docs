@@ -4,15 +4,11 @@ description: "What is rate limiting and how to deal with it"
 icon: "gauge-max"
 ---
 
-Whenever the AI agent generates tests for user flows on your page, or when the test runner executes the tests - we are sending requests to your application.
+Whenever the AI agent generates tests for user flows on your page, or when the test runner executes those tests, requests are sent to your application. Depending on the volume of requests and your app’s configuration, this activity might be mistaken for an attack and potentially cause issues.
 
-To ensure a well defined behavior all requests are sent through **3 fixed IP addresses** - `35.192.162.70`, `34.159.153.198` (Europe proxy)
-and `34.129.193.156` (Australia proxy).
+## AI test generation
 
-## AI generation
-
-AI agent generates test cases based on user flows on your site in a similar way a human would use your web application. However, most of the time the agent interacts with the website slightly faster than a human would.
-Also, test case generation can be run in parallel.
+The AI agent generates test cases based on user flows on your site, much like a human would interact with your application. However, the agent typically operates faster than a human and may run multiple test generations in parallel. As a result, this behavior can sometimes trigger CAPTCHAs or be flagged as suspicious activity.
 
 ## Test runner
 
@@ -28,8 +24,13 @@ If you are using a 3rd party login service, there are most likely security confi
 
 While Octomind supports a login with a **one time password (OTP)**, it might run into a limit on how often the same OTP code can be used for login.
 
-## Rate limiter
+## How to prevent the Rate Limiter to kick in
 
 If your application is protected against [DoS Attacks](https://en.wikipedia.org/wiki/Denial-of-service_attack) with a [rate limiter](https://en.wikipedia.org/wiki/Rate_limiting) it is very likely that Octomind test runs and/or AI generation will fail.
-The easiest solution is to configure an exception for our IP addresses: `35.192.162.70` (US proxy), `34.159.153.198` (Europe proxy)
-or `34.129.193.156` (Australia proxy) for white listing.
+
+### IP addresses
+
+The easiest solution is to configure an exception for our IP addresses for white listing.
+* `35.192.162.70` (US proxy)
+* `34.159.153.198` (Europe proxy)
+* `34.129.193.156` (Australia proxy)
