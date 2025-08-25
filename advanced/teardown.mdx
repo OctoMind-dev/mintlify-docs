@@ -1,0 +1,41 @@
+---
+title: Teardown
+description: "Automatically clean up after your tests"
+icon: "broom"
+---
+
+Teardown happens after a test was run and is meant to clean up artifacts that the test created.
+
+Setting a test to tear down another test happens in the steps section of the test case panel. Simply select which test should run whenever this test is being run (after the test was run).
+
+<Frame caption="screenshot 08/2025 teardown selection">
+  <img
+    src="/images/advanced/selecting-teardown.png"
+    alt="screenshot 08/2025 teardown selection"
+  />
+</Frame>
+
+Once the test ran, the teardown result is show with a little run indicator showing either a green success checkmark or a red cross (if teardown failed to run successfully).
+Since all teardown steps are optional, a failing teardown does not lead to the overall test run being failed.
+
+<Frame caption="screenshot 08/2025 executed teardown">
+  <img
+    src="/images/advanced/executed-teardown.png"
+    alt="screenshot 08/2025 executed teardown"
+  />
+</Frame>
+
+If you want to see what your teardown test did, you can use the link icon to jump off to the teardown test to see the teardown result.
+
+<Frame caption="screenshot 08/2025 teardown test">
+  <img
+    src="/images/advanced/teardown-test.png"
+    alt="screenshot 08/2025 teardown test"
+  />
+</Frame>
+
+<Info>
+  Please note that only the steps of the teardown test itself will be ran as
+  part of the teardown step, meaning dependencies of said teardown case will be
+  ignored. A teardown test should also never have a teardown test of its own.
+</Info>

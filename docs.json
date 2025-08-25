@@ -90,7 +90,8 @@
               "advanced/download",
               "runtime/custom-headers",
               "runtime/testid-attribute",
-              "advanced/cross-origin-iframes"
+              "advanced/cross-origin-iframes",
+              "advanced/teardown"
             ]
           },
           {
