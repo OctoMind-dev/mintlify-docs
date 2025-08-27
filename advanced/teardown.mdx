@@ -1,0 +1,71 @@
+---
+title: Teardown
+description: "Automatically clean up after your tests"
+icon: "broom"
+---
+
+<Frame caption="screenshot 08/2025 example of a test used for teardown">
+  <img
+    src="/images/advanced/teardown-test.png"
+    alt="screenshot 08/2025 teardown test"
+  />
+</Frame>
+
+Teardown automatically cleans up artifacts created during test execution. This cleanup can happen through UI interactions (using the app's interface) or programmatically via [javascript step](/advanced/javascript-step).
+
+Configure teardown in the steps section of your test case panel. Select which test should run as cleanup after your main test completes.
+
+<Frame caption="screenshot 08/2025 teardown selection">
+  <img
+    src="/images/advanced/teardown-selection.png"
+    alt="screenshot 08/2025 teardown selection"
+  />
+</Frame>
+
+## Viewing teardown results
+
+After your test runs, teardown results appear with a status indicator:
+
+- Green checkmark: Teardown succeeded
+- Red cross: Teardown failed
+
+Since all teardown steps are optional, a failing teardown does not lead to the overall test run being failed.
+
+<Frame caption="screenshot 08/2025 executed teardown">
+  <img
+    src="/images/advanced/teardown-executed.png"
+    alt="screenshot 08/2025 executed teardown"
+  />
+</Frame>
+
+Click the link icon to see what your teardown test did.
+
+<Info>
+  Only the steps of the teardown test itself will run during
+  cleanup—dependencies of the teardown test are ignored. Teardown tests should
+  not have their own teardown configured.
+</Info>
+
+## Teardown and dependencies
+
+If your test has a dependency that itself has a teardown configured, we will execute it whenever the test case is ran (after). The execution order is:
+
+### Singular dependency:
+
+1. dependency
+2. test
+3. teardown of test
+4. teardown of dependency
+
+### Chained dependencies:
+
+Dependencies execute in order, but their teardowns run in reverse:
+
+1. dependency 1
+2. dependency 2
+3. test
+4. teardown of test
+5. teardown of dependency 2
+6. teardown of dependency 1
+
+This ensures proper cleanup order, with the most recent changes cleaned up first.
