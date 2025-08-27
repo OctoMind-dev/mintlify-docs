@@ -11,10 +11,9 @@ icon: "broom"
   />
 </Frame>
 
-Teardown happens after a test was run and is meant to clean up artifacts that
-the test created. This could be either through UI interactions (cleaning up artifacts using the app's interface) or using a [javascript step](/advanced/javascript-step) to do so in a scripted way.
+Teardown automatically cleans up artifacts created during test execution. This cleanup can happen through UI interactions (using the app's interface) or programmatically via [javascript step](/advanced/javascript-step).
 
-Setting a test to tear down another test happens in the steps section of the test case panel. Simply select which test should run whenever this test is being run (after the test was run).
+Configure teardown in the steps section of your test case panel. Select which test should run as cleanup after your main test completes.
 
 <Frame caption="screenshot 08/2025 teardown selection">
   <img
@@ -23,7 +22,13 @@ Setting a test to tear down another test happens in the steps section of the tes
   />
 </Frame>
 
-Once the test ran, the teardown result is show with a little run indicator showing either a green success check mark or a red cross (if teardown failed to run successfully).
+## Viewing teardown results
+
+After your test runs, teardown results appear with a status indicator:
+
+- Green checkmark: Teardown succeeded
+- Red cross: Teardown failed
+
 Since all teardown steps are optional, a failing teardown does not lead to the overall test run being failed.
 
 <Frame caption="screenshot 08/2025 executed teardown">
@@ -33,24 +38,28 @@ Since all teardown steps are optional, a failing teardown does not lead to the o
   />
 </Frame>
 
-If you want to see what your teardown test did, you can use the link icon to jump off to the teardown test to see the teardown result.
+Click the link icon to see what your teardown test did.
 
 <Info>
-  Please note that only the steps of the teardown test itself will be ran as
-  part of the teardown step, meaning dependencies of said teardown case will be
-  ignored. A teardown test should also never have a teardown test of its own.
+  Only the steps of the teardown test itself will run during
+  cleanup—dependencies of the teardown test are ignored. Teardown tests should
+  not have their own teardown configured.
 </Info>
 
 ## Teardown and dependencies
 
 If your test has a dependency that itself has a teardown configured, we will execute it whenever the test case is ran (after). The execution order is:
 
+### Singular dependency:
+
 1. dependency
 2. test
 3. teardown of test
 4. teardown of dependency
 
-In a scenario with a chain of dependencies, their teardown tests will be executed in reverse order:
+### Chained dependencies:
+
+Dependencies execute in order, but their teardowns run in reverse:
 
 1. dependency 1
 2. dependency 2
@@ -58,3 +67,5 @@ In a scenario with a chain of dependencies, their teardown tests will be execute
 4. teardown of test
 5. teardown of dependency 2
 6. teardown of dependency 1
+
+This ensures proper cleanup order, with the most recent changes cleaned up first.
