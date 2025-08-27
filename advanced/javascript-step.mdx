@@ -14,7 +14,7 @@ This is useful for performing custom logic, calculations, or interacting with AP
   />
 </Frame>
 
-If the executed javascript throws an exception, the `execute javascript` step fails.
+If the executed javascript throws an exception or prints an error to `stderr`, the `execute javascript` step fails.
 
 ## Sandbox or browser execution
 
@@ -49,7 +49,8 @@ The code can run in 2 different contexts:
 
 ## Setting dynamic variables
 
-You can create [dynamic variables](/advanced/variables) by printing a JSON object to `stdout` using `console.log`. These variables can be used in subsequent steps of your test.
+You can create [dynamic variables](/advanced/variables) by calling a helper function `setDynamicVariable`.
+These variables can be used in subsequent steps of your test.
 
 For example, if your script creates a new document in your application and receives a document ID in the response, you can expose this ID as a dynamic variable:
 
@@ -65,8 +66,7 @@ async function main() {
     throw new Error(`Response status: ${response.status}`);
   }
   const data = await response.json();
-  // Set the dynamic variable by logging a JSON object
-  console.log(JSON.stringify({ documentId: data.id }));
+  setDynamicVariable("documentId", data.id);
 }
 
 main();
@@ -81,6 +81,111 @@ After this script runs, you can reference the dynamic variable in later steps us
     width="400"
   />
 </Frame>
+
+## Using dynamic variables in javascript steps
+
+You can use dynamic variables in your test steps by using the `getDynamicVariable` function.
+For example, if you have a dynamic variable `$$documentId`, you can use it in a step like this:
+
+```js
+// Example: Using a dynamic variable in a step
+async function main() {
+  const response = await fetch(
+    "https://api.example.com/documents/" + getDynamicVariable("documentId"),
+  );
+  if (!response.ok) {
+    throw new Error(`Response status: ${response.status}`);
+  }
+  const data = await response.json();
+  setDynamicVariable("documentName", data.name);
+}
+
+main();
+```
+
+## Using secret template variables
+
+You can use secret template variables in your test steps by using the `decrypt` function.
+For example, if you have a secret template variable `API_KEY`, you can use it in a step like this:
+
+1. Create a secret template variable in the [Environment variables](/manage-tests/environment-variables).
+
+<Frame caption="Example: Using a secret template variable in a javascript step">
+  <img
+    src="/images/advanced/js-step-secret.png"
+    alt="Example: Using a secret template variable in a javascript step"
+    width="400"
+  />
+</Frame>
+
+2. Use the `decrypt` function to decrypt the secret template variable in your test step.
+
+```js
+// Example: Using a secret template variable in a step
+async function main() {
+  const response = await fetch("https://api.example.com/tasks/", {
+    headers: {
+      "x-api-key": decrypt("$API_KEY"),
+    },
+  });
+  if (!response.ok) {
+    throw new Error(`Response status: ${response.status}`);
+  }
+  const tasks = await response.json();
+  setDynamicVariable("noOfTasks", tasks.length);
+}
+
+main();
+```
+
+With getDynamicVariable you can access all dynamic variables from previous javascript or "extract value" steps.
+
+### Helper functions
+
+The following helper functions are available:
+
+- `setDynamicVariable(name, value)`: Set a dynamic variable.
+- `getDynamicVariable(name)`: Get a dynamic variable.
+- `decrypt(name)`: Decrypt a template variable.
+
+## Logging
+
+You can log messages to the console using the `console.log` function.
+
+```js
+// Example: Logging a message
+async function main() {
+  console.log("Hello, world!");
+}
+
+main();
+```
+
+You will see the log in the test trace.
+
+<Frame caption="Example: Logging a message">
+  <img
+    src="/images/advanced/js-step-logging.png"
+    alt="Example: Logging a message"
+    width="400"
+  />
+</Frame>
+
+## Error handling
+
+You can throw errors using the `throw` statement or output with `console.error`
+will be considered as an error and the step will fail.
+
+```js
+// Example: make the step fail
+async function main() {
+  console.error("Something went wrong!");
+  // or
+  throw new Error("Something went wrong!");
+}
+
+main();
+```
 
 ## Best practices
 
