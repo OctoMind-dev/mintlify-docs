@@ -11,7 +11,8 @@ See [API documentation](https://octomind.dev/docs/api-reference/)
 
 ## Installation
 
-1. Use the cli through npx e.g. 
+1. Use the cli through npx e.g.
+
 ```bash
 npx @octomind/octomind -h
 ```
@@ -23,6 +24,7 @@ npx @octomind/octomind -h
 Octomind cli tool. Additional documentation see https://octomind.dev/docs/api-reference/
 
 **Usage:**
+
 ```bash
 octomind [options] [command]
 ```
@@ -44,11 +46,13 @@ Octomind cli tool. Additional documentation see https://octomind.dev/docs/api-re
 Initialize configuration by setting up API key. This will create a config file in ~/.config/octomind.json
 
 **Usage:**
+
 ```bash
 octomind init [options]
 ```
 
 **Example:**
+
 ```bash
 octomind init --test-target-id 3435918b-3d29-4ebd-8c68-9a540532f45a --api-key your-api-key
 ```
@@ -66,11 +70,13 @@ octomind init --test-target-id 3435918b-3d29-4ebd-8c68-9a540532f45a --api-key yo
 Switch to a different test target. This will list all available test targets and update the config file in ~/.config/octomind.json
 
 **Usage:**
+
 ```bash
 octomind switch-test-target [options]
 ```
 
 **Example:**
+
 ```bash
 octomind switch-test-target
 ```
@@ -82,11 +88,13 @@ octomind switch-test-target
 Install tab completion
 
 **Usage:**
+
 ```bash
 octomind install-completion [options]
 ```
 
 **Example:**
+
 ```bash
 octomind install-completion
 ```
@@ -96,11 +104,13 @@ octomind install-completion
 Uninstall tab completion
 
 **Usage:**
+
 ```bash
 octomind uninstall-completion [options]
 ```
 
 **Example:**
+
 ```bash
 octomind uninstall-completion
 ```
@@ -110,11 +120,13 @@ octomind uninstall-completion
 Tab completion
 
 **Usage:**
+
 ```bash
 octomind completion [options]
 ```
 
 **Example:**
+
 ```bash
 octomind completion
 ```
@@ -126,11 +138,13 @@ octomind completion
 List all environments
 
 **Usage:**
+
 ```bash
 octomind list-environments [options]
 ```
 
 **Example:**
+
 ```bash
 octomind list-environments
 ```
@@ -147,11 +161,13 @@ octomind list-environments
 Create a new environment
 
 **Usage:**
+
 ```bash
 octomind create-environment [options]
 ```
 
 **Example:**
+
 ```bash
 octomind create-environment --name "Production" --discovery-url https://example.com
 ```
@@ -212,11 +228,13 @@ Update an existing environment
 Delete an environment
 
 **Usage:**
+
 ```bash
 octomind delete-environment [options]
 ```
 
 **Example:**
+
 ```bash
 octomind delete-environment --environment-id 826c15af-644b-4b28-89b4-f50ff34e46b7
 ```
@@ -255,11 +273,13 @@ run test cases against local build
 Execute test cases to create a test report
 
 **Usage:**
+
 ```bash
 octomind execute [options]
 ```
 
 **Example:**
+
 ```bash
 octomind execute --url https://example.com
 ```
@@ -281,11 +301,13 @@ octomind execute --url https://example.com
 Create a new test case discovery
 
 **Usage:**
+
 ```bash
 octomind create-discovery [options]
 ```
 
 **Example:**
+
 ```bash
 octomind create-discovery --name "Login Test" --prompt "Test the login functionality"
 ```
@@ -311,11 +333,13 @@ octomind create-discovery --name "Login Test" --prompt "Test the login functiona
 Get notifications for a test target
 
 **Usage:**
+
 ```bash
 octomind notifications [options]
 ```
 
 **Example:**
+
 ```bash
 octomind notifications
 ```
@@ -334,11 +358,13 @@ octomind notifications
 Register a private location
 
 **Usage:**
+
 ```bash
 octomind register-location [options]
 ```
 
 **Example:**
+
 ```bash
 octomind register-location --name "Office Network" --address 192.168.1.100 --username user --password pass
 ```
@@ -358,11 +384,13 @@ octomind register-location --name "Office Network" --address 192.168.1.100 --use
 Unregister a private location
 
 **Usage:**
+
 ```bash
 octomind unregister-location [options]
 ```
 
 **Example:**
+
 ```bash
 octomind unregister-location --location-id 7f8d6e5c-4b3a-2a1c-0f9e-8d7c6b5a4b3a
 ```
@@ -379,11 +407,13 @@ octomind unregister-location --location-id 7f8d6e5c-4b3a-2a1c-0f9e-8d7c6b5a4b3a
 List all private locations
 
 **Usage:**
+
 ```bash
 octomind list-private-locations [options]
 ```
 
 **Example:**
+
 ```bash
 octomind list-private-locations
 ```
@@ -399,11 +429,13 @@ octomind list-private-locations
 Start a private location worker, see https://octomind.dev/docs/proxy/private-location
 
 **Usage:**
+
 ```bash
 octomind start-private-location [options]
 ```
 
 **Example:**
+
 ```bash
 octomind start-private-location --name "Office Network"
 ```
@@ -422,11 +454,13 @@ octomind start-private-location --name "Office Network"
 Stop a private location worker, see https://octomind.dev/docs/proxy/private-location
 
 **Usage:**
+
 ```bash
 octomind stop-private-location [options]
 ```
 
 **Example:**
+
 ```bash
 octomind stop-private-location
 ```
@@ -452,11 +486,13 @@ Delete a test case
 Get details of a specific test case
 
 **Usage:**
+
 ```bash
 octomind test-case [options]
 ```
 
 **Example:**
+
 ```bash
 octomind test-case --test-case-id 9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d
 ```
@@ -474,11 +510,13 @@ octomind test-case --test-case-id 9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d
 List all test cases
 
 **Usage:**
+
 ```bash
 octomind list-test-cases [options]
 ```
 
 **Example:**
+
 ```bash
 octomind list-test-cases
 ```
@@ -497,11 +535,13 @@ octomind list-test-cases
 Get test report details
 
 **Usage:**
+
 ```bash
 octomind test-report [options]
 ```
 
 **Example:**
+
 ```bash
 octomind test-report --test-report-id 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
 ```
@@ -521,11 +561,13 @@ octomind test-report --test-report-id 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
 List all test targets
 
 **Usage:**
+
 ```bash
 octomind list-test-targets [options]
 ```
 
 **Example:**
+
 ```bash
 octomind list-test-targets
 ```
