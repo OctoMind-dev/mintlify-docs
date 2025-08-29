@@ -37,8 +37,10 @@ The code can run in 2 different contexts:
 
 ### Browser isolation and limitations
 
-- code will be executed in the browser context and **can access
+- Code will be executed in the browser context and **can access
   browser context directly**. e.g. window, document, etc.
+- You can access existing dynamic variables (set by previous steps) directly through the `context` object: `context.variableName`
+- You can set dynamic variables by returning an object from your function: `return { variableName: value }`
 
 <Frame caption="'execute javascript' interaction option executed in browser context, 07/2025">
   <img
@@ -47,7 +49,47 @@ The code can run in 2 different contexts:
   />
 </Frame>
 
-## Setting dynamic variables
+### Using dynamic variables in browser context
+
+When running JavaScript in the browser context, you have two special features:
+
+1. **Access existing dynamic variables** through the `context` object:
+
+```js
+// Example: Using existing dynamic variables in browser context
+
+// Access a dynamic variable set by a previous step
+const documentId = context.documentId;
+
+// Use it in your browser code
+console.log(`Working with document: ${documentId}`);
+
+// You can access any dynamic variable set by previous steps
+if (context.userName) {
+  document.getElementById('greeting').textContent = `Hello, ${context.userName}!`;
+}
+```
+
+2. **Set dynamic variables by returning an object** from your function:
+
+```js
+// Example: Setting dynamic variables by returning an object
+
+// Extract values from the page
+const pageTitle = document.title;
+const userCount = document.querySelectorAll('.user-item').length;
+
+// Return an object to set multiple dynamic variables at once
+return {
+  pageTitle: pageTitle,
+  userCount: userCount,
+  currentUrl: window.location.href
+};
+```
+
+After this script runs, you can reference the dynamic variables in later steps using `$$pageTitle`, `$$userCount`, and `$$currentUrl`.
+
+## Setting dynamic variables in sandbox context
 
 You can create [dynamic variables](/advanced/variables) by calling a helper function `setDynamicVariable`.
 These variables can be used in subsequent steps of your test.
@@ -84,7 +126,9 @@ After this script runs, you can reference the dynamic variable in later steps us
 
 ## Using dynamic variables in javascript steps
 
-You can use dynamic variables in your test steps by using the `getDynamicVariable` function.
+### In sandbox context
+
+In the sandbox environment, you can use dynamic variables in your test steps by using the `getDynamicVariable` function.
 For example, if you have a dynamic variable `$$documentId`, you can use it in a step like this:
 
 ```js
