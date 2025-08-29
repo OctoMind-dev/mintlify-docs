@@ -98,6 +98,7 @@
             "group": "More info",
             "pages": [
               "more-info/faq",
+              "more-info/storage",
               "more-info/octo-dictionary",
               "more-info/under-the-hood"
             ]
