@@ -66,7 +66,8 @@ console.log(`Working with document: ${documentId}`);
 
 // You can access any dynamic variable set by previous steps
 if (context.userName) {
-  document.getElementById('greeting').textContent = `Hello, ${context.userName}!`;
+  document.getElementById("greeting").textContent =
+    `Hello, ${context.userName}!`;
 }
 ```
 
@@ -77,13 +78,13 @@ if (context.userName) {
 
 // Extract values from the page
 const pageTitle = document.title;
-const userCount = document.querySelectorAll('.user-item').length;
+const userCount = document.querySelectorAll(".user-item").length;
 
 // Return an object to set multiple dynamic variables at once
 return {
   pageTitle: pageTitle,
   userCount: userCount,
-  currentUrl: window.location.href
+  currentUrl: window.location.href,
 };
 ```
 
