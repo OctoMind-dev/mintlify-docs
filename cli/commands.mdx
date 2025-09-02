@@ -2,7 +2,6 @@
 title: Commands
 description: "How to use the CLI tool"
 icon: "terminal"
-mode: "wide"
 ---
 
 A command-line interface for interacting with the Octomind API.
@@ -11,14 +10,23 @@ See [API documentation](https://octomind.dev/docs/api-reference/)
 
 ## Installation
 
-1. Use the cli through npx e.g. `npx @octomind/octomind -h`
-   For global installation see [installation](installation.mdx)
+1. Use the cli through npx e.g.
+
+```bash
+npx @octomind/octomind -h
+```
+
+2. For global installation see [installation](installation.mdx)
 
 ## Octomind
 
 Octomind cli tool. Additional documentation see https://octomind.dev/docs/api-reference/
 
-**Usage:** `octomind [options] [command]`
+**Usage:**
+
+```bash
+octomind [options] [command]
+```
 
 ### Options
 
@@ -28,7 +36,7 @@ Octomind cli tool. Additional documentation see https://octomind.dev/docs/api-re
 
 # octomind CLI Documentation
 
-Octomind cli tool. Version: 1.3.0. Additional documentation see https://octomind.dev/docs/api-reference/
+Octomind cli tool. Additional documentation see https://octomind.dev/docs/api-reference/
 
 ## Setup
 
@@ -36,7 +44,17 @@ Octomind cli tool. Version: 1.3.0. Additional documentation see https://octomind
 
 Initialize configuration by setting up API key. This will create a config file in ~/.config/octomind.json
 
-**Usage:** `init [options]`
+**Usage:**
+
+```bash
+octomind init [options]
+```
+
+**Example:**
+
+```bash
+octomind init --test-target-id 3435918b-3d29-4ebd-8c68-9a540532f45a --api-key your-api-key
+```
 
 ### Options
 
@@ -50,7 +68,17 @@ Initialize configuration by setting up API key. This will create a config file i
 
 Switch to a different test target. This will list all available test targets and update the config file in ~/.config/octomind.json
 
-**Usage:** `switch-test-target [options]`
+**Usage:**
+
+```bash
+octomind switch-test-target [options]
+```
+
+**Example:**
+
+```bash
+octomind switch-test-target
+```
 
 ## Completion
 
@@ -58,19 +86,49 @@ Switch to a different test target. This will list all available test targets and
 
 Install tab completion
 
-**Usage:** `install-completion [options]`
+**Usage:**
+
+```bash
+octomind install-completion [options]
+```
+
+**Example:**
+
+```bash
+octomind install-completion
+```
 
 ## uninstall-completion
 
 Uninstall tab completion
 
-**Usage:** `uninstall-completion [options]`
+**Usage:**
+
+```bash
+octomind uninstall-completion [options]
+```
+
+**Example:**
+
+```bash
+octomind uninstall-completion
+```
 
 ## completion
 
 Tab completion
 
-**Usage:** `completion [options]`
+**Usage:**
+
+```bash
+octomind completion [options]
+```
+
+**Example:**
+
+```bash
+octomind completion
+```
 
 ## Environments
 
@@ -78,7 +136,17 @@ Tab completion
 
 List all environments
 
-**Usage:** `list-environments [options]`
+**Usage:**
+
+```bash
+octomind list-environments [options]
+```
+
+**Example:**
+
+```bash
+octomind list-environments
+```
 
 ### Options
 
@@ -91,7 +159,17 @@ List all environments
 
 Create a new environment
 
-**Usage:** `create-environment [options]`
+**Usage:**
+
+```bash
+octomind create-environment [options]
+```
+
+**Example:**
+
+```bash
+octomind create-environment --name "Production" --discovery-url https://example.com
+```
 
 ### Options
 
@@ -148,7 +226,17 @@ Update an existing environment
 
 Delete an environment
 
-**Usage:** `delete-environment [options]`
+**Usage:**
+
+```bash
+octomind delete-environment [options]
+```
+
+**Example:**
+
+```bash
+octomind delete-environment --environment-id 826c15af-644b-4b28-89b4-f50ff34e46b7
+```
 
 ### Options
 
@@ -183,7 +271,17 @@ run test cases against local build
 
 Execute test cases to create a test report
 
-**Usage:** `execute [options]`
+**Usage:**
+
+```bash
+octomind execute [options]
+```
+
+**Example:**
+
+```bash
+octomind execute --url https://example.com
+```
 
 ### Options
 
@@ -201,7 +299,17 @@ Execute test cases to create a test report
 
 Create a new test case discovery
 
-**Usage:** `create-discovery [options]`
+**Usage:**
+
+```bash
+octomind create-discovery [options]
+```
+
+**Example:**
+
+```bash
+octomind create-discovery --name "Login Test" --prompt "Test the login functionality"
+```
 
 ### Options
 
@@ -223,7 +331,17 @@ Create a new test case discovery
 
 Get notifications for a test target
 
-**Usage:** `notifications [options]`
+**Usage:**
+
+```bash
+octomind notifications [options]
+```
+
+**Example:**
+
+```bash
+octomind notifications
+```
 
 ### Options
 
@@ -238,7 +356,17 @@ Get notifications for a test target
 
 Register a private location
 
-**Usage:** `register-location [options]`
+**Usage:**
+
+```bash
+octomind register-location [options]
+```
+
+**Example:**
+
+```bash
+octomind register-location --name "Office Network" --address 192.168.1.100 --username user --password pass
+```
 
 ### Options
 
@@ -254,7 +382,17 @@ Register a private location
 
 Unregister a private location
 
-**Usage:** `unregister-location [options]`
+**Usage:**
+
+```bash
+octomind unregister-location [options]
+```
+
+**Example:**
+
+```bash
+octomind unregister-location --location-id 7f8d6e5c-4b3a-2a1c-0f9e-8d7c6b5a4b3a
+```
 
 ### Options
 
@@ -267,7 +405,17 @@ Unregister a private location
 
 List all private locations
 
-**Usage:** `list-private-locations [options]`
+**Usage:**
+
+```bash
+octomind list-private-locations [options]
+```
+
+**Example:**
+
+```bash
+octomind list-private-locations
+```
 
 ### Options
 
@@ -279,7 +427,17 @@ List all private locations
 
 Start a private location worker, see https://octomind.dev/docs/proxy/private-location
 
-**Usage:** `start-private-location [options]`
+**Usage:**
+
+```bash
+octomind start-private-location [options]
+```
+
+**Example:**
+
+```bash
+octomind start-private-location --name "Office Network"
+```
 
 ### Options
 
@@ -294,7 +452,17 @@ Start a private location worker, see https://octomind.dev/docs/proxy/private-loc
 
 Stop a private location worker, see https://octomind.dev/docs/proxy/private-location
 
-**Usage:** `stop-private-location [options]`
+**Usage:**
+
+```bash
+octomind stop-private-location [options]
+```
+
+**Example:**
+
+```bash
+octomind stop-private-location
+```
 
 ## Test Cases
 
@@ -312,11 +480,83 @@ Delete a test case
 | `-c, --test-case-id <id>`   | Test case ID                                                                | Yes      |         |
 | `-t, --test-target-id [id]` | Test target ID, if not provided will use the test target id from the config | No       |         |
 
+## code
+
+Get the code of a specific test case
+
+**Usage:** `code [options]`
+
+### Options
+
+| Option                      | Description                                                                 | Required | Default |
+| :-------------------------- | :-------------------------------------------------------------------------- | :------- | :------ |
+| `-c, --test-case-id <id>`   | Test case ID                                                                | Yes      |         |
+| `-t, --test-target-id [id]` | Test target ID, if not provided will use the test target id from the config | No       |         |
+| `-e, --environment-id [id]` | Environment ID                                                              | No       | default |
+| `-u, --url <url>`           | URL to execute the test case against                                        | Yes      |         |
+
+**Usage:**
+
+```bash
+octomind code [options]
+```
+
+**Example:**
+
+```bash
+octomind code --test-case-id 9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d --url https://example.com
+```
+
+Output:
+
+```ts
+import {
+  test,
+  expect,
+  chromium,
+  Browser,
+  type CDPSession,
+  type TestInfo,
+  type Locator,
+  type Page,
+  type Response,
+  type BrowserContext,
+  type FileChooser,
+} from "@playwright/test";
+import fs from "fs";
+import os from "os";
+import path from "path";
+import fsPromises from "fs/promises";
+import { setTimeout } from "timers/promises";
+import { Readable } from "stream";
+import { finished } from "stream/promises";
+import { URL } from "url";
+
+declare global {
+  interface Window {
+    octomindWrittenValueTracker?: WeakMap<HTMLElement, string>;
+  }
+}
+
+const handleHydrationIssues = async (
+...
+```
+
 ## test-case
 
 Get details of a specific test case
 
-**Usage:** `test-case [options]`
+**Usage:**
+
+```bash
+octomind test-case [options]
+```
+
+**Example:**
+
+```bash
+octomind test-case --test-case-id 9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d
+```
 
 ### Options
 
@@ -330,7 +570,17 @@ Get details of a specific test case
 
 List all test cases
 
-**Usage:** `list-test-cases [options]`
+**Usage:**
+
+```bash
+octomind list-test-cases [options]
+```
+
+**Example:**
+
+```bash
+octomind list-test-cases
+```
 
 ### Options
 
@@ -345,7 +595,17 @@ List all test cases
 
 Get test report details
 
-**Usage:** `test-report [options]`
+**Usage:**
+
+```bash
+octomind test-report [options]
+```
+
+**Example:**
+
+```bash
+octomind test-report --test-report-id 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+```
 
 ### Options
 
@@ -361,7 +621,17 @@ Get test report details
 
 List all test targets
 
-**Usage:** `list-test-targets [options]`
+**Usage:**
+
+```bash
+octomind list-test-targets [options]
+```
+
+**Example:**
+
+```bash
+octomind list-test-targets
+```
 
 ### Options
 
