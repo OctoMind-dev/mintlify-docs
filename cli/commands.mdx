@@ -2,7 +2,6 @@
 title: Commands
 description: "How to use the CLI tool"
 icon: "terminal"
-mode: "wide"
 ---
 
 A command-line interface for interacting with the Octomind API.
@@ -480,6 +479,68 @@ Delete a test case
 | `-j, --json`                | Output raw JSON response                                                    | No       |         |
 | `-c, --test-case-id <id>`   | Test case ID                                                                | Yes      |         |
 | `-t, --test-target-id [id]` | Test target ID, if not provided will use the test target id from the config | No       |         |
+
+## code
+
+Get the code of a specific test case
+
+**Usage:** `code [options]`
+
+### Options
+
+| Option                      | Description                                                                 | Required | Default |
+| :-------------------------- | :-------------------------------------------------------------------------- | :------- | :------ |
+| `-c, --test-case-id <id>`   | Test case ID                                                                | Yes      |         |
+| `-t, --test-target-id [id]` | Test target ID, if not provided will use the test target id from the config | No       |         |
+| `-e, --environment-id [id]` | Environment ID                                                              | No       | default |
+| `-u, --url <url>`           | URL to execute the test case against                                        | Yes      |         |
+
+**Usage:**
+
+```bash
+octomind code [options]
+```
+
+**Example:**
+
+```bash
+octomind code --test-case-id 9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d --url https://example.com
+```
+
+Output:
+
+```ts
+import {
+  test,
+  expect,
+  chromium,
+  Browser,
+  type CDPSession,
+  type TestInfo,
+  type Locator,
+  type Page,
+  type Response,
+  type BrowserContext,
+  type FileChooser,
+} from "@playwright/test";
+import fs from "fs";
+import os from "os";
+import path from "path";
+import fsPromises from "fs/promises";
+import { setTimeout } from "timers/promises";
+import { Readable } from "stream";
+import { finished } from "stream/promises";
+import { URL } from "url";
+
+declare global {
+  interface Window {
+    octomindWrittenValueTracker?: WeakMap<HTMLElement, string>;
+  }
+}
+
+const handleHydrationIssues = async (
+...
+```
 
 ## test-case
 
