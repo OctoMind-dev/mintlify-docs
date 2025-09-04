@@ -1,0 +1,107 @@
+---
+title: "Batch Generation GitHub Action"
+description: "Create e2e tests without leaving your dev workflow - generate them from your CI pipeline automatically"
+icon: "github"
+---
+
+## Overview
+
+This GitHub Action connects to Octomind's services to generate a batch of end-to-end tests based on your application. It can be configured to run against specific environments, use prerequisites, and target specific URLs.
+
+## Prerequisites
+
+- An Octomind account with access to the API
+- A valid Octomind API key (generated from the [Octomind app](https://app.octomind.dev))
+- Your Octomind test target ID
+
+## Setup instructions
+
+### 1. Add API Key to repository secrets
+
+First, add your Octomind API key to your GitHub repository secrets:
+
+1. Go to your GitHub repository
+2. Navigate to Settings > Secrets and variables > Actions
+3. Click on "New repository secret"
+4. Name the secret `Octomind_API_KEY`
+5. Paste your Octomind API key as the value
+6. Click "Add secret"
+
+### 2. Add the GitHub Action to your workflow
+
+Add the following YAML snippet to your GitHub Actions workflow file (e.g., `.github/workflows/octomind-tests.yml`):
+
+```yml
+name: Octomind Test Generation
+
+on:
+  # Configure when you want the action to run
+  pull_request:
+    branches: [main]
+  # You can also run it manually
+  workflow_dispatch:
+
+jobs:
+  generate-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Add any steps needed to deploy your application to a test environment
+      # ...
+
+      - name: Generate Octomind Tests
+        uses: octomind-dev/octomind-action-batch-generation@main
+        with:
+          token: ${{ secrets.octomind_API_KEY }}
+          testTargetId: your-test-target-id
+          baseUrl: https://your-deployment-url.example.com
+          # Optional parameters
+          # entrypointUrlPath: /some/path
+          # environmentId: your-environment-id
+          # prerequisiteId: your-prerequisite-test-id
+```
+
+## Configuration options
+
+| Parameter           | Required | Description                                                                                                    |
+| ------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `token`             | Yes      | Your Octomind API key, stored as a GitHub secret                                                               |
+| `testTargetId`      | Yes      | The ID of your test target in Octomind                                                                         |
+| `baseUrl`           | No       | A publicly accessible URL to your deployment. If not provided, defaults to the URL in your default environment |
+| `entrypointUrlPath` | No       | A specific URL path to be appended to your base URL (e.g., `/some/path`)                                       |
+| `environmentId`     | No       | ID of a specific environment to run the tests against                                                          |
+| `prerequisiteId`    | No       | ID of a test case that should be executed before batch generation (e.g., login test)                           |
+
+## Use cases
+
+### Generate tests on pull request
+
+Automatically generate tests whenever a pull request is created or updated to ensure new features are properly tested.
+
+The action will return an overview of the tests generated on the pull request.
+
+<Frame caption="Example of Octomind test results in a pull request, screenshot 06/2023">
+  <img
+    src="/images/integrations/batch-gen-comment.png"
+    alt="Example of Octomind test results in a pull request"
+  />
+</Frame>
+
+### Generate tests after deployment
+
+Trigger test generation after deploying to a test environment to validate the deployment.
+
+### Generate tests with prerequisites
+
+Use prerequisite tests (like login flows) before generating new tests to ensure proper authentication.
+
+## Troubleshooting
+
+If you encounter issues with the GitHub Action:
+
+1. Verify your API key is correctly set in the repository secrets
+2. Ensure your `testTargetId` is correct
+3. Check that the `baseUrl` is publicly accessible
+4. Review GitHub Actions logs for detailed error messages
