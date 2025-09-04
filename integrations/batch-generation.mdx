@@ -80,18 +80,18 @@ jobs:
 
 Automatically generate tests whenever a pull request is created or updated to ensure new features are properly tested.
 
-The action will comment on the pull request with the test results.
+The action will return an overview of the tests generated on the pull request.
 
-<Frame caption="Example of Octomind test results in a pull request comment, screenshot 06/2023">
+<Frame caption="Example of Octomind test results in a pull request, screenshot 06/2023">
   <img
     src="/images/integrations/batch-gen-comment.png"
-    alt="Example of Octomind test results in a pull request comment"
+    alt="Example of Octomind test results in a pull request"
   />
 </Frame>
 
 ### Generate tests after deployment
 
-Trigger test generation after deploying to a staging environment to validate the deployment.
+Trigger test generation after deploying to a test environment to validate the deployment.  
 
 ### Generate tests with prerequisites
 
@@ -105,10 +105,3 @@ If you encounter issues with the GitHub Action:
 2. Ensure your `testTargetId` is correct
 3. Check that the `baseUrl` is publicly accessible
 4. Review GitHub Actions logs for detailed error messages
-
-## Getting help
-
-If you need assistance with the Octomind Batch Generation GitHub Action, you can:
-
-- Check the [Octomind documentation](https://octomind.dev/docs/run-tests/execution-curl#create-an-api-key)
-- Contact the Octomind team at [contact@Octomind.dev](mailto:contact@octomind.dev)
