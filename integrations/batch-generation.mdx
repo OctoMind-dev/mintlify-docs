@@ -1,38 +1,38 @@
 ---
-title: "OctoMind Batch Generation GitHub Action"
-description: "The OctoMind Batch Generation GitHub Action allows you to automatically generate end-to-end tests directly from your CI pipeline. This integration makes it easy to create tests for your application without leaving your development workflow."
+title: "Batch Generation GitHub Action"
+description: "Create e2e tests without leaving your dev workflow - generate them from your CI pipeline automatically"
 icon: "github"
 ---
 
 ## Overview
 
-This GitHub Action connects to OctoMind's services to generate a batch of end-to-end tests based on your application. It can be configured to run against specific environments, use prerequisites, and target specific URLs.
+This GitHub Action connects to Octomind's services to generate a batch of end-to-end tests based on your application. It can be configured to run against specific environments, use prerequisites, and target specific URLs.
 
 ## Prerequisites
 
-- An OctoMind account with access to the API
-- A valid OctoMind API key (generated from the [OctoMind app](https://app.octomind.dev))
-- Your OctoMind test target ID
+- An Octomind account with access to the API
+- A valid Octomind API key (generated from the [Octomind app](https://app.octomind.dev))
+- Your Octomind test target ID
 
-## Setup Instructions
+## Setup instructions
 
-### 1. Add API Key to Repository Secrets
+### 1. Add API Key to repository secrets
 
-First, add your OctoMind API key to your GitHub repository secrets:
+First, add your Octomind API key to your GitHub repository secrets:
 
 1. Go to your GitHub repository
 2. Navigate to Settings > Secrets and variables > Actions
 3. Click on "New repository secret"
-4. Name the secret `OCTOMIND_API_KEY`
-5. Paste your OctoMind API key as the value
+4. Name the secret `Octomind_API_KEY`
+5. Paste your Octomind API key as the value
 6. Click "Add secret"
 
-### 2. Add the GitHub Action to Your Workflow
+### 2. Add the GitHub Action to your workflow
 
 Add the following YAML snippet to your GitHub Actions workflow file (e.g., `.github/workflows/octomind-tests.yml`):
 
 ```yml
-name: OctoMind Test Generation
+name: Octomind Test Generation
 
 on:
   # Configure when you want the action to run
@@ -51,10 +51,10 @@ jobs:
       # Add any steps needed to deploy your application to a test environment
       # ...
 
-      - name: Generate OctoMind Tests
-        uses: OctoMind-dev/octomind-action-batch-generation@main
+      - name: Generate Octomind Tests
+        uses: octomind-dev/octomind-action-batch-generation@main
         with:
-          token: ${{ secrets.OCTOMIND_API_KEY }}
+          token: ${{ secrets.octomind_API_KEY }}
           testTargetId: your-test-target-id
           baseUrl: https://your-deployment-url.example.com
           # Optional parameters
@@ -63,20 +63,20 @@ jobs:
           # prerequisiteId: your-prerequisite-test-id
 ```
 
-## Configuration Options
+## Configuration options
 
 | Parameter           | Required | Description                                                                                                    |
 | ------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `token`             | Yes      | Your OctoMind API key, stored as a GitHub secret                                                               |
-| `testTargetId`      | Yes      | The ID of your test target in OctoMind                                                                         |
+| `token`             | Yes      | Your Octomind API key, stored as a GitHub secret                                                               |
+| `testTargetId`      | Yes      | The ID of your test target in Octomind                                                                         |
 | `baseUrl`           | No       | A publicly accessible URL to your deployment. If not provided, defaults to the URL in your default environment |
 | `entrypointUrlPath` | No       | A specific URL path to be appended to your base URL (e.g., `/some/path`)                                       |
 | `environmentId`     | No       | ID of a specific environment to run the tests against                                                          |
 | `prerequisiteId`    | No       | ID of a test case that should be executed before batch generation (e.g., login test)                           |
 
-## Use Cases
+## Use cases
 
-### Generate Tests on Pull Request
+### Generate tests on pull request
 
 Automatically generate tests whenever a pull request is created or updated to ensure new features are properly tested.
 
@@ -89,11 +89,11 @@ The action will comment on the pull request with the test results.
   />
 </Frame>
 
-### Generate Tests After Deployment
+### Generate tests after deployment
 
 Trigger test generation after deploying to a staging environment to validate the deployment.
 
-### Generate Tests with Prerequisites
+### Generate tests with prerequisites
 
 Use prerequisite tests (like login flows) before generating new tests to ensure proper authentication.
 
@@ -106,9 +106,9 @@ If you encounter issues with the GitHub Action:
 3. Check that the `baseUrl` is publicly accessible
 4. Review GitHub Actions logs for detailed error messages
 
-## Getting Help
+## Getting help
 
-If you need assistance with the OctoMind Batch Generation GitHub Action, you can:
+If you need assistance with the Octomind Batch Generation GitHub Action, you can:
 
-- Check the [OctoMind documentation](https://octomind.dev/docs/run-tests/execution-curl#create-an-api-key)
-- Contact the OctoMind team at [contact@octomind.dev](mailto:contact@octomind.dev)
+- Check the [Octomind documentation](https://octomind.dev/docs/run-tests/execution-curl#create-an-api-key)
+- Contact the Octomind team at [contact@Octomind.dev](mailto:contact@octomind.dev)
