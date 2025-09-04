@@ -37,7 +37,7 @@ name: OctoMind Test Generation
 on:
   # Configure when you want the action to run
   pull_request:
-    branches: [ main ]
+    branches: [main]
   # You can also run it manually
   workflow_dispatch:
 
@@ -47,10 +47,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        
+
       # Add any steps needed to deploy your application to a test environment
       # ...
-      
+
       - name: Generate OctoMind Tests
         uses: OctoMind-dev/octomind-action-batch-generation@main
         with:
@@ -65,14 +65,14 @@ jobs:
 
 ## Configuration Options
 
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `token` | Yes | Your OctoMind API key, stored as a GitHub secret |
-| `testTargetId` | Yes | The ID of your test target in OctoMind |
-| `baseUrl` | No | A publicly accessible URL to your deployment. If not provided, defaults to the URL in your default environment |
-| `entrypointUrlPath` | No | A specific URL path to be appended to your base URL (e.g., `/some/path`) |
-| `environmentId` | No | ID of a specific environment to run the tests against |
-| `prerequisiteId` | No | ID of a test case that should be executed before batch generation (e.g., login test) |
+| Parameter           | Required | Description                                                                                                    |
+| ------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `token`             | Yes      | Your OctoMind API key, stored as a GitHub secret                                                               |
+| `testTargetId`      | Yes      | The ID of your test target in OctoMind                                                                         |
+| `baseUrl`           | No       | A publicly accessible URL to your deployment. If not provided, defaults to the URL in your default environment |
+| `entrypointUrlPath` | No       | A specific URL path to be appended to your base URL (e.g., `/some/path`)                                       |
+| `environmentId`     | No       | ID of a specific environment to run the tests against                                                          |
+| `prerequisiteId`    | No       | ID of a test case that should be executed before batch generation (e.g., login test)                           |
 
 ## Use Cases
 
