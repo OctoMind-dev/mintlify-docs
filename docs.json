@@ -161,6 +161,7 @@
             "group": "Integrations",
             "pages": [
               "integrations/integrations-overview",
+              "integrations/batch-generation",
               "integrations/quickstart-GitHub",
               "integrations/quickstart-Azure",
               "integrations/quickstart-Vercel",
