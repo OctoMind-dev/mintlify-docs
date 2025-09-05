@@ -222,7 +222,7 @@
     "primary": {
       "type": "button",
       "label": "Log in",
-      "href": "https://auth.app.octomind.dev/en/login?utm_source=web&utm_medium=nav&utm_campaign=btn"
+      "href": "https://auth.app.octomind.dev/en/login?utm_source=docs&utm_medium=txt-link"
     }
   },
   "footer": {
