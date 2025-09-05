@@ -221,8 +221,8 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Go to app",
-      "href": "https://app.octomind.dev/setup/url?utm_source=docs&utm_medium=txt-lnk"
+      "label": "Log in",
+      "href": "https://auth.app.octomind.dev/en/login?utm_source=docs&utm_medium=txt-lnk"
     }
   },
   "footer": {
