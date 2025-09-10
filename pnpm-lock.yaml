@@ -22,8 +22,8 @@ importers:
         specifier: 5.5.4
         version: 5.5.4(eslint@8.57.1)(prettier@3.6.2)
       mintlify:
-        specifier: 4.2.104
-        version: 4.2.104(@types/node@24.3.1)(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))
+        specifier: 4.2.107
+        version: 4.2.107(@types/node@24.3.1)(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))
       prettier:
         specifier: 3.6.2
         version: 3.6.2
@@ -34,9 +34,9 @@ packages:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
 
-  '@alcalzone/ansi-tokenize@0.1.3':
-    resolution: {integrity: sha512-3yWxPTq3UQ/FY9p1ErPxIyfT64elWaMvM9lIHnaqpyft63tkxodF5aUElYHrdisWve5cETkh1+KBw1yJuW0aRw==}
-    engines: {node: '>=14.13.1'}
+  '@alcalzone/ansi-tokenize@0.2.0':
+    resolution: {integrity: sha512-qI/5TaaaCZE4yeSZ83lu0+xi1r88JSxUjnH4OP/iZF7+KKZ75u3ee5isd0LxX+6N8U0npL61YrpbthILHB6BnA==}
+    engines: {node: '>=18'}
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -503,16 +503,16 @@ packages:
       '@types/react': '>=16'
       react: '>=16'
 
-  '@mintlify/cli@4.0.708':
-    resolution: {integrity: sha512-MtbxWBo+QrkuVCyHpxGbuUvMG6iQPenKP9Zx67uFcOIRYz+LVnSSIlHEQ14/dHZdAeRahm0qEMSu6i9+HahdEA==}
+  '@mintlify/cli@4.0.711':
+    resolution: {integrity: sha512-gBTXOgfxlezfnblv7TS+JH3vZOswvVQl85Qa+CZkNY4g/5uAvvK81tXb3us4zQR5zVmxUxIvsf71KOf6uwKu3A==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  '@mintlify/common@1.0.519':
-    resolution: {integrity: sha512-pXBsJsTT7W2F8fUOKHycWlN/Oh8GfaWtvHyARr/HkXy+Kec27OFXW539kdEHKDqFFdacJUc/iYcGb4Ehqnghog==}
+  '@mintlify/common@1.0.521':
+    resolution: {integrity: sha512-wnKF+68RSBvetD2KpldX0UonURv5goYu5aJTMVNaseft78CYXg2a96BhdqdsPB1K9rIa3Shb2fnesbY0vfabFg==}
 
-  '@mintlify/link-rot@3.0.655':
-    resolution: {integrity: sha512-eZENPsnMLk/lmi+uFD9c65Devbz4zN2Tqd61qK6FPzX7IULljHFWBzQdzxBs5c9lFqs1poLjvxcVDDZ0Fu/ngw==}
+  '@mintlify/link-rot@3.0.658':
+    resolution: {integrity: sha512-yS7s4pv+Ks3cHpM2rEK26+0O4xqVQkknxGTVVF2sJsnwgay5uK0Y2t/2vnpYIEi3p/oWav1xZM/fljx0xFcgyA==}
     engines: {node: '>=18.0.0'}
 
   '@mintlify/mdx@2.0.5':
@@ -529,20 +529,20 @@ packages:
     resolution: {integrity: sha512-3ecbkzPbsnkKVZJypVL0H5pCTR7a4iLv4cP7zbffzAwy+vpH70JmPxNVpPPP62yLrdZlfNcMxu5xKeT7fllgMg==}
     engines: {node: '>=18'}
 
-  '@mintlify/prebuild@1.0.643':
-    resolution: {integrity: sha512-J+1l86YZ58/aRe1pTf3GAw92jEW0Xbdp2zSssD9hupsGY+vHojFgvTbT21oTBlhOyiu0wvBitDUDRPB/jksNkw==}
+  '@mintlify/prebuild@1.0.645':
+    resolution: {integrity: sha512-k6DJ3DR3oxmm0Ax7mWjX7PnjZHEAqWtfMyiokaF0PGhzVTtEt+GQybPBodEU9Cxe8+RzoP/TzqHvrF8uO9LEGQ==}
 
-  '@mintlify/previewing@4.0.691':
-    resolution: {integrity: sha512-wFprdcphr3pb3S8S3B/tYr+qyhQBsQpcevrSqybElhZJAbhE3nkpiekTfGj3FQhd6LGopwYr/Krd03+vanYzng==}
+  '@mintlify/previewing@4.0.694':
+    resolution: {integrity: sha512-CYIph4gres/q4HaOE/3F4ZyulW6LDBFRmWNeFhK4cZCCLtmpORCBvACHM9fHg6nvwrFaBoyGhGx9S1EgZrTXzA==}
     engines: {node: '>=18.0.0'}
 
-  '@mintlify/scraping@4.0.378':
-    resolution: {integrity: sha512-sh2qkLiVVit/6yyfOjqCqSNsS3URMxX0W/j5hJaz0o4FNdygRFfQUjg6f9KyBK/382rv38zGd9zwR3kLfQG3SA==}
+  '@mintlify/scraping@4.0.380':
+    resolution: {integrity: sha512-NFLuGQdtNpJzXAz7DQyuN6TlSyDjmvBVvYgzEf9vH73hp8c0lUf3b3kImZJ8i5eQmg/ZEOb5PjSzAHv1EgRjUw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  '@mintlify/validation@0.1.459':
-    resolution: {integrity: sha512-fZJKNP5Tks9EtPkpSvE4kLwQEV2r5HH5T2DLea5LUEag4X+ruL+F6caA+/plvfwNGP0x2O5eohebidnKEOVvRg==}
+  '@mintlify/validation@0.1.461':
+    resolution: {integrity: sha512-GszAQdwLtY/E1HPQPE10jhOtD+6ArLuMaUM3qCLPWB6qB7g78UqPkDxcL+3IvDFe4DfZHD/k4TH5mGuG74+7eg==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -863,24 +863,24 @@ packages:
     resolution: {integrity: sha512-gKXj5ALrKWQLsYG9jlTRmR/xKluxHV+Z9QEwNIgCfM1/uwPMCuzVVnh5mwTd+OuBZcwSIMbqssNWRm1lE51QaQ==}
     engines: {node: '>=8'}
 
-  ansi-escapes@7.0.0:
-    resolution: {integrity: sha512-GdYO7a61mR0fOlAsvC9/rIHf7L96sBc6dEWzeOu+KAea5bZyQRPIpojrVoI4AXGJS/ycu/fBTdLrUkA4ODrvjw==}
+  ansi-escapes@7.1.0:
+    resolution: {integrity: sha512-YdhtCd19sKRKfAAUsrcC1wzm4JuzJoiX4pOJqIoW2qmKj5WzG/dL8uUJ0361zaXtHqK7gEhOwtAtz7t3Yq3X5g==}
     engines: {node: '>=18'}
 
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
 
-  ansi-regex@6.2.0:
-    resolution: {integrity: sha512-TKY5pyBkHyADOPYlRT9Lx6F544mPl0vS5Ew7BJ45hA08Q+t3GjbueLliBWN3sMICk6+y7HdyxSzC4bWS8baBdg==}
+  ansi-regex@6.2.2:
+    resolution: {integrity: sha512-Bq3SmSpyFHaWjPk8If9yc6svM8c56dB5BAtW4Qbw5jHTwwXXcTLoRMkpDJp6VL0XzlWaCHTXrkFURMYmD0sLqg==}
     engines: {node: '>=12'}
 
   ansi-styles@4.3.0:
     resolution: {integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==}
     engines: {node: '>=8'}
 
-  ansi-styles@6.2.1:
-    resolution: {integrity: sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==}
+  ansi-styles@6.2.3:
+    resolution: {integrity: sha512-4Dj6M28JB+oAH8kFkTLUo+a2jwOFkuqb3yucU0CANcRRUbxS0cP0nZYCGjcc3BNXwRIsUVmDGgzawme7zvJHvg==}
     engines: {node: '>=12'}
 
   any-promise@1.3.0:
@@ -958,13 +958,16 @@ packages:
   bare-events@2.6.1:
     resolution: {integrity: sha512-AuTJkq9XmE6Vk0FJVNq5QxETrSA/vKHarWVBG5l/JbdCL1prJemiyJqUS0jrlXO0MftuPq4m3YVYhoNc5+aE/g==}
 
-  bare-fs@4.2.3:
-    resolution: {integrity: sha512-1aGs5pRVLToMQ79elP+7cc0u0s/wXAzfBv/7hDloT7WFggLqECCas5qqPky7WHCFdsBH5WDq6sD4fAoz5sJbtA==}
+  bare-fs@4.3.2:
+    resolution: {integrity: sha512-FAJ00JF69O6/oKAP+oiJYgdem1biZoGAR0NbRkBRQZ26shA87DmdHWbpeY3EVKPrAzHByLoLo+hAzTT6NTJWCg==}
     engines: {bare: '>=1.16.0'}
     peerDependencies:
       bare-buffer: '*'
+      bare-url: '*'
     peerDependenciesMeta:
       bare-buffer:
+        optional: true
+      bare-url:
         optional: true
 
   bare-os@3.6.2:
@@ -1066,8 +1069,8 @@ packages:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
 
-  chalk@5.6.0:
-    resolution: {integrity: sha512-46QrSQFyVSEyYAgQ22hQ+zDa60YHA4fBstHmtSApj1Y5vKtG27fWowW03jCk5KcbXEWPZUIR894aARCA/G1kfQ==}
+  chalk@5.6.2:
+    resolution: {integrity: sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
   character-entities-html4@2.1.0:
@@ -1720,8 +1723,8 @@ packages:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
 
-  get-east-asian-width@1.3.1:
-    resolution: {integrity: sha512-R1QfovbPsKmosqTnPoRFiJ7CF9MLRgb53ChvMZm+r4p76/+8yKDy17qLL2PKInORy2RkZZekuK0efYgmzTkXyQ==}
+  get-east-asian-width@1.4.0:
+    resolution: {integrity: sha512-QZjmEOC+IT1uk6Rx0sX22V6uHWVwbdbxf1faPqJ1QhLdGgsRGCZoyaQBm/piRdJy/D2um6hM1UP7ZEeQ4EkP+Q==}
     engines: {node: '>=18'}
 
   get-intrinsic@1.3.0:
@@ -1959,12 +1962,12 @@ packages:
       ink: '>=4.0.0'
       react: '>=18.0.0'
 
-  ink@5.2.1:
-    resolution: {integrity: sha512-BqcUyWrG9zq5HIwW6JcfFHsIYebJkWWb4fczNah1goUO0vv5vneIlfwuS85twyJ5hYR/y18FlAYUxrO9ChIWVg==}
-    engines: {node: '>=18'}
+  ink@6.3.0:
+    resolution: {integrity: sha512-2CbJAa7XeziZYe6pDS5RVLirRY28iSGMQuEV8jRU5NQsONQNfcR/BZHHc9vkMg2lGYTHTM2pskxC1YmY28p6bQ==}
+    engines: {node: '>=20'}
     peerDependencies:
-      '@types/react': '>=18.0.0'
-      react: '>=18.0.0'
+      '@types/react': '>=19.0.0'
+      react: '>=19.0.0'
       react-devtools-core: ^4.19.1
     peerDependenciesMeta:
       '@types/react':
@@ -2094,9 +2097,9 @@ packages:
   is-hexadecimal@2.0.1:
     resolution: {integrity: sha512-DgZQp241c8oO6cA1SbTEWiXeoxV42vlcJxgH+B3hi1AiqqKruZR3ZGF8In3fj4+/y/7rHvlOZLZtgJ/4ttYGZg==}
 
-  is-in-ci@1.0.0:
-    resolution: {integrity: sha512-eUuAjybVTHMYWm/U+vBO1sY/JOCgoPCXRxzdju0K+K0BiGW0SChEL1MLC0PoCIR1OlPo5YAp8HuQoUlsWEICwg==}
-    engines: {node: '>=18'}
+  is-in-ci@2.0.0:
+    resolution: {integrity: sha512-cFeerHriAnhrQSbpAxL37W1wcJKUUX07HyLWZCW1URJT/ra3GyUTzBgUnh24TMVfNTV2Hij2HLxkPHFZfOZy5w==}
+    engines: {node: '>=20'}
     hasBin: true
 
   is-ip@3.1.0:
@@ -2559,8 +2562,8 @@ packages:
     resolution: {integrity: sha512-bAxsR8BVfj60DWXHE3u30oHzfl4G7khkSuPW+qvpd7jFRHm7dLxOjUk1EHACJ/hxLY8phGJ0YhYHZo7jil7Qdg==}
     engines: {node: '>= 8'}
 
-  mintlify@4.2.104:
-    resolution: {integrity: sha512-eb3fo0kHuc7IaxweNwGSK5O8sApFLY6qOV+Dj2uVvj+3NfgvHDYfxRjkgqfFBQFIB0+YvA9j3AD6+or0tkXWuQ==}
+  mintlify@4.2.107:
+    resolution: {integrity: sha512-zDfEcFMhDAH3T+NlB518/ciUQgMAPsHY8UtLsJPjd20ZwQgREi27fc011st8FexEU4SSXFlfyRgWFTUriqFZGg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -2971,14 +2974,14 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
-  react-reconciler@0.29.2:
-    resolution: {integrity: sha512-zZQqIiYgDCTP/f1N/mAR10nJGrPD2ZR+jDSEsKWJHYC7Cm2wodlwbR3upZRdC3cjIjSlTLNVyO7Iu0Yy7t2AYg==}
+  react-reconciler@0.32.0:
+    resolution: {integrity: sha512-2NPMOzgTlG0ZWdIf3qG+dcbLSoAc/uLfOwckc3ofy5sSK0pLJqnQLpUFxvGcN2rlXSjnVtGeeFLNimCQEj5gOQ==}
     engines: {node: '>=0.10.0'}
     peerDependencies:
-      react: ^18.3.1
+      react: ^19.1.0
 
-  react@18.3.1:
-    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
+  react@19.1.1:
+    resolution: {integrity: sha512-w8nqGImo45dmMIfljjMwOGtbmC/mk4CMYhWIicdSflH91J9TyCyczcPFXJzrZ/ZXcgGRFeP6BU0BEJTw6tZdfQ==}
     engines: {node: '>=0.10.0'}
 
   read-cache@1.0.0:
@@ -3169,6 +3172,9 @@ packages:
   scheduler@0.23.2:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
 
+  scheduler@0.26.0:
+    resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
+
   section-matter@1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
     engines: {node: '>=4'}
@@ -3258,8 +3264,8 @@ packages:
     resolution: {integrity: sha512-FC+lgizVPfie0kkhqUScwRu1O/lF6NOgJmlCgK+/LYxDCTk8sGelYaHDhFcDN+Sn3Cv+3VSa4Byeo+IMCzpMgQ==}
     engines: {node: '>=12'}
 
-  slice-ansi@7.1.0:
-    resolution: {integrity: sha512-bSiSngZ/jWeX93BqeIAbImyTbEihizcwNjFoRUIY/T1wWQsfsm2Vw1agPKylXvQTU7iASGdHhyqRlqQzfz+Htg==}
+  slice-ansi@7.1.2:
+    resolution: {integrity: sha512-iOBWFgUX7caIZiuutICxVgX1SdxwAVFFKwt1EvMYYec/NWO5meOJ6K5uQxhrYBdQJne4KxiqZc+KptFOWFSI9w==}
     engines: {node: '>=18'}
 
   smart-buffer@4.2.0:
@@ -3368,8 +3374,8 @@ packages:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
     engines: {node: '>=8'}
 
-  strip-ansi@7.1.0:
-    resolution: {integrity: sha512-iq6eVVI64nQQTRYq2KtEg2d2uU7LElhTJwsH4YzIHZshxlgZms/wIc4VoDQTlG/IvVIrBKG06CrZnp0qv7hkcQ==}
+  strip-ansi@7.1.2:
+    resolution: {integrity: sha512-gmBGslpoQJtgnMAvOVqGZpEz9dyoKTCzy2nfz/n8aIFhN/jCE/rCmcxabB6jOOHV+0WNnylOxaxBQPSvcWklhA==}
     engines: {node: '>=12'}
 
   strip-bom-string@1.0.0:
@@ -3709,8 +3715,8 @@ packages:
     resolution: {integrity: sha512-si7QWI6zUMq56bESFvagtmzMdGOtoxfR+Sez11Mobfc7tm+VkUckk9bW2UeffTGVUbOksxmSw0AA2gs8g71NCQ==}
     engines: {node: '>=12'}
 
-  wrap-ansi@9.0.0:
-    resolution: {integrity: sha512-G8ura3S+3Z2G+mkgNRq8dqaFZAuxfsxpBB8OCTGRTCtp+l/v9nbFNmCUP1BZMts3G1142MsZfn6eeUKrr4PD1Q==}
+  wrap-ansi@9.0.2:
+    resolution: {integrity: sha512-42AtmgqjV+X1VpdOfyTGOYRi0/zsoLqtXQckTmqTeybT+BDIbM/Guxo7x3pE2vtpr1ok6xRqM9OpBe+Jyoqyww==}
     engines: {node: '>=18'}
 
   wrappy@1.0.2:
@@ -3805,10 +3811,10 @@ snapshots:
 
   '@aashutoshrathi/word-wrap@1.2.6': {}
 
-  '@alcalzone/ansi-tokenize@0.1.3':
+  '@alcalzone/ansi-tokenize@0.2.0':
     dependencies:
-      ansi-styles: 6.2.1
-      is-fullwidth-code-point: 4.0.0
+      ansi-styles: 6.2.3
+      is-fullwidth-code-point: 5.1.0
 
   '@alloc/quick-lru@5.2.0': {}
 
@@ -4187,7 +4193,7 @@ snapshots:
     dependencies:
       string-width: 5.1.2
       string-width-cjs: string-width@4.2.3
-      strip-ansi: 7.1.0
+      strip-ansi: 7.1.2
       strip-ansi-cjs: strip-ansi@6.0.1
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
@@ -4250,34 +4256,35 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mdx-js/react@3.1.1(@types/react@19.0.2)(react@18.3.1)':
+  '@mdx-js/react@3.1.1(@types/react@19.0.2)(react@19.1.1)':
     dependencies:
       '@types/mdx': 2.0.13
       '@types/react': 19.0.2
-      react: 18.3.1
+      react: 19.1.1
 
-  '@mintlify/cli@4.0.708(@types/node@24.3.1)(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))':
+  '@mintlify/cli@4.0.711(@types/node@24.3.1)(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))':
     dependencies:
-      '@mintlify/common': 1.0.519(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mintlify/link-rot': 3.0.655(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@mintlify/common': 1.0.521(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)
+      '@mintlify/link-rot': 3.0.658(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)
       '@mintlify/models': 0.0.225
-      '@mintlify/prebuild': 1.0.643(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mintlify/previewing': 4.0.691(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))
-      '@mintlify/validation': 0.1.459
-      chalk: 5.6.0
+      '@mintlify/prebuild': 1.0.645(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)
+      '@mintlify/previewing': 4.0.694(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))
+      '@mintlify/validation': 0.1.461
+      chalk: 5.6.2
       detect-port: 1.6.1
       fs-extra: 11.3.1
       gray-matter: 4.0.3
-      ink: 5.2.1(@types/react@19.0.2)(react@18.3.1)
+      ink: 6.3.0(@types/react@19.0.2)(react@19.1.1)
       inquirer: 12.9.4(@types/node@24.3.1)
       js-yaml: 4.1.0
-      react: 18.3.1
+      react: 19.1.1
       semver: 7.7.2
       yargs: 17.7.2
     transitivePeerDependencies:
       - '@types/node'
       - '@types/react'
       - bare-buffer
+      - bare-url
       - bufferutil
       - debug
       - encoding
@@ -4288,13 +4295,13 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@mintlify/common@1.0.519(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@mintlify/common@1.0.521(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@asyncapi/parser': 3.4.0
-      '@mintlify/mdx': 2.0.5(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@mintlify/mdx': 2.0.5(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)
       '@mintlify/models': 0.0.225
       '@mintlify/openapi-parser': 0.0.7
-      '@mintlify/validation': 0.1.459
+      '@mintlify/validation': 0.1.461
       '@sindresorhus/slugify': 2.2.1
       acorn: 8.15.0
       acorn-jsx: 5.3.2(acorn@8.15.0)
@@ -4340,17 +4347,18 @@ snapshots:
       - supports-color
       - ts-node
 
-  '@mintlify/link-rot@3.0.655(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@mintlify/link-rot@3.0.658(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@mintlify/common': 1.0.519(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mintlify/prebuild': 1.0.643(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mintlify/previewing': 4.0.691(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))
-      '@mintlify/validation': 0.1.459
+      '@mintlify/common': 1.0.521(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)
+      '@mintlify/prebuild': 1.0.645(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)
+      '@mintlify/previewing': 4.0.694(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))
+      '@mintlify/validation': 0.1.461
       fs-extra: 11.3.1
       unist-util-visit: 4.1.2
     transitivePeerDependencies:
       - '@types/react'
       - bare-buffer
+      - bare-url
       - bufferutil
       - debug
       - encoding
@@ -4362,14 +4370,14 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@mintlify/mdx@2.0.5(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@mintlify/mdx@2.0.5(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@shikijs/transformers': 3.12.2
       hast-util-to-string: 3.0.1
       mdast-util-mdx-jsx: 3.2.0
-      next-mdx-remote-client: 1.1.2(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(unified@11.0.5)
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      next-mdx-remote-client: 1.1.2(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)(unified@11.0.5)
+      react: 19.1.1
+      react-dom: 18.3.1(react@19.1.1)
       rehype-katex: 7.0.1
       remark-gfm: 4.0.1
       remark-math: 6.0.0
@@ -4397,13 +4405,13 @@ snapshots:
       leven: 4.0.0
       yaml: 2.8.1
 
-  '@mintlify/prebuild@1.0.643(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@mintlify/prebuild@1.0.645(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@mintlify/common': 1.0.519(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@mintlify/common': 1.0.521(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)
       '@mintlify/openapi-parser': 0.0.7
-      '@mintlify/scraping': 4.0.378(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mintlify/validation': 0.1.459
-      chalk: 5.6.0
+      '@mintlify/scraping': 4.0.380(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)
+      '@mintlify/validation': 0.1.461
+      chalk: 5.6.2
       favicons: 7.2.0
       fs-extra: 11.3.1
       gray-matter: 4.0.3
@@ -4414,6 +4422,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
       - bare-buffer
+      - bare-url
       - bufferutil
       - debug
       - encoding
@@ -4424,25 +4433,25 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@mintlify/previewing@4.0.691(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))':
+  '@mintlify/previewing@4.0.694(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))':
     dependencies:
-      '@mintlify/common': 1.0.519(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mintlify/prebuild': 1.0.643(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mintlify/validation': 0.1.459
+      '@mintlify/common': 1.0.521(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)
+      '@mintlify/prebuild': 1.0.645(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)
+      '@mintlify/validation': 0.1.461
       better-opn: 3.0.2
-      chalk: 5.6.0
+      chalk: 5.6.2
       chokidar: 3.6.0
       express: 4.21.2
       fs-extra: 11.3.1
       got: 13.0.0
       gray-matter: 4.0.3
-      ink: 5.2.1(@types/react@19.0.2)(react@18.3.1)
-      ink-spinner: 5.0.0(ink@5.2.1(@types/react@19.0.2)(react@18.3.1))(react@18.3.1)
+      ink: 6.3.0(@types/react@19.0.2)(react@19.1.1)
+      ink-spinner: 5.0.0(ink@6.3.0(@types/react@19.0.2)(react@19.1.1))(react@19.1.1)
       is-online: 10.0.0
       js-yaml: 4.1.0
       mdast: 3.0.0
       openapi-types: 12.1.3
-      react: 18.3.1
+      react: 19.1.1
       socket.io: 4.8.1
       tar: 6.2.1
       unist-util-visit: 4.1.2
@@ -4450,6 +4459,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
       - bare-buffer
+      - bare-url
       - bufferutil
       - debug
       - encoding
@@ -4460,9 +4470,9 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@mintlify/scraping@4.0.378(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@mintlify/scraping@4.0.380(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@mintlify/common': 1.0.519(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@mintlify/common': 1.0.521(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)
       '@mintlify/openapi-parser': 0.0.7
       fs-extra: 11.3.1
       hast-util-to-mdast: 10.1.2
@@ -4482,6 +4492,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
       - bare-buffer
+      - bare-url
       - bufferutil
       - debug
       - encoding
@@ -4492,7 +4503,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@mintlify/validation@0.1.459':
+  '@mintlify/validation@0.1.461':
     dependencies:
       '@mintlify/models': 0.0.225
       arktype: 2.1.22
@@ -4591,6 +4602,7 @@ snapshots:
       yargs: 17.7.2
     transitivePeerDependencies:
       - bare-buffer
+      - bare-url
       - supports-color
 
   '@shikijs/core@3.12.2':
@@ -4930,19 +4942,19 @@ snapshots:
     dependencies:
       type-fest: 0.21.3
 
-  ansi-escapes@7.0.0:
+  ansi-escapes@7.1.0:
     dependencies:
       environment: 1.1.0
 
   ansi-regex@5.0.1: {}
 
-  ansi-regex@6.2.0: {}
+  ansi-regex@6.2.2: {}
 
   ansi-styles@4.3.0:
     dependencies:
       color-convert: 2.0.1
 
-  ansi-styles@6.2.1: {}
+  ansi-styles@6.2.3: {}
 
   any-promise@1.3.0: {}
 
@@ -5018,7 +5030,7 @@ snapshots:
   bare-events@2.6.1:
     optional: true
 
-  bare-fs@4.2.3:
+  bare-fs@4.3.2:
     dependencies:
       bare-events: 2.6.1
       bare-path: 3.0.0
@@ -5133,7 +5145,7 @@ snapshots:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
 
-  chalk@5.6.0: {}
+  chalk@5.6.2: {}
 
   character-entities-html4@2.1.0: {}
 
@@ -5897,7 +5909,7 @@ snapshots:
 
   get-caller-file@2.0.5: {}
 
-  get-east-asian-width@1.3.1: {}
+  get-east-asian-width@1.4.0: {}
 
   get-intrinsic@1.3.0:
     dependencies:
@@ -6271,37 +6283,36 @@ snapshots:
 
   ini@4.1.3: {}
 
-  ink-spinner@5.0.0(ink@5.2.1(@types/react@19.0.2)(react@18.3.1))(react@18.3.1):
+  ink-spinner@5.0.0(ink@6.3.0(@types/react@19.0.2)(react@19.1.1))(react@19.1.1):
     dependencies:
       cli-spinners: 2.9.2
-      ink: 5.2.1(@types/react@19.0.2)(react@18.3.1)
-      react: 18.3.1
+      ink: 6.3.0(@types/react@19.0.2)(react@19.1.1)
+      react: 19.1.1
 
-  ink@5.2.1(@types/react@19.0.2)(react@18.3.1):
+  ink@6.3.0(@types/react@19.0.2)(react@19.1.1):
     dependencies:
-      '@alcalzone/ansi-tokenize': 0.1.3
-      ansi-escapes: 7.0.0
-      ansi-styles: 6.2.1
+      '@alcalzone/ansi-tokenize': 0.2.0
+      ansi-escapes: 7.1.0
+      ansi-styles: 6.2.3
       auto-bind: 5.0.1
-      chalk: 5.6.0
+      chalk: 5.6.2
       cli-boxes: 3.0.0
       cli-cursor: 4.0.0
       cli-truncate: 4.0.0
       code-excerpt: 4.0.0
       es-toolkit: 1.39.10
       indent-string: 5.0.0
-      is-in-ci: 1.0.0
+      is-in-ci: 2.0.0
       patch-console: 2.0.0
-      react: 18.3.1
-      react-reconciler: 0.29.2(react@18.3.1)
-      scheduler: 0.23.2
+      react: 19.1.1
+      react-reconciler: 0.32.0(react@19.1.1)
       signal-exit: 3.0.7
-      slice-ansi: 7.1.0
+      slice-ansi: 7.1.2
       stack-utils: 2.0.6
       string-width: 7.2.0
       type-fest: 4.41.0
       widest-line: 5.0.0
-      wrap-ansi: 9.0.0
+      wrap-ansi: 9.0.2
       ws: 8.18.3
       yoga-layout: 3.2.1
     optionalDependencies:
@@ -6411,7 +6422,7 @@ snapshots:
 
   is-fullwidth-code-point@5.1.0:
     dependencies:
-      get-east-asian-width: 1.3.1
+      get-east-asian-width: 1.4.0
 
   is-generator-function@1.1.0:
     dependencies:
@@ -6426,7 +6437,7 @@ snapshots:
 
   is-hexadecimal@2.0.1: {}
 
-  is-in-ci@1.0.0: {}
+  is-in-ci@2.0.0: {}
 
   is-ip@3.1.0:
     dependencies:
@@ -7135,13 +7146,14 @@ snapshots:
       minipass: 3.3.6
       yallist: 4.0.0
 
-  mintlify@4.2.104(@types/node@24.3.1)(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1)):
+  mintlify@4.2.107(@types/node@24.3.1)(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1)):
     dependencies:
-      '@mintlify/cli': 4.0.708(@types/node@24.3.1)(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))
+      '@mintlify/cli': 4.0.711(@types/node@24.3.1)(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))
     transitivePeerDependencies:
       - '@types/node'
       - '@types/react'
       - bare-buffer
+      - bare-url
       - bufferutil
       - debug
       - encoding
@@ -7180,13 +7192,13 @@ snapshots:
 
   netmask@2.0.2: {}
 
-  next-mdx-remote-client@1.1.2(@types/react@19.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(unified@11.0.5):
+  next-mdx-remote-client@1.1.2(@types/react@19.0.2)(react-dom@18.3.1(react@19.1.1))(react@19.1.1)(unified@11.0.5):
     dependencies:
       '@babel/code-frame': 7.27.1
       '@mdx-js/mdx': 3.1.1
-      '@mdx-js/react': 3.1.1(@types/react@19.0.2)(react@18.3.1)
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      '@mdx-js/react': 3.1.1(@types/react@19.0.2)(react@19.1.1)
+      react: 19.1.1
+      react-dom: 18.3.1(react@19.1.1)
       remark-mdx-remove-esm: 1.2.0(unified@11.0.5)
       serialize-error: 12.0.0
       vfile: 6.0.3
@@ -7529,6 +7541,7 @@ snapshots:
       ws: 8.18.3
     transitivePeerDependencies:
       - bare-buffer
+      - bare-url
       - bufferutil
       - supports-color
       - utf-8-validate
@@ -7541,6 +7554,7 @@ snapshots:
       puppeteer-core: 22.15.0
     transitivePeerDependencies:
       - bare-buffer
+      - bare-url
       - bufferutil
       - supports-color
       - typescript
@@ -7563,21 +7577,18 @@ snapshots:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-  react-dom@18.3.1(react@18.3.1):
+  react-dom@18.3.1(react@19.1.1):
     dependencies:
       loose-envify: 1.4.0
-      react: 18.3.1
+      react: 19.1.1
       scheduler: 0.23.2
 
-  react-reconciler@0.29.2(react@18.3.1):
+  react-reconciler@0.32.0(react@19.1.1):
     dependencies:
-      loose-envify: 1.4.0
-      react: 18.3.1
-      scheduler: 0.23.2
+      react: 19.1.1
+      scheduler: 0.26.0
 
-  react@18.3.1:
-    dependencies:
-      loose-envify: 1.4.0
+  react@19.1.1: {}
 
   read-cache@1.0.0:
     dependencies:
@@ -7878,6 +7889,8 @@ snapshots:
     dependencies:
       loose-envify: 1.4.0
 
+  scheduler@0.26.0: {}
+
   section-matter@1.0.0:
     dependencies:
       extend-shallow: 2.0.1
@@ -8054,12 +8067,12 @@ snapshots:
 
   slice-ansi@5.0.0:
     dependencies:
-      ansi-styles: 6.2.1
+      ansi-styles: 6.2.3
       is-fullwidth-code-point: 4.0.0
 
-  slice-ansi@7.1.0:
+  slice-ansi@7.1.2:
     dependencies:
-      ansi-styles: 6.2.1
+      ansi-styles: 6.2.3
       is-fullwidth-code-point: 5.1.0
 
   smart-buffer@4.2.0: {}
@@ -8160,19 +8173,19 @@ snapshots:
     dependencies:
       eastasianwidth: 0.2.0
       emoji-regex: 9.2.2
-      strip-ansi: 7.1.0
+      strip-ansi: 7.1.2
 
   string-width@6.1.0:
     dependencies:
       eastasianwidth: 0.2.0
       emoji-regex: 10.5.0
-      strip-ansi: 7.1.0
+      strip-ansi: 7.1.2
 
   string-width@7.2.0:
     dependencies:
       emoji-regex: 10.5.0
-      get-east-asian-width: 1.3.1
-      strip-ansi: 7.1.0
+      get-east-asian-width: 1.4.0
+      strip-ansi: 7.1.2
 
   string.prototype.trim@1.2.10:
     dependencies:
@@ -8210,9 +8223,9 @@ snapshots:
     dependencies:
       ansi-regex: 5.0.1
 
-  strip-ansi@7.1.0:
+  strip-ansi@7.1.2:
     dependencies:
-      ansi-regex: 6.2.0
+      ansi-regex: 6.2.2
 
   strip-bom-string@1.0.0: {}
 
@@ -8284,10 +8297,11 @@ snapshots:
       pump: 3.0.3
       tar-stream: 3.1.7
     optionalDependencies:
-      bare-fs: 4.2.3
+      bare-fs: 4.3.2
       bare-path: 3.0.0
     transitivePeerDependencies:
       - bare-buffer
+      - bare-url
 
   tar-stream@3.1.7:
     dependencies:
@@ -8684,15 +8698,15 @@ snapshots:
 
   wrap-ansi@8.1.0:
     dependencies:
-      ansi-styles: 6.2.1
+      ansi-styles: 6.2.3
       string-width: 5.1.2
-      strip-ansi: 7.1.0
+      strip-ansi: 7.1.2
 
-  wrap-ansi@9.0.0:
+  wrap-ansi@9.0.2:
     dependencies:
-      ansi-styles: 6.2.1
+      ansi-styles: 6.2.3
       string-width: 7.2.0
-      strip-ansi: 7.1.0
+      strip-ansi: 7.1.2
 
   wrappy@1.0.2: {}
 
