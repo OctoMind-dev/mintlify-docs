@@ -78,6 +78,28 @@ Follow the instruction of the agent to repair the test.
   />
 </Frame>
 
+## Generate tests in batches
+
+To speed up the process of creating a test suite, you can also use our **batch generation process**. It is a more guided auto-discovery process - the Agent automatically discovers test cases in the area you gave it via natural language.
+
+Start creating a new test case. After selecting the starting point, chose the `batch create` tab. Instruct the Agent what kind of tests to discover.
+
+<Frame caption="Example of a batch create instruction, 09/2025">
+  <img
+    src="/images/get-started/batch-create.png"
+    alt="Example of a batch create instruction"
+  />
+</Frame>
+
+The Agent will start exploring relevant test cases, generating them and validating. This might take a while.
+
+<Frame caption="Agent generating a batch of tests as instructed, 09/2025">
+  <img
+    src="/images/get-started/batch-generation.png"
+    alt="Agent generating a batch of tests as instructed"
+  />
+</Frame>
+
 ## Pre-prompted login test
 
 If your app has a login functionality that wasn't AI auto-generated during set-up, we have a pre-prompted login test case for you. You can trigger it after giving us test user credentials.
@@ -149,6 +171,7 @@ This is how you do it:
 
 1. Keep prompts short and to the point.
 2. Mention all steps required, e.g. if you have to click away a cookie banner, mention it.
+
    - Example without a cookie banner: `sign in using username $OCTO_USERNAME and password $OCTO_PASSWORD`
    - Example with a cookie banner: `accept cookies then sign in using username $OCTO_USERNAME and password $OCTO_PASSWORD`
 
