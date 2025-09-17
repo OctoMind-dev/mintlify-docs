@@ -4,83 +4,93 @@ description: "Generate your first tests and run them. Find bugs in your app befo
 icon: "flag-checkered"
 ---
 
-## Sign up to Octomind in under 2 minutes
+## Try Octomind for free! Sign up to Octomind for a demo account
 
-### 1. Give us a URL
+### 1. Sign up with and email
 
-We'll ask for a URL of the application you want to test. The URL has to be publicly accessible. We can test both in staging and in production, as long as we can access the site.
+Give us your work email address to create and account in the Octomind app.
 
-<info>
-  We can also test private apps, but we can't use it in our sign-up process. To
-  create an account, give us a publicly available URL first. Once in the app,
-  you'll be able create a new project for the private app via [private location
-  worker](/proxy/private-location.mdx).
-</info>
-
-<Frame caption="First page of the setup flow - link to your website, screenshot 10/2024">
-  <img src="/images/setup/setup-1-url.png" alt="enter your url screen" />
-</Frame>
-
-### 2. Name your project
-
-The second page will render a screenshot of the url you provided. We check if it is accessible. You can name your project now. We'll propose one similar to the url you provided.
-But you can choose your own.
-
-<Frame caption="Second page of the setup flow: Name your project, screenshot 07/2024">
+<Frame caption="Signing up with email,09/2025">
   <img
-    src="/images/setup/setup-2-project.png"
-    alt="name your project screen, screenshot 07/2024"
+    src="/images/get-started/signup-email.png"
+    alt="Signing up with email"
+    width="400"
   />
 </Frame>
 
 <div class="mt-8" />
 
-### 3. Sign up
-
-Now we need to sign you up. Please, give us your email, so we can get in touch.
-
-<Frame caption="Third page of the setup flow - create account, screenshot 10/2024">
+<Frame caption="Email submitted,09/2025">
   <img
-    src="/images/setup/setup-3-create-account.png"
-    alt="create account, screenshot 10/2024"
+    src="/images/get-started/signup-submitted.png"
+    alt="Email submitted, octomind app screenshot"
+    width="400"
   />
 </Frame>
 
-You should receive a confirmation email that contains a link for you confirm your email and set your password.
+### 2. Confirm email and set a password
 
-### 4. Open the Octomind app for the first time
+We've sent a confirmation email. After confirming, you'll be asked to create a password for the app login.
 
-After being redirected back to [app.octomind.dev](https://app.octomind.dev/), you will land on your **project overview** page.
+### 3. Open the Octomind app for the first time
 
-`Create a new test` section is highlighted - that's the place to start.
+After being redirected back to [app.octomind.dev](https://app.octomind.dev/), you will land on a ** demo project overview** page.
 
-<Frame caption="Project overview page after sign-up, 07/2025">
+We have created a demo instance on the Rocket.Chat app - an open-source, self-hostable communication platform for organizations functioning as a secure alternative to platforms like Slack, allowing for real-time messaging, audio/video calls, file sharing, and integrations for teams and customers across web, desktop, and mobile devices.
+
+<Frame caption="Your own Octomind demo instance of a Rocket.Chat app test suite, 09/2025">
   <img
-    src="/images/get-started/open-first.png"
-    alt="Opening the Octomind app on project overview for the first time"
+    src="/images/get-started/demo-welcome.png"
+    alt="Your own Octomind demo instance of a Rocket.Chat app test suite"
   />
 </Frame>
 
-### 5. Create your first tests
+After a filling out a short survey, you'll be able to explore the demo instance we created for you.
 
-Click on the `get started` button. A selection of `recommended tests` will appear.
+<Frame caption="Entry survey, 09/2025">
+  <img src="/images/get-started/entry-survey.png" alt="Entry survey" />
+</Frame>
+
+### 4. Look into the first tests we created and check the test report
+
+We created example tests for you, using prompts and our agent. Automatically, we have launched a test run of all active cases.
+
+Explore the [test cases](/manage-tests/test-cases) and when the test run is finished, check the [test report](/manage-tests/test-reports) for test run details of tests that passed or failed.
+
+<Frame caption="Example set of test cases in the demo instance, 09/2025">
+  <img
+    src="/images/get-started/demo-test-cases.png"
+    alt="Example set of test cases in the demo instance"
+  />
+</Frame>
+
+<div class="mt-8" />
+
+<Frame caption="Report of a test run in the demo instance with a failed test, 09/2025">
+  <img
+    src="/images/get-started/demo-report-failure.png"
+    alt="First report of a test run in the demo instance"
+  />
+</Frame>
+
+### 5. Create new tests
+
+Now, it's your turn to create some test cases. Click on the `get started` button. A selection of `recommended tests` will appear.
 
 <Frame caption="Recommended tests section, 07/2025">
   <img
     src="/images/get-started/recommended-tests.png"
-    alt="Recommended tests section when creating first tests"
+    alt="Recommended tests section"
   />
 </Frame>
 
-Our AI Agent has gone through your website, checked what relevant test cases you might want to create first. Select one or refresh to get new recommendations.
+Our AI Agent has gone through the website, checked what relevant test cases you might want to create first. Select one or refresh to get new recommendations.
 
 Click `next`.
 
-<info>
-  **cookie banner** and a **required login functionality** will be the first
-  ones to be identified - their functionality is usually a prerequisites for all
-  the other tests. They will be added as dependency for other tests.
-</info>
+#### For all new projects
+
+**Cookie banner** and a **required login functionality** will be the first ones to be identified - their functionality is usually a prerequisites for all the other tests. They will be added as dependency for other tests.
 
 If the AI Agent finds a required login, it will ask you for test credentials. It will use them to generate and run a **login test**. It will be added as dependency for other tests. So will be the **cookie banner test** if one is found.
 
@@ -190,7 +200,7 @@ The Agent will start exploring relevant test cases, generating them and validati
   />
 </Frame>
 
-## Run tests to check your app for bugs
+## Run tests to check the demo app for bugs
 
 Once you've built your test suite, you can [execute your active test cases](/get-started/execute-tests) to check your app for bugs. Every test execution will produce a [test report](/manage-tests/test-reports) with details of the run and debugging information in case of a failed test.
 
