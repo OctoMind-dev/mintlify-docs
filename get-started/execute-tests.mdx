@@ -17,17 +17,36 @@ You should have number of **active tests** in your test suite by now. They are `
 
 To check if there are any bugs in your new build or in production preventing your users from operating your app, you will have to **run the tests**.
 
-### 1. Trigger a test run
+### 1. Select browser, resolution and trigger a test run
 
-To run all active tests instantly click `run all active` and then `in app`. This will trigger a test run resulting in a [test report](/manage-tests/test-reports) visible in the Octomind app. We run the tests in parallel to make sure they run completes under 20 minutes, regardless of the number of your active test cases.
+To run all active tests instantly, go to `test reports` and click on `run`. A dialog window pops up with 2 tabs.
 
-Useful for **branch deployments** - you can run your tests against any other accessible URL. Select `in app on a different URL` instead.
-
-<Frame caption="Run tests button in the Octomind app - 05/2025">
+<Frame caption="Run tests button in the Octomind app - 09/2025">
   <img
-    src="/images/run/run-options.png"
+    src="/images/run/run-tests.png"
     alt="Run tests button in the Octomind app"
     width="400"
+  />
+</Frame>
+
+In the `one-time run` tab you can select which browser (Chromium, Firefox, Safari) and screen sizes you want the tests to run for. If you tagged your tests, you can shard the execution - run only tests with specific tags.
+
+<Frame caption="Run tests modal with browser, resolution and tag selection  - 09/2025">
+  <img
+    src="/images/run/one-time-run.png"
+    alt="Run tests modal with browser, resolution and tag selection in the Octomind app"
+    width="400"
+  />
+</Frame>
+
+Click `run all active`. This will trigger a test run resulting in a [test report](/manage-tests/test-reports) visible in the Octomind app.
+
+Useful for **branch deployments** - you can run your tests against any other accessible URL. Insert it into the `run on URL` field.
+
+<Frame caption="Run tests on a different URL in the Octomind app, 09/2025">
+  <img
+    src="/images/run/run-on-url.png"
+    alt="Run tests on a different URL in the Octomind app"
   />
 </Frame>
 
@@ -58,11 +77,16 @@ Learn more about [why tests fail](/maintain-tests/why-tests-fail), how to [easil
 
 ## Schedule regular test runs
 
-The point of software testing is to test regularly. You can [schedule tests](/run-tests/execution-scheduled) by clicking the `schedule` button in the `project overview`.
-This is a great strategy for synthetic monitoring of your app in production.
+The point of software testing is to test regularly. Go to `scheduled run` tab, select frequency, pick your browsers, tags, and screen resolution.
 
-<Frame caption="Scheduling test runs 7/2024">
-  <img src="/images/executing/schedule.png" alt="scheduling test runs" />
+Click on `schedule run` in the lower right corner. This is a great strategy for synthetic monitoring of your app in production.
+
+<Frame caption="Scheduling test runs 09/2025">
+  <img
+    src="/images/run/scheduled-runs.png"
+    alt="scheduling test runs"
+    width="400"
+  />
 </Frame>
 
 ### Test timeout
