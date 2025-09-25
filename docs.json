@@ -167,7 +167,8 @@
               "integrations/quickstart-Vercel",
               "integrations/quickstart-Jenkins",
               "integrations/quickstart-Other",
-              "integrations/test-management"
+              "integrations/test-management",
+              "integrations/xray-integration"
             ]
           }
         ]
