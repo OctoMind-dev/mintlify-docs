@@ -61,6 +61,19 @@ jobs:
           # entrypointUrlPath: /some/path
           # environmentId: your-environment-id
           # prerequisiteId: your-prerequisite-test-id
+      - name: Show Batch Gen as PR comment
+        uses: actions/github-script@v7
+        env:
+          BATCH_GEN_URL: ${{ steps.batch-gen.outputs.batchGenerationUrl }}
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: `# 🐙 Octomind Batch Generation\n\n[View your batch generation results](${process.env.BATCH_GEN_URL})`,
+            });
 ```
 
 ## Configuration options
@@ -96,6 +109,15 @@ Trigger test generation after deploying to a test environment to validate the de
 ### Generate tests with prerequisites
 
 Use prerequisite tests (like login flows) before generating new tests to ensure proper authentication.
+
+## Demo video
+
+<iframe width="560" height="315" 
+  src="https://www.youtube.com/embed/I8eE5Uf8IJw?si=25sS1F2q9endOP62" 
+  title="Batch Generation Demo" frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
 
 ## Troubleshooting
 
