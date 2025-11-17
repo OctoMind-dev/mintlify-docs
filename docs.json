@@ -70,7 +70,10 @@
           },
           {
             "group": "Account",
-            "pages": ["account/account-settings", "account/projects"]
+            "pages": [
+              "account/account-settings",
+              "account/projects"
+            ]
           },
           {
             "group": "Advanced",
@@ -105,7 +108,10 @@
           },
           {
             "group": "Data governance",
-            "pages": ["data-governance/no-code-access", "data-governance/nda"]
+            "pages": [
+              "data-governance/no-code-access",
+              "data-governance/nda"
+            ]
           }
         ]
       },
@@ -129,15 +135,23 @@
           },
           {
             "group": "Failed test runs",
-            "pages": ["guides/test-steps-debugging"]
+            "pages": [
+              "guides/test-steps-debugging"
+            ]
           },
           {
             "group": "Test orchestration",
-            "pages": ["guides/project-environments", "guides/long-running"]
+            "pages": [
+              "guides/project-environments",
+              "guides/long-running"
+            ]
           },
           {
             "group": "Troubleshooting",
-            "pages": ["guides/slow-loading", "guides/typing-multidig"]
+            "pages": [
+              "guides/slow-loading",
+              "guides/typing-multidig"
+            ]
           }
         ]
       },
@@ -146,7 +160,10 @@
         "groups": [
           {
             "group": "Overview",
-            "pages": ["mcp/install-octomind-mcp", "mcp/hosted-mcp"]
+            "pages": [
+              "mcp/install-octomind-mcp",
+              "mcp/hosted-mcp"
+            ]
           }
         ]
       },
@@ -168,11 +185,13 @@
               "integrations/quickstart-Jenkins",
               "integrations/quickstart-Other",
               "integrations/test-management",
-              "integrations/xray-integration"
+              "integrations/xray-integration",
+              "integrations/allure-integration"
             ]
           }
         ]
-      }, {
+      },
+      {
         "tab": "CLI",
         "groups": [
           {
@@ -189,7 +208,9 @@
         "groups": [
           {
             "group": "Changelog",
-            "pages": ["changelog/changelog"]
+            "pages": [
+              "changelog/changelog"
+            ]
           }
         ]
       }
