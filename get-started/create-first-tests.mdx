@@ -178,28 +178,6 @@ After being generated successfully, in the right panel, proceed to **validation*
 
 Create more tests using our [recommendations](/build-tests/recommended-tests), [spawn existing tests](/build-tests/recommended-tests#spawning-from-existing-test-cases) or [prompt new tests from scratch](/build-tests/prompt-agent).
 
-### 8. Batch test generation
-
-To speed up the process of creating a test suite, you can also use our **batch generation process**. It is a more guided auto-discovery process - the Agent automatically discovers test cases in the area you gave it via natural language.
-
-Start creating a new test case. After selecting the starting point, chose the `batch create` tab. Instruct the Agent what kind of tests to discover.
-
-<Frame caption="Example of a batch create instruction, 09/2025">
-  <img
-    src="/images/get-started/batch-create.png"
-    alt="Example of a batch create instruction"
-  />
-</Frame>
-
-The Agent will start exploring relevant test cases, generating them and validating. This might take a while.
-
-<Frame caption="Agent generating a batch of tests as instructed, 09/2025">
-  <img
-    src="/images/get-started/batch-generation.png"
-    alt="Agent generating a batch of tests as instructed"
-  />
-</Frame>
-
 ## Run tests to check the demo app for bugs
 
 Once you've built your test suite, you can [execute your active test cases](/get-started/execute-tests) to check your app for bugs. Every test execution will produce a [test report](/manage-tests/test-reports) with details of the run and debugging information in case of a failed test.
