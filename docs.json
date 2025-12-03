@@ -186,7 +186,7 @@
             ]
           },
           {
-            "group": "Integrations other",
+            "group": "Other Integrations",
             "pages": [
               "integrations/other/batch-generation",
               "integrations/other/test-management",
