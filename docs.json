@@ -175,18 +175,23 @@
         "tab": "Integrations",
         "groups": [
           {
-            "group": "Integrations",
+            "group": "Run Tests From CI",
             "pages": [
               "integrations/integrations-overview",
-              "integrations/batch-generation",
               "integrations/quickstart-GitHub",
               "integrations/quickstart-Azure",
               "integrations/quickstart-Vercel",
               "integrations/quickstart-Jenkins",
-              "integrations/quickstart-Other",
-              "integrations/test-management",
-              "integrations/xray-integration",
-              "integrations/allure-integration"
+              "integrations/quickstart-Other"
+            ]
+          },
+          {
+            "group": "Integrations other",
+            "pages": [
+              "integrations/other/batch-generation",
+              "integrations/other/test-management",
+              "integrations/other/xray-integration",
+              "integrations/other/allure-integration"
             ]
           }
         ]
