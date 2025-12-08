@@ -5,21 +5,51 @@ icon: "microsoft"
 ---
 
 ## CI/CD pipeline integration
+In order to integrate Octomind into your CI/CD pipeline, you will need a Azure DevOps Task and a Azure Pipeline Extension.
 
-### 1. Create an API key
+<Frame caption="Octomind Azure Flow">
+  <img src="/images/Octomind-Azure-flow.jpg" alt="GitHub flow" />
+</Frame>
 
-<Snippet file="snippet-apiKey.mdx" />
+### 1. Setup CI Task
 
-### 2. Copy your test target ID
+Include the following `Azure DevOps Task` into your CI/CD build pipeline on pull
+request. See [azure task docs](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute) for more details.
 
-<Snippet file="snippet-testTarget.mdx" />
+```yml
+- task: automagicallyexecute@2
+  inputs:
+    url: <publicly accessible url to your deployment>
+    token: ${{ secrets.OCTOMIND_API_KEY }}
+    testTargetId: <your testTargetId from your octomind project>
+    blocking: false
+```
 
-### 3. Install Azure DevOps pipeline extension
+<div class="mt-8" />
 
-Install our Azure DevOps pipeline extension from the Marketplace.
+<Warning>
+  Please make sure to integrate the GitHub action **AFTER** your deployment
+  step. You have to link octomind to your publicly accessible app / branch deployment url to run tests on it.
+</Warning>
+
+<Expandable title="how to create an API key">
+    <Snippet file="snippet-apiKey.mdx" />
+</Expandable>
+
+<Expandable title="how to get your test target id">
+    <Snippet file="snippet-testTarget.mdx" />
+</Expandable>
+
+<div class="mt-8" />
+
+### 2. Install Azure DevOps pipeline extension
+<Info> 
+We need read and write access to pull requests ONLY so we are allowed to comment back with test results.
+We won't be able to see your code.
+</Info>
 
 <Tip>
-  Install from here: [pipelines
+  Install pipeline extension from here: [pipelines
   extension](https://marketplace.visualstudio.com/items?itemName=octomind.automagically-execute-task)
 </Tip>
 
@@ -27,39 +57,8 @@ Install our Azure DevOps pipeline extension from the Marketplace.
   <img src="/images/azure-install.png" alt="Octomind Azure install" />
 </Frame>
 
-### 4. Include the Azure DevOps Task
 
-Include the following `Azure DevOps Task` into your CI/CD build pipeline on pull
-request.
-We assume you are running branch deployments so that every change can be tested in isolation.
-You will have to inject the publicly accessible URL of your branch deployment and the API key via
-the azure task.
-
-```yml
-- task: automagicallyexecute@2
-  inputs:
-    url: <publicly accessible url to your deployment>
-    token: ${{ secrets.AUTOMAGICALLY_TOKEN }}
-    testTargetId: <your testTargetId that you also get from us>
-    blocking: <if you want your pipeline to wait for all tests to pass>
-    environmentName: <if you want to run tests on an environment other than default>
-```
-
-<div class="mt-8" />
-
-<Warning>
-  Please make sure to integrate the AzureDevOps Task **AFTER** your deployment
-  step.
-</Warning>
-
-<div class="mt-8" />
-
-<Tip>
-  The Azure DevOps Task is published here: [source
-  code](https://github.com/OctoMind-dev/automagically-azure-devops-task-execute)
-</Tip>
-
-### 5. Set user permissions
+### 3. Set user permissions
 
 Make sure that your `build service user` also has permissions to comment to pull requests. To do so, navigate to the
 Project Settings > Repos > Repositories > Security tab and allow the 'contribute to pull request' flag.
@@ -68,10 +67,8 @@ Project Settings > Repos > Repositories > Security tab and allow the 'contribute
   <img src="/images/azure-permissions.png" alt="Octomind Azure permissions" />
 </Frame>
 
-### 6. Allow comments
-
-During installation, we’ll ask you to grant access to your repository with write access to pull request threads, so we are
-allowed to comment back into the pipeline. It will list the test results with additional links to more details, looking like this ↓
+### 4. See it in action
+Octomind automatically runs tests on your pull request, and comments with a summary in your PR.
 
 <Frame caption="Example of Octomind test results in a pull request comment, screenshot 07/2023">
   <img
@@ -80,8 +77,3 @@ allowed to comment back into the pipeline. It will list the test results with ad
   />
 </Frame>
 
-<div class="mt-8" />
-
-<Info>
-  We won’t need any other permissions. We won’t be able to see your code.
-</Info>
