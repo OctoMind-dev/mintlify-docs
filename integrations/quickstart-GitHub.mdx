@@ -9,7 +9,10 @@ icon: "github"
 In order to integrate Octomind into your CI/CD pipeline, you will need a GitHub Action and a GitHub App.
 
 <Frame caption="Octomind GitHub Flow">
-  <img src="/images/integrations/github/Octomind-GitHub-flow.png" alt="GitHub flow" />
+  <img
+    src="/images/integrations/github/Octomind-GitHub-flow.png"
+    alt="GitHub flow"
+  />
 </Frame>
 
 ### 1. Setup CI Github Action
@@ -28,24 +31,25 @@ See [git action docs](https://github.com/OctoMind-dev/automagically-action-execu
 
 <Warning>
   Please make sure to integrate the GitHub action **AFTER** your deployment
-  step. You have to link octomind to your publicly accessible app / branch deployment url to run tests on it.
+  step. You have to link octomind to your publicly accessible app / branch
+  deployment url to run tests on it.
 </Warning>
 
 <Expandable title="how to create an API key">
-    <Snippet file="snippet-apiKey.mdx" />
+  <Snippet file="snippet-apiKey.mdx" />
 </Expandable>
 
 <Expandable title="how to get your test target id">
-    <Snippet file="snippet-testTarget.mdx" />
+  <Snippet file="snippet-testTarget.mdx" />
 </Expandable>
 
 <div class="mt-8" />
 
-
 ### 2. Install GitHub App
-<Info> 
-We need read and write access to pull requests ONLY so we are allowed to comment back with test results.
-We won't be able to see your code.
+
+<Info>
+  We need read and write access to pull requests ONLY so we are allowed to
+  comment back with test results. We won't be able to see your code.
 </Info>
 
 <Tip>

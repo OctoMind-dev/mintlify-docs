@@ -5,10 +5,14 @@ icon: "microsoft"
 ---
 
 ## CI/CD pipeline integration
+
 In order to integrate Octomind into your CI/CD pipeline, you will need a Azure DevOps Task and a Azure Pipeline Extension.
 
 <Frame caption="Octomind Azure Flow">
-  <img src="/images/integrations/azure/Octomind-Azure-flow.jpg" alt="GitHub flow" />
+  <img
+    src="/images/integrations/azure/Octomind-Azure-flow.jpg"
+    alt="GitHub flow"
+  />
 </Frame>
 
 ### 1. Setup CI Task
@@ -29,23 +33,25 @@ request. See [azure task docs](https://github.com/OctoMind-dev/automagically-azu
 
 <Warning>
   Please make sure to integrate the GitHub action **AFTER** your deployment
-  step. You have to link octomind to your publicly accessible app / branch deployment url to run tests on it.
+  step. You have to link octomind to your publicly accessible app / branch
+  deployment url to run tests on it.
 </Warning>
 
 <Expandable title="how to create an API key">
-    <Snippet file="snippet-apiKey.mdx" />
+  <Snippet file="snippet-apiKey.mdx" />
 </Expandable>
 
 <Expandable title="how to get your test target id">
-    <Snippet file="snippet-testTarget.mdx" />
+  <Snippet file="snippet-testTarget.mdx" />
 </Expandable>
 
 <div class="mt-8" />
 
 ### 2. Install Azure DevOps pipeline extension
-<Info> 
-We need read and write access to pull requests ONLY so we are allowed to comment back with test results.
-We won't be able to see your code.
+
+<Info>
+  We need read and write access to pull requests ONLY so we are allowed to
+  comment back with test results. We won't be able to see your code.
 </Info>
 
 <Tip>
@@ -54,9 +60,11 @@ We won't be able to see your code.
 </Tip>
 
 <Frame caption="Octomind Azure install, screenshot 06/2023">
-  <img src="/images/integrations/azure/azure-install.png" alt="Octomind Azure install" />
+  <img
+    src="/images/integrations/azure/azure-install.png"
+    alt="Octomind Azure install"
+  />
 </Frame>
-
 
 ### 3. Set user permissions
 
@@ -64,10 +72,14 @@ Make sure that your `build service user` also has permissions to comment to pull
 Project Settings > Repos > Repositories > Security tab and allow the 'contribute to pull request' flag.
 
 <Frame caption="Octomind Azure pipeline permissions, screenshot 06/2023">
-  <img src="/images/integrations/azure/azure-permissions.png" alt="Octomind Azure permissions" />
+  <img
+    src="/images/integrations/azure/azure-permissions.png"
+    alt="Octomind Azure permissions"
+  />
 </Frame>
 
 ### 4. See it in action
+
 Octomind automatically runs tests on your pull request, and comments with a summary in your PR.
 
 <Frame caption="Example of Octomind test results in a pull request comment, screenshot 07/2023">
