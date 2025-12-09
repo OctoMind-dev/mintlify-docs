@@ -9,20 +9,48 @@ icon: "github"
 In order to integrate Octomind into your CI/CD pipeline, you will need a GitHub Action and a GitHub App.
 
 <Frame caption="Octomind GitHub Flow">
-  <img src="/images/Octomind-GitHub-flow.png" alt="GitHub flow" />
+  <img
+    src="/images/integrations/github/Octomind-GitHub-flow.png"
+    alt="GitHub flow"
+  />
 </Frame>
 
-### 1. Create an API key
+### 1. Setup CI Github Action
 
-<Snippet file="snippet-apiKey.mdx" />
+Include the following `GitHub Action` into your CI/CD build pipeline on pull request.
+See [git action docs](https://github.com/OctoMind-dev/automagically-action-execute) for more details
 
-### 2. Copy your test target Id
+```yaml
+- uses: OctoMind-dev/automagically-action-execute@v2
+  with:
+    url: <publicly accessible url to your deployment>
+    token: ${{ secrets.OCTOMIND_API_KEY }}
+    testTargetId: <your testTargetId from your octomind project>
+    blocking: false
+```
 
-<Snippet file="snippet-testTarget.mdx" />
+<Warning>
+  Please make sure to integrate the GitHub action **AFTER** your deployment
+  step. You have to link octomind to your publicly accessible app / branch
+  deployment url to run tests on it.
+</Warning>
 
-### 3. Install GitHub App
+<Expandable title="how to create an API key">
+  <Snippet file="snippet-apiKey.mdx" />
+</Expandable>
 
-Install our `GitHub App`. We will be commenting back the test results via the app.
+<Expandable title="how to get your test target id">
+  <Snippet file="snippet-testTarget.mdx" />
+</Expandable>
+
+<div class="mt-8" />
+
+### 2. Install GitHub App
+
+<Info>
+  We need read and write access to pull requests ONLY so we are allowed to
+  comment back with test results. We won't be able to see your code.
+</Info>
 
 <Tip>
   Install the GitHub App from here https://github.com/apps/octomind-dev.
@@ -30,74 +58,18 @@ Install our `GitHub App`. We will be commenting back the test results via the ap
 
 <Frame caption="Octomind GitHub App install, screenshot 07/2023">
   <img
-    src="/images/Octomind-GitHub-App-install-screenshot.png"
+    src="/images/integrations/github/Octomind-GitHub-App-install-screenshot.png"
     alt="Octomind GitHub App install"
   />
 </Frame>
 
-### 4. Allow GitHub Comments
+### 3. See it in action
 
-We’ll ask you to grant access to your repository to read metadata & read and write access to pull requests so we are allowed to comment back into pull requests. It will list the test results with additional links to more details, looking like this ↓
+Octomind automatically runs tests on your pull request, and comments with a summary in your PR.
 
 <Frame caption="Example of Octomind test results in a pull request comment, screenshot 06/2023">
   <img
-    src="/images/Octomind-test-results-commit-comments-GitHub-example.png"
+    src="/images/integrations/github/Octomind-test-results-commit-comments-GitHub-example.png"
     alt="Example of Octomind test results in a pull request comment"
   />
 </Frame>
-
-Previous comments by octomind with test results will be collapsed by default. You can click to expand them.
-
-<Frame caption="Previous comments in PR are collapsed, screenshot 11/2023">
-  <img
-    src="/images/changelog/collapse-previous.png"
-    alt="Previous comments in PR are collapsed"
-  />
-</Frame>
-
-We are very cautious about the permissions we need to protect your IP. We won't need any other permissions.
-
-<Info>We won't be able to see your code.</Info>
-
-### 5. Include the GitHub Action
-
-Include the following `GitHub Action` into your CI/CD build pipeline on pull request.
-
-```yaml
-- uses: OctoMind-dev/automagically-action-execute@v2
-  with:
-    url: <publicly accessible url to your deployment>
-    token: ${{ secrets.AUTOMAGICALLY_TOKEN }}
-    testTargetId: <your testTargetId that you also get from us>
-    blocking: <if you want your pipeline to wait for all tests to pass>
-    environmentName: <if you want to run tests on an environment other than default>
-```
-
-<div class="mt-8" />
-
-<Warning>
-  Please make sure to integrate the GibHub action **AFTER** your deployment
-  step.
-</Warning>
-
-We assume you are running branch deployments so that every change can be tested in isolation. Please inject the publicly accessible url of your branch deployment, testTargetId and API key.
-
-<div className="mt-8" />
-
-<Tip>
-  The GitHub action is published here:
-  https://github.com/OctoMind-dev/automagically-action-execute
-</Tip>
-
-This handy video show you how to set-up GitHub Actions quickly:
-
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/UuySBqXW5Ss?si=fF4UHZt42h-nMcVb"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen
-></iframe>

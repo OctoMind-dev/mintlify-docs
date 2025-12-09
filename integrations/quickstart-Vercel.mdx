@@ -22,18 +22,13 @@ We currently do not have a native Vercel integration. If you are using Vercel fo
 <div className="mt-8" />
 
 <Frame caption="Octomind Vercel flow">
-  <img src="/images/octomind-vercel-flow.png" alt="Vercel flow" />
+  <img
+    src="/images/integrations/vercel/octomind-vercel-flow.png"
+    alt="Vercel flow"
+  />
 </Frame>
 
-### 1. Create an API key
-
-<Snippet file="snippet-apiKey.mdx" />
-
-### 2. Copy your test target ID
-
-<Snippet file="snippet-testTarget.mdx" />
-
-### 3. Include the GitHub Action
+### 1. Include the GitHub Action
 
 Include the following `GitHub Action` into your CI/CD build pipeline on deployment_status changes:
 
@@ -52,10 +47,27 @@ jobs:
     steps:
       - uses: OctoMind-dev/automagically-action-execute@v2
         with:
-          testTargetId: "<yourTestTargetId>"
+          testTargetId: "<your testTargetId from your octomind project>"
           url: ${{ github.event.deployment_status.target_url }}
-          token: ${{ secrets.OCTOMIND_TOKEN }}
-          blocking: <if you want your pipeline to wait for all tests to pass>
+          token: ${{ secrets.OCTOMIND_API_KEY }}
+          blocking: false
 ```
 
+<Expandable title="how to create an API key">
+  <Snippet file="snippet-apiKey.mdx" />
+</Expandable>
+
+<Expandable title="how to get your test target id">
+  <Snippet file="snippet-testTarget.mdx" />
+</Expandable>
+
+### 2. See it in action
+
 The test report link will be added to the workflow summary of the action, see [Example PR action summary](https://github.com/OctoMind-dev/vercel-actions-example/pull/11)
+
+<Frame caption="Example of Octomind test results in a pull request comment, screenshot 07/2024">
+  <img
+    src="/images/integrations/vercel/vercel-bot-comment.png"
+    alt="Example of Octomind test results in a pull request comment"
+  />
+</Frame>

@@ -21,7 +21,10 @@ icon: "jenkins"
 Select your repository `Settings`, go to `Webhooks` and click `Add webhook.`
 
 <Frame caption="Adding webhook to repository, screenshot 07/2023">
-  <img src="/images/Webhook-01.png" alt="Adding webhook to repository" />
+  <img
+    src="/images/integrations/jenkins/Webhook-01.png"
+    alt="Adding webhook to repository"
+  />
 </Frame>
 
 For the URL set `<your-jenkins-url>/github-webhook/` and select `application/json` for Content type.
@@ -29,19 +32,28 @@ Select triggers that best suite your need.
 In general, the `push event` is enough, but for this example we also want to trigger Octomind on `pull request`.
 
 <Frame caption="Configuring webhook, screenshot 07/2023">
-  <img src="/images/Webhook-02.png" alt="Configuring webhook" />
+  <img
+    src="/images/integrations/jenkins/Webhook-02.png"
+    alt="Configuring webhook"
+  />
 </Frame>
 
 Check `Pull requests` and `Pushes` and after that click on `Add webhook`.
 
 <Frame caption="Configuring webhook permissions, screenshot 07/2023">
-  <img src="/images/Webhook-03.png" alt="Configuring webhook permissions" />
+  <img
+    src="/images/integrations/jenkins/Webhook-03.png"
+    alt="Configuring webhook permissions"
+  />
 </Frame>
 
 If everything is OK, you should see a green checkmark after a few moments.
 
 <Frame caption="Validating webhook, screenshot 07/2023">
-  <img src="/images/Webhook-04.png" alt="Validating webhook" />
+  <img
+    src="/images/integrations/jenkins/Webhook-04.png"
+    alt="Validating webhook"
+  />
 </Frame>
 
 ### 4. Jenkins
@@ -57,14 +69,20 @@ For the `Kind` you need to select `Secret text`. Be careful that your `ID` match
 </Tip>
 
 <Frame caption="Configuring AUTOMAGICALLY_TOKEN, Jenkins 2.401.2">
-  <img src="/images/Jenkins-06.png" alt="Configuring AUTOMAGICALLY_TOKEN" />
+  <img
+    src="/images/integrations/jenkins/Jenkins-06.png"
+    alt="Configuring AUTOMAGICALLY_TOKEN"
+  />
 </Frame>
 
 If you want, you can enable safe parsing of HTML so you can click the link to the test report the pipeline output for you.
 Navigate to `Dashboard -> Manage jenkins -> Security` and for `Markup Formatter` select `Safe HTML` and then save.
 
 <Frame caption="Enabling safe parsing of HTML, Jenkins 2.401.2">
-  <img src="/images/Jenkins-07.png" alt="Enabling safe parsing of HTML" />
+  <img
+    src="/images/integrations/jenkins/Jenkins-07.png"
+    alt="Enabling safe parsing of HTML"
+  />
 </Frame>
 
 ### Creating Jenkins pipeline
@@ -74,13 +92,20 @@ Here is an example of creating a pipeline to test the script.
 On your Dashboard page, click on `+ New Item`
 
 <Frame caption="Creating new Pipeline, Jenkins 2.401.2">
-  <img src="/images/Jenkins-01.png" alt="Creating new Pipeline" width="250" />
+  <img
+    src="/images/integrations/jenkins/Jenkins-01.png"
+    alt="Creating new Pipeline"
+    width="250"
+  />
 </Frame>
 
 Give your Project a name, select Pipeline and press OK
 
 <Frame caption="Creating new Pipeline, Jenkins 2.401.2">
-  <img src="/images/Jenkins-02.png" alt="Creating new Pipeline" />
+  <img
+    src="/images/integrations/jenkins/Jenkins-02.png"
+    alt="Creating new Pipeline"
+  />
 </Frame>
 
 You can check `GitHub project` and paste an url to your repo so you will have a button on your dashboard to take you to your repo.
@@ -88,7 +113,7 @@ You need to check `GitHub hook trigger for GITScm polling` so our previously cre
 
 <Frame caption="Configuring triggers from GitHub webhook, Jenkins 2.401.2">
   <img
-    src="/images/Jenkins-03.png"
+    src="/images/integrations/jenkins/Jenkins-03.png"
     alt="Configuring triggers from GitHub webhook"
   />
 </Frame>
@@ -99,7 +124,7 @@ After adding your `Repository URL`, you'll need to provide credentials if it's a
 
 <Frame caption="Loading Jenkinsfile from GitHub repository, Jenkins 2.401.2">
   <img
-    src="/images/Jenkins-04.png"
+    src="/images/integrations/jenkins/Jenkins-04.png"
     alt="Loading Jenkinsfile from GitHub repository"
   />
 </Frame>
@@ -111,7 +136,7 @@ Lastly, click on `Save`.
 
 <Frame caption="Loading Jenkinsfile from GitHub repository, Jenkins 2.401.2">
   <img
-    src="/images/Jenkins-05.png"
+    src="/images/integrations/jenkins/Jenkins-05.png"
     alt="Loading Jenkinsfile from GitHub repository"
   />
 </Frame>

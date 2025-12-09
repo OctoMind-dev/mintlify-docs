@@ -1,4 +1,3 @@
-import { defineConfig } from "eslint/config";
 import prettier from "eslint-plugin-prettier";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -13,9 +12,9 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-export default defineConfig([
+export default [
+  ...compat.extends("plugin:mdx/recommended"),
   {
-    extends: compat.extends("plugin:mdx/recommended"),
     plugins: {
       prettier,
     },
@@ -28,4 +27,4 @@ export default defineConfig([
       "no-unused-expressions": "off",
     },
   },
-]);
+];
