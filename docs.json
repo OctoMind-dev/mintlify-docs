@@ -240,10 +240,6 @@
       {
         "label": "GitHub",
         "href": "https://github.com/OctoMind-dev"
-      },
-      {
-        "label": "Get easy help",
-        "href": "https://discord.gg/3ShnZMKRfA"
       }
     ],
     "primary": {
@@ -255,8 +251,7 @@
   "footer": {
     "socials": {
       "twitter": "https://twitter.com/octominddotdev",
-      "github": "https://github.com/OctoMind-dev",
-      "discord": "https://discord.gg/3ShnZMKRfA"
+      "github": "https://github.com/OctoMind-dev"
     }
   },
   "redirects": [
