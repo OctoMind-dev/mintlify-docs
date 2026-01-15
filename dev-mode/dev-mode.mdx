@@ -24,8 +24,10 @@ Dev mode works in three simple steps:
    ```bash
    octomind pull
    ```
+   
+   This creates a `.octomind` directory with your test cases as YAML files. [Learn more about the pull command →](/dev-mode/commands#pull)
 
-2. **Commit**: Check the generated test files into your repository and manage them like any other code
+2. **Commit**: Check the generated test files from the `.octomind` directory into your repository and manage them like any other code
 
 3. **Automate**: Add the GitHub Action to enable bidirectional syncing on merge, ensuring your repository and Octomind stay in sync
 
@@ -43,7 +45,39 @@ In dev mode, the YAML test case files in your repository are the **single source
 - **Executed** on the Octomind platform after being pushed
 - **Managed** in your repository using version control
 
-This means any changes you make to the YAML files locally—whether through the CLI, your IDE, or any text editor—will be reflected in Octomind once they're merged and pushed.
+This means any changes you make to the YAML files locally—whether through the [CLI commands](/dev-mode/commands), your IDE, or any text editor—will be reflected in Octomind once they're merged and pushed.
+
+### Example test case YAML
+
+Here's what a test case looks like as a YAML file in your `.octomind` directory:
+
+```yaml
+# yaml-language-server: $schema=https://app.octomind.dev/schemas/SyncTestCaseSchema.json
+id: 7eae5568-0f57-4f93-b8f1-aaf5a0bff6ab
+description: Accept cookies
+elements:
+  - interaction:
+      action: CLICK
+    selectors:
+      - selectorType: ROLE
+        selector: button
+        options:
+          name: allow all cookies
+    ignoreFailure: false
+  - assertion:
+      expectation: VISIBLE
+    selectors:
+      - selectorType: CSS
+        selector: '[id="__next"]'
+    ignoreFailure: false
+runStatus: ON
+entryPointUrlPath: ""
+type: COOKIE_BANNER
+prompt: Accept the cookies on the page.
+version: "1"
+```
+
+The first line is a special comment that tells your IDE's YAML language server which schema to use for validation and autocompletion. [Learn more about IDE configuration →](/dev-mode/commands#editing-yaml-files-in-your-ide)
 
 ### Dev mode workflow
 
@@ -123,15 +157,16 @@ This ensures that your YAML files remain the authoritative source, while Octomin
 
 Dev mode uses YAML files as the single source of truth. When you create or modify tests in the Octomind UI, you need to manually add those changes to your Git repository. You have two options:
 
-1. **Copy from YAML view**: In the Octomind UI, view the test case in YAML format and copy it to your local repository
-2. **Pull changes**: Run `octomind pull` to fetch all test cases from Octomind and update your local YAML files
+1. **Copy from YAML view**: In the Octomind UI, view the test case in YAML format and copy it to your local `.octomind` directory
+2. **Pull changes**: Run [`octomind pull`](/dev-mode/commands#pull) to fetch all test cases from Octomind and update your local YAML files
 
 Once you've added the changes to your repository and merged them, the CI/CD workflow will push them back to Octomind, keeping everything synchronized.
 
 <Tip>
   The workflow is: **Repository → Octomind** via CI/CD automation. Changes made
   in the UI need to be manually pulled back to your repository to maintain YAML
-  as the source of truth.
+  as the source of truth. See [Dev Mode Commands](/dev-mode/commands) for detailed
+  information on `pull`, `push`, `execute-local`, and `edit-test-case` commands.
 </Tip>
 
 <Warning>
