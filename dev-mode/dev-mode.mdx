@@ -55,11 +55,13 @@ graph TD
     B --> C[Edit/Create/Maintain tests locally]
     C -->|CLI or IDE| B
     B -->|git commit & push| D[Pull Request]
-    D -->|merge to main| E[GitHub Action executes tests]
-    E -->|on success| F[GitHub Action pushes to Octomind]
-    F -->|sync| G[Octomind Platform updated]
-    G -->|changes in UI| H[Auto-commit to repo]
-    H -->|sync| B
+    D -->|PR workflow| E[GitHub Action executes tests for validation]
+    E -->|tests pass| F[Merge to main]
+    F -->|post-merge workflow| G[GitHub Action executes tests]
+    G -->|on success| H[GitHub Action pushes to Octomind]
+    H -->|sync| I[Octomind Platform updated]
+    I -->|changes in UI| J[Auto-commit to repo]
+    J -->|sync| B
 ```
 
 ### Setting up the post-merge workflow
