@@ -92,11 +92,6 @@ jobs:
           token: ${{ secrets.OCTOMIND_API_KEY }}
           testTargetId: <your-testTargetId>
 
-      - name: Push test results to Octomind
-        uses: OctoMind-dev/automagically-action-push@v1
-        with:
-          token: ${{ secrets.OCTOMIND_API_KEY }}
-          testTargetId: <your-testTargetId>
 ```
 
 ### Key differences from PR workflow
