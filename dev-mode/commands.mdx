@@ -23,7 +23,8 @@ your-project/
 ```
 
 <Tip>
-  Add `.octomind/` to your Git repository to version control your tests alongside your application code.
+  Add `.octomind/` to your Git repository to version control your tests
+  alongside your application code.
 </Tip>
 
 ## pull
@@ -55,7 +56,8 @@ octomind pull
 | `-t, --test-target-id [id]` | Test target ID, if not provided will use the test target id from the config | No       |         |
 
 <Warning>
-  Running `octomind pull` will overwrite any local changes you've made to YAML files. Make sure to commit your changes before pulling.
+  Running `octomind pull` will overwrite any local changes you've made to YAML
+  files. Make sure to commit your changes before pulling.
 </Warning>
 
 ## push
@@ -86,7 +88,9 @@ octomind push
 | `-t, --test-target-id [id]` | Test target ID, if not provided will use the test target id from the config | No       |         |
 
 <Warning>
-  **Use with caution!** The `push` command overwrites all test cases on the Octomind platform with your local YAML files. This is a destructive operation. Make sure your local files are the source of truth before pushing.
+  **Use with caution!** The `push` command overwrites all test cases on the
+  Octomind platform with your local YAML files. This is a destructive operation.
+  Make sure your local files are the source of truth before pushing.
 </Warning>
 
 ## execute-local
@@ -117,7 +121,7 @@ octomind execute-local --url https://your-app.com
 | `-j, --json`                             | Output raw JSON response                                                                                               | No       |          |
 | `-u, --url <url>`                        | URL the tests should run against                                                                                       | Yes      |          |
 | `-e, --environment-id [uuid]`            | ID of the environment you want to run against, if not provided will run all test cases against the default environment | No       |          |
-| `-t, --test-target-id [uuid]`            | ID of the test target of the test case, if not provided will use the test target id from the config                   | No       |          |
+| `-t, --test-target-id [uuid]`            | ID of the test target of the test case, if not provided will use the test target id from the config                    | No       |          |
 | `--headless`                             | Run headless without the UI of Playwright and the browser                                                              | No       |          |
 | `--bypass-proxy`                         | Bypass proxy when accessing the test target                                                                            | No       |          |
 | `--browser [CHROMIUM, FIREFOX, SAFARI]`  | Browser type                                                                                                           | No       | CHROMIUM |
@@ -227,7 +231,9 @@ If you prefer to configure schema support globally for all files in the `.octomi
 - **Type checking**: Ensure values match expected types (strings, numbers, booleans)
 
 <Tip>
-  The inline schema comment is the recommended approach as it works across different IDEs and doesn't require project-specific configuration. When you run `octomind pull`, all YAML files will automatically include this comment.
+  The inline schema comment is the recommended approach as it works across
+  different IDEs and doesn't require project-specific configuration. When you
+  run `octomind pull`, all YAML files will automatically include this comment.
 </Tip>
 
 ## Workflow example
