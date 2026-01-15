@@ -1,0 +1,271 @@
+---
+title: Dev Mode Commands
+description: "Detailed guide to CLI commands for working with tests as code"
+icon: "terminal"
+---
+
+## Overview
+
+Dev mode provides several CLI commands to manage your test cases as YAML files in your repository. These commands enable you to pull tests from Octomind, edit them locally, execute them, and push changes back to the platform.
+
+## The `.octomind` directory
+
+All dev mode commands work with a `.octomind` directory in your project root. This directory is automatically created when you run `octomind pull` for the first time and stores all your test case YAML files.
+
+```
+your-project/
+├── .octomind/
+│   ├── test-case-1.yaml
+│   ├── test-case-2.yaml
+│   └── test-case-3.yaml
+├── src/
+└── package.json
+```
+
+<Tip>
+  Add `.octomind/` to your Git repository to version control your tests alongside your application code.
+</Tip>
+
+## pull
+
+Pull test cases from Octomind to your local repository.
+
+```bash
+octomind pull
+```
+
+### What it does
+
+- Creates a `.octomind` directory if it doesn't exist
+- Downloads all test cases from your Octomind project as YAML files
+- Stores each test case as a separate YAML file in `.octomind/`
+- Overwrites existing local files with the latest version from Octomind
+
+### When to use
+
+- **Initial setup**: Run this once when setting up dev mode for your project
+- **Syncing UI changes**: When you or a team member creates or modifies tests in the Octomind UI and you want to bring those changes into your repository
+- **After manual edits in UI**: If you've made changes in the Octomind platform and need to sync them locally
+
+### Options
+
+| Option                      | Description                                                                 | Required | Default |
+| :-------------------------- | :-------------------------------------------------------------------------- | :------- | :------ |
+| `-j, --json`                | Output raw JSON response                                                    | No       |         |
+| `-t, --test-target-id [id]` | Test target ID, if not provided will use the test target id from the config | No       |         |
+
+<Warning>
+  Running `octomind pull` will overwrite any local changes you've made to YAML files. Make sure to commit your changes before pulling.
+</Warning>
+
+## push
+
+Push local YAML test cases to Octomind.
+
+```bash
+octomind push
+```
+
+### What it does
+
+- Reads all YAML files from the `.octomind` directory
+- Uploads them to the Octomind platform
+- **Overwrites** the current set of test cases on Octomind with your local YAML files
+
+### When to use
+
+- **Manual sync**: When you want to manually push local changes to Octomind outside of the CI/CD workflow
+- **Testing changes**: Before committing, you might want to push and validate your changes on the Octomind platform
+- **Emergency updates**: When you need to quickly update tests without going through the full PR process
+
+### Options
+
+| Option                      | Description                                                                 | Required | Default |
+| :-------------------------- | :-------------------------------------------------------------------------- | :------- | :------ |
+| `-j, --json`                | Output raw JSON response                                                    | No       |         |
+| `-t, --test-target-id [id]` | Test target ID, if not provided will use the test target id from the config | No       |         |
+
+<Warning>
+  **Use with caution!** The `push` command overwrites all test cases on the Octomind platform with your local YAML files. This is a destructive operation. Make sure your local files are the source of truth before pushing.
+</Warning>
+
+## execute-local
+
+Execute local YAML test cases without pushing them to Octomind.
+
+```bash
+octomind execute-local --url https://your-app.com
+```
+
+### What it does
+
+- Reads YAML test files from the `.octomind` directory
+- Executes them locally using Playwright
+- Runs tests against the specified URL
+- Shows results in your terminal
+
+### When to use
+
+- **Local development**: Test your changes before committing or pushing to Octomind
+- **Debugging**: Quickly iterate on test cases and see results immediately
+- **Validation**: Verify that your YAML changes work as expected before pushing to the platform
+
+### Options
+
+| Option                                   | Description                                                                                                            | Required | Default  |
+| :--------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- | :------- | :------- |
+| `-j, --json`                             | Output raw JSON response                                                                                               | No       |          |
+| `-u, --url <url>`                        | URL the tests should run against                                                                                       | Yes      |          |
+| `-e, --environment-id [uuid]`            | ID of the environment you want to run against, if not provided will run all test cases against the default environment | No       |          |
+| `-t, --test-target-id [uuid]`            | ID of the test target of the test case, if not provided will use the test target id from the config                   | No       |          |
+| `--headless`                             | Run headless without the UI of Playwright and the browser                                                              | No       |          |
+| `--bypass-proxy`                         | Bypass proxy when accessing the test target                                                                            | No       |          |
+| `--browser [CHROMIUM, FIREFOX, SAFARI]`  | Browser type                                                                                                           | No       | CHROMIUM |
+| `--breakpoint [DESKTOP, MOBILE, TABLET]` | Breakpoint                                                                                                             | No       | DESKTOP  |
+
+### Example
+
+```bash
+# Execute all local tests
+octomind execute-local --url https://staging.myapp.com
+
+# Execute with specific browser
+octomind execute-local --url https://staging.myapp.com --browser FIREFOX
+
+# Execute headless for CI
+octomind execute-local --url https://staging.myapp.com --headless
+```
+
+## edit-test-case
+
+Open a browser-based visual editor to graphically edit your local YAML test case.
+
+```bash
+octomind edit-test-case --file-path .octomind/my-test.yaml
+```
+
+### What it does
+
+- Opens a browser window with a visual test editor
+- Loads your local YAML test case
+- Allows you to edit the test using a graphical interface
+- Saves changes back to your local YAML file
+
+### When to use
+
+- **Visual editing**: When you prefer a graphical interface over editing YAML directly
+- **Complex test logic**: For tests with intricate flows that are easier to visualize
+- **Learning**: To understand the YAML structure by seeing how UI changes affect the YAML
+
+### Options
+
+| Option                      | Description                                                                 | Required | Default |
+| :-------------------------- | :-------------------------------------------------------------------------- | :------- | :------ |
+| `-j, --json`                | Output raw JSON response                                                    | No       |         |
+| `-t, --test-target-id [id]` | Test target ID, if not provided will use the test target id from the config | No       |         |
+| `-f, --file-path <path>`    | The path to the local YAML file you want to edit                            | Yes      |         |
+
+### Example
+
+```bash
+octomind edit-test-case --file-path .octomind/login-test.yaml
+```
+
+## Editing YAML files in your IDE
+
+For the best experience when editing YAML test files directly in your IDE, configure YAML schema support to get autocompletion and syntax validation.
+
+### Using inline schema comment (recommended)
+
+The easiest way to enable schema support is to add a special comment at the top of each YAML file:
+
+```yaml
+# yaml-language-server: $schema=https://app.octomind.dev/schemas/SyncTestCaseSchema.json
+id: 7eae5568-0f57-4f93-b8f1-aaf5a0bff6ab
+description: Accept cookies
+elements:
+  - interaction:
+      action: CLICK
+    selectors:
+      - selectorType: ROLE
+        selector: button
+        options:
+          name: allow all cookies
+```
+
+If your IDE's YAML language server supports this comment (most modern IDEs do), no further configuration is necessary. The schema will be automatically applied to that file.
+
+### VS Code setup (alternative)
+
+If you prefer to configure schema support globally for all files in the `.octomind` directory:
+
+1. Install the [YAML extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) by Red Hat
+
+2. Add to your `.vscode/settings.json`:
+
+```json
+{
+  "yaml.schemas": {
+    "https://app.octomind.dev/schemas/SyncTestCaseSchema.json": ".octomind/*.yaml"
+  }
+}
+```
+
+### IntelliJ / WebStorm setup (alternative)
+
+1. Go to **Settings** → **Languages & Frameworks** → **Schemas and DTDs** → **JSON Schema Mappings**
+
+2. Add a new mapping:
+   - **Schema URL**: `https://app.octomind.dev/schemas/SyncTestCaseSchema.json`
+   - **File path pattern**: `.octomind/*.yaml`
+
+### Benefits of schema support
+
+- **Autocompletion**: Get suggestions for valid fields and values as you type
+- **Validation**: Catch syntax errors and invalid values before running tests
+- **Documentation**: See inline documentation for each field
+- **Type checking**: Ensure values match expected types (strings, numbers, booleans)
+
+<Tip>
+  The inline schema comment is the recommended approach as it works across different IDEs and doesn't require project-specific configuration. When you run `octomind pull`, all YAML files will automatically include this comment.
+</Tip>
+
+## Workflow example
+
+Here's a typical workflow combining these commands:
+
+```bash
+# 1. Initial setup - pull tests from Octomind
+octomind pull
+
+# 2. Edit a test case visually
+octomind edit-test-case --file-path .octomind/checkout-flow.yaml
+
+# 3. Test your changes locally
+octomind execute-local --url https://localhost:3000
+
+# 4. Commit your changes
+git add .octomind/
+git commit -m "Update checkout flow test"
+
+# 5. Push to your repository
+git push origin feature/update-checkout-test
+
+# 6. After PR merge, CI/CD automatically pushes to Octomind
+# (via GitHub Action in your workflow)
+```
+
+## Best practices
+
+1. **Always pull before editing**: Run `octomind pull` before making local changes to ensure you have the latest version
+2. **Test locally first**: Use `execute-local` to validate changes before pushing
+3. **Use version control**: Commit YAML files to Git to track test evolution
+4. **Let CI/CD handle push**: Prefer automated pushing via GitHub Actions over manual `octomind push`
+5. **Configure schema support**: Set up YAML schema in your IDE for better editing experience
+6. **Review YAML changes**: Treat test YAML files like code—review them in pull requests
+
+## Related documentation
+
+- [Dev Mode Overview](/dev-mode/dev-mode) - Introduction to dev mode and CI/CD integration
+- [CLI Installation](/cli/installation) - How to install and configure the Octomind CLI
+- [All CLI Commands](/cli/commands) - Complete reference of all CLI commands
