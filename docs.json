@@ -210,6 +210,17 @@
         ]
       },
       {
+        "tab": "DEV mode",
+        "groups": [
+          {
+            "group": "DEV mode",
+            "pages": [
+              "dev-mode/dev-mode"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Changelog",
         "groups": [
           {
