@@ -20,6 +20,7 @@ With dev mode, your test cases become part of your codebase. This means you can:
 Dev mode works in three simple steps:
 
 1. **Initialize**: Pull your current test cases from Octomind to your local repository
+
    ```bash
    octomind pull
    ```
@@ -38,11 +39,11 @@ If you've already [integrated Octomind into your CI/CD pipeline](/run-tests/exec
 
 In dev mode, the YAML test case files in your repository are the **single source of truth**. These files define your tests, and they are:
 
-- **Executed** by the GitHub Action in your CI/CD pipeline
-- **Pushed** back to the Octomind platform after successful execution
-- **Synced** bidirectionally to keep your repository and Octomind in perfect alignment
+- **Pushed** to the Octomind platform via the GitHub Action
+- **Executed** on the Octomind platform after being pushed
+- **Managed** in your repository using version control
 
-This means any changes you make to the YAML files locally—whether through the CLI, your IDE, or any text editor—will be reflected in Octomind once they're merged and executed.
+This means any changes you make to the YAML files locally—whether through the CLI, your IDE, or any text editor—will be reflected in Octomind once they're merged and pushed.
 
 ### Dev mode workflow
 
@@ -50,17 +51,16 @@ The complete dev mode workflow follows this cycle:
 
 ```mermaid
 graph TD
+%%{init: {'theme': 'dark', 'themeVariables': { 'edgeLabelBackground': 'transparent' }}}%%
     A[Pull test cases once] -->|octomind pull| B[Local YAML files in repo]
     B --> C[Edit/Create/Maintain tests locally]
     C -->|CLI or IDE| B
     B -->|git commit & push| D[Pull Request]
-    D -->|PR workflow| E[GitHub Action executes tests for validation]
+    D -->|PR workflow| E[GitHub Action validates tests]
     E -->|tests pass| F[Merge to main]
-    F -->|post-merge workflow| G[GitHub Action executes tests]
-    G -->|on success| H[GitHub Action pushes to Octomind]
-    H -->|sync| I[Octomind Platform updated]
-    I -->|changes in UI| J[Auto-commit to repo]
-    J -->|sync| B
+    F -->|post-merge workflow| G[GitHub Action pushes to Octomind]
+    G --> H[Octomind executes tests]
+    H --> I[Tests available in Octomind UI]
 ```
 
 ### Setting up the post-merge workflow
@@ -75,7 +75,7 @@ name: Octomind Dev Mode Sync
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main # or your default branch
 
 jobs:
   sync-tests:
@@ -84,51 +84,58 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Execute tests
+      - name: Push tests to Octomind
+        uses: OctoMind-dev/automagically-action-push@v1
+        with:
+          token: ${{ secrets.OCTOMIND_API_KEY }}
+          testTargetId: <your-testTargetId>
+
+      - name: Execute tests on Octomind
         uses: OctoMind-dev/automagically-action-execute@v2
         with:
           url: <your-production-or-staging-url>
           token: ${{ secrets.OCTOMIND_API_KEY }}
           testTargetId: <your-testTargetId>
-
 ```
 
 ### Key differences from PR workflow
 
 The main difference between your PR workflow and the dev mode sync workflow is:
 
-| Aspect | PR Workflow | Post-Merge Workflow |
-|--------|-------------|---------------------|
-| **Trigger** | On pull request | On push to main branch |
-| **Purpose** | Validate changes before merge | Execute and sync after merge |
-| **Actions** | Execute tests only | Execute tests **and** push to Octomind |
-| **URL** | Branch deployment URL | Production/staging URL |
+| Aspect      | PR Workflow                   | Post-Merge Workflow                  |
+| ----------- | ----------------------------- | ------------------------------------ |
+| **Trigger** | On pull request               | On push to main branch               |
+| **Purpose** | Validate changes before merge | Push and execute after merge         |
+| **Actions** | Execute tests only            | Push to Octomind **and** execute     |
+| **URL**     | Branch deployment URL         | Production/staging URL               |
 
 ### What happens during sync
 
 When the post-merge workflow runs:
 
 1. **Checkout**: Your repository code (including YAML test files) is checked out
-2. **Execute**: The GitHub Action runs all tests defined in your YAML files against your specified URL
-3. **Push**: Upon successful execution, the test definitions are pushed to Octomind, updating the platform with any changes from your repository
+2. **Push**: The YAML test definitions are pushed to Octomind, updating the platform with any changes from your repository
+3. **Execute**: The tests are executed on the Octomind platform against your specified URL
 
 This ensures that your YAML files remain the authoritative source, while Octomind stays synchronized with your latest test definitions.
 
-### Bidirectional sync
+### Working with UI changes
 
-Dev mode supports bidirectional syncing:
+Dev mode uses YAML files as the single source of truth. When you create or modify tests in the Octomind UI, you need to manually add those changes to your Git repository. You have two options:
 
-- **Repository → Octomind**: Changes merged to your main branch are automatically pushed to Octomind
-- **Octomind → Repository**: Changes made in the Octomind UI are automatically committed back to your repository
+1. **Copy from YAML view**: In the Octomind UI, view the test case in YAML format and copy it to your local repository
+2. **Pull changes**: Run `octomind pull` to fetch all test cases from Octomind and update your local YAML files
 
-This means your team can work flexibly—some members can edit tests locally, while others can use the Octomind UI, and everything stays in sync.
+Once you've added the changes to your repository and merged them, the CI/CD workflow will push them back to Octomind, keeping everything synchronized.
 
 <Tip>
-  Start by pulling your tests once with `octomind pull`, then let the CI/CD automation handle all future syncing. You rarely need to run `octomind pull` again unless you want to manually sync changes.
+  The workflow is: **Repository → Octomind** via CI/CD automation. Changes made
+  in the UI need to be manually pulled back to your repository to maintain YAML
+  as the source of truth.
 </Tip>
 
 <Warning>
-  Make sure your GitHub Action has write permissions to push back to Octomind. You'll need to configure your `OCTOMIND_API_KEY` secret with the appropriate permissions.
+  Make sure your GitHub Action has write permissions to push back to Octomind.
+  You'll need to configure your `OCTOMIND_API_KEY` secret with the appropriate
+  permissions.
 </Warning>
-
-
