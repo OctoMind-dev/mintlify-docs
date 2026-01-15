@@ -191,6 +191,7 @@
               "integrations/other/batch-generation",
               "integrations/other/test-management",
               "integrations/other/xray-integration",
+              "integrations/other/zephyr-integration",
               "integrations/other/allure-integration"
             ]
           }
