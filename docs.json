@@ -214,7 +214,8 @@
           {
             "group": "DEV mode",
             "pages": [
-              "dev-mode/dev-mode"
+              "dev-mode/dev-mode",
+              "dev-mode/commands"
             ]
           }
         ]
