@@ -4,4 +4,31 @@ description: "How to use the DEV mode"
 icon: "terminal"
 ---
 
-# How does it look like?
+## Treat your tests like code
+
+Dev mode brings your Octomind tests into your development workflow, enabling you to version control, edit locally, and sync automatically via CI/CD. Instead of managing tests exclusively through the Octomind UI, you can now work with them as code files in your repository—giving you the flexibility and control developers expect.
+
+With dev mode, your test cases become part of your codebase. This means you can:
+
+- **Version control your tests** alongside your application code
+- **Review test changes** through pull requests with your team
+- **Edit tests locally** using your preferred IDE and tools
+- **Sync bidirectionally** between your repository and Octomind automatically
+- **Track test evolution** through your Git history
+
+### Getting started with dev mode
+
+Dev mode works in three simple steps:
+
+1. **Initialize**: Pull your current test cases from Octomind to your local repository
+   ```bash
+   octomind pull
+   ```
+
+2. **Commit**: Check the generated test files into your repository and manage them like any other code
+
+3. **Automate**: Add the GitHub Action to enable bidirectional syncing on merge, ensuring your repository and Octomind stay in sync
+
+Once set up, any changes you make to tests in your repository will automatically sync to Octomind when merged, and any updates made in the Octomind UI will be reflected in your repository. This creates a seamless workflow where your team can work with tests however they prefer.
+
+
