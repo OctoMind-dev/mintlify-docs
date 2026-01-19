@@ -46,7 +46,7 @@ This way even entityIds like environmentIds or testCaseIds will be autocompleted
 
 # octomind
 
-Octomind cli tool. Version: 4.1.0. Additional documentation see https://octomind.dev/docs/api-reference/
+Octomind cli tool. Version: 4.3.1. Additional documentation see https://octomind.dev/docs/api-reference/
 
 **Usage:** `octomind [options] [command]`
 
@@ -224,7 +224,7 @@ Execute test cases to create a test report
 | `-t, --test-target-id [id]`                | Test target ID, if not provided will use the test target id from the config | No       |          |
 | `-e, --environment-name [name]`            | Environment name                                                            | No       | default  |
 | `-d, --description [text]`                 | Test description                                                            | No       |          |
-| `-g, --tags [tags]`                        | comma separated list of tags                                                | No       |          |
+| `-g, --tags [tags]`                        | Comma separated list of tags                                                | No       |          |
 | `-v, --variables-to-overwrite [variables]` | JSON object of variables to overwrite                                       | No       |          |
 | `-b, --browser [type]`                     | Browser type [CHROMIUM, FIREFOX, SAFARI]                                    | No       | CHROMIUM |
 | `-r, --breakpoint [name]`                  | Breakpoint [DESKTOP, MOBILE, TABLET]                                        | No       | DESKTOP  |
@@ -240,11 +240,12 @@ Execute local YAML test cases
 | Option                                   | Description                                                                                                            | Required | Default  |
 | :--------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- | :------- | :------- |
 | `-j, --json`                             | Output raw JSON response                                                                                               | No       |          |
-| `-u, --url <url>`                        | url the tests should run against                                                                                       | Yes      |          |
-| `-e, --environment-id [uuid]`            | id of the environment you want to run against, if not provided will run all test cases against the default environment | No       |          |
-| `-t, --test-target-id [uuid]`            | id of the test target of the test case, if not provided will use the test target id from the config                    | No       |          |
-| `--headless`                             | if we should run headless without the UI of playwright and the browser                                                 | No       |          |
-| `--bypass-proxy`                         | bypass proxy when accessing the test target                                                                            | No       |          |
+| `-u, --url <url>`                        | Url the tests should run against                                                                                       | Yes      |          |
+| `-p, --test-case-path [string]`          | Path of the test case you want to run, if not provided will run all test cases in the test target                      | No       |          |
+| `-e, --environment-id [uuid]`            | Id of the environment you want to run against, if not provided will run all test cases against the default environment | No       |          |
+| `-t, --test-target-id [uuid]`            | Id of the test target of the test case, if not provided will use the test target id from the config                    | No       |          |
+| `--headless`                             | If we should run headless without the UI of playwright and the browser                                                 | No       |          |
+| `--bypass-proxy`                         | Bypass proxy when accessing the test target                                                                            | No       |          |
 | `--browser [CHROMIUM, FIREFOX, SAFARI]`  | Browser type                                                                                                           | No       | CHROMIUM |
 | `--breakpoint [DESKTOP, MOBILE, TABLET]` | Breakpoint                                                                                                             | No       | DESKTOP  |
 
@@ -448,12 +449,28 @@ Push local YAML test cases to the test target
 | :-------------------------- | :-------------------------------------------------------------------------- | :------- | :------ |
 | `-j, --json`                | Output raw JSON response                                                    | No       |         |
 | `-t, --test-target-id [id]` | Test target ID, if not provided will use the test target id from the config | No       |         |
+| `-y, --yes`                 | Skip confirmation prompt                                                    | No       |         |
+
+## create-test-case
+
+Create a new test case
+
+**Usage:** `create-test-case [options]`
+
+### Options
+
+| Option                         | Description                                                                 | Required | Default |
+| :----------------------------- | :-------------------------------------------------------------------------- | :------- | :------ |
+| `-j, --json`                   | Output raw JSON response                                                    | No       |         |
+| `-t, --test-target-id [id]`    | Test target ID, if not provided will use the test target id from the config | No       |         |
+| `-n, --name <string>`          | The name of the test case you want to create                                | Yes      |         |
+| `-d, --dependency-path [path]` | The path of to test case you want to use as dependency                      | No       |         |
 
 ## edit-test-case
 
 Edit yaml test case
 
-**Usage:** `edit-test-case [options]`
+**Usage:** `edit-test-case [options] <file-path>`
 
 ### Options
 
@@ -461,7 +478,6 @@ Edit yaml test case
 | :-------------------------- | :-------------------------------------------------------------------------- | :------- | :------ |
 | `-j, --json`                | Output raw JSON response                                                    | No       |         |
 | `-t, --test-target-id [id]` | Test target ID, if not provided will use the test target id from the config | No       |         |
-| `-f, --file-path <path>`    | The path to the local yaml file you want to edit                            | Yes      |         |
 
 ## Test Reports
 
