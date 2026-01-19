@@ -118,12 +118,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Push tests to Octomind
-        uses: OctoMind-dev/automagically-action-push@v1
-        with:
-          token: ${{ secrets.OCTOMIND_API_KEY }}
-          testTargetId: <your-testTargetId>
-
       - name: Execute tests on Octomind
         uses: OctoMind-dev/automagically-action-execute@v2
         with:
