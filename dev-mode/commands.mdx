@@ -140,12 +140,52 @@ octomind execute-local --url https://staging.myapp.com --browser FIREFOX
 octomind execute-local --url https://staging.myapp.com --headless
 ```
 
+## create-test-case
+
+Create a new test case in your local `.octomind` directory.
+
+```bash
+octomind create-test-case --name "Checkout flow"
+```
+
+### What it does
+
+- Creates a new YAML test case file in the `.octomind` directory
+- Generates a basic test case structure with the specified name
+- Optionally sets up a dependency on another test case
+- Saves the new test case as a YAML file ready for editing
+
+### When to use
+
+- **Starting from scratch**: When you want to create a new test case locally without using the UI
+- **Scripting test creation**: When automating test case generation
+- **With dependencies**: When you need to create a test that depends on another test (e.g., a checkout test that depends on a login test)
+
+### Options
+
+| Option                         | Description                                                                 | Required | Default |
+| :----------------------------- | :-------------------------------------------------------------------------- | :------- | :------ |
+| `-j, --json`                   | Output raw JSON response                                                    | No       |         |
+| `-t, --test-target-id [id]`    | Test target ID, if not provided will use the test target id from the config | No       |         |
+| `-n, --name <string>`          | The name of the test case you want to create                                | Yes      |         |
+| `-d, --dependency-path [path]` | The path to test case you want to use as dependency                         | No       |         |
+
+### Example
+
+```bash
+# Create a simple test case
+octomind create-test-case --name "Search functionality"
+
+# Create a test case with a dependency
+octomind create-test-case --name "Checkout flow" --dependency-path .octomind/login-test.yaml
+```
+
 ## edit-test-case
 
 Open a browser-based visual editor to graphically edit your local YAML test case.
 
 ```bash
-octomind edit-test-case --file-path .octomind/my-test.yaml
+octomind edit-test-case .octomind/my-test.yaml
 ```
 
 ### What it does
@@ -167,12 +207,11 @@ octomind edit-test-case --file-path .octomind/my-test.yaml
 | :-------------------------- | :-------------------------------------------------------------------------- | :------- | :------ |
 | `-j, --json`                | Output raw JSON response                                                    | No       |         |
 | `-t, --test-target-id [id]` | Test target ID, if not provided will use the test target id from the config | No       |         |
-| `-f, --file-path <path>`    | The path to the local YAML file you want to edit                            | Yes      |         |
 
 ### Example
 
 ```bash
-octomind edit-test-case --file-path .octomind/login-test.yaml
+octomind edit-test-case .octomind/login-test.yaml
 ```
 
 ## Editing YAML files in your IDE

@@ -15,7 +15,31 @@ icon: "terminal"
 
 ## Installation
 
-1. To install the package **globally** do **NOT** just a `npm i -g @octomind/octomind` but instead
+### 1. Global installation (recommended)
+
+Install the Octomind CLI globally using npm:
+
+```bash
+npm install -g @octomind/octomind
+```
+
+<Note>
+  This is the **simplest and recommended way** to install the CLI. It makes the `octomind` command available globally on your system.
+</Note>
+
+### 2. Use via npx (no installation required)
+
+You can run the CLI without installing it by using npx:
+
+```bash
+npx @octomind/octomind -h
+```
+
+This is useful for one-off commands or trying out the CLI without installing it.
+
+<Expandable title="3. Advanced installation (for dependency conflicts)">
+
+If you encounter dependency conflicts with the global installation, you can install the package in a custom location:
 
 ```bash
 mkdir -p ~/.local/packages
@@ -27,19 +51,27 @@ alias octomind="node ~/.local/packages/node_modules/@octomind/octomind/dist/inde
 sudo ln -s ~/.local/packages/node_modules/@octomind/octomind/dist/index.js /usr/local/bin/octomind
 ```
 
-this will install the package to `~/.local/packages` and create symlinks in `/usr/local/bin` or creates an alias.
-This is necessary for the cli to work and avoid dependency conflicts, when installing the package globally.
+This will install the package to `~/.local/packages` and create symlinks in `/usr/local/bin` or creates an alias.
+This is necessary to avoid dependency conflicts when installing the package globally.
 
 If you also want to install auto completion (see below), then you should use a symlink in favor of an alias.
 
 <Tip>
   Please make sure that there is no `package.json` in the `~/.local/packages`
-  directory or above as this will change the where npm will install the package.
+  directory or above as this will change where npm will install the package.
 </Tip>
 
-2. Use the cli through **npx** e.g. `npx @octomind/octomind -h`
+</Expandable>
 
 ## Updating
+
+If you installed globally:
+
+```bash
+npm update -g @octomind/octomind
+```
+
+If you used the advanced installation method:
 
 ```bash
 cd ~/.local/packages
