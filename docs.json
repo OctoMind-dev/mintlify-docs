@@ -1,276 +1,251 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Octomind Docs",
-  "colors": {
-    "primary": "#00E2AA",
-    "light": "#00CE9B",
-    "dark": "#7D7CE2"
-  },
-  "favicon": "/logo/favicon.svg",
-  "api": {
-    "openapi": "https://app.octomind.dev/openapi.yaml",
-    "mdx": {
-      "server": "https://app.octomind.dev/api",
-      "auth": {
-        "method": "key",
-        "name": "x-api-key"
-      }
-    }
-  },
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Documentation",
-        "groups": [
-          {
-            "group": "Get started",
-            "pages": [
-              "get-started/create-first-tests",
-              "get-started/edit-tests",
-              "get-started/execute-tests",
-              "get-started/chat-with-ai"
-            ]
-          },
-          {
-            "group": "Build tests",
-            "pages": [
-              "build-tests/recommended-tests",
-              "build-tests/prompt-agent",
-              "build-tests/create-via-mcp",
-              "build-tests/recorder",
-              "build-tests/import-tests",
-              "build-tests/test-setup"
-            ]
-          },
-          {
-            "group": "Run tests",
-            "pages": [
-              "run-tests/execution-scheduled",
-              "run-tests/execution-CI",
-              "run-tests/execution-curl",
-              "run-tests/execution-local"
-            ]
-          },
-          {
-            "group": "Maintain tests",
-            "pages": [
-              "maintain-tests/why-tests-fail",
-              "maintain-tests/inspect-broken-tests",
-              "maintain-tests/auto-fix"
-            ]
-          },
-          {
-            "group": "Manage tests",
-            "pages": [
-              "manage-tests/test-cases",
-              "manage-tests/test-reports",
-              "manage-tests/environments"
-            ]
-          },
-          {
-            "group": "Account",
-            "pages": [
-              "account/account-settings",
-              "account/projects"
-            ]
-          },
-          {
-            "group": "Advanced",
-            "pages": [
-              "advanced/waiting",
-              "advanced/javascript-step",
-              "advanced/email-flows",
-              "advanced/variables",
-              "advanced/rate-limiting",
-              "proxy/private-location",
-              "proxy/proxy-settings",
-              "advanced/bug-bounty-program",
-              "advanced/octomind-bot",
-              "advanced/2fa",
-              "advanced/basic-authentication",
-              "advanced/upload",
-              "advanced/download",
-              "runtime/custom-headers",
-              "runtime/testid-attribute",
-              "advanced/cross-origin-iframes",
-              "advanced/teardown"
-            ]
-          },
-          {
-            "group": "More info",
-            "pages": [
-              "more-info/faq",
-              "more-info/storage",
-              "more-info/octo-dictionary",
-              "more-info/under-the-hood"
-            ]
-          },
-          {
-            "group": "Data governance",
-            "pages": [
-              "data-governance/no-code-access",
-              "data-governance/nda"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Test creation",
-            "pages": [
-              "guides/test-creation-best-practices",
-              "guides/long-vs-short"
-            ]
-          },
-          {
-            "group": "Test generation failure",
-            "pages": [
-              "guides/agent-fails",
-              "guides/help-agent-succeed",
-              "guides/prompt-debugging"
-            ]
-          },
-          {
-            "group": "Failed test runs",
-            "pages": [
-              "guides/test-steps-debugging"
-            ]
-          },
-          {
-            "group": "Test orchestration",
-            "pages": [
-              "guides/project-environments",
-              "guides/long-running"
-            ]
-          },
-          {
-            "group": "Troubleshooting",
-            "pages": [
-              "guides/slow-loading",
-              "guides/typing-multidig"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "MCP",
-        "groups": [
-          {
-            "group": "Overview",
-            "pages": [
-              "mcp/install-octomind-mcp",
-              "mcp/hosted-mcp"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "openapi": "https://app.octomind.dev/openapi.yaml"
-      },
-      {
-        "tab": "Integrations",
-        "groups": [
-          {
-            "group": "Run Tests From CI",
-            "pages": [
-              "integrations/integrations-overview",
-              "integrations/quickstart-GitHub",
-              "integrations/quickstart-Azure",
-              "integrations/quickstart-Vercel",
-              "integrations/quickstart-Jenkins",
-              "integrations/quickstart-Other"
-            ]
-          },
-          {
-            "group": "Other Integrations",
-            "pages": [
-              "integrations/other/batch-generation",
-              "integrations/other/test-management",
-              "integrations/other/xray-integration",
-              "integrations/other/zephyr-integration",
-              "integrations/other/allure-integration"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "CLI",
-        "groups": [
-          {
-            "group": "Command Line Interface",
-            "pages": [
-              "cli/installation",
-              "cli/commands"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "DEV mode",
-        "groups": [
-          {
-            "group": "DEV mode",
-            "pages": [
-              "dev-mode/dev-mode",
-              "dev-mode/commands"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Changelog",
-        "groups": [
-          {
-            "group": "Changelog",
-            "pages": [
-              "changelog/changelog"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg",
-    "href": "https://www.octomind.dev/"
-  },
-  "appearance": {
-    "default": "dark"
-  },
-  "background": {
-    "color": {
-      "light": "#FFFFFF",
-      "dark": "#13142B"
-    }
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "GitHub",
-        "href": "https://github.com/OctoMind-dev"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Log in",
-      "href": "https://auth.app.octomind.dev/en/login?utm_source=docs&utm_medium=txt-lnk"
-    }
-  },
-  "footer": {
-    "socials": {
-      "twitter": "https://twitter.com/octominddotdev",
-      "github": "https://github.com/OctoMind-dev"
-    }
-  },
-  "redirects": [
-    {
-      "source": "/account-view/environments",
-      "destination": "/manage-tests/environments"
-    }
-  ]
+	"$schema": "https://mintlify.com/docs.json",
+	"theme": "mint",
+	"name": "Octomind Docs",
+	"colors": {
+		"primary": "#00E2AA",
+		"light": "#00CE9B",
+		"dark": "#7D7CE2"
+	},
+	"favicon": "/logo/favicon.svg",
+	"api": {
+		"openapi": "https://app.octomind.dev/openapi.yaml",
+		"mdx": {
+			"server": "https://app.octomind.dev/api",
+			"auth": {
+				"method": "key",
+				"name": "x-api-key"
+			}
+		}
+	},
+	"navigation": {
+		"tabs": [
+			{
+				"tab": "Documentation",
+				"groups": [
+					{
+						"group": "Get started",
+						"pages": [
+							"get-started/create-first-tests",
+							"get-started/edit-tests",
+							"get-started/execute-tests",
+							"get-started/chat-with-ai"
+						]
+					},
+					{
+						"group": "Build tests",
+						"pages": [
+							"build-tests/recommended-tests",
+							"build-tests/prompt-agent",
+							"build-tests/create-via-mcp",
+							"build-tests/recorder",
+							"build-tests/import-tests",
+							"build-tests/test-setup"
+						]
+					},
+					{
+						"group": "Run tests",
+						"pages": [
+							"run-tests/execution-scheduled",
+							"run-tests/execution-CI",
+							"run-tests/execution-curl",
+							"run-tests/execution-local"
+						]
+					},
+					{
+						"group": "Maintain tests",
+						"pages": [
+							"maintain-tests/why-tests-fail",
+							"maintain-tests/inspect-broken-tests",
+							"maintain-tests/auto-fix"
+						]
+					},
+					{
+						"group": "Manage tests",
+						"pages": [
+							"manage-tests/test-cases",
+							"manage-tests/test-reports",
+							"manage-tests/environments"
+						]
+					},
+					{
+						"group": "Account",
+						"pages": ["account/account-settings", "account/projects"]
+					},
+					{
+						"group": "Advanced",
+						"pages": [
+							"advanced/waiting",
+							"advanced/javascript-step",
+							"advanced/email-flows",
+							"advanced/variables",
+							"advanced/rate-limiting",
+							"proxy/private-location",
+							"proxy/proxy-settings",
+							"advanced/security-policy",
+							"advanced/octomind-bot",
+							"advanced/2fa",
+							"advanced/basic-authentication",
+							"advanced/upload",
+							"advanced/download",
+							"runtime/custom-headers",
+							"runtime/testid-attribute",
+							"advanced/cross-origin-iframes",
+							"advanced/teardown"
+						]
+					},
+					{
+						"group": "More info",
+						"pages": [
+							"more-info/faq",
+							"more-info/storage",
+							"more-info/octo-dictionary",
+							"more-info/under-the-hood"
+						]
+					},
+					{
+						"group": "Data governance",
+						"pages": ["data-governance/no-code-access", "data-governance/nda"]
+					}
+				]
+			},
+			{
+				"tab": "Guides",
+				"groups": [
+					{
+						"group": "Test creation",
+						"pages": [
+							"guides/test-creation-best-practices",
+							"guides/long-vs-short"
+						]
+					},
+					{
+						"group": "Test generation failure",
+						"pages": [
+							"guides/agent-fails",
+							"guides/help-agent-succeed",
+							"guides/prompt-debugging"
+						]
+					},
+					{
+						"group": "Failed test runs",
+						"pages": ["guides/test-steps-debugging"]
+					},
+					{
+						"group": "Test orchestration",
+						"pages": ["guides/project-environments", "guides/long-running"]
+					},
+					{
+						"group": "Troubleshooting",
+						"pages": ["guides/slow-loading", "guides/typing-multidig"]
+					}
+				]
+			},
+			{
+				"tab": "MCP",
+				"groups": [
+					{
+						"group": "Overview",
+						"pages": ["mcp/install-octomind-mcp", "mcp/hosted-mcp"]
+					}
+				]
+			},
+			{
+				"tab": "API Reference",
+				"openapi": "https://app.octomind.dev/openapi.yaml"
+			},
+			{
+				"tab": "Integrations",
+				"groups": [
+					{
+						"group": "Run Tests From CI",
+						"pages": [
+							"integrations/integrations-overview",
+							"integrations/quickstart-GitHub",
+							"integrations/quickstart-Azure",
+							"integrations/quickstart-Vercel",
+							"integrations/quickstart-Jenkins",
+							"integrations/quickstart-Other"
+						]
+					},
+					{
+						"group": "Other Integrations",
+						"pages": [
+							"integrations/other/batch-generation",
+							"integrations/other/test-management",
+							"integrations/other/xray-integration",
+							"integrations/other/zephyr-integration",
+							"integrations/other/allure-integration"
+						]
+					}
+				]
+			},
+			{
+				"tab": "CLI",
+				"groups": [
+					{
+						"group": "Command Line Interface",
+						"pages": ["cli/installation", "cli/commands"]
+					}
+				]
+			},
+			{
+				"tab": "DEV mode",
+				"groups": [
+					{
+						"group": "DEV mode",
+						"pages": ["dev-mode/dev-mode", "dev-mode/commands"]
+					}
+				]
+			},
+			{
+				"tab": "Changelog",
+				"groups": [
+					{
+						"group": "Changelog",
+						"pages": ["changelog/changelog"]
+					}
+				]
+			}
+		]
+	},
+	"logo": {
+		"light": "/logo/light.svg",
+		"dark": "/logo/dark.svg",
+		"href": "https://www.octomind.dev/"
+	},
+	"appearance": {
+		"default": "dark"
+	},
+	"background": {
+		"color": {
+			"light": "#FFFFFF",
+			"dark": "#13142B"
+		}
+	},
+	"navbar": {
+		"links": [
+			{
+				"label": "GitHub",
+				"href": "https://github.com/OctoMind-dev"
+			}
+		],
+		"primary": {
+			"type": "button",
+			"label": "Log in",
+			"href": "https://auth.app.octomind.dev/en/login?utm_source=docs&utm_medium=txt-lnk"
+		}
+	},
+	"footer": {
+		"socials": {
+			"twitter": "https://twitter.com/octominddotdev",
+			"github": "https://github.com/OctoMind-dev"
+		}
+	},
+	"redirects": [
+		{
+			"source": "/account-view/environments",
+			"destination": "/manage-tests/environments"
+		}
+	]
 }
