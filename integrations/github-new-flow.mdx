@@ -72,6 +72,13 @@ After installation, return to Octomind.
 
 From now on, Octomind will evaluate new pull requests for test impact and create a **TestPlan** when needed.
 
+<Frame caption="Example: TestPlan comment on a pull request">
+  <img
+    src="/images/integrations/github/testplan-comment.png"
+    alt="Example TestPlan comment on a pull request"
+  />
+</Frame>
+
 ## 4. Add the GitHub Action to your workflow
 
 Add the Octomind Action to your CI pipeline **after** your deployment step so the URL is reachable.
@@ -136,7 +143,3 @@ jobs:
           action: explore-test-plan
           blocking: false
 ```
-
-## Outputs
-
-- `testReportUrl`: URL of the resulting test report
