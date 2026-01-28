@@ -162,6 +162,7 @@
 						"pages": [
 							"integrations/integrations-overview",
 							"integrations/quickstart-GitHub",
+							"integrations/github-new-flow",
 							"integrations/quickstart-Azure",
 							"integrations/quickstart-Vercel",
 							"integrations/quickstart-Jenkins",
