@@ -1,0 +1,142 @@
+---
+title: "Integrate GitHub (New Flow)"
+description: "Install the Octomind GitHub App from inside the Octomind settings modal and enable TestPlan-based exploration on pull requests"
+icon: "github"
+---
+
+## Overview
+
+The GitHub integration connects your repository to an Octomind test target.
+
+Once installed, Octomind will automatically check new pull requests for relevant changes and, when needed, create a **TestPlan**.
+You can then use the Octomind GitHub Action to run either:
+
+- regular test execution (default)
+- **TestPlan exploration** (visual agent that explores the changes and records a video)
+
+## Prerequisites
+
+- Access to an Octomind project
+- A GitHub organization or repository where you can install GitHub Apps
+
+## 1. Open the integration flow in Octomind
+
+Go to your project settings and open the `Integrations` tab.
+
+<Frame caption="Settings modal: CI integration + GitHub integration (new flow)">
+  <img
+    src="/images/integrations/github/github-new-flow.png"
+    alt="Settings modal showing CI integration and GitHub add integration button"
+  />
+</Frame>
+
+### Create an API key
+
+An API key is required for CI integration.
+
+<Expandable title="how to create an API key">
+  <Snippet file="/_snippets/snippet-apiKey.mdx" />
+</Expandable>
+
+### Copy your test target id
+
+You’ll need the test target id in your GitHub workflow.
+
+<Expandable title="how to get your test target id">
+  <Snippet file="/_snippets/snippet-testTarget.mdx" />
+</Expandable>
+
+## 2. Install the Octomind GitHub App
+
+Click `add integration` in the GitHub integration row.
+
+In GitHub, choose the organization/account and select which repositories Octomind should have access to.
+
+<Info>
+  We only request the permissions required to create and update pull request comments / checks. We do not need access to your code.
+</Info>
+
+<Frame caption="GitHub App permissions and repository access">
+  <img
+    src="/images/integrations/github/github-permissions.png"
+    alt="GitHub App permissions and repository selection"
+  />
+</Frame>
+
+## 3. Connect a repository to a test target
+
+After installation, return to Octomind.
+
+- Select the repository you installed the app for
+- Assign it to the correct Octomind test target
+
+From now on, Octomind will evaluate new pull requests for test impact and create a **TestPlan** when needed.
+
+## 4. Add the GitHub Action to your workflow
+
+Add the Octomind Action to your CI pipeline **after** your deployment step so the URL is reachable.
+
+<Warning>
+  Make sure the `url` points to a publicly accessible deployment (e.g. preview deployment). Otherwise Octomind cannot run tests or exploration.
+</Warning>
+
+### A) Run tests on pull requests (default)
+
+```yaml
+- uses: OctoMind-dev/automagically-action-execute@v3
+  with:
+    url: <publicly accessible url to your deployment>
+    token: ${{ secrets.OCTOMIND_API_KEY }}
+    testTargetId: <your testTargetId from your octomind project>
+    environmentName: default
+    blocking: false
+```
+
+### B) Explore a TestPlan (visual exploration + video)
+
+Use the same action, but set `action: explore-test-plan`.
+
+```yaml
+- uses: OctoMind-dev/automagically-action-execute@v3
+  with:
+    url: <publicly accessible url to your deployment>
+    token: ${{ secrets.OCTOMIND_API_KEY }}
+    testTargetId: <your testTargetId from your octomind project>
+    environmentName: default
+    action: explore-test-plan
+    blocking: false
+```
+
+## Example workflow
+
+```yaml
+name: Octomind
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  octomind:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Add your build & deployment steps here
+      # Ensure the deployed preview is publicly reachable and set PREVIEW_URL
+
+      - name: Octomind (Explore TestPlan)
+        uses: OctoMind-dev/automagically-action-execute@v3
+        with:
+          url: ${{ env.PREVIEW_URL }}
+          token: ${{ secrets.OCTOMIND_API_KEY }}
+          testTargetId: <your testTargetId from your octomind project>
+          environmentName: default
+          action: explore-test-plan
+          blocking: false
+```
+
+## Outputs
+
+- `testReportUrl`: URL of the resulting test report
