@@ -8,11 +8,11 @@ icon: "github"
 
 The GitHub integration connects your repository to an Octomind test target.
 
-Once installed, Octomind will automatically check new pull requests for relevant changes and, when needed, create a **TestPlan**.
+Once installed, Octomind will automatically check new pull requests for relevant changes and, when needed, create a **Test Plan**.
 You can then use the Octomind GitHub Action to run either:
 
 - regular test execution (default)
-- **TestPlan exploration** (visual agent that explores the changes and records a video)
+- **Test Plan exploration** (visual agent that explores the changes and records a video)
 
 ## Prerequisites
 
@@ -53,7 +53,8 @@ Click `add integration` in the GitHub integration row.
 In GitHub, choose the organization/account and select which repositories Octomind should have access to.
 
 <Info>
-  We only request the permissions required to create and update pull request comments / checks. We do not need access to your code.
+  We only request the permissions required to create and update pull request comments / checks. 
+  We do not need access to your code.
 </Info>
 
 <Frame caption="GitHub App permissions and repository access">
@@ -70,12 +71,12 @@ After installation, return to Octomind.
 - Select the repository you installed the app for
 - Assign it to the correct Octomind test target
 
-From now on, Octomind will evaluate new pull requests for test impact and create a **TestPlan** when needed.
+From now on, Octomind will evaluate new pull requests for test impact and create a **Test Plan** when needed.
 
-<Frame caption="Example: TestPlan comment on a pull request">
+<Frame caption="Example: Test Plan comment on a pull request">
   <img
     src="/images/integrations/github/testplan-comment.png"
-    alt="Example TestPlan comment on a pull request"
+    alt="Example Test Plan comment on a pull request"
   />
 </Frame>
 
@@ -84,7 +85,8 @@ From now on, Octomind will evaluate new pull requests for test impact and create
 Add the Octomind Action to your CI pipeline **after** your deployment step so the URL is reachable.
 
 <Warning>
-  Make sure the `url` points to a publicly accessible deployment (e.g. preview deployment). Otherwise Octomind cannot run tests or exploration.
+  Make sure the `url` points to a publicly accessible deployment (e.g. preview deployment). 
+  Otherwise Octomind cannot run tests or exploration.
 </Warning>
 
 ### A) Run tests on pull requests (default)
@@ -99,7 +101,7 @@ Add the Octomind Action to your CI pipeline **after** your deployment step so th
     blocking: false
 ```
 
-### B) Explore a TestPlan (visual exploration + video)
+### B) Explore a Test Plan (visual exploration + video)
 
 Use the same action, but set `action: explore-test-plan`.
 
@@ -133,7 +135,7 @@ jobs:
       # Add your build & deployment steps here
       # Ensure the deployed preview is publicly reachable and set PREVIEW_URL
 
-      - name: Octomind (Explore TestPlan)
+      - name: Octomind (Explore Test Plan)
         uses: OctoMind-dev/automagically-action-execute@v3
         with:
           url: ${{ env.PREVIEW_URL }}
