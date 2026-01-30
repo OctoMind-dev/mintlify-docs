@@ -53,8 +53,8 @@ Click `add integration` in the GitHub integration row.
 In GitHub, choose the organization/account and select which repositories Octomind should have access to.
 
 <Info>
-  We only request the permissions required to create and update pull request comments / checks. 
-  We do not need access to your code.
+  We only request the permissions required to create and update pull request
+  comments / checks. We do not need access to your code.
 </Info>
 
 <Frame caption="GitHub App permissions and repository access">
@@ -68,8 +68,8 @@ In GitHub, choose the organization/account and select which repositories Octomin
 
 After installation, return to Octomind.
 
-- Select the repository you installed the app for
-- Assign it to the correct Octomind test target
+- Select the organization and repository you installed the app for.
+- Github will redirect you back to the settings modal.
 
 From now on, Octomind will evaluate new pull requests for test impact and create a **Test Plan** when needed.
 
@@ -85,8 +85,8 @@ From now on, Octomind will evaluate new pull requests for test impact and create
 Add the Octomind Action to your CI pipeline **after** your deployment step so the URL is reachable.
 
 <Warning>
-  Make sure the `url` points to a publicly accessible deployment (e.g. preview deployment). 
-  Otherwise Octomind cannot run tests or exploration.
+  Make sure the `url` points to a publicly accessible deployment (e.g. preview
+  deployment). Otherwise Octomind cannot run tests or exploration.
 </Warning>
 
 ### A) Run tests on pull requests (default)
