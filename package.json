@@ -10,7 +10,7 @@
     "@eslint/eslintrc": "3.3.3",
     "@eslint/js": "9.39.2",
     "eslint": "9.39.2",
-    "eslint-plugin-mdx": "3.6.2",
+    "eslint-plugin-mdx": "3.7.0",
     "eslint-plugin-prettier": "5.5.5",
     "mintlify": "4.2.367",
     "prettier": "3.8.1"
